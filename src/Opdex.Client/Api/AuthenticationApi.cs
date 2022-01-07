@@ -37,7 +37,7 @@ namespace Opdex.Client.Api
         /// <param name="stratisSignatureAuthRequest">The Stratis Signature Auth body</param>
         /// <param name="exp">Unix timestamp indicating when the signature expires (optional)</param>
         /// <returns></returns>
-        void AuthPost(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?));
+        void Authenticate(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?));
 
         /// <summary>
         /// Stratis Signature Auth
@@ -50,7 +50,7 @@ namespace Opdex.Client.Api
         /// <param name="stratisSignatureAuthRequest">The Stratis Signature Auth body</param>
         /// <param name="exp">Unix timestamp indicating when the signature expires (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> AuthPostWithHttpInfo(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?));
+        ApiResponse<Object> AuthenticateWithHttpInfo(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?));
         #endregion Synchronous Operations
     }
 
@@ -72,7 +72,7 @@ namespace Opdex.Client.Api
         /// <param name="exp">Unix timestamp indicating when the signature expires (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task AuthPostAsync(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task AuthenticateAsync(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Stratis Signature Auth
@@ -86,7 +86,7 @@ namespace Opdex.Client.Api
         /// <param name="exp">Unix timestamp indicating when the signature expires (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> AuthPostWithHttpInfoAsync(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> AuthenticateWithHttpInfoAsync(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -215,9 +215,9 @@ namespace Opdex.Client.Api
         /// <param name="stratisSignatureAuthRequest">The Stratis Signature Auth body</param>
         /// <param name="exp">Unix timestamp indicating when the signature expires (optional)</param>
         /// <returns></returns>
-        public void AuthPost(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?))
+        public void Authenticate(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?))
         {
-            AuthPostWithHttpInfo(uid, stratisSignatureAuthRequest, exp);
+            AuthenticateWithHttpInfo(uid, stratisSignatureAuthRequest, exp);
         }
 
         /// <summary>
@@ -228,18 +228,18 @@ namespace Opdex.Client.Api
         /// <param name="stratisSignatureAuthRequest">The Stratis Signature Auth body</param>
         /// <param name="exp">Unix timestamp indicating when the signature expires (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Opdex.Client.Client.ApiResponse<Object> AuthPostWithHttpInfo(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?))
+        public Opdex.Client.Client.ApiResponse<Object> AuthenticateWithHttpInfo(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?))
         {
             // verify the required parameter 'uid' is set
             if (uid == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'uid' when calling AuthenticationApi->AuthPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'uid' when calling AuthenticationApi->Authenticate");
             }
 
             // verify the required parameter 'stratisSignatureAuthRequest' is set
             if (stratisSignatureAuthRequest == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'stratisSignatureAuthRequest' when calling AuthenticationApi->AuthPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'stratisSignatureAuthRequest' when calling AuthenticationApi->Authenticate");
             }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -277,7 +277,7 @@ namespace Opdex.Client.Api
             var localVarResponse = this.Client.Post<Object>("/auth", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("AuthPost", localVarResponse);
+                Exception _exception = this.ExceptionFactory("Authenticate", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -296,9 +296,9 @@ namespace Opdex.Client.Api
         /// <param name="exp">Unix timestamp indicating when the signature expires (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task AuthPostAsync(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task AuthenticateAsync(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await AuthPostWithHttpInfoAsync(uid, stratisSignatureAuthRequest, exp, cancellationToken).ConfigureAwait(false);
+            await AuthenticateWithHttpInfoAsync(uid, stratisSignatureAuthRequest, exp, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -310,18 +310,18 @@ namespace Opdex.Client.Api
         /// <param name="exp">Unix timestamp indicating when the signature expires (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<Object>> AuthPostWithHttpInfoAsync(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<Object>> AuthenticateWithHttpInfoAsync(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'uid' is set
             if (uid == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'uid' when calling AuthenticationApi->AuthPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'uid' when calling AuthenticationApi->Authenticate");
             }
 
             // verify the required parameter 'stratisSignatureAuthRequest' is set
             if (stratisSignatureAuthRequest == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'stratisSignatureAuthRequest' when calling AuthenticationApi->AuthPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'stratisSignatureAuthRequest' when calling AuthenticationApi->Authenticate");
             }
 
 
@@ -361,7 +361,7 @@ namespace Opdex.Client.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("AuthPost", localVarResponse);
+                Exception _exception = this.ExceptionFactory("Authenticate", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

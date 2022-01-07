@@ -42,7 +42,7 @@ namespace Opdex.Client.Model
         /// <param name="eventType">eventType.</param>
         /// <param name="contract">An address on the Cirrus network.</param>
         /// <param name="sortOrder">Index to sort event order.</param>
-        public DistributionEvent(string vaultAmount = default(string), string miningGovernanceAmount = default(string), decimal periodIndex = default(decimal), string totalSupply = default(string), decimal nextDistributionBlock = default(decimal), TransactionEventType eventType = default(TransactionEventType), string contract = default(string), int sortOrder = default(int))
+        public DistributionEvent(string vaultAmount = default(string), string miningGovernanceAmount = default(string), int periodIndex = default(int), string totalSupply = default(string), int nextDistributionBlock = default(int), TransactionEventType eventType = default(TransactionEventType), string contract = default(string), int sortOrder = default(int))
         {
             this.VaultAmount = vaultAmount;
             this.MiningGovernanceAmount = miningGovernanceAmount;
@@ -73,7 +73,7 @@ namespace Opdex.Client.Model
         /// </summary>
         /// <value>Distribution number</value>
         [DataMember(Name = "periodIndex", EmitDefaultValue = false)]
-        public decimal PeriodIndex { get; set; }
+        public int PeriodIndex { get; set; }
 
         /// <summary>
         /// Decimal value with uncapped precision and size
@@ -87,7 +87,7 @@ namespace Opdex.Client.Model
         /// </summary>
         /// <value>Block number of the next distribution</value>
         [DataMember(Name = "nextDistributionBlock", EmitDefaultValue = false)]
-        public decimal NextDistributionBlock { get; set; }
+        public int NextDistributionBlock { get; set; }
 
         /// <summary>
         /// Gets or Sets EventType
@@ -256,8 +256,8 @@ namespace Opdex.Client.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MiningGovernanceAmount, must match a pattern of " + regexMiningGovernanceAmount, new [] { "MiningGovernanceAmount" });
             }
 
-            // PeriodIndex (decimal) minimum
-            if (this.PeriodIndex < (decimal)0)
+            // PeriodIndex (int) minimum
+            if (this.PeriodIndex < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PeriodIndex, must be a value greater than or equal to 0.", new [] { "PeriodIndex" });
             }
@@ -269,8 +269,8 @@ namespace Opdex.Client.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalSupply, must match a pattern of " + regexTotalSupply, new [] { "TotalSupply" });
             }
 
-            // NextDistributionBlock (decimal) minimum
-            if (this.NextDistributionBlock < (decimal)1)
+            // NextDistributionBlock (int) minimum
+            if (this.NextDistributionBlock < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NextDistributionBlock, must be a value greater than or equal to 1.", new [] { "NextDistributionBlock" });
             }

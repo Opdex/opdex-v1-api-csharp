@@ -47,7 +47,7 @@ namespace Opdex.Client.Model
         /// <param name="tokenOutMinimumAmount">Decimal value with uncapped precision and size (required).</param>
         /// <param name="recipient">An address on the Cirrus network (required).</param>
         /// <param name="deadline">Block height the transaction should be mined at, which if not met causes the transaction to fail.</param>
-        public QuoteSwapTransactionRequest(TokenAddress tokenOut = default(TokenAddress), string tokenInAmount = default(string), string tokenOutAmount = default(string), bool tokenInExactAmount = default(bool), string tokenInMaximumAmount = default(string), string tokenOutMinimumAmount = default(string), string recipient = default(string), decimal deadline = default(decimal))
+        public QuoteSwapTransactionRequest(TokenAddress tokenOut = default(TokenAddress), string tokenInAmount = default(string), string tokenOutAmount = default(string), bool tokenInExactAmount = default(bool), string tokenInMaximumAmount = default(string), string tokenOutMinimumAmount = default(string), string recipient = default(string), int deadline = default(int))
         {
             // to ensure "tokenOut" is required (not null)
             if (tokenOut == null) {
@@ -136,7 +136,7 @@ namespace Opdex.Client.Model
         /// </summary>
         /// <value>Block height the transaction should be mined at, which if not met causes the transaction to fail</value>
         [DataMember(Name = "deadline", EmitDefaultValue = false)]
-        public decimal Deadline { get; set; }
+        public int Deadline { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -322,8 +322,8 @@ namespace Opdex.Client.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Recipient, must match a pattern of " + regexRecipient, new [] { "Recipient" });
             }
 
-            // Deadline (decimal) minimum
-            if (this.Deadline < (decimal)0)
+            // Deadline (int) minimum
+            if (this.Deadline < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Deadline, must be a value greater than or equal to 0.", new [] { "Deadline" });
             }

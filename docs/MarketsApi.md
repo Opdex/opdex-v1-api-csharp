@@ -4,12 +4,12 @@ All URIs are relative to *https://test-api.opdex.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**MarketsGet**](MarketsApi.md#marketsget) | **GET** /markets | Get Markets
+[**GetMarkets**](MarketsApi.md#getmarkets) | **GET** /markets | Get Markets
 
 
-<a name="marketsget"></a>
-# **MarketsGet**
-> MarketsResponse MarketsGet (MarketType? marketType = null, MarketOrderByType? orderBy = null, SortDirection? direction = null, int? limit = null, string cursor = null)
+<a name="getmarkets"></a>
+# **GetMarkets**
+> MarketsResponse GetMarkets (MarketType? marketType = null, MarketOrderByType? orderBy = null, SortDirection? direction = null, int? limit = null, string cursor = null)
 
 Get Markets
 
@@ -25,7 +25,7 @@ using Opdex.Client.Model;
 
 namespace Example
 {
-    public class MarketsGetExample
+    public class GetMarketsExample
     {
         public static void Main()
         {
@@ -41,12 +41,12 @@ namespace Example
             try
             {
                 // Get Markets
-                MarketsResponse result = apiInstance.MarketsGet(marketType, orderBy, direction, limit, cursor);
+                MarketsResponse result = apiInstance.GetMarkets(marketType, orderBy, direction, limit, cursor);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MarketsApi.MarketsGet: " + e.Message );
+                Debug.Print("Exception when calling MarketsApi.GetMarkets: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }

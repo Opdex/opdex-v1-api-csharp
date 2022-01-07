@@ -27,41 +27,6 @@ namespace Opdex.Client.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get Market Tokens
-        /// </summary>
-        /// <remarks>
-        /// Retrieves details of tokens tracked within a specified market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
-        /// </remarks>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">Address of the market</param>
-        /// <param name="tokenType">Token type filter (optional)</param>
-        /// <param name="tokens">Specific tokens to include (optional)</param>
-        /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
-        /// <param name="orderBy">Property by which to sort results (optional)</param>
-        /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
-        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
-        /// <returns>MarketTokensResponse</returns>
-        MarketTokensResponse MarketsMarketTokensGet(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
-
-        /// <summary>
-        /// Get Market Tokens
-        /// </summary>
-        /// <remarks>
-        /// Retrieves details of tokens tracked within a specified market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
-        /// </remarks>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">Address of the market</param>
-        /// <param name="tokenType">Token type filter (optional)</param>
-        /// <param name="tokens">Specific tokens to include (optional)</param>
-        /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
-        /// <param name="orderBy">Property by which to sort results (optional)</param>
-        /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
-        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
-        /// <returns>ApiResponse of MarketTokensResponse</returns>
-        ApiResponse<MarketTokensResponse> MarketsMarketTokensGetWithHttpInfo(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
-        /// <summary>
         /// Get Market Token
         /// </summary>
         /// <remarks>
@@ -71,7 +36,7 @@ namespace Opdex.Client.Api
         /// <param name="market">Address of the market</param>
         /// <param name="token">Address of the token</param>
         /// <returns>MarketTokenResponse</returns>
-        MarketTokenResponse MarketsMarketTokensTokenGet(string market, string token);
+        MarketTokenResponse GetMarketToken(string market, string token);
 
         /// <summary>
         /// Get Market Token
@@ -83,7 +48,7 @@ namespace Opdex.Client.Api
         /// <param name="market">Address of the market</param>
         /// <param name="token">Address of the token</param>
         /// <returns>ApiResponse of MarketTokenResponse</returns>
-        ApiResponse<MarketTokenResponse> MarketsMarketTokensTokenGetWithHttpInfo(string market, string token);
+        ApiResponse<MarketTokenResponse> GetMarketTokenWithHttpInfo(string market, string token);
         /// <summary>
         /// Get Market Token History
         /// </summary>
@@ -100,7 +65,7 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>TokenSnapshotsResponse</returns>
-        TokenSnapshotsResponse MarketsMarketTokensTokenHistoryGet(string market, string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        TokenSnapshotsResponse GetMarketTokenHistory(string market, string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
 
         /// <summary>
         /// Get Market Token History
@@ -118,7 +83,42 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of TokenSnapshotsResponse</returns>
-        ApiResponse<TokenSnapshotsResponse> MarketsMarketTokensTokenHistoryGetWithHttpInfo(string market, string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        ApiResponse<TokenSnapshotsResponse> GetMarketTokenHistoryWithHttpInfo(string market, string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        /// <summary>
+        /// Get Market Tokens
+        /// </summary>
+        /// <remarks>
+        /// Retrieves details of tokens tracked within a specified market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of the market</param>
+        /// <param name="tokenType">Token type filter (optional)</param>
+        /// <param name="tokens">Specific tokens to include (optional)</param>
+        /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
+        /// <param name="orderBy">Property by which to sort results (optional)</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <returns>MarketTokensResponse</returns>
+        MarketTokensResponse GetMarketTokens(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+
+        /// <summary>
+        /// Get Market Tokens
+        /// </summary>
+        /// <remarks>
+        /// Retrieves details of tokens tracked within a specified market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of the market</param>
+        /// <param name="tokenType">Token type filter (optional)</param>
+        /// <param name="tokens">Specific tokens to include (optional)</param>
+        /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
+        /// <param name="orderBy">Property by which to sort results (optional)</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <returns>ApiResponse of MarketTokensResponse</returns>
+        ApiResponse<MarketTokensResponse> GetMarketTokensWithHttpInfo(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
         /// <summary>
         /// Swap Amount In Quote
         /// </summary>
@@ -130,7 +130,7 @@ namespace Opdex.Client.Api
         /// <param name="token">Address of the input token</param>
         /// <param name="swapAmountInQuoteRequest"></param>
         /// <returns>SwapAmountInQuoteResponse</returns>
-        SwapAmountInQuoteResponse MarketsMarketTokensTokenSwapAmountInPost(string market, string token, SwapAmountInQuoteRequest swapAmountInQuoteRequest);
+        SwapAmountInQuoteResponse GetSwapAmountInQuote(string market, string token, SwapAmountInQuoteRequest swapAmountInQuoteRequest);
 
         /// <summary>
         /// Swap Amount In Quote
@@ -143,7 +143,7 @@ namespace Opdex.Client.Api
         /// <param name="token">Address of the input token</param>
         /// <param name="swapAmountInQuoteRequest"></param>
         /// <returns>ApiResponse of SwapAmountInQuoteResponse</returns>
-        ApiResponse<SwapAmountInQuoteResponse> MarketsMarketTokensTokenSwapAmountInPostWithHttpInfo(string market, string token, SwapAmountInQuoteRequest swapAmountInQuoteRequest);
+        ApiResponse<SwapAmountInQuoteResponse> GetSwapAmountInQuoteWithHttpInfo(string market, string token, SwapAmountInQuoteRequest swapAmountInQuoteRequest);
         /// <summary>
         /// Swap Amount Out Quote
         /// </summary>
@@ -155,7 +155,7 @@ namespace Opdex.Client.Api
         /// <param name="token">Address of the input token</param>
         /// <param name="swapAmountOutQuoteRequest"></param>
         /// <returns>SwapAmountOutQuoteResponse</returns>
-        SwapAmountOutQuoteResponse MarketsMarketTokensTokenSwapAmountOutPost(string market, string token, SwapAmountOutQuoteRequest swapAmountOutQuoteRequest);
+        SwapAmountOutQuoteResponse GetSwapAmountOutQuote(string market, string token, SwapAmountOutQuoteRequest swapAmountOutQuoteRequest);
 
         /// <summary>
         /// Swap Amount Out Quote
@@ -168,7 +168,7 @@ namespace Opdex.Client.Api
         /// <param name="token">Address of the input token</param>
         /// <param name="swapAmountOutQuoteRequest"></param>
         /// <returns>ApiResponse of SwapAmountOutQuoteResponse</returns>
-        ApiResponse<SwapAmountOutQuoteResponse> MarketsMarketTokensTokenSwapAmountOutPostWithHttpInfo(string market, string token, SwapAmountOutQuoteRequest swapAmountOutQuoteRequest);
+        ApiResponse<SwapAmountOutQuoteResponse> GetSwapAmountOutQuoteWithHttpInfo(string market, string token, SwapAmountOutQuoteRequest swapAmountOutQuoteRequest);
         /// <summary>
         /// Build Swap Tokens Transaction Quote
         /// </summary>
@@ -180,7 +180,7 @@ namespace Opdex.Client.Api
         /// <param name="token">Address of the input token</param>
         /// <param name="quoteSwapTransactionRequest"></param>
         /// <returns>TransactionQuoteResponse</returns>
-        TransactionQuoteResponse MarketsMarketTokensTokenSwapPost(string market, string token, QuoteSwapTransactionRequest quoteSwapTransactionRequest);
+        TransactionQuoteResponse Swap(string market, string token, QuoteSwapTransactionRequest quoteSwapTransactionRequest);
 
         /// <summary>
         /// Build Swap Tokens Transaction Quote
@@ -193,7 +193,7 @@ namespace Opdex.Client.Api
         /// <param name="token">Address of the input token</param>
         /// <param name="quoteSwapTransactionRequest"></param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        ApiResponse<TransactionQuoteResponse> MarketsMarketTokensTokenSwapPostWithHttpInfo(string market, string token, QuoteSwapTransactionRequest quoteSwapTransactionRequest);
+        ApiResponse<TransactionQuoteResponse> SwapWithHttpInfo(string market, string token, QuoteSwapTransactionRequest quoteSwapTransactionRequest);
         #endregion Synchronous Operations
     }
 
@@ -203,43 +203,6 @@ namespace Opdex.Client.Api
     public interface IMarketTokensApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
-        /// <summary>
-        /// Get Market Tokens
-        /// </summary>
-        /// <remarks>
-        /// Retrieves details of tokens tracked within a specified market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
-        /// </remarks>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">Address of the market</param>
-        /// <param name="tokenType">Token type filter (optional)</param>
-        /// <param name="tokens">Specific tokens to include (optional)</param>
-        /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
-        /// <param name="orderBy">Property by which to sort results (optional)</param>
-        /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
-        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of MarketTokensResponse</returns>
-        System.Threading.Tasks.Task<MarketTokensResponse> MarketsMarketTokensGetAsync(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get Market Tokens
-        /// </summary>
-        /// <remarks>
-        /// Retrieves details of tokens tracked within a specified market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
-        /// </remarks>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">Address of the market</param>
-        /// <param name="tokenType">Token type filter (optional)</param>
-        /// <param name="tokens">Specific tokens to include (optional)</param>
-        /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
-        /// <param name="orderBy">Property by which to sort results (optional)</param>
-        /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
-        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (MarketTokensResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MarketTokensResponse>> MarketsMarketTokensGetWithHttpInfoAsync(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Market Token
         /// </summary>
@@ -251,7 +214,7 @@ namespace Opdex.Client.Api
         /// <param name="token">Address of the token</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MarketTokenResponse</returns>
-        System.Threading.Tasks.Task<MarketTokenResponse> MarketsMarketTokensTokenGetAsync(string market, string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<MarketTokenResponse> GetMarketTokenAsync(string market, string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Market Token
@@ -264,7 +227,7 @@ namespace Opdex.Client.Api
         /// <param name="token">Address of the token</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MarketTokenResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MarketTokenResponse>> MarketsMarketTokensTokenGetWithHttpInfoAsync(string market, string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<MarketTokenResponse>> GetMarketTokenWithHttpInfoAsync(string market, string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Market Token History
         /// </summary>
@@ -282,7 +245,7 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TokenSnapshotsResponse</returns>
-        System.Threading.Tasks.Task<TokenSnapshotsResponse> MarketsMarketTokensTokenHistoryGetAsync(string market, string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TokenSnapshotsResponse> GetMarketTokenHistoryAsync(string market, string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Market Token History
@@ -301,7 +264,44 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TokenSnapshotsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TokenSnapshotsResponse>> MarketsMarketTokensTokenHistoryGetWithHttpInfoAsync(string market, string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TokenSnapshotsResponse>> GetMarketTokenHistoryWithHttpInfoAsync(string market, string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Get Market Tokens
+        /// </summary>
+        /// <remarks>
+        /// Retrieves details of tokens tracked within a specified market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of the market</param>
+        /// <param name="tokenType">Token type filter (optional)</param>
+        /// <param name="tokens">Specific tokens to include (optional)</param>
+        /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
+        /// <param name="orderBy">Property by which to sort results (optional)</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of MarketTokensResponse</returns>
+        System.Threading.Tasks.Task<MarketTokensResponse> GetMarketTokensAsync(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get Market Tokens
+        /// </summary>
+        /// <remarks>
+        /// Retrieves details of tokens tracked within a specified market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of the market</param>
+        /// <param name="tokenType">Token type filter (optional)</param>
+        /// <param name="tokens">Specific tokens to include (optional)</param>
+        /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
+        /// <param name="orderBy">Property by which to sort results (optional)</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (MarketTokensResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MarketTokensResponse>> GetMarketTokensWithHttpInfoAsync(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Swap Amount In Quote
         /// </summary>
@@ -314,7 +314,7 @@ namespace Opdex.Client.Api
         /// <param name="swapAmountInQuoteRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SwapAmountInQuoteResponse</returns>
-        System.Threading.Tasks.Task<SwapAmountInQuoteResponse> MarketsMarketTokensTokenSwapAmountInPostAsync(string market, string token, SwapAmountInQuoteRequest swapAmountInQuoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SwapAmountInQuoteResponse> GetSwapAmountInQuoteAsync(string market, string token, SwapAmountInQuoteRequest swapAmountInQuoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Swap Amount In Quote
@@ -328,7 +328,7 @@ namespace Opdex.Client.Api
         /// <param name="swapAmountInQuoteRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SwapAmountInQuoteResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SwapAmountInQuoteResponse>> MarketsMarketTokensTokenSwapAmountInPostWithHttpInfoAsync(string market, string token, SwapAmountInQuoteRequest swapAmountInQuoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SwapAmountInQuoteResponse>> GetSwapAmountInQuoteWithHttpInfoAsync(string market, string token, SwapAmountInQuoteRequest swapAmountInQuoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Swap Amount Out Quote
         /// </summary>
@@ -341,7 +341,7 @@ namespace Opdex.Client.Api
         /// <param name="swapAmountOutQuoteRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SwapAmountOutQuoteResponse</returns>
-        System.Threading.Tasks.Task<SwapAmountOutQuoteResponse> MarketsMarketTokensTokenSwapAmountOutPostAsync(string market, string token, SwapAmountOutQuoteRequest swapAmountOutQuoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SwapAmountOutQuoteResponse> GetSwapAmountOutQuoteAsync(string market, string token, SwapAmountOutQuoteRequest swapAmountOutQuoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Swap Amount Out Quote
@@ -355,7 +355,7 @@ namespace Opdex.Client.Api
         /// <param name="swapAmountOutQuoteRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SwapAmountOutQuoteResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SwapAmountOutQuoteResponse>> MarketsMarketTokensTokenSwapAmountOutPostWithHttpInfoAsync(string market, string token, SwapAmountOutQuoteRequest swapAmountOutQuoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SwapAmountOutQuoteResponse>> GetSwapAmountOutQuoteWithHttpInfoAsync(string market, string token, SwapAmountOutQuoteRequest swapAmountOutQuoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Build Swap Tokens Transaction Quote
         /// </summary>
@@ -368,7 +368,7 @@ namespace Opdex.Client.Api
         /// <param name="quoteSwapTransactionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        System.Threading.Tasks.Task<TransactionQuoteResponse> MarketsMarketTokensTokenSwapPostAsync(string market, string token, QuoteSwapTransactionRequest quoteSwapTransactionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionQuoteResponse> SwapAsync(string market, string token, QuoteSwapTransactionRequest quoteSwapTransactionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Build Swap Tokens Transaction Quote
@@ -382,7 +382,7 @@ namespace Opdex.Client.Api
         /// <param name="quoteSwapTransactionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> MarketsMarketTokensTokenSwapPostWithHttpInfoAsync(string market, string token, QuoteSwapTransactionRequest quoteSwapTransactionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> SwapWithHttpInfoAsync(string market, string token, QuoteSwapTransactionRequest quoteSwapTransactionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -504,6 +504,374 @@ namespace Opdex.Client.Api
         }
 
         /// <summary>
+        /// Get Market Token Retrieves details of a token, that is tracked within a specified market.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of the market</param>
+        /// <param name="token">Address of the token</param>
+        /// <returns>MarketTokenResponse</returns>
+        public MarketTokenResponse GetMarketToken(string market, string token)
+        {
+            Opdex.Client.Client.ApiResponse<MarketTokenResponse> localVarResponse = GetMarketTokenWithHttpInfo(market, token);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Market Token Retrieves details of a token, that is tracked within a specified market.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of the market</param>
+        /// <param name="token">Address of the token</param>
+        /// <returns>ApiResponse of MarketTokenResponse</returns>
+        public Opdex.Client.Client.ApiResponse<MarketTokenResponse> GetMarketTokenWithHttpInfo(string market, string token)
+        {
+            // verify the required parameter 'market' is set
+            if (market == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->GetMarketToken");
+            }
+
+            // verify the required parameter 'token' is set
+            if (token == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->GetMarketToken");
+            }
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
+            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<MarketTokenResponse>("/markets/{market}/tokens/{token}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarketToken", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Market Token Retrieves details of a token, that is tracked within a specified market.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of the market</param>
+        /// <param name="token">Address of the token</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of MarketTokenResponse</returns>
+        public async System.Threading.Tasks.Task<MarketTokenResponse> GetMarketTokenAsync(string market, string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Opdex.Client.Client.ApiResponse<MarketTokenResponse> localVarResponse = await GetMarketTokenWithHttpInfoAsync(market, token, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Market Token Retrieves details of a token, that is tracked within a specified market.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of the market</param>
+        /// <param name="token">Address of the token</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (MarketTokenResponse)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<MarketTokenResponse>> GetMarketTokenWithHttpInfoAsync(string market, string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'market' is set
+            if (market == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->GetMarketToken");
+            }
+
+            // verify the required parameter 'token' is set
+            if (token == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->GetMarketToken");
+            }
+
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
+            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<MarketTokenResponse>("/markets/{market}/tokens/{token}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarketToken", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Market Token History Retrieves historical pricing data for a token tracked within a specified market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of the market</param>
+        /// <param name="token">Address of the token</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="interval">Time range between each snapshot (optional)</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <returns>TokenSnapshotsResponse</returns>
+        public TokenSnapshotsResponse GetMarketTokenHistory(string market, string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        {
+            Opdex.Client.Client.ApiResponse<TokenSnapshotsResponse> localVarResponse = GetMarketTokenHistoryWithHttpInfo(market, token, startDateTime, endDateTime, interval, direction, limit, cursor);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Market Token History Retrieves historical pricing data for a token tracked within a specified market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of the market</param>
+        /// <param name="token">Address of the token</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="interval">Time range between each snapshot (optional)</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <returns>ApiResponse of TokenSnapshotsResponse</returns>
+        public Opdex.Client.Client.ApiResponse<TokenSnapshotsResponse> GetMarketTokenHistoryWithHttpInfo(string market, string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        {
+            // verify the required parameter 'market' is set
+            if (market == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->GetMarketTokenHistory");
+            }
+
+            // verify the required parameter 'token' is set
+            if (token == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->GetMarketTokenHistory");
+            }
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
+            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
+            if (interval != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "interval", interval));
+            }
+            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "startDateTime", startDateTime));
+            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "endDateTime", endDateTime));
+            if (direction != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "direction", direction));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<TokenSnapshotsResponse>("/markets/{market}/tokens/{token}/history", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarketTokenHistory", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Market Token History Retrieves historical pricing data for a token tracked within a specified market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of the market</param>
+        /// <param name="token">Address of the token</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="interval">Time range between each snapshot (optional)</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TokenSnapshotsResponse</returns>
+        public async System.Threading.Tasks.Task<TokenSnapshotsResponse> GetMarketTokenHistoryAsync(string market, string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Opdex.Client.Client.ApiResponse<TokenSnapshotsResponse> localVarResponse = await GetMarketTokenHistoryWithHttpInfoAsync(market, token, startDateTime, endDateTime, interval, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Market Token History Retrieves historical pricing data for a token tracked within a specified market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of the market</param>
+        /// <param name="token">Address of the token</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="interval">Time range between each snapshot (optional)</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TokenSnapshotsResponse)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TokenSnapshotsResponse>> GetMarketTokenHistoryWithHttpInfoAsync(string market, string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'market' is set
+            if (market == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->GetMarketTokenHistory");
+            }
+
+            // verify the required parameter 'token' is set
+            if (token == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->GetMarketTokenHistory");
+            }
+
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
+            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
+            if (interval != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "interval", interval));
+            }
+            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "startDateTime", startDateTime));
+            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "endDateTime", endDateTime));
+            if (direction != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "direction", direction));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TokenSnapshotsResponse>("/markets/{market}/tokens/{token}/history", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarketTokenHistory", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get Market Tokens Retrieves details of tokens tracked within a specified market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
@@ -516,9 +884,9 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>MarketTokensResponse</returns>
-        public MarketTokensResponse MarketsMarketTokensGet(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public MarketTokensResponse GetMarketTokens(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
-            Opdex.Client.Client.ApiResponse<MarketTokensResponse> localVarResponse = MarketsMarketTokensGetWithHttpInfo(market, tokenType, tokens, keyword, orderBy, direction, limit, cursor);
+            Opdex.Client.Client.ApiResponse<MarketTokensResponse> localVarResponse = GetMarketTokensWithHttpInfo(market, tokenType, tokens, keyword, orderBy, direction, limit, cursor);
             return localVarResponse.Data;
         }
 
@@ -535,12 +903,12 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of MarketTokensResponse</returns>
-        public Opdex.Client.Client.ApiResponse<MarketTokensResponse> MarketsMarketTokensGetWithHttpInfo(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public Opdex.Client.Client.ApiResponse<MarketTokensResponse> GetMarketTokensWithHttpInfo(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             // verify the required parameter 'market' is set
             if (market == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->MarketsMarketTokensGet");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->GetMarketTokens");
             }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -601,7 +969,7 @@ namespace Opdex.Client.Api
             var localVarResponse = this.Client.Get<MarketTokensResponse>("/markets/{market}/tokens", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("MarketsMarketTokensGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetMarketTokens", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -625,9 +993,9 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MarketTokensResponse</returns>
-        public async System.Threading.Tasks.Task<MarketTokensResponse> MarketsMarketTokensGetAsync(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<MarketTokensResponse> GetMarketTokensAsync(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<MarketTokensResponse> localVarResponse = await MarketsMarketTokensGetWithHttpInfoAsync(market, tokenType, tokens, keyword, orderBy, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<MarketTokensResponse> localVarResponse = await GetMarketTokensWithHttpInfoAsync(market, tokenType, tokens, keyword, orderBy, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -645,12 +1013,12 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MarketTokensResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<MarketTokensResponse>> MarketsMarketTokensGetWithHttpInfoAsync(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<MarketTokensResponse>> GetMarketTokensWithHttpInfoAsync(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'market' is set
             if (market == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->MarketsMarketTokensGet");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->GetMarketTokens");
             }
 
 
@@ -713,375 +1081,7 @@ namespace Opdex.Client.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("MarketsMarketTokensGet", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get Market Token Retrieves details of a token, that is tracked within a specified market.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">Address of the market</param>
-        /// <param name="token">Address of the token</param>
-        /// <returns>MarketTokenResponse</returns>
-        public MarketTokenResponse MarketsMarketTokensTokenGet(string market, string token)
-        {
-            Opdex.Client.Client.ApiResponse<MarketTokenResponse> localVarResponse = MarketsMarketTokensTokenGetWithHttpInfo(market, token);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Market Token Retrieves details of a token, that is tracked within a specified market.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">Address of the market</param>
-        /// <param name="token">Address of the token</param>
-        /// <returns>ApiResponse of MarketTokenResponse</returns>
-        public Opdex.Client.Client.ApiResponse<MarketTokenResponse> MarketsMarketTokensTokenGetWithHttpInfo(string market, string token)
-        {
-            // verify the required parameter 'market' is set
-            if (market == null)
-            {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->MarketsMarketTokensTokenGet");
-            }
-
-            // verify the required parameter 'token' is set
-            if (token == null)
-            {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->MarketsMarketTokensTokenGet");
-            }
-
-            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
-            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<MarketTokenResponse>("/markets/{market}/tokens/{token}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("MarketsMarketTokensTokenGet", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get Market Token Retrieves details of a token, that is tracked within a specified market.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">Address of the market</param>
-        /// <param name="token">Address of the token</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of MarketTokenResponse</returns>
-        public async System.Threading.Tasks.Task<MarketTokenResponse> MarketsMarketTokensTokenGetAsync(string market, string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            Opdex.Client.Client.ApiResponse<MarketTokenResponse> localVarResponse = await MarketsMarketTokensTokenGetWithHttpInfoAsync(market, token, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Market Token Retrieves details of a token, that is tracked within a specified market.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">Address of the market</param>
-        /// <param name="token">Address of the token</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (MarketTokenResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<MarketTokenResponse>> MarketsMarketTokensTokenGetWithHttpInfoAsync(string market, string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'market' is set
-            if (market == null)
-            {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->MarketsMarketTokensTokenGet");
-            }
-
-            // verify the required parameter 'token' is set
-            if (token == null)
-            {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->MarketsMarketTokensTokenGet");
-            }
-
-
-            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
-            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
-
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<MarketTokenResponse>("/markets/{market}/tokens/{token}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("MarketsMarketTokensTokenGet", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get Market Token History Retrieves historical pricing data for a token tracked within a specified market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">Address of the market</param>
-        /// <param name="token">Address of the token</param>
-        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
-        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
-        /// <param name="interval">Time range between each snapshot (optional)</param>
-        /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
-        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
-        /// <returns>TokenSnapshotsResponse</returns>
-        public TokenSnapshotsResponse MarketsMarketTokensTokenHistoryGet(string market, string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
-        {
-            Opdex.Client.Client.ApiResponse<TokenSnapshotsResponse> localVarResponse = MarketsMarketTokensTokenHistoryGetWithHttpInfo(market, token, startDateTime, endDateTime, interval, direction, limit, cursor);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Market Token History Retrieves historical pricing data for a token tracked within a specified market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">Address of the market</param>
-        /// <param name="token">Address of the token</param>
-        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
-        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
-        /// <param name="interval">Time range between each snapshot (optional)</param>
-        /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
-        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
-        /// <returns>ApiResponse of TokenSnapshotsResponse</returns>
-        public Opdex.Client.Client.ApiResponse<TokenSnapshotsResponse> MarketsMarketTokensTokenHistoryGetWithHttpInfo(string market, string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
-        {
-            // verify the required parameter 'market' is set
-            if (market == null)
-            {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->MarketsMarketTokensTokenHistoryGet");
-            }
-
-            // verify the required parameter 'token' is set
-            if (token == null)
-            {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->MarketsMarketTokensTokenHistoryGet");
-            }
-
-            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
-            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
-            if (interval != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "interval", interval));
-            }
-            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "startDateTime", startDateTime));
-            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "endDateTime", endDateTime));
-            if (direction != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "direction", direction));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-            if (cursor != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
-            }
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<TokenSnapshotsResponse>("/markets/{market}/tokens/{token}/history", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("MarketsMarketTokensTokenHistoryGet", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get Market Token History Retrieves historical pricing data for a token tracked within a specified market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">Address of the market</param>
-        /// <param name="token">Address of the token</param>
-        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
-        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
-        /// <param name="interval">Time range between each snapshot (optional)</param>
-        /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
-        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TokenSnapshotsResponse</returns>
-        public async System.Threading.Tasks.Task<TokenSnapshotsResponse> MarketsMarketTokensTokenHistoryGetAsync(string market, string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            Opdex.Client.Client.ApiResponse<TokenSnapshotsResponse> localVarResponse = await MarketsMarketTokensTokenHistoryGetWithHttpInfoAsync(market, token, startDateTime, endDateTime, interval, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Market Token History Retrieves historical pricing data for a token tracked within a specified market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">Address of the market</param>
-        /// <param name="token">Address of the token</param>
-        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
-        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
-        /// <param name="interval">Time range between each snapshot (optional)</param>
-        /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
-        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (TokenSnapshotsResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TokenSnapshotsResponse>> MarketsMarketTokensTokenHistoryGetWithHttpInfoAsync(string market, string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'market' is set
-            if (market == null)
-            {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->MarketsMarketTokensTokenHistoryGet");
-            }
-
-            // verify the required parameter 'token' is set
-            if (token == null)
-            {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->MarketsMarketTokensTokenHistoryGet");
-            }
-
-
-            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
-            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
-            if (interval != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "interval", interval));
-            }
-            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "startDateTime", startDateTime));
-            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "endDateTime", endDateTime));
-            if (direction != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "direction", direction));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-            if (cursor != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
-            }
-
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<TokenSnapshotsResponse>("/markets/{market}/tokens/{token}/history", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("MarketsMarketTokensTokenHistoryGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetMarketTokens", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1099,9 +1099,9 @@ namespace Opdex.Client.Api
         /// <param name="token">Address of the input token</param>
         /// <param name="swapAmountInQuoteRequest"></param>
         /// <returns>SwapAmountInQuoteResponse</returns>
-        public SwapAmountInQuoteResponse MarketsMarketTokensTokenSwapAmountInPost(string market, string token, SwapAmountInQuoteRequest swapAmountInQuoteRequest)
+        public SwapAmountInQuoteResponse GetSwapAmountInQuote(string market, string token, SwapAmountInQuoteRequest swapAmountInQuoteRequest)
         {
-            Opdex.Client.Client.ApiResponse<SwapAmountInQuoteResponse> localVarResponse = MarketsMarketTokensTokenSwapAmountInPostWithHttpInfo(market, token, swapAmountInQuoteRequest);
+            Opdex.Client.Client.ApiResponse<SwapAmountInQuoteResponse> localVarResponse = GetSwapAmountInQuoteWithHttpInfo(market, token, swapAmountInQuoteRequest);
             return localVarResponse.Data;
         }
 
@@ -1113,24 +1113,24 @@ namespace Opdex.Client.Api
         /// <param name="token">Address of the input token</param>
         /// <param name="swapAmountInQuoteRequest"></param>
         /// <returns>ApiResponse of SwapAmountInQuoteResponse</returns>
-        public Opdex.Client.Client.ApiResponse<SwapAmountInQuoteResponse> MarketsMarketTokensTokenSwapAmountInPostWithHttpInfo(string market, string token, SwapAmountInQuoteRequest swapAmountInQuoteRequest)
+        public Opdex.Client.Client.ApiResponse<SwapAmountInQuoteResponse> GetSwapAmountInQuoteWithHttpInfo(string market, string token, SwapAmountInQuoteRequest swapAmountInQuoteRequest)
         {
             // verify the required parameter 'market' is set
             if (market == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->MarketsMarketTokensTokenSwapAmountInPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->GetSwapAmountInQuote");
             }
 
             // verify the required parameter 'token' is set
             if (token == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->MarketsMarketTokensTokenSwapAmountInPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->GetSwapAmountInQuote");
             }
 
             // verify the required parameter 'swapAmountInQuoteRequest' is set
             if (swapAmountInQuoteRequest == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'swapAmountInQuoteRequest' when calling MarketTokensApi->MarketsMarketTokensTokenSwapAmountInPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'swapAmountInQuoteRequest' when calling MarketTokensApi->GetSwapAmountInQuote");
             }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1166,7 +1166,7 @@ namespace Opdex.Client.Api
             var localVarResponse = this.Client.Post<SwapAmountInQuoteResponse>("/markets/{market}/tokens/{token}/swap/amount-in", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("MarketsMarketTokensTokenSwapAmountInPost", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetSwapAmountInQuote", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1185,9 +1185,9 @@ namespace Opdex.Client.Api
         /// <param name="swapAmountInQuoteRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SwapAmountInQuoteResponse</returns>
-        public async System.Threading.Tasks.Task<SwapAmountInQuoteResponse> MarketsMarketTokensTokenSwapAmountInPostAsync(string market, string token, SwapAmountInQuoteRequest swapAmountInQuoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SwapAmountInQuoteResponse> GetSwapAmountInQuoteAsync(string market, string token, SwapAmountInQuoteRequest swapAmountInQuoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<SwapAmountInQuoteResponse> localVarResponse = await MarketsMarketTokensTokenSwapAmountInPostWithHttpInfoAsync(market, token, swapAmountInQuoteRequest, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<SwapAmountInQuoteResponse> localVarResponse = await GetSwapAmountInQuoteWithHttpInfoAsync(market, token, swapAmountInQuoteRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1200,24 +1200,24 @@ namespace Opdex.Client.Api
         /// <param name="swapAmountInQuoteRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SwapAmountInQuoteResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<SwapAmountInQuoteResponse>> MarketsMarketTokensTokenSwapAmountInPostWithHttpInfoAsync(string market, string token, SwapAmountInQuoteRequest swapAmountInQuoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<SwapAmountInQuoteResponse>> GetSwapAmountInQuoteWithHttpInfoAsync(string market, string token, SwapAmountInQuoteRequest swapAmountInQuoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'market' is set
             if (market == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->MarketsMarketTokensTokenSwapAmountInPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->GetSwapAmountInQuote");
             }
 
             // verify the required parameter 'token' is set
             if (token == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->MarketsMarketTokensTokenSwapAmountInPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->GetSwapAmountInQuote");
             }
 
             // verify the required parameter 'swapAmountInQuoteRequest' is set
             if (swapAmountInQuoteRequest == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'swapAmountInQuoteRequest' when calling MarketTokensApi->MarketsMarketTokensTokenSwapAmountInPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'swapAmountInQuoteRequest' when calling MarketTokensApi->GetSwapAmountInQuote");
             }
 
 
@@ -1255,7 +1255,7 @@ namespace Opdex.Client.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("MarketsMarketTokensTokenSwapAmountInPost", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetSwapAmountInQuote", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1273,9 +1273,9 @@ namespace Opdex.Client.Api
         /// <param name="token">Address of the input token</param>
         /// <param name="swapAmountOutQuoteRequest"></param>
         /// <returns>SwapAmountOutQuoteResponse</returns>
-        public SwapAmountOutQuoteResponse MarketsMarketTokensTokenSwapAmountOutPost(string market, string token, SwapAmountOutQuoteRequest swapAmountOutQuoteRequest)
+        public SwapAmountOutQuoteResponse GetSwapAmountOutQuote(string market, string token, SwapAmountOutQuoteRequest swapAmountOutQuoteRequest)
         {
-            Opdex.Client.Client.ApiResponse<SwapAmountOutQuoteResponse> localVarResponse = MarketsMarketTokensTokenSwapAmountOutPostWithHttpInfo(market, token, swapAmountOutQuoteRequest);
+            Opdex.Client.Client.ApiResponse<SwapAmountOutQuoteResponse> localVarResponse = GetSwapAmountOutQuoteWithHttpInfo(market, token, swapAmountOutQuoteRequest);
             return localVarResponse.Data;
         }
 
@@ -1287,24 +1287,24 @@ namespace Opdex.Client.Api
         /// <param name="token">Address of the input token</param>
         /// <param name="swapAmountOutQuoteRequest"></param>
         /// <returns>ApiResponse of SwapAmountOutQuoteResponse</returns>
-        public Opdex.Client.Client.ApiResponse<SwapAmountOutQuoteResponse> MarketsMarketTokensTokenSwapAmountOutPostWithHttpInfo(string market, string token, SwapAmountOutQuoteRequest swapAmountOutQuoteRequest)
+        public Opdex.Client.Client.ApiResponse<SwapAmountOutQuoteResponse> GetSwapAmountOutQuoteWithHttpInfo(string market, string token, SwapAmountOutQuoteRequest swapAmountOutQuoteRequest)
         {
             // verify the required parameter 'market' is set
             if (market == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->MarketsMarketTokensTokenSwapAmountOutPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->GetSwapAmountOutQuote");
             }
 
             // verify the required parameter 'token' is set
             if (token == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->MarketsMarketTokensTokenSwapAmountOutPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->GetSwapAmountOutQuote");
             }
 
             // verify the required parameter 'swapAmountOutQuoteRequest' is set
             if (swapAmountOutQuoteRequest == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'swapAmountOutQuoteRequest' when calling MarketTokensApi->MarketsMarketTokensTokenSwapAmountOutPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'swapAmountOutQuoteRequest' when calling MarketTokensApi->GetSwapAmountOutQuote");
             }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1340,7 +1340,7 @@ namespace Opdex.Client.Api
             var localVarResponse = this.Client.Post<SwapAmountOutQuoteResponse>("/markets/{market}/tokens/{token}/swap/amount-out", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("MarketsMarketTokensTokenSwapAmountOutPost", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetSwapAmountOutQuote", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1359,9 +1359,9 @@ namespace Opdex.Client.Api
         /// <param name="swapAmountOutQuoteRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SwapAmountOutQuoteResponse</returns>
-        public async System.Threading.Tasks.Task<SwapAmountOutQuoteResponse> MarketsMarketTokensTokenSwapAmountOutPostAsync(string market, string token, SwapAmountOutQuoteRequest swapAmountOutQuoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SwapAmountOutQuoteResponse> GetSwapAmountOutQuoteAsync(string market, string token, SwapAmountOutQuoteRequest swapAmountOutQuoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<SwapAmountOutQuoteResponse> localVarResponse = await MarketsMarketTokensTokenSwapAmountOutPostWithHttpInfoAsync(market, token, swapAmountOutQuoteRequest, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<SwapAmountOutQuoteResponse> localVarResponse = await GetSwapAmountOutQuoteWithHttpInfoAsync(market, token, swapAmountOutQuoteRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1374,24 +1374,24 @@ namespace Opdex.Client.Api
         /// <param name="swapAmountOutQuoteRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SwapAmountOutQuoteResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<SwapAmountOutQuoteResponse>> MarketsMarketTokensTokenSwapAmountOutPostWithHttpInfoAsync(string market, string token, SwapAmountOutQuoteRequest swapAmountOutQuoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<SwapAmountOutQuoteResponse>> GetSwapAmountOutQuoteWithHttpInfoAsync(string market, string token, SwapAmountOutQuoteRequest swapAmountOutQuoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'market' is set
             if (market == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->MarketsMarketTokensTokenSwapAmountOutPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->GetSwapAmountOutQuote");
             }
 
             // verify the required parameter 'token' is set
             if (token == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->MarketsMarketTokensTokenSwapAmountOutPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->GetSwapAmountOutQuote");
             }
 
             // verify the required parameter 'swapAmountOutQuoteRequest' is set
             if (swapAmountOutQuoteRequest == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'swapAmountOutQuoteRequest' when calling MarketTokensApi->MarketsMarketTokensTokenSwapAmountOutPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'swapAmountOutQuoteRequest' when calling MarketTokensApi->GetSwapAmountOutQuote");
             }
 
 
@@ -1429,7 +1429,7 @@ namespace Opdex.Client.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("MarketsMarketTokensTokenSwapAmountOutPost", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetSwapAmountOutQuote", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1447,9 +1447,9 @@ namespace Opdex.Client.Api
         /// <param name="token">Address of the input token</param>
         /// <param name="quoteSwapTransactionRequest"></param>
         /// <returns>TransactionQuoteResponse</returns>
-        public TransactionQuoteResponse MarketsMarketTokensTokenSwapPost(string market, string token, QuoteSwapTransactionRequest quoteSwapTransactionRequest)
+        public TransactionQuoteResponse Swap(string market, string token, QuoteSwapTransactionRequest quoteSwapTransactionRequest)
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = MarketsMarketTokensTokenSwapPostWithHttpInfo(market, token, quoteSwapTransactionRequest);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = SwapWithHttpInfo(market, token, quoteSwapTransactionRequest);
             return localVarResponse.Data;
         }
 
@@ -1461,24 +1461,24 @@ namespace Opdex.Client.Api
         /// <param name="token">Address of the input token</param>
         /// <param name="quoteSwapTransactionRequest"></param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> MarketsMarketTokensTokenSwapPostWithHttpInfo(string market, string token, QuoteSwapTransactionRequest quoteSwapTransactionRequest)
+        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> SwapWithHttpInfo(string market, string token, QuoteSwapTransactionRequest quoteSwapTransactionRequest)
         {
             // verify the required parameter 'market' is set
             if (market == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->MarketsMarketTokensTokenSwapPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->Swap");
             }
 
             // verify the required parameter 'token' is set
             if (token == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->MarketsMarketTokensTokenSwapPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->Swap");
             }
 
             // verify the required parameter 'quoteSwapTransactionRequest' is set
             if (quoteSwapTransactionRequest == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteSwapTransactionRequest' when calling MarketTokensApi->MarketsMarketTokensTokenSwapPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteSwapTransactionRequest' when calling MarketTokensApi->Swap");
             }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1520,7 +1520,7 @@ namespace Opdex.Client.Api
             var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/markets/{market}/tokens/{token}/swap", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("MarketsMarketTokensTokenSwapPost", localVarResponse);
+                Exception _exception = this.ExceptionFactory("Swap", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1539,9 +1539,9 @@ namespace Opdex.Client.Api
         /// <param name="quoteSwapTransactionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        public async System.Threading.Tasks.Task<TransactionQuoteResponse> MarketsMarketTokensTokenSwapPostAsync(string market, string token, QuoteSwapTransactionRequest quoteSwapTransactionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionQuoteResponse> SwapAsync(string market, string token, QuoteSwapTransactionRequest quoteSwapTransactionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await MarketsMarketTokensTokenSwapPostWithHttpInfoAsync(market, token, quoteSwapTransactionRequest, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await SwapWithHttpInfoAsync(market, token, quoteSwapTransactionRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1554,24 +1554,24 @@ namespace Opdex.Client.Api
         /// <param name="quoteSwapTransactionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> MarketsMarketTokensTokenSwapPostWithHttpInfoAsync(string market, string token, QuoteSwapTransactionRequest quoteSwapTransactionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> SwapWithHttpInfoAsync(string market, string token, QuoteSwapTransactionRequest quoteSwapTransactionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'market' is set
             if (market == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->MarketsMarketTokensTokenSwapPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->Swap");
             }
 
             // verify the required parameter 'token' is set
             if (token == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->MarketsMarketTokensTokenSwapPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->Swap");
             }
 
             // verify the required parameter 'quoteSwapTransactionRequest' is set
             if (quoteSwapTransactionRequest == null)
             {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteSwapTransactionRequest' when calling MarketTokensApi->MarketsMarketTokensTokenSwapPost");
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteSwapTransactionRequest' when calling MarketTokensApi->Swap");
             }
 
 
@@ -1615,7 +1615,7 @@ namespace Opdex.Client.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("MarketsMarketTokensTokenSwapPost", localVarResponse);
+                Exception _exception = this.ExceptionFactory("Swap", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

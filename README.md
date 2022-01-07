@@ -94,11 +94,11 @@ namespace Example
             try
             {
                 // Stratis Signature Auth
-                apiInstance.AuthPost(uid, stratisSignatureAuthRequest, exp);
+                apiInstance.Authenticate(uid, stratisSignatureAuthRequest, exp);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling AuthenticationApi.AuthPost: " + e.Message );
+                Debug.Print("Exception when calling AuthenticationApi.Authenticate: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -115,25 +115,44 @@ All URIs are relative to *https://test-api.opdex.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AuthenticationApi* | [**AuthPost**](docs/AuthenticationApi.md#authpost) | **POST** /auth | Stratis Signature Auth
-*MarketTokensApi* | [**MarketsMarketTokensGet**](docs/MarketTokensApi.md#marketsmarkettokensget) | **GET** /markets/{market}/tokens | Get Market Tokens
-*MarketTokensApi* | [**MarketsMarketTokensTokenGet**](docs/MarketTokensApi.md#marketsmarkettokenstokenget) | **GET** /markets/{market}/tokens/{token} | Get Market Token
-*MarketTokensApi* | [**MarketsMarketTokensTokenHistoryGet**](docs/MarketTokensApi.md#marketsmarkettokenstokenhistoryget) | **GET** /markets/{market}/tokens/{token}/history | Get Market Token History
-*MarketTokensApi* | [**MarketsMarketTokensTokenSwapAmountInPost**](docs/MarketTokensApi.md#marketsmarkettokenstokenswapamountinpost) | **POST** /markets/{market}/tokens/{token}/swap/amount-in | Swap Amount In Quote
-*MarketTokensApi* | [**MarketsMarketTokensTokenSwapAmountOutPost**](docs/MarketTokensApi.md#marketsmarkettokenstokenswapamountoutpost) | **POST** /markets/{market}/tokens/{token}/swap/amount-out | Swap Amount Out Quote
-*MarketTokensApi* | [**MarketsMarketTokensTokenSwapPost**](docs/MarketTokensApi.md#marketsmarkettokenstokenswappost) | **POST** /markets/{market}/tokens/{token}/swap | Build Swap Tokens Transaction Quote
-*MarketsApi* | [**MarketsGet**](docs/MarketsApi.md#marketsget) | **GET** /markets | Get Markets
-*StatusApi* | [**StatusGet**](docs/StatusApi.md#statusget) | **GET** /status | Get Status
-*TokensApi* | [**TokensGet**](docs/TokensApi.md#tokensget) | **GET** /tokens | Get Tokens
-*TokensApi* | [**TokensPost**](docs/TokensApi.md#tokenspost) | **POST** /tokens | Add Token
-*TokensApi* | [**TokensTokenApprovePost**](docs/TokensApi.md#tokenstokenapprovepost) | **POST** /tokens/{token}/approve | Build Approve Allowance Transaction Quote
-*TokensApi* | [**TokensTokenDistributePost**](docs/TokensApi.md#tokenstokendistributepost) | **POST** /tokens/{token}/distribute | Build Distribute Tokens Transaction Quote
-*TokensApi* | [**TokensTokenGet**](docs/TokensApi.md#tokenstokenget) | **GET** /tokens/{token} | Get Token
-*TokensApi* | [**TokensTokenHistoryGet**](docs/TokensApi.md#tokenstokenhistoryget) | **GET** /tokens/{token}/history | Get Token History
-*TransactionsApi* | [**TransactionHashGet**](docs/TransactionsApi.md#transactionhashget) | **GET** /transaction/{hash} | Get Transaction
-*TransactionsApi* | [**TransactionReplayQuotePost**](docs/TransactionsApi.md#transactionreplayquotepost) | **POST** /transaction/replay-quote | Replay Transaction Quote
-*TransactionsApi* | [**TransactionsGet**](docs/TransactionsApi.md#transactionsget) | **GET** /transactions | Get Transactions
-*TransactionsApi* | [**TransactionsPost**](docs/TransactionsApi.md#transactionspost) | **POST** /transactions | Notify Broadcast
+*AuthenticationApi* | [**Authenticate**](docs/AuthenticationApi.md#authenticate) | **POST** /auth | Stratis Signature Auth
+*MarketTokensApi* | [**GetMarketToken**](docs/MarketTokensApi.md#getmarkettoken) | **GET** /markets/{market}/tokens/{token} | Get Market Token
+*MarketTokensApi* | [**GetMarketTokenHistory**](docs/MarketTokensApi.md#getmarkettokenhistory) | **GET** /markets/{market}/tokens/{token}/history | Get Market Token History
+*MarketTokensApi* | [**GetMarketTokens**](docs/MarketTokensApi.md#getmarkettokens) | **GET** /markets/{market}/tokens | Get Market Tokens
+*MarketTokensApi* | [**GetSwapAmountInQuote**](docs/MarketTokensApi.md#getswapamountinquote) | **POST** /markets/{market}/tokens/{token}/swap/amount-in | Swap Amount In Quote
+*MarketTokensApi* | [**GetSwapAmountOutQuote**](docs/MarketTokensApi.md#getswapamountoutquote) | **POST** /markets/{market}/tokens/{token}/swap/amount-out | Swap Amount Out Quote
+*MarketTokensApi* | [**Swap**](docs/MarketTokensApi.md#swap) | **POST** /markets/{market}/tokens/{token}/swap | Build Swap Tokens Transaction Quote
+*MarketsApi* | [**GetMarkets**](docs/MarketsApi.md#getmarkets) | **GET** /markets | Get Markets
+*StatusApi* | [**GetStatus**](docs/StatusApi.md#getstatus) | **GET** /status | Get Status
+*TokensApi* | [**AddToken**](docs/TokensApi.md#addtoken) | **POST** /tokens | Add Token
+*TokensApi* | [**BuildApproveAllowanceQuote**](docs/TokensApi.md#buildapproveallowancequote) | **POST** /tokens/{token}/approve | Build Approve Allowance Transaction Quote
+*TokensApi* | [**BuildDistributeTokensQuote**](docs/TokensApi.md#builddistributetokensquote) | **POST** /tokens/{token}/distribute | Build Distribute Tokens Transaction Quote
+*TokensApi* | [**GetToken**](docs/TokensApi.md#gettoken) | **GET** /tokens/{token} | Get Token
+*TokensApi* | [**GetTokenHistory**](docs/TokensApi.md#gettokenhistory) | **GET** /tokens/{token}/history | Get Token History
+*TokensApi* | [**GetTokens**](docs/TokensApi.md#gettokens) | **GET** /tokens | Get Tokens
+*TransactionsApi* | [**GetTransaction**](docs/TransactionsApi.md#gettransaction) | **GET** /transaction/{hash} | Get Transaction
+*TransactionsApi* | [**GetTransactions**](docs/TransactionsApi.md#gettransactions) | **GET** /transactions | Get Transactions
+*TransactionsApi* | [**NotifyTransactionBroadcast**](docs/TransactionsApi.md#notifytransactionbroadcast) | **POST** /transactions | Notify Broadcast
+*TransactionsApi* | [**ReplayQuote**](docs/TransactionsApi.md#replayquote) | **POST** /transaction/replay-quote | Replay Transaction Quote
+*VaultsApi* | [**BuildCompleteProposalQuote**](docs/VaultsApi.md#buildcompleteproposalquote) | **POST** /vault-governances/{vault}/proposals/{proposalId}/complete | Build Complete Proposal Transaction Quote
+*VaultsApi* | [**BuildPledgeQuote**](docs/VaultsApi.md#buildpledgequote) | **POST** /vault-governances/{vault}/proposals/{proposalId}/pledges | Build Make Pledge Transaction Quote
+*VaultsApi* | [**BuildProposeChangeMinimumPledgeQuote**](docs/VaultsApi.md#buildproposechangeminimumpledgequote) | **POST** /vault-governances/{vault}/proposals/minimum-pledge | Build Propose Change Minimum Pledge Transaction Quote
+*VaultsApi* | [**BuildProposeChangeMinimumVoteQuote**](docs/VaultsApi.md#buildproposechangeminimumvotequote) | **POST** /vault-governances/{vault}/proposals/minimum-vote | Build Propose Change Minimum Vote Transaction Quote
+*VaultsApi* | [**BuildProposeCreateCertificateQuote**](docs/VaultsApi.md#buildproposecreatecertificatequote) | **POST** /vault-governances/{vault}/proposals/create-certificate | Build Propose Create Certificate Transaction Quote
+*VaultsApi* | [**BuildProposeRevokeCertificateQuote**](docs/VaultsApi.md#buildproposerevokecertificatequote) | **POST** /vault-governances/{vault}/proposals/revoke-certificate | Build Propose Revoke Certificate Transaction Quote
+*VaultsApi* | [**BuildRedeemCertificateQuote**](docs/VaultsApi.md#buildredeemcertificatequote) | **POST** /vault-governances/{vault}/certificates/redeem | Build Redeem Vault Certificate Transaction Quote
+*VaultsApi* | [**BuildVoteQuote**](docs/VaultsApi.md#buildvotequote) | **POST** /vault-governances/{vault}/proposals/{proposalId}/votes | Build Cast Vote Transaction Quote
+*VaultsApi* | [**BuildWithdrawPledgeQuote**](docs/VaultsApi.md#buildwithdrawpledgequote) | **POST** /vault-governances/{vault}/proposals/{proposalId}/pledges/withdraw | Build Withdraw Pledge Transaction Quote
+*VaultsApi* | [**BuildWithdrawVoteQuote**](docs/VaultsApi.md#buildwithdrawvotequote) | **POST** /vault-governances/{vault}/proposals/{proposalId}/votes/withdraw | Build Withdraw Vote Transaction Quote
+*VaultsApi* | [**GetCertificates**](docs/VaultsApi.md#getcertificates) | **GET** /vault-governances/{vault}/certificates | Get Vault Certificates
+*VaultsApi* | [**GetPledgePosition**](docs/VaultsApi.md#getpledgeposition) | **GET** /vault-governances/{vault}/proposals/{proposalId}/pledges/{pledger} | Get Vault Proposal Pledge Position
+*VaultsApi* | [**GetPledges**](docs/VaultsApi.md#getpledges) | **GET** /vault-governances/{vault}/pledges | Get Vault Proposal Pledges
+*VaultsApi* | [**GetProposals**](docs/VaultsApi.md#getproposals) | **GET** /vault-governances/{vault}/proposals | Get Vault Proposals
+*VaultsApi* | [**GetVault**](docs/VaultsApi.md#getvault) | **GET** /vault-governances/{vault} | Get Vault
+*VaultsApi* | [**GetVaultProposal**](docs/VaultsApi.md#getvaultproposal) | **GET** /vault-governances/{vault}/proposals/{proposalId} | Get Vault Proposal
+*VaultsApi* | [**GetVaults**](docs/VaultsApi.md#getvaults) | **GET** /vault-governances | Get Vaults
+*VaultsApi* | [**GetVotePosition**](docs/VaultsApi.md#getvoteposition) | **GET** /vault-governances/{vault}/proposals/{proposalId}/votes/{voter} | Get Vault Proposal Vote Position
+*VaultsApi* | [**GetVotes**](docs/VaultsApi.md#getvotes) | **GET** /vault-governances/{vault}/votes | Get Vault Proposal Votes
 
 
 <a name="documentation-for-models"></a>
@@ -143,6 +162,9 @@ Class | Method | HTTP request | Description
  - [Model.AddTokenRequest](docs/AddTokenRequest.md)
  - [Model.ApprovalEvent](docs/ApprovalEvent.md)
  - [Model.BlockResponse](docs/BlockResponse.md)
+ - [Model.CertificateResponse](docs/CertificateResponse.md)
+ - [Model.CertificateStatus](docs/CertificateStatus.md)
+ - [Model.CertificatesResponse](docs/CertificatesResponse.md)
  - [Model.ChangeMarketPermissionEvent](docs/ChangeMarketPermissionEvent.md)
  - [Model.ClaimPendingDeployerOwnershipEvent](docs/ClaimPendingDeployerOwnershipEvent.md)
  - [Model.ClaimPendingMarketOwnershipEvent](docs/ClaimPendingMarketOwnershipEvent.md)
@@ -168,9 +190,13 @@ Class | Method | HTTP request | Description
  - [Model.NotifyBroadcastRequest](docs/NotifyBroadcastRequest.md)
  - [Model.OhlcDecimalResponse](docs/OhlcDecimalResponse.md)
  - [Model.PagingResponse](docs/PagingResponse.md)
+ - [Model.PledgeResponse](docs/PledgeResponse.md)
+ - [Model.PledgesResponse](docs/PledgesResponse.md)
  - [Model.ProblemDetails](docs/ProblemDetails.md)
+ - [Model.ProposalResponse](docs/ProposalResponse.md)
  - [Model.ProposalStatus](docs/ProposalStatus.md)
  - [Model.ProposalType](docs/ProposalType.md)
+ - [Model.ProposalsResponse](docs/ProposalsResponse.md)
  - [Model.QuoteSwapTransactionRequest](docs/QuoteSwapTransactionRequest.md)
  - [Model.RemoveLiquidityEvent](docs/RemoveLiquidityEvent.md)
  - [Model.ReplayQuoteRequest](docs/ReplayQuoteRequest.md)
@@ -212,6 +238,10 @@ Class | Method | HTTP request | Description
  - [Model.VaultProposalVoteEvent](docs/VaultProposalVoteEvent.md)
  - [Model.VaultProposalWithdrawPledgeEvent](docs/VaultProposalWithdrawPledgeEvent.md)
  - [Model.VaultProposalWithdrawVoteEvent](docs/VaultProposalWithdrawVoteEvent.md)
+ - [Model.VaultResponse](docs/VaultResponse.md)
+ - [Model.VaultsResponse](docs/VaultsResponse.md)
+ - [Model.VoteResponse](docs/VoteResponse.md)
+ - [Model.VotesResponse](docs/VotesResponse.md)
 
 
 <a name="documentation-for-authorization"></a>

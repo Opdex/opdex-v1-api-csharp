@@ -5,7 +5,7 @@ Indicates a vault proposal was completed
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProposalId** | **decimal** | Identifier for the proposal | [optional] 
+**ProposalId** | **int** | Identifier for the proposal | [optional] 
 **Approved** | **bool** | Whether the proposal was approved | [optional] 
 **EventType** | [**TransactionEventType**](TransactionEventType.md) |  | [optional] 
 **Contract** | **string** | An address on the Cirrus network | [optional] 

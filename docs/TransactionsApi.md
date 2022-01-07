@@ -4,15 +4,15 @@ All URIs are relative to *https://test-api.opdex.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**TransactionHashGet**](TransactionsApi.md#transactionhashget) | **GET** /transaction/{hash} | Get Transaction
-[**TransactionReplayQuotePost**](TransactionsApi.md#transactionreplayquotepost) | **POST** /transaction/replay-quote | Replay Transaction Quote
-[**TransactionsGet**](TransactionsApi.md#transactionsget) | **GET** /transactions | Get Transactions
-[**TransactionsPost**](TransactionsApi.md#transactionspost) | **POST** /transactions | Notify Broadcast
+[**GetTransaction**](TransactionsApi.md#gettransaction) | **GET** /transaction/{hash} | Get Transaction
+[**GetTransactions**](TransactionsApi.md#gettransactions) | **GET** /transactions | Get Transactions
+[**NotifyTransactionBroadcast**](TransactionsApi.md#notifytransactionbroadcast) | **POST** /transactions | Notify Broadcast
+[**ReplayQuote**](TransactionsApi.md#replayquote) | **POST** /transaction/replay-quote | Replay Transaction Quote
 
 
-<a name="transactionhashget"></a>
-# **TransactionHashGet**
-> TransactionResponse TransactionHashGet (string hash)
+<a name="gettransaction"></a>
+# **GetTransaction**
+> TransactionResponse GetTransaction (string hash)
 
 Get Transaction
 
@@ -28,7 +28,7 @@ using Opdex.Client.Model;
 
 namespace Example
 {
-    public class TransactionHashGetExample
+    public class GetTransactionExample
     {
         public static void Main()
         {
@@ -40,12 +40,12 @@ namespace Example
             try
             {
                 // Get Transaction
-                TransactionResponse result = apiInstance.TransactionHashGet(hash);
+                TransactionResponse result = apiInstance.GetTransaction(hash);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TransactionsApi.TransactionHashGet: " + e.Message );
+                Debug.Print("Exception when calling TransactionsApi.GetTransaction: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -85,87 +85,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="transactionreplayquotepost"></a>
-# **TransactionReplayQuotePost**
-> TransactionQuoteResponse TransactionReplayQuotePost (ReplayQuoteRequest replayQuoteRequest)
-
-Replay Transaction Quote
-
-Replays a previous transaction quote at the current point in time.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Opdex.Client.Api;
-using Opdex.Client.Client;
-using Opdex.Client.Model;
-
-namespace Example
-{
-    public class TransactionReplayQuotePostExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
-            // Configure Bearer token for authorization: opdexAuth
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new TransactionsApi(config);
-            var replayQuoteRequest = new ReplayQuoteRequest(); // ReplayQuoteRequest | 
-
-            try
-            {
-                // Replay Transaction Quote
-                TransactionQuoteResponse result = apiInstance.TransactionReplayQuotePost(replayQuoteRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling TransactionsApi.TransactionReplayQuotePost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **replayQuoteRequest** | [**ReplayQuoteRequest**](ReplayQuoteRequest.md)|  | 
-
-### Return type
-
-[**TransactionQuoteResponse**](TransactionQuoteResponse.md)
-
-### Authorization
-
-[opdexAuth](../README.md#opdexAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json, application/problem+json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Transaction quote replayed |  -  |
-| **400** | The request is not valid |  -  |
-| **401** | Unauthorized |  -  |
-| **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
-| **500** | Unexpected error occurred |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="transactionsget"></a>
-# **TransactionsGet**
-> TransactionsResponse TransactionsGet (string wallet = null, List<string> contracts = null, List<TransactionEventType> eventTypes = null, SortDirection? direction = null, int? limit = null, string cursor = null)
+<a name="gettransactions"></a>
+# **GetTransactions**
+> TransactionsResponse GetTransactions (string wallet = null, List<string> contracts = null, List<TransactionEventType> eventTypes = null, SortDirection? direction = null, int? limit = null, string cursor = null)
 
 Get Transactions
 
@@ -181,7 +103,7 @@ using Opdex.Client.Model;
 
 namespace Example
 {
-    public class TransactionsGetExample
+    public class GetTransactionsExample
     {
         public static void Main()
         {
@@ -198,12 +120,12 @@ namespace Example
             try
             {
                 // Get Transactions
-                TransactionsResponse result = apiInstance.TransactionsGet(wallet, contracts, eventTypes, direction, limit, cursor);
+                TransactionsResponse result = apiInstance.GetTransactions(wallet, contracts, eventTypes, direction, limit, cursor);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TransactionsApi.TransactionsGet: " + e.Message );
+                Debug.Print("Exception when calling TransactionsApi.GetTransactions: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -247,9 +169,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="transactionspost"></a>
-# **TransactionsPost**
-> void TransactionsPost (NotifyBroadcastRequest notifyBroadcastRequest)
+<a name="notifytransactionbroadcast"></a>
+# **NotifyTransactionBroadcast**
+> void NotifyTransactionBroadcast (NotifyBroadcastRequest notifyBroadcastRequest)
 
 Notify Broadcast
 
@@ -265,7 +187,7 @@ using Opdex.Client.Model;
 
 namespace Example
 {
-    public class TransactionsPostExample
+    public class NotifyTransactionBroadcastExample
     {
         public static void Main()
         {
@@ -277,11 +199,11 @@ namespace Example
             try
             {
                 // Notify Broadcast
-                apiInstance.TransactionsPost(notifyBroadcastRequest);
+                apiInstance.NotifyTransactionBroadcast(notifyBroadcastRequest);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TransactionsApi.TransactionsPost: " + e.Message );
+                Debug.Print("Exception when calling TransactionsApi.NotifyTransactionBroadcast: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -315,6 +237,84 @@ No authorization required
 |-------------|-------------|------------------|
 | **204** | The broadcast notification was sent |  -  |
 | **400** | The request is not valid |  -  |
+| **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
+| **500** | Unexpected error occurred |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="replayquote"></a>
+# **ReplayQuote**
+> TransactionQuoteResponse ReplayQuote (ReplayQuoteRequest replayQuoteRequest)
+
+Replay Transaction Quote
+
+Replays a previous transaction quote at the current point in time. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Opdex.Client.Api;
+using Opdex.Client.Client;
+using Opdex.Client.Model;
+
+namespace Example
+{
+    public class ReplayQuoteExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://test-api.opdex.com";
+            // Configure Bearer token for authorization: opdexAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new TransactionsApi(config);
+            var replayQuoteRequest = new ReplayQuoteRequest(); // ReplayQuoteRequest | 
+
+            try
+            {
+                // Replay Transaction Quote
+                TransactionQuoteResponse result = apiInstance.ReplayQuote(replayQuoteRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TransactionsApi.ReplayQuote: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **replayQuoteRequest** | [**ReplayQuoteRequest**](ReplayQuoteRequest.md)|  | 
+
+### Return type
+
+[**TransactionQuoteResponse**](TransactionQuoteResponse.md)
+
+### Authorization
+
+[opdexAuth](../README.md#opdexAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, application/problem+json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Transaction quote replayed |  -  |
+| **400** | The request is not valid |  -  |
+| **401** | Unauthorized |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
 

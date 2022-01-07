@@ -5,7 +5,7 @@ Indicates a vote was withdrawn from a vault proposal
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProposalId** | **decimal** | Identifier for the proposal | [optional] 
+**ProposalId** | **int** | Identifier for the proposal | [optional] 
 **Voter** | **string** | An address on the Cirrus network | [optional] 
 **WithdrawAmount** | **string** | Decimal value with uncapped precision and size | [optional] 
 **VoterAmount** | **string** | Decimal value with uncapped precision and size | [optional] 

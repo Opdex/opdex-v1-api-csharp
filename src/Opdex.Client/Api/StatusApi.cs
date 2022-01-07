@@ -34,7 +34,7 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>StatusResponse</returns>
-        StatusResponse StatusGet();
+        StatusResponse GetStatus();
 
         /// <summary>
         /// Get Status
@@ -44,7 +44,7 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of StatusResponse</returns>
-        ApiResponse<StatusResponse> StatusGetWithHttpInfo();
+        ApiResponse<StatusResponse> GetStatusWithHttpInfo();
         #endregion Synchronous Operations
     }
 
@@ -63,7 +63,7 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StatusResponse</returns>
-        System.Threading.Tasks.Task<StatusResponse> StatusGetAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<StatusResponse> GetStatusAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Status
@@ -74,7 +74,7 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StatusResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> StatusGetWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> GetStatusWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -200,9 +200,9 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>StatusResponse</returns>
-        public StatusResponse StatusGet()
+        public StatusResponse GetStatus()
         {
-            Opdex.Client.Client.ApiResponse<StatusResponse> localVarResponse = StatusGetWithHttpInfo();
+            Opdex.Client.Client.ApiResponse<StatusResponse> localVarResponse = GetStatusWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -211,7 +211,7 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of StatusResponse</returns>
-        public Opdex.Client.Client.ApiResponse<StatusResponse> StatusGetWithHttpInfo()
+        public Opdex.Client.Client.ApiResponse<StatusResponse> GetStatusWithHttpInfo()
         {
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -242,7 +242,7 @@ namespace Opdex.Client.Api
             var localVarResponse = this.Client.Get<StatusResponse>("/status", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("StatusGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetStatus", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -258,9 +258,9 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StatusResponse</returns>
-        public async System.Threading.Tasks.Task<StatusResponse> StatusGetAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<StatusResponse> GetStatusAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<StatusResponse> localVarResponse = await StatusGetWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<StatusResponse> localVarResponse = await GetStatusWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -270,7 +270,7 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StatusResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<StatusResponse>> StatusGetWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<StatusResponse>> GetStatusWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -303,7 +303,7 @@ namespace Opdex.Client.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("StatusGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetStatus", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

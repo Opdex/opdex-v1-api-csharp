@@ -5,7 +5,7 @@ Indicates a pledge was withdrawn from a vault proposal
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProposalId** | **decimal** | Identifier for the proposal | [optional] 
+**ProposalId** | **int** | Identifier for the proposal | [optional] 
 **Pledger** | **string** | An address on the Cirrus network | [optional] 
 **WithdrawAmount** | **string** | Decimal value with uncapped precision and size | [optional] 
 **PledgerAmount** | **string** | Decimal value with uncapped precision and size | [optional] 

@@ -4,12 +4,12 @@ All URIs are relative to *https://test-api.opdex.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**StatusGet**](StatusApi.md#statusget) | **GET** /status | Get Status
+[**GetStatus**](StatusApi.md#getstatus) | **GET** /status | Get Status
 
 
-<a name="statusget"></a>
-# **StatusGet**
-> StatusResponse StatusGet ()
+<a name="getstatus"></a>
+# **GetStatus**
+> StatusResponse GetStatus ()
 
 Get Status
 
@@ -25,7 +25,7 @@ using Opdex.Client.Model;
 
 namespace Example
 {
-    public class StatusGetExample
+    public class GetStatusExample
     {
         public static void Main()
         {
@@ -36,12 +36,12 @@ namespace Example
             try
             {
                 // Get Status
-                StatusResponse result = apiInstance.StatusGet();
+                StatusResponse result = apiInstance.GetStatus();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling StatusApi.StatusGet: " + e.Message );
+                Debug.Print("Exception when calling StatusApi.GetStatus: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }

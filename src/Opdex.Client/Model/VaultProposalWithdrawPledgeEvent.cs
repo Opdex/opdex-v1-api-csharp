@@ -43,7 +43,7 @@ namespace Opdex.Client.Model
         /// <param name="eventType">eventType.</param>
         /// <param name="contract">An address on the Cirrus network.</param>
         /// <param name="sortOrder">Index to sort event order.</param>
-        public VaultProposalWithdrawPledgeEvent(decimal proposalId = default(decimal), string pledger = default(string), string withdrawAmount = default(string), string pledgerAmount = default(string), string proposalPledgeAmount = default(string), bool pledgeWithdrawn = default(bool), TransactionEventType eventType = default(TransactionEventType), string contract = default(string), int sortOrder = default(int))
+        public VaultProposalWithdrawPledgeEvent(int proposalId = default(int), string pledger = default(string), string withdrawAmount = default(string), string pledgerAmount = default(string), string proposalPledgeAmount = default(string), bool pledgeWithdrawn = default(bool), TransactionEventType eventType = default(TransactionEventType), string contract = default(string), int sortOrder = default(int))
         {
             this.ProposalId = proposalId;
             this.Pledger = pledger;
@@ -61,7 +61,7 @@ namespace Opdex.Client.Model
         /// </summary>
         /// <value>Identifier for the proposal</value>
         [DataMember(Name = "proposalId", EmitDefaultValue = false)]
-        public decimal ProposalId { get; set; }
+        public int ProposalId { get; set; }
 
         /// <summary>
         /// An address on the Cirrus network
@@ -261,8 +261,8 @@ namespace Opdex.Client.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
-            // ProposalId (decimal) minimum
-            if (this.ProposalId < (decimal)1)
+            // ProposalId (int) minimum
+            if (this.ProposalId < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProposalId, must be a value greater than or equal to 1.", new [] { "ProposalId" });
             }

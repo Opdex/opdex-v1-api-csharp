@@ -27,39 +27,6 @@ namespace Opdex.Client.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get Tokens
-        /// </summary>
-        /// <remarks>
-        /// Retrieves details of all tracked tokens across markets. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
-        /// </remarks>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tokenType">Token type filter (optional)</param>
-        /// <param name="tokens">Specific tokens to include (optional)</param>
-        /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
-        /// <param name="orderBy">Property by which to sort results (optional)</param>
-        /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
-        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
-        /// <returns>TokensResponse</returns>
-        TokensResponse TokensGet(TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
-
-        /// <summary>
-        /// Get Tokens
-        /// </summary>
-        /// <remarks>
-        /// Retrieves details of all tracked tokens across markets. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
-        /// </remarks>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tokenType">Token type filter (optional)</param>
-        /// <param name="tokens">Specific tokens to include (optional)</param>
-        /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
-        /// <param name="orderBy">Property by which to sort results (optional)</param>
-        /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
-        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
-        /// <returns>ApiResponse of TokensResponse</returns>
-        ApiResponse<TokensResponse> TokensGetWithHttpInfo(TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
-        /// <summary>
         /// Add Token
         /// </summary>
         /// <remarks>
@@ -68,7 +35,7 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="addTokenRequest"></param>
         /// <returns>TokenResponse</returns>
-        TokenResponse TokensPost(AddTokenRequest addTokenRequest);
+        TokenResponse AddToken(AddTokenRequest addTokenRequest);
 
         /// <summary>
         /// Add Token
@@ -79,7 +46,7 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="addTokenRequest"></param>
         /// <returns>ApiResponse of TokenResponse</returns>
-        ApiResponse<TokenResponse> TokensPostWithHttpInfo(AddTokenRequest addTokenRequest);
+        ApiResponse<TokenResponse> AddTokenWithHttpInfo(AddTokenRequest addTokenRequest);
         /// <summary>
         /// Build Approve Allowance Transaction Quote
         /// </summary>
@@ -89,7 +56,7 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Address of the token</param>
         /// <returns>TransactionQuoteResponse</returns>
-        TransactionQuoteResponse TokensTokenApprovePost(string token);
+        TransactionQuoteResponse BuildApproveAllowanceQuote(string token);
 
         /// <summary>
         /// Build Approve Allowance Transaction Quote
@@ -100,7 +67,7 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Address of the token</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        ApiResponse<TransactionQuoteResponse> TokensTokenApprovePostWithHttpInfo(string token);
+        ApiResponse<TransactionQuoteResponse> BuildApproveAllowanceQuoteWithHttpInfo(string token);
         /// <summary>
         /// Build Distribute Tokens Transaction Quote
         /// </summary>
@@ -110,7 +77,7 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Address of the governance token</param>
         /// <returns>TransactionQuoteResponse</returns>
-        TransactionQuoteResponse TokensTokenDistributePost(string token);
+        TransactionQuoteResponse BuildDistributeTokensQuote(string token);
 
         /// <summary>
         /// Build Distribute Tokens Transaction Quote
@@ -121,7 +88,7 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Address of the governance token</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        ApiResponse<TransactionQuoteResponse> TokensTokenDistributePostWithHttpInfo(string token);
+        ApiResponse<TransactionQuoteResponse> BuildDistributeTokensQuoteWithHttpInfo(string token);
         /// <summary>
         /// Get Token
         /// </summary>
@@ -131,7 +98,7 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Address of the token</param>
         /// <returns>TokenResponse</returns>
-        TokenResponse TokensTokenGet(string token);
+        TokenResponse GetToken(string token);
 
         /// <summary>
         /// Get Token
@@ -142,7 +109,7 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Address of the token</param>
         /// <returns>ApiResponse of TokenResponse</returns>
-        ApiResponse<TokenResponse> TokensTokenGetWithHttpInfo(string token);
+        ApiResponse<TokenResponse> GetTokenWithHttpInfo(string token);
         /// <summary>
         /// Get Token History
         /// </summary>
@@ -158,7 +125,7 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>TokenSnapshotsResponse</returns>
-        TokenSnapshotsResponse TokensTokenHistoryGet(string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        TokenSnapshotsResponse GetTokenHistory(string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
 
         /// <summary>
         /// Get Token History
@@ -175,7 +142,40 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of TokenSnapshotsResponse</returns>
-        ApiResponse<TokenSnapshotsResponse> TokensTokenHistoryGetWithHttpInfo(string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        ApiResponse<TokenSnapshotsResponse> GetTokenHistoryWithHttpInfo(string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        /// <summary>
+        /// Get Tokens
+        /// </summary>
+        /// <remarks>
+        /// Retrieves details of all tracked tokens across markets. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tokenType">Token type filter (optional)</param>
+        /// <param name="tokens">Specific tokens to include (optional)</param>
+        /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
+        /// <param name="orderBy">Property by which to sort results (optional)</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <returns>TokensResponse</returns>
+        TokensResponse GetTokens(TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+
+        /// <summary>
+        /// Get Tokens
+        /// </summary>
+        /// <remarks>
+        /// Retrieves details of all tracked tokens across markets. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tokenType">Token type filter (optional)</param>
+        /// <param name="tokens">Specific tokens to include (optional)</param>
+        /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
+        /// <param name="orderBy">Property by which to sort results (optional)</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <returns>ApiResponse of TokensResponse</returns>
+        ApiResponse<TokensResponse> GetTokensWithHttpInfo(TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
         #endregion Synchronous Operations
     }
 
@@ -186,41 +186,6 @@ namespace Opdex.Client.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Get Tokens
-        /// </summary>
-        /// <remarks>
-        /// Retrieves details of all tracked tokens across markets. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
-        /// </remarks>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tokenType">Token type filter (optional)</param>
-        /// <param name="tokens">Specific tokens to include (optional)</param>
-        /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
-        /// <param name="orderBy">Property by which to sort results (optional)</param>
-        /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
-        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TokensResponse</returns>
-        System.Threading.Tasks.Task<TokensResponse> TokensGetAsync(TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get Tokens
-        /// </summary>
-        /// <remarks>
-        /// Retrieves details of all tracked tokens across markets. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
-        /// </remarks>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tokenType">Token type filter (optional)</param>
-        /// <param name="tokens">Specific tokens to include (optional)</param>
-        /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
-        /// <param name="orderBy">Property by which to sort results (optional)</param>
-        /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
-        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (TokensResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TokensResponse>> TokensGetWithHttpInfoAsync(TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
         /// Add Token
         /// </summary>
         /// <remarks>
@@ -230,7 +195,7 @@ namespace Opdex.Client.Api
         /// <param name="addTokenRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TokenResponse</returns>
-        System.Threading.Tasks.Task<TokenResponse> TokensPostAsync(AddTokenRequest addTokenRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TokenResponse> AddTokenAsync(AddTokenRequest addTokenRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Token
@@ -242,7 +207,7 @@ namespace Opdex.Client.Api
         /// <param name="addTokenRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TokenResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TokenResponse>> TokensPostWithHttpInfoAsync(AddTokenRequest addTokenRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TokenResponse>> AddTokenWithHttpInfoAsync(AddTokenRequest addTokenRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Build Approve Allowance Transaction Quote
         /// </summary>
@@ -253,7 +218,7 @@ namespace Opdex.Client.Api
         /// <param name="token">Address of the token</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        System.Threading.Tasks.Task<TransactionQuoteResponse> TokensTokenApprovePostAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildApproveAllowanceQuoteAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Build Approve Allowance Transaction Quote
@@ -265,7 +230,7 @@ namespace Opdex.Client.Api
         /// <param name="token">Address of the token</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> TokensTokenApprovePostWithHttpInfoAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildApproveAllowanceQuoteWithHttpInfoAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Build Distribute Tokens Transaction Quote
         /// </summary>
@@ -276,7 +241,7 @@ namespace Opdex.Client.Api
         /// <param name="token">Address of the governance token</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        System.Threading.Tasks.Task<TransactionQuoteResponse> TokensTokenDistributePostAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildDistributeTokensQuoteAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Build Distribute Tokens Transaction Quote
@@ -288,7 +253,7 @@ namespace Opdex.Client.Api
         /// <param name="token">Address of the governance token</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> TokensTokenDistributePostWithHttpInfoAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildDistributeTokensQuoteWithHttpInfoAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Token
         /// </summary>
@@ -299,7 +264,7 @@ namespace Opdex.Client.Api
         /// <param name="token">Address of the token</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TokenResponse</returns>
-        System.Threading.Tasks.Task<TokenResponse> TokensTokenGetAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TokenResponse> GetTokenAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Token
@@ -311,7 +276,7 @@ namespace Opdex.Client.Api
         /// <param name="token">Address of the token</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TokenResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TokenResponse>> TokensTokenGetWithHttpInfoAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TokenResponse>> GetTokenWithHttpInfoAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Token History
         /// </summary>
@@ -328,7 +293,7 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TokenSnapshotsResponse</returns>
-        System.Threading.Tasks.Task<TokenSnapshotsResponse> TokensTokenHistoryGetAsync(string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TokenSnapshotsResponse> GetTokenHistoryAsync(string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Token History
@@ -346,7 +311,42 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TokenSnapshotsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TokenSnapshotsResponse>> TokensTokenHistoryGetWithHttpInfoAsync(string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TokenSnapshotsResponse>> GetTokenHistoryWithHttpInfoAsync(string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Get Tokens
+        /// </summary>
+        /// <remarks>
+        /// Retrieves details of all tracked tokens across markets. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tokenType">Token type filter (optional)</param>
+        /// <param name="tokens">Specific tokens to include (optional)</param>
+        /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
+        /// <param name="orderBy">Property by which to sort results (optional)</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TokensResponse</returns>
+        System.Threading.Tasks.Task<TokensResponse> GetTokensAsync(TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get Tokens
+        /// </summary>
+        /// <remarks>
+        /// Retrieves details of all tracked tokens across markets. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tokenType">Token type filter (optional)</param>
+        /// <param name="tokens">Specific tokens to include (optional)</param>
+        /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
+        /// <param name="orderBy">Property by which to sort results (optional)</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TokensResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TokensResponse>> GetTokensWithHttpInfoAsync(TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -468,6 +468,784 @@ namespace Opdex.Client.Api
         }
 
         /// <summary>
+        /// Add Token Adds an SRC token to the Opdex indexer, so that it can be tracked and used within markets.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="addTokenRequest"></param>
+        /// <returns>TokenResponse</returns>
+        public TokenResponse AddToken(AddTokenRequest addTokenRequest)
+        {
+            Opdex.Client.Client.ApiResponse<TokenResponse> localVarResponse = AddTokenWithHttpInfo(addTokenRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Add Token Adds an SRC token to the Opdex indexer, so that it can be tracked and used within markets.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="addTokenRequest"></param>
+        /// <returns>ApiResponse of TokenResponse</returns>
+        public Opdex.Client.Client.ApiResponse<TokenResponse> AddTokenWithHttpInfo(AddTokenRequest addTokenRequest)
+        {
+            // verify the required parameter 'addTokenRequest' is set
+            if (addTokenRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'addTokenRequest' when calling TokensApi->AddToken");
+            }
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = addTokenRequest;
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<TokenResponse>("/tokens", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AddToken", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Add Token Adds an SRC token to the Opdex indexer, so that it can be tracked and used within markets.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="addTokenRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TokenResponse</returns>
+        public async System.Threading.Tasks.Task<TokenResponse> AddTokenAsync(AddTokenRequest addTokenRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Opdex.Client.Client.ApiResponse<TokenResponse> localVarResponse = await AddTokenWithHttpInfoAsync(addTokenRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Add Token Adds an SRC token to the Opdex indexer, so that it can be tracked and used within markets.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="addTokenRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TokenResponse)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TokenResponse>> AddTokenWithHttpInfoAsync(AddTokenRequest addTokenRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'addTokenRequest' is set
+            if (addTokenRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'addTokenRequest' when calling TokensApi->AddToken");
+            }
+
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = addTokenRequest;
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TokenResponse>("/tokens", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AddToken", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Build Approve Allowance Transaction Quote Builds a quote for an allowance approval transaction. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="token">Address of the token</param>
+        /// <returns>TransactionQuoteResponse</returns>
+        public TransactionQuoteResponse BuildApproveAllowanceQuote(string token)
+        {
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildApproveAllowanceQuoteWithHttpInfo(token);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Build Approve Allowance Transaction Quote Builds a quote for an allowance approval transaction. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="token">Address of the token</param>
+        /// <returns>ApiResponse of TransactionQuoteResponse</returns>
+        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildApproveAllowanceQuoteWithHttpInfo(string token)
+        {
+            // verify the required parameter 'token' is set
+            if (token == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling TokensApi->BuildApproveAllowanceQuote");
+            }
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/tokens/{token}/approve", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BuildApproveAllowanceQuote", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Build Approve Allowance Transaction Quote Builds a quote for an allowance approval transaction. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="token">Address of the token</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TransactionQuoteResponse</returns>
+        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildApproveAllowanceQuoteAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildApproveAllowanceQuoteWithHttpInfoAsync(token, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Build Approve Allowance Transaction Quote Builds a quote for an allowance approval transaction. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="token">Address of the token</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildApproveAllowanceQuoteWithHttpInfoAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'token' is set
+            if (token == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling TokensApi->BuildApproveAllowanceQuote");
+            }
+
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/tokens/{token}/approve", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BuildApproveAllowanceQuote", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Build Distribute Tokens Transaction Quote Builds a quote for a transaction to distribute governance tokens, to the mining governance and vault. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="token">Address of the governance token</param>
+        /// <returns>TransactionQuoteResponse</returns>
+        public TransactionQuoteResponse BuildDistributeTokensQuote(string token)
+        {
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildDistributeTokensQuoteWithHttpInfo(token);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Build Distribute Tokens Transaction Quote Builds a quote for a transaction to distribute governance tokens, to the mining governance and vault. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="token">Address of the governance token</param>
+        /// <returns>ApiResponse of TransactionQuoteResponse</returns>
+        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildDistributeTokensQuoteWithHttpInfo(string token)
+        {
+            // verify the required parameter 'token' is set
+            if (token == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling TokensApi->BuildDistributeTokensQuote");
+            }
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/tokens/{token}/distribute", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BuildDistributeTokensQuote", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Build Distribute Tokens Transaction Quote Builds a quote for a transaction to distribute governance tokens, to the mining governance and vault. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="token">Address of the governance token</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TransactionQuoteResponse</returns>
+        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildDistributeTokensQuoteAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildDistributeTokensQuoteWithHttpInfoAsync(token, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Build Distribute Tokens Transaction Quote Builds a quote for a transaction to distribute governance tokens, to the mining governance and vault. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="token">Address of the governance token</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildDistributeTokensQuoteWithHttpInfoAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'token' is set
+            if (token == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling TokensApi->BuildDistributeTokensQuote");
+            }
+
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/tokens/{token}/distribute", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BuildDistributeTokensQuote", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Token Retrieves details of a token tracked by the Opdex indexer.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="token">Address of the token</param>
+        /// <returns>TokenResponse</returns>
+        public TokenResponse GetToken(string token)
+        {
+            Opdex.Client.Client.ApiResponse<TokenResponse> localVarResponse = GetTokenWithHttpInfo(token);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Token Retrieves details of a token tracked by the Opdex indexer.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="token">Address of the token</param>
+        /// <returns>ApiResponse of TokenResponse</returns>
+        public Opdex.Client.Client.ApiResponse<TokenResponse> GetTokenWithHttpInfo(string token)
+        {
+            // verify the required parameter 'token' is set
+            if (token == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling TokensApi->GetToken");
+            }
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<TokenResponse>("/tokens/{token}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetToken", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Token Retrieves details of a token tracked by the Opdex indexer.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="token">Address of the token</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TokenResponse</returns>
+        public async System.Threading.Tasks.Task<TokenResponse> GetTokenAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Opdex.Client.Client.ApiResponse<TokenResponse> localVarResponse = await GetTokenWithHttpInfoAsync(token, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Token Retrieves details of a token tracked by the Opdex indexer.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="token">Address of the token</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TokenResponse)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TokenResponse>> GetTokenWithHttpInfoAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'token' is set
+            if (token == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling TokensApi->GetToken");
+            }
+
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TokenResponse>("/tokens/{token}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetToken", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Token History Retrieves historical pricing data for a token tracked by the Opdex indexer. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="token">Address of the token</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="interval">Time range between each snapshot (optional)</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <returns>TokenSnapshotsResponse</returns>
+        public TokenSnapshotsResponse GetTokenHistory(string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        {
+            Opdex.Client.Client.ApiResponse<TokenSnapshotsResponse> localVarResponse = GetTokenHistoryWithHttpInfo(token, startDateTime, endDateTime, interval, direction, limit, cursor);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Token History Retrieves historical pricing data for a token tracked by the Opdex indexer. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="token">Address of the token</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="interval">Time range between each snapshot (optional)</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <returns>ApiResponse of TokenSnapshotsResponse</returns>
+        public Opdex.Client.Client.ApiResponse<TokenSnapshotsResponse> GetTokenHistoryWithHttpInfo(string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        {
+            // verify the required parameter 'token' is set
+            if (token == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling TokensApi->GetTokenHistory");
+            }
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
+            if (interval != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "interval", interval));
+            }
+            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "startDateTime", startDateTime));
+            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "endDateTime", endDateTime));
+            if (direction != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "direction", direction));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<TokenSnapshotsResponse>("/tokens/{token}/history", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetTokenHistory", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Token History Retrieves historical pricing data for a token tracked by the Opdex indexer. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="token">Address of the token</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="interval">Time range between each snapshot (optional)</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TokenSnapshotsResponse</returns>
+        public async System.Threading.Tasks.Task<TokenSnapshotsResponse> GetTokenHistoryAsync(string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Opdex.Client.Client.ApiResponse<TokenSnapshotsResponse> localVarResponse = await GetTokenHistoryWithHttpInfoAsync(token, startDateTime, endDateTime, interval, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Token History Retrieves historical pricing data for a token tracked by the Opdex indexer. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="token">Address of the token</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="interval">Time range between each snapshot (optional)</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TokenSnapshotsResponse)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TokenSnapshotsResponse>> GetTokenHistoryWithHttpInfoAsync(string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'token' is set
+            if (token == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling TokensApi->GetTokenHistory");
+            }
+
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
+            if (interval != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "interval", interval));
+            }
+            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "startDateTime", startDateTime));
+            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "endDateTime", endDateTime));
+            if (direction != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "direction", direction));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TokenSnapshotsResponse>("/tokens/{token}/history", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetTokenHistory", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get Tokens Retrieves details of all tracked tokens across markets. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
@@ -479,9 +1257,9 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>TokensResponse</returns>
-        public TokensResponse TokensGet(TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public TokensResponse GetTokens(TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
-            Opdex.Client.Client.ApiResponse<TokensResponse> localVarResponse = TokensGetWithHttpInfo(tokenType, tokens, keyword, orderBy, direction, limit, cursor);
+            Opdex.Client.Client.ApiResponse<TokensResponse> localVarResponse = GetTokensWithHttpInfo(tokenType, tokens, keyword, orderBy, direction, limit, cursor);
             return localVarResponse.Data;
         }
 
@@ -497,7 +1275,7 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of TokensResponse</returns>
-        public Opdex.Client.Client.ApiResponse<TokensResponse> TokensGetWithHttpInfo(TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public Opdex.Client.Client.ApiResponse<TokensResponse> GetTokensWithHttpInfo(TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -556,7 +1334,7 @@ namespace Opdex.Client.Api
             var localVarResponse = this.Client.Get<TokensResponse>("/tokens", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("TokensGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetTokens", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -579,9 +1357,9 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TokensResponse</returns>
-        public async System.Threading.Tasks.Task<TokensResponse> TokensGetAsync(TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TokensResponse> GetTokensAsync(TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<TokensResponse> localVarResponse = await TokensGetWithHttpInfoAsync(tokenType, tokens, keyword, orderBy, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<TokensResponse> localVarResponse = await GetTokensWithHttpInfoAsync(tokenType, tokens, keyword, orderBy, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -598,7 +1376,7 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TokensResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TokensResponse>> TokensGetWithHttpInfoAsync(TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TokensResponse>> GetTokensWithHttpInfoAsync(TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -659,785 +1437,7 @@ namespace Opdex.Client.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("TokensGet", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Add Token Adds an SRC token to the Opdex indexer, so that it can be tracked and used within markets.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="addTokenRequest"></param>
-        /// <returns>TokenResponse</returns>
-        public TokenResponse TokensPost(AddTokenRequest addTokenRequest)
-        {
-            Opdex.Client.Client.ApiResponse<TokenResponse> localVarResponse = TokensPostWithHttpInfo(addTokenRequest);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Add Token Adds an SRC token to the Opdex indexer, so that it can be tracked and used within markets.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="addTokenRequest"></param>
-        /// <returns>ApiResponse of TokenResponse</returns>
-        public Opdex.Client.Client.ApiResponse<TokenResponse> TokensPostWithHttpInfo(AddTokenRequest addTokenRequest)
-        {
-            // verify the required parameter 'addTokenRequest' is set
-            if (addTokenRequest == null)
-            {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'addTokenRequest' when calling TokensApi->TokensPost");
-            }
-
-            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = addTokenRequest;
-
-            // authentication (opdexAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<TokenResponse>("/tokens", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("TokensPost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Add Token Adds an SRC token to the Opdex indexer, so that it can be tracked and used within markets.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="addTokenRequest"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TokenResponse</returns>
-        public async System.Threading.Tasks.Task<TokenResponse> TokensPostAsync(AddTokenRequest addTokenRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            Opdex.Client.Client.ApiResponse<TokenResponse> localVarResponse = await TokensPostWithHttpInfoAsync(addTokenRequest, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Add Token Adds an SRC token to the Opdex indexer, so that it can be tracked and used within markets.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="addTokenRequest"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (TokenResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TokenResponse>> TokensPostWithHttpInfoAsync(AddTokenRequest addTokenRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'addTokenRequest' is set
-            if (addTokenRequest == null)
-            {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'addTokenRequest' when calling TokensApi->TokensPost");
-            }
-
-
-            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = addTokenRequest;
-
-            // authentication (opdexAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TokenResponse>("/tokens", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("TokensPost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Build Approve Allowance Transaction Quote Builds a quote for an allowance approval transaction. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="token">Address of the token</param>
-        /// <returns>TransactionQuoteResponse</returns>
-        public TransactionQuoteResponse TokensTokenApprovePost(string token)
-        {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = TokensTokenApprovePostWithHttpInfo(token);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Build Approve Allowance Transaction Quote Builds a quote for an allowance approval transaction. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="token">Address of the token</param>
-        /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> TokensTokenApprovePostWithHttpInfo(string token)
-        {
-            // verify the required parameter 'token' is set
-            if (token == null)
-            {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling TokensApi->TokensTokenApprovePost");
-            }
-
-            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
-
-            // authentication (opdexAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/tokens/{token}/approve", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("TokensTokenApprovePost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Build Approve Allowance Transaction Quote Builds a quote for an allowance approval transaction. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="token">Address of the token</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TransactionQuoteResponse</returns>
-        public async System.Threading.Tasks.Task<TransactionQuoteResponse> TokensTokenApprovePostAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await TokensTokenApprovePostWithHttpInfoAsync(token, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Build Approve Allowance Transaction Quote Builds a quote for an allowance approval transaction. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="token">Address of the token</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> TokensTokenApprovePostWithHttpInfoAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'token' is set
-            if (token == null)
-            {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling TokensApi->TokensTokenApprovePost");
-            }
-
-
-            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
-
-            // authentication (opdexAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/tokens/{token}/approve", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("TokensTokenApprovePost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Build Distribute Tokens Transaction Quote Builds a quote for a transaction to distribute governance tokens, to the mining governance and vault. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="token">Address of the governance token</param>
-        /// <returns>TransactionQuoteResponse</returns>
-        public TransactionQuoteResponse TokensTokenDistributePost(string token)
-        {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = TokensTokenDistributePostWithHttpInfo(token);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Build Distribute Tokens Transaction Quote Builds a quote for a transaction to distribute governance tokens, to the mining governance and vault. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="token">Address of the governance token</param>
-        /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> TokensTokenDistributePostWithHttpInfo(string token)
-        {
-            // verify the required parameter 'token' is set
-            if (token == null)
-            {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling TokensApi->TokensTokenDistributePost");
-            }
-
-            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
-
-            // authentication (opdexAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/tokens/{token}/distribute", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("TokensTokenDistributePost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Build Distribute Tokens Transaction Quote Builds a quote for a transaction to distribute governance tokens, to the mining governance and vault. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="token">Address of the governance token</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TransactionQuoteResponse</returns>
-        public async System.Threading.Tasks.Task<TransactionQuoteResponse> TokensTokenDistributePostAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await TokensTokenDistributePostWithHttpInfoAsync(token, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Build Distribute Tokens Transaction Quote Builds a quote for a transaction to distribute governance tokens, to the mining governance and vault. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="token">Address of the governance token</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> TokensTokenDistributePostWithHttpInfoAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'token' is set
-            if (token == null)
-            {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling TokensApi->TokensTokenDistributePost");
-            }
-
-
-            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
-
-            // authentication (opdexAuth) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/tokens/{token}/distribute", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("TokensTokenDistributePost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get Token Retrieves details of a token tracked by the Opdex indexer.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="token">Address of the token</param>
-        /// <returns>TokenResponse</returns>
-        public TokenResponse TokensTokenGet(string token)
-        {
-            Opdex.Client.Client.ApiResponse<TokenResponse> localVarResponse = TokensTokenGetWithHttpInfo(token);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Token Retrieves details of a token tracked by the Opdex indexer.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="token">Address of the token</param>
-        /// <returns>ApiResponse of TokenResponse</returns>
-        public Opdex.Client.Client.ApiResponse<TokenResponse> TokensTokenGetWithHttpInfo(string token)
-        {
-            // verify the required parameter 'token' is set
-            if (token == null)
-            {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling TokensApi->TokensTokenGet");
-            }
-
-            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<TokenResponse>("/tokens/{token}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("TokensTokenGet", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get Token Retrieves details of a token tracked by the Opdex indexer.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="token">Address of the token</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TokenResponse</returns>
-        public async System.Threading.Tasks.Task<TokenResponse> TokensTokenGetAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            Opdex.Client.Client.ApiResponse<TokenResponse> localVarResponse = await TokensTokenGetWithHttpInfoAsync(token, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Token Retrieves details of a token tracked by the Opdex indexer.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="token">Address of the token</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (TokenResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TokenResponse>> TokensTokenGetWithHttpInfoAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'token' is set
-            if (token == null)
-            {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling TokensApi->TokensTokenGet");
-            }
-
-
-            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
-
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<TokenResponse>("/tokens/{token}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("TokensTokenGet", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get Token History Retrieves historical pricing data for a token tracked by the Opdex indexer. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="token">Address of the token</param>
-        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
-        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
-        /// <param name="interval">Time range between each snapshot (optional)</param>
-        /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
-        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
-        /// <returns>TokenSnapshotsResponse</returns>
-        public TokenSnapshotsResponse TokensTokenHistoryGet(string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
-        {
-            Opdex.Client.Client.ApiResponse<TokenSnapshotsResponse> localVarResponse = TokensTokenHistoryGetWithHttpInfo(token, startDateTime, endDateTime, interval, direction, limit, cursor);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Token History Retrieves historical pricing data for a token tracked by the Opdex indexer. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="token">Address of the token</param>
-        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
-        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
-        /// <param name="interval">Time range between each snapshot (optional)</param>
-        /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
-        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
-        /// <returns>ApiResponse of TokenSnapshotsResponse</returns>
-        public Opdex.Client.Client.ApiResponse<TokenSnapshotsResponse> TokensTokenHistoryGetWithHttpInfo(string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
-        {
-            // verify the required parameter 'token' is set
-            if (token == null)
-            {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling TokensApi->TokensTokenHistoryGet");
-            }
-
-            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
-            if (interval != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "interval", interval));
-            }
-            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "startDateTime", startDateTime));
-            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "endDateTime", endDateTime));
-            if (direction != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "direction", direction));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-            if (cursor != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
-            }
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<TokenSnapshotsResponse>("/tokens/{token}/history", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("TokensTokenHistoryGet", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get Token History Retrieves historical pricing data for a token tracked by the Opdex indexer. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="token">Address of the token</param>
-        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
-        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
-        /// <param name="interval">Time range between each snapshot (optional)</param>
-        /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
-        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TokenSnapshotsResponse</returns>
-        public async System.Threading.Tasks.Task<TokenSnapshotsResponse> TokensTokenHistoryGetAsync(string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            Opdex.Client.Client.ApiResponse<TokenSnapshotsResponse> localVarResponse = await TokensTokenHistoryGetWithHttpInfoAsync(token, startDateTime, endDateTime, interval, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Token History Retrieves historical pricing data for a token tracked by the Opdex indexer. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
-        /// </summary>
-        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="token">Address of the token</param>
-        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
-        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
-        /// <param name="interval">Time range between each snapshot (optional)</param>
-        /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
-        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (TokenSnapshotsResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TokenSnapshotsResponse>> TokensTokenHistoryGetWithHttpInfoAsync(string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'token' is set
-            if (token == null)
-            {
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling TokensApi->TokensTokenHistoryGet");
-            }
-
-
-            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json",
-                "application/problem+json"
-            };
-
-            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
-            if (interval != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "interval", interval));
-            }
-            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "startDateTime", startDateTime));
-            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "endDateTime", endDateTime));
-            if (direction != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "direction", direction));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-            if (cursor != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
-            }
-
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<TokenSnapshotsResponse>("/tokens/{token}/history", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("TokensTokenHistoryGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetTokens", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

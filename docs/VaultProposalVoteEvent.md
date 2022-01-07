@@ -5,7 +5,7 @@ Indicates a vote was made on a vault proposal
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProposalId** | **decimal** | Identifier for the proposal | [optional] 
+**ProposalId** | **int** | Identifier for the proposal | [optional] 
 **Voter** | **string** | An address on the Cirrus network | [optional] 
 **InFavor** | **bool** | Whether the vote is in favor or against the proposal | [optional] 
 **VoteAmount** | **string** | Decimal value with uncapped precision and size | [optional] 

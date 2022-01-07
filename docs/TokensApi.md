@@ -4,103 +4,17 @@ All URIs are relative to *https://test-api.opdex.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**TokensGet**](TokensApi.md#tokensget) | **GET** /tokens | Get Tokens
-[**TokensPost**](TokensApi.md#tokenspost) | **POST** /tokens | Add Token
-[**TokensTokenApprovePost**](TokensApi.md#tokenstokenapprovepost) | **POST** /tokens/{token}/approve | Build Approve Allowance Transaction Quote
-[**TokensTokenDistributePost**](TokensApi.md#tokenstokendistributepost) | **POST** /tokens/{token}/distribute | Build Distribute Tokens Transaction Quote
-[**TokensTokenGet**](TokensApi.md#tokenstokenget) | **GET** /tokens/{token} | Get Token
-[**TokensTokenHistoryGet**](TokensApi.md#tokenstokenhistoryget) | **GET** /tokens/{token}/history | Get Token History
+[**AddToken**](TokensApi.md#addtoken) | **POST** /tokens | Add Token
+[**BuildApproveAllowanceQuote**](TokensApi.md#buildapproveallowancequote) | **POST** /tokens/{token}/approve | Build Approve Allowance Transaction Quote
+[**BuildDistributeTokensQuote**](TokensApi.md#builddistributetokensquote) | **POST** /tokens/{token}/distribute | Build Distribute Tokens Transaction Quote
+[**GetToken**](TokensApi.md#gettoken) | **GET** /tokens/{token} | Get Token
+[**GetTokenHistory**](TokensApi.md#gettokenhistory) | **GET** /tokens/{token}/history | Get Token History
+[**GetTokens**](TokensApi.md#gettokens) | **GET** /tokens | Get Tokens
 
 
-<a name="tokensget"></a>
-# **TokensGet**
-> TokensResponse TokensGet (TokenType? tokenType = null, List<string> tokens = null, string keyword = null, TokenOrderByType? orderBy = null, SortDirection? direction = null, int? limit = null, string cursor = null)
-
-Get Tokens
-
-Retrieves details of all tracked tokens across markets. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Opdex.Client.Api;
-using Opdex.Client.Client;
-using Opdex.Client.Model;
-
-namespace Example
-{
-    public class TokensGetExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
-            var apiInstance = new TokensApi(config);
-            var tokenType = Provisional;  // TokenType? | Token type filter (optional) 
-            var tokens = new List<string>(); // List<string> | Specific tokens to include (optional) 
-            var keyword = keyword_example;  // string | Keyword search against token address, name and ticker symbol (optional) 
-            var orderBy = ;  // TokenOrderByType? | Property by which to sort results (optional) 
-            var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
-            var limit = 10;  // int? | Number of results per page (optional) 
-            var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
-
-            try
-            {
-                // Get Tokens
-                TokensResponse result = apiInstance.TokensGet(tokenType, tokens, keyword, orderBy, direction, limit, cursor);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling TokensApi.TokensGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tokenType** | **TokenType?**| Token type filter | [optional] 
- **tokens** | [**List&lt;string&gt;**](string.md)| Specific tokens to include | [optional] 
- **keyword** | **string**| Keyword search against token address, name and ticker symbol | [optional] 
- **orderBy** | **TokenOrderByType?**| Property by which to sort results | [optional] 
- **direction** | **SortDirection?**| Order direction of the results | [optional] 
- **limit** | **int?**| Number of results per page | [optional] 
- **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
-
-### Return type
-
-[**TokensResponse**](TokensResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/problem+json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Token results found |  -  |
-| **400** | The request is not valid |  -  |
-| **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
-| **500** | Unexpected error occurred |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="tokenspost"></a>
-# **TokensPost**
-> TokenResponse TokensPost (AddTokenRequest addTokenRequest)
+<a name="addtoken"></a>
+# **AddToken**
+> TokenResponse AddToken (AddTokenRequest addTokenRequest)
 
 Add Token
 
@@ -116,7 +30,7 @@ using Opdex.Client.Model;
 
 namespace Example
 {
-    public class TokensPostExample
+    public class AddTokenExample
     {
         public static void Main()
         {
@@ -131,12 +45,12 @@ namespace Example
             try
             {
                 // Add Token
-                TokenResponse result = apiInstance.TokensPost(addTokenRequest);
+                TokenResponse result = apiInstance.AddToken(addTokenRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TokensApi.TokensPost: " + e.Message );
+                Debug.Print("Exception when calling TokensApi.AddToken: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -177,9 +91,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="tokenstokenapprovepost"></a>
-# **TokensTokenApprovePost**
-> TransactionQuoteResponse TokensTokenApprovePost (string token)
+<a name="buildapproveallowancequote"></a>
+# **BuildApproveAllowanceQuote**
+> TransactionQuoteResponse BuildApproveAllowanceQuote (string token)
 
 Build Approve Allowance Transaction Quote
 
@@ -195,7 +109,7 @@ using Opdex.Client.Model;
 
 namespace Example
 {
-    public class TokensTokenApprovePostExample
+    public class BuildApproveAllowanceQuoteExample
     {
         public static void Main()
         {
@@ -210,12 +124,12 @@ namespace Example
             try
             {
                 // Build Approve Allowance Transaction Quote
-                TransactionQuoteResponse result = apiInstance.TokensTokenApprovePost(token);
+                TransactionQuoteResponse result = apiInstance.BuildApproveAllowanceQuote(token);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TokensApi.TokensTokenApprovePost: " + e.Message );
+                Debug.Print("Exception when calling TokensApi.BuildApproveAllowanceQuote: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -256,9 +170,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="tokenstokendistributepost"></a>
-# **TokensTokenDistributePost**
-> TransactionQuoteResponse TokensTokenDistributePost (string token)
+<a name="builddistributetokensquote"></a>
+# **BuildDistributeTokensQuote**
+> TransactionQuoteResponse BuildDistributeTokensQuote (string token)
 
 Build Distribute Tokens Transaction Quote
 
@@ -274,7 +188,7 @@ using Opdex.Client.Model;
 
 namespace Example
 {
-    public class TokensTokenDistributePostExample
+    public class BuildDistributeTokensQuoteExample
     {
         public static void Main()
         {
@@ -289,12 +203,12 @@ namespace Example
             try
             {
                 // Build Distribute Tokens Transaction Quote
-                TransactionQuoteResponse result = apiInstance.TokensTokenDistributePost(token);
+                TransactionQuoteResponse result = apiInstance.BuildDistributeTokensQuote(token);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TokensApi.TokensTokenDistributePost: " + e.Message );
+                Debug.Print("Exception when calling TokensApi.BuildDistributeTokensQuote: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -335,9 +249,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="tokenstokenget"></a>
-# **TokensTokenGet**
-> TokenResponse TokensTokenGet (string token)
+<a name="gettoken"></a>
+# **GetToken**
+> TokenResponse GetToken (string token)
 
 Get Token
 
@@ -353,7 +267,7 @@ using Opdex.Client.Model;
 
 namespace Example
 {
-    public class TokensTokenGetExample
+    public class GetTokenExample
     {
         public static void Main()
         {
@@ -365,12 +279,12 @@ namespace Example
             try
             {
                 // Get Token
-                TokenResponse result = apiInstance.TokensTokenGet(token);
+                TokenResponse result = apiInstance.GetToken(token);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TokensApi.TokensTokenGet: " + e.Message );
+                Debug.Print("Exception when calling TokensApi.GetToken: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -410,9 +324,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="tokenstokenhistoryget"></a>
-# **TokensTokenHistoryGet**
-> TokenSnapshotsResponse TokensTokenHistoryGet (string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = null, SortDirection? direction = null, int? limit = null, string cursor = null)
+<a name="gettokenhistory"></a>
+# **GetTokenHistory**
+> TokenSnapshotsResponse GetTokenHistory (string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = null, SortDirection? direction = null, int? limit = null, string cursor = null)
 
 Get Token History
 
@@ -428,7 +342,7 @@ using Opdex.Client.Model;
 
 namespace Example
 {
-    public class TokensTokenHistoryGetExample
+    public class GetTokenHistoryExample
     {
         public static void Main()
         {
@@ -446,12 +360,12 @@ namespace Example
             try
             {
                 // Get Token History
-                TokenSnapshotsResponse result = apiInstance.TokensTokenHistoryGet(token, startDateTime, endDateTime, interval, direction, limit, cursor);
+                TokenSnapshotsResponse result = apiInstance.GetTokenHistory(token, startDateTime, endDateTime, interval, direction, limit, cursor);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TokensApi.TokensTokenHistoryGet: " + e.Message );
+                Debug.Print("Exception when calling TokensApi.GetTokenHistory: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -492,6 +406,92 @@ No authorization required
 | **200** | Token results found |  -  |
 | **400** | The request is not valid |  -  |
 | **404** | Token not found |  -  |
+| **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
+| **500** | Unexpected error occurred |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="gettokens"></a>
+# **GetTokens**
+> TokensResponse GetTokens (TokenType? tokenType = null, List<string> tokens = null, string keyword = null, TokenOrderByType? orderBy = null, SortDirection? direction = null, int? limit = null, string cursor = null)
+
+Get Tokens
+
+Retrieves details of all tracked tokens across markets. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Opdex.Client.Api;
+using Opdex.Client.Client;
+using Opdex.Client.Model;
+
+namespace Example
+{
+    public class GetTokensExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://test-api.opdex.com";
+            var apiInstance = new TokensApi(config);
+            var tokenType = Provisional;  // TokenType? | Token type filter (optional) 
+            var tokens = new List<string>(); // List<string> | Specific tokens to include (optional) 
+            var keyword = keyword_example;  // string | Keyword search against token address, name and ticker symbol (optional) 
+            var orderBy = ;  // TokenOrderByType? | Property by which to sort results (optional) 
+            var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
+            var limit = 10;  // int? | Number of results per page (optional) 
+            var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
+
+            try
+            {
+                // Get Tokens
+                TokensResponse result = apiInstance.GetTokens(tokenType, tokens, keyword, orderBy, direction, limit, cursor);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TokensApi.GetTokens: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tokenType** | **TokenType?**| Token type filter | [optional] 
+ **tokens** | [**List&lt;string&gt;**](string.md)| Specific tokens to include | [optional] 
+ **keyword** | **string**| Keyword search against token address, name and ticker symbol | [optional] 
+ **orderBy** | **TokenOrderByType?**| Property by which to sort results | [optional] 
+ **direction** | **SortDirection?**| Order direction of the results | [optional] 
+ **limit** | **int?**| Number of results per page | [optional] 
+ **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
+
+### Return type
+
+[**TokensResponse**](TokensResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/problem+json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Token results found |  -  |
+| **400** | The request is not valid |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
 

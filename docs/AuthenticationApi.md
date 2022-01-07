@@ -4,12 +4,12 @@ All URIs are relative to *https://test-api.opdex.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AuthPost**](AuthenticationApi.md#authpost) | **POST** /auth | Stratis Signature Auth
+[**Authenticate**](AuthenticationApi.md#authenticate) | **POST** /auth | Stratis Signature Auth
 
 
-<a name="authpost"></a>
-# **AuthPost**
-> void AuthPost (string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = null)
+<a name="authenticate"></a>
+# **Authenticate**
+> void Authenticate (string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = null)
 
 Stratis Signature Auth
 
@@ -25,7 +25,7 @@ using Opdex.Client.Model;
 
 namespace Example
 {
-    public class AuthPostExample
+    public class AuthenticateExample
     {
         public static void Main()
         {
@@ -39,11 +39,11 @@ namespace Example
             try
             {
                 // Stratis Signature Auth
-                apiInstance.AuthPost(uid, stratisSignatureAuthRequest, exp);
+                apiInstance.Authenticate(uid, stratisSignatureAuthRequest, exp);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AuthenticationApi.AuthPost: " + e.Message );
+                Debug.Print("Exception when calling AuthenticationApi.Authenticate: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }

@@ -41,7 +41,7 @@ namespace Opdex.Client.Model
         /// <param name="sats">Number of parts which make up one whole token.</param>
         /// <param name="totalSupply">Decimal value with uncapped precision and size.</param>
         /// <param name="summary">summary.</param>
-        public TokenResponse(string address = default(string), string name = default(string), string symbol = default(string), int decimals = default(int), decimal sats = default(decimal), string totalSupply = default(string), TokenSummaryResponse summary = default(TokenSummaryResponse))
+        public TokenResponse(string address = default(string), string name = default(string), string symbol = default(string), int decimals = default(int), int sats = default(int), string totalSupply = default(string), TokenSummaryResponse summary = default(TokenSummaryResponse))
         {
             this.Address = address;
             this.Name = name;
@@ -85,7 +85,7 @@ namespace Opdex.Client.Model
         /// </summary>
         /// <value>Number of parts which make up one whole token</value>
         [DataMember(Name = "sats", EmitDefaultValue = false)]
-        public decimal Sats { get; set; }
+        public int Sats { get; set; }
 
         /// <summary>
         /// Decimal value with uncapped precision and size
@@ -252,8 +252,8 @@ namespace Opdex.Client.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Decimals, must be a value greater than or equal to 0.", new [] { "Decimals" });
             }
 
-            // Sats (decimal) minimum
-            if (this.Sats < (decimal)1)
+            // Sats (int) minimum
+            if (this.Sats < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sats, must be a value greater than or equal to 1.", new [] { "Sats" });
             }

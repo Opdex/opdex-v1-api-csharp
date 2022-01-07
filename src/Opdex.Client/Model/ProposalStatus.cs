@@ -26,9 +26,9 @@ using OpenAPIDateConverter = Opdex.Client.Client.OpenAPIDateConverter;
 namespace Opdex.Client.Model
 {
     /// <summary>
-    /// Status of a vault proposal
+    /// Status of vault proposal
     /// </summary>
-    /// <value>Status of a vault proposal</value>
+    /// <value>Status of vault proposal</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum ProposalStatus
     {

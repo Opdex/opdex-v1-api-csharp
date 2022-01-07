@@ -1,5 +1,5 @@
 # Opdex.Client.Model.ProposalStatus
-Status of a vault proposal
+Status of vault proposal
 
 ## Properties
 

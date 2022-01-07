@@ -5,7 +5,7 @@ Indicates a vault proposal was created
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProposalId** | **decimal** | Identifier for the proposal | [optional] 
+**ProposalId** | **int** | Identifier for the proposal | [optional] 
 **Wallet** | **string** | An address on the Cirrus network | [optional] 
 **Amount** | **string** | Decimal value with uncapped precision and size | [optional] 
 **Description** | **string** | Description of the proposal | [optional] 
