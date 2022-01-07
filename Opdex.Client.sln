@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 VisualStudioVersion = 12.0.0.0
 MinimumVisualStudioVersion = 10.0.0.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Opdex.Client", "src\Opdex.Client\Opdex.Client.csproj", "{3C94B3B7-439B-4572-855F-C75F062E5E02}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Opdex.Client", "src\Opdex.Client\Opdex.Client.csproj", "{16C11690-2C01-47EB-8828-FD3EE5E6C72F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Opdex.Client.Test", "src\Opdex.Client.Test\Opdex.Client.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3C94B3B7-439B-4572-855F-C75F062E5E02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C94B3B7-439B-4572-855F-C75F062E5E02}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3C94B3B7-439B-4572-855F-C75F062E5E02}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3C94B3B7-439B-4572-855F-C75F062E5E02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16C11690-2C01-47EB-8828-FD3EE5E6C72F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16C11690-2C01-47EB-8828-FD3EE5E6C72F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16C11690-2C01-47EB-8828-FD3EE5E6C72F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16C11690-2C01-47EB-8828-FD3EE5E6C72F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU

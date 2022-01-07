@@ -36,6 +36,18 @@ namespace Opdex.Client.Model
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="AddLiquidityEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of AddLiquidityEvent.</param>
+        public TransactionEvent(AddLiquidityEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
         /// with the <see cref="ApprovalEvent" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of ApprovalEvent.</param>
@@ -48,10 +60,262 @@ namespace Opdex.Client.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="ChangeMarketPermissionEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of ChangeMarketPermissionEvent.</param>
+        public TransactionEvent(ChangeMarketPermissionEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="ClaimPendingDeployerOwnershipEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of ClaimPendingDeployerOwnershipEvent.</param>
+        public TransactionEvent(ClaimPendingDeployerOwnershipEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="ClaimPendingMarketOwnershipEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of ClaimPendingMarketOwnershipEvent.</param>
+        public TransactionEvent(ClaimPendingMarketOwnershipEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="CollectMiningRewardsEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of CollectMiningRewardsEvent.</param>
+        public TransactionEvent(CollectMiningRewardsEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="CollectStakingRewardsEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of CollectStakingRewardsEvent.</param>
+        public TransactionEvent(CollectStakingRewardsEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="CompleteVaultProposalEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of CompleteVaultProposalEvent.</param>
+        public TransactionEvent(CompleteVaultProposalEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="CreateLiquidityPoolEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of CreateLiquidityPoolEvent.</param>
+        public TransactionEvent(CreateLiquidityPoolEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="CreateMarketEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of CreateMarketEvent.</param>
+        public TransactionEvent(CreateMarketEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="CreateVaultCertificateEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of CreateVaultCertificateEvent.</param>
+        public TransactionEvent(CreateVaultCertificateEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="CreateVaultProposalEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of CreateVaultProposalEvent.</param>
+        public TransactionEvent(CreateVaultProposalEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
         /// with the <see cref="DistributionEvent" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of DistributionEvent.</param>
         public TransactionEvent(DistributionEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="EnableMiningEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of EnableMiningEvent.</param>
+        public TransactionEvent(EnableMiningEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="NominationEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of NominationEvent.</param>
+        public TransactionEvent(NominationEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="RemoveLiquidityEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of RemoveLiquidityEvent.</param>
+        public TransactionEvent(RemoveLiquidityEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="RevokeVaultCertificateEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of RevokeVaultCertificateEvent.</param>
+        public TransactionEvent(RevokeVaultCertificateEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="RewardMiningPoolEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of RewardMiningPoolEvent.</param>
+        public TransactionEvent(RewardMiningPoolEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="SetPendingDeployerOwnershipEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of SetPendingDeployerOwnershipEvent.</param>
+        public TransactionEvent(SetPendingDeployerOwnershipEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="SetPendingMarketOwnershipEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of SetPendingMarketOwnershipEvent.</param>
+        public TransactionEvent(SetPendingMarketOwnershipEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="StartMiningEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of StartMiningEvent.</param>
+        public TransactionEvent(StartMiningEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="StartStakingEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of StartStakingEvent.</param>
+        public TransactionEvent(StartStakingEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="StopMiningEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of StopMiningEvent.</param>
+        public TransactionEvent(StopMiningEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="StopStakingEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of StopStakingEvent.</param>
+        public TransactionEvent(StopStakingEvent actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -82,6 +346,54 @@ namespace Opdex.Client.Model
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="VaultProposalPledgeEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of VaultProposalPledgeEvent.</param>
+        public TransactionEvent(VaultProposalPledgeEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="VaultProposalVoteEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of VaultProposalVoteEvent.</param>
+        public TransactionEvent(VaultProposalVoteEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="VaultProposalWithdrawPledgeEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of VaultProposalWithdrawPledgeEvent.</param>
+        public TransactionEvent(VaultProposalWithdrawPledgeEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="VaultProposalWithdrawVoteEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of VaultProposalWithdrawVoteEvent.</param>
+        public TransactionEvent(VaultProposalWithdrawVoteEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
 
         private Object _actualInstance;
 
@@ -96,11 +408,99 @@ namespace Opdex.Client.Model
             }
             set
             {
-                if (value.GetType() == typeof(ApprovalEvent))
+                if (value.GetType() == typeof(AddLiquidityEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(ApprovalEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(ChangeMarketPermissionEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(ClaimPendingDeployerOwnershipEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(ClaimPendingMarketOwnershipEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(CollectMiningRewardsEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(CollectStakingRewardsEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(CompleteVaultProposalEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(CreateLiquidityPoolEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(CreateMarketEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(CreateVaultCertificateEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(CreateVaultProposalEvent))
                 {
                     this._actualInstance = value;
                 }
                 else if (value.GetType() == typeof(DistributionEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(EnableMiningEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(NominationEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(RemoveLiquidityEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(RevokeVaultCertificateEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(RewardMiningPoolEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(SetPendingDeployerOwnershipEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(SetPendingMarketOwnershipEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(StartMiningEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(StartStakingEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(StopMiningEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(StopStakingEvent))
                 {
                     this._actualInstance = value;
                 }
@@ -112,11 +512,37 @@ namespace Opdex.Client.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(VaultProposalPledgeEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(VaultProposalVoteEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(VaultProposalWithdrawPledgeEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(VaultProposalWithdrawVoteEvent))
+                {
+                    this._actualInstance = value;
+                }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: ApprovalEvent, DistributionEvent, SwapEvent, TransferEvent");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: AddLiquidityEvent, ApprovalEvent, ChangeMarketPermissionEvent, ClaimPendingDeployerOwnershipEvent, ClaimPendingMarketOwnershipEvent, CollectMiningRewardsEvent, CollectStakingRewardsEvent, CompleteVaultProposalEvent, CreateLiquidityPoolEvent, CreateMarketEvent, CreateVaultCertificateEvent, CreateVaultProposalEvent, DistributionEvent, EnableMiningEvent, NominationEvent, RemoveLiquidityEvent, RevokeVaultCertificateEvent, RewardMiningPoolEvent, SetPendingDeployerOwnershipEvent, SetPendingMarketOwnershipEvent, StartMiningEvent, StartStakingEvent, StopMiningEvent, StopStakingEvent, SwapEvent, TransferEvent, VaultProposalPledgeEvent, VaultProposalVoteEvent, VaultProposalWithdrawPledgeEvent, VaultProposalWithdrawVoteEvent");
                 }
             }
+        }
+
+        /// <summary>
+        /// Get the actual instance of `AddLiquidityEvent`. If the actual instance is not `AddLiquidityEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of AddLiquidityEvent</returns>
+        public AddLiquidityEvent GetAddLiquidityEvent()
+        {
+            return (AddLiquidityEvent)this.ActualInstance;
         }
 
         /// <summary>
@@ -130,6 +556,106 @@ namespace Opdex.Client.Model
         }
 
         /// <summary>
+        /// Get the actual instance of `ChangeMarketPermissionEvent`. If the actual instance is not `ChangeMarketPermissionEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of ChangeMarketPermissionEvent</returns>
+        public ChangeMarketPermissionEvent GetChangeMarketPermissionEvent()
+        {
+            return (ChangeMarketPermissionEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `ClaimPendingDeployerOwnershipEvent`. If the actual instance is not `ClaimPendingDeployerOwnershipEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of ClaimPendingDeployerOwnershipEvent</returns>
+        public ClaimPendingDeployerOwnershipEvent GetClaimPendingDeployerOwnershipEvent()
+        {
+            return (ClaimPendingDeployerOwnershipEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `ClaimPendingMarketOwnershipEvent`. If the actual instance is not `ClaimPendingMarketOwnershipEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of ClaimPendingMarketOwnershipEvent</returns>
+        public ClaimPendingMarketOwnershipEvent GetClaimPendingMarketOwnershipEvent()
+        {
+            return (ClaimPendingMarketOwnershipEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `CollectMiningRewardsEvent`. If the actual instance is not `CollectMiningRewardsEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of CollectMiningRewardsEvent</returns>
+        public CollectMiningRewardsEvent GetCollectMiningRewardsEvent()
+        {
+            return (CollectMiningRewardsEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `CollectStakingRewardsEvent`. If the actual instance is not `CollectStakingRewardsEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of CollectStakingRewardsEvent</returns>
+        public CollectStakingRewardsEvent GetCollectStakingRewardsEvent()
+        {
+            return (CollectStakingRewardsEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `CompleteVaultProposalEvent`. If the actual instance is not `CompleteVaultProposalEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of CompleteVaultProposalEvent</returns>
+        public CompleteVaultProposalEvent GetCompleteVaultProposalEvent()
+        {
+            return (CompleteVaultProposalEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `CreateLiquidityPoolEvent`. If the actual instance is not `CreateLiquidityPoolEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of CreateLiquidityPoolEvent</returns>
+        public CreateLiquidityPoolEvent GetCreateLiquidityPoolEvent()
+        {
+            return (CreateLiquidityPoolEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `CreateMarketEvent`. If the actual instance is not `CreateMarketEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of CreateMarketEvent</returns>
+        public CreateMarketEvent GetCreateMarketEvent()
+        {
+            return (CreateMarketEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `CreateVaultCertificateEvent`. If the actual instance is not `CreateVaultCertificateEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of CreateVaultCertificateEvent</returns>
+        public CreateVaultCertificateEvent GetCreateVaultCertificateEvent()
+        {
+            return (CreateVaultCertificateEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `CreateVaultProposalEvent`. If the actual instance is not `CreateVaultProposalEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of CreateVaultProposalEvent</returns>
+        public CreateVaultProposalEvent GetCreateVaultProposalEvent()
+        {
+            return (CreateVaultProposalEvent)this.ActualInstance;
+        }
+
+        /// <summary>
         /// Get the actual instance of `DistributionEvent`. If the actual instance is not `DistributionEvent`,
         /// the InvalidClassException will be thrown
         /// </summary>
@@ -137,6 +663,116 @@ namespace Opdex.Client.Model
         public DistributionEvent GetDistributionEvent()
         {
             return (DistributionEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `EnableMiningEvent`. If the actual instance is not `EnableMiningEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of EnableMiningEvent</returns>
+        public EnableMiningEvent GetEnableMiningEvent()
+        {
+            return (EnableMiningEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `NominationEvent`. If the actual instance is not `NominationEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of NominationEvent</returns>
+        public NominationEvent GetNominationEvent()
+        {
+            return (NominationEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `RemoveLiquidityEvent`. If the actual instance is not `RemoveLiquidityEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of RemoveLiquidityEvent</returns>
+        public RemoveLiquidityEvent GetRemoveLiquidityEvent()
+        {
+            return (RemoveLiquidityEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `RevokeVaultCertificateEvent`. If the actual instance is not `RevokeVaultCertificateEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of RevokeVaultCertificateEvent</returns>
+        public RevokeVaultCertificateEvent GetRevokeVaultCertificateEvent()
+        {
+            return (RevokeVaultCertificateEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `RewardMiningPoolEvent`. If the actual instance is not `RewardMiningPoolEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of RewardMiningPoolEvent</returns>
+        public RewardMiningPoolEvent GetRewardMiningPoolEvent()
+        {
+            return (RewardMiningPoolEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `SetPendingDeployerOwnershipEvent`. If the actual instance is not `SetPendingDeployerOwnershipEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of SetPendingDeployerOwnershipEvent</returns>
+        public SetPendingDeployerOwnershipEvent GetSetPendingDeployerOwnershipEvent()
+        {
+            return (SetPendingDeployerOwnershipEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `SetPendingMarketOwnershipEvent`. If the actual instance is not `SetPendingMarketOwnershipEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of SetPendingMarketOwnershipEvent</returns>
+        public SetPendingMarketOwnershipEvent GetSetPendingMarketOwnershipEvent()
+        {
+            return (SetPendingMarketOwnershipEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `StartMiningEvent`. If the actual instance is not `StartMiningEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of StartMiningEvent</returns>
+        public StartMiningEvent GetStartMiningEvent()
+        {
+            return (StartMiningEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `StartStakingEvent`. If the actual instance is not `StartStakingEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of StartStakingEvent</returns>
+        public StartStakingEvent GetStartStakingEvent()
+        {
+            return (StartStakingEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `StopMiningEvent`. If the actual instance is not `StopMiningEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of StopMiningEvent</returns>
+        public StopMiningEvent GetStopMiningEvent()
+        {
+            return (StopMiningEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `StopStakingEvent`. If the actual instance is not `StopStakingEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of StopStakingEvent</returns>
+        public StopStakingEvent GetStopStakingEvent()
+        {
+            return (StopStakingEvent)this.ActualInstance;
         }
 
         /// <summary>
@@ -157,6 +793,46 @@ namespace Opdex.Client.Model
         public TransferEvent GetTransferEvent()
         {
             return (TransferEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `VaultProposalPledgeEvent`. If the actual instance is not `VaultProposalPledgeEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of VaultProposalPledgeEvent</returns>
+        public VaultProposalPledgeEvent GetVaultProposalPledgeEvent()
+        {
+            return (VaultProposalPledgeEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `VaultProposalVoteEvent`. If the actual instance is not `VaultProposalVoteEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of VaultProposalVoteEvent</returns>
+        public VaultProposalVoteEvent GetVaultProposalVoteEvent()
+        {
+            return (VaultProposalVoteEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `VaultProposalWithdrawPledgeEvent`. If the actual instance is not `VaultProposalWithdrawPledgeEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of VaultProposalWithdrawPledgeEvent</returns>
+        public VaultProposalWithdrawPledgeEvent GetVaultProposalWithdrawPledgeEvent()
+        {
+            return (VaultProposalWithdrawPledgeEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `VaultProposalWithdrawVoteEvent`. If the actual instance is not `VaultProposalWithdrawVoteEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of VaultProposalWithdrawVoteEvent</returns>
+        public VaultProposalWithdrawVoteEvent GetVaultProposalWithdrawVoteEvent()
+        {
+            return (VaultProposalWithdrawVoteEvent)this.ActualInstance;
         }
 
         /// <summary>
@@ -200,6 +876,26 @@ namespace Opdex.Client.Model
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(AddLiquidityEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<AddLiquidityEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<AddLiquidityEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("AddLiquidityEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into AddLiquidityEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(ApprovalEvent).GetProperty("AdditionalProperties") == null)
                 {
                     newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<ApprovalEvent>(jsonString, TransactionEvent.SerializerSettings));
@@ -220,6 +916,206 @@ namespace Opdex.Client.Model
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(ChangeMarketPermissionEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<ChangeMarketPermissionEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<ChangeMarketPermissionEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("ChangeMarketPermissionEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ChangeMarketPermissionEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(ClaimPendingDeployerOwnershipEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<ClaimPendingDeployerOwnershipEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<ClaimPendingDeployerOwnershipEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("ClaimPendingDeployerOwnershipEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ClaimPendingDeployerOwnershipEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(ClaimPendingMarketOwnershipEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<ClaimPendingMarketOwnershipEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<ClaimPendingMarketOwnershipEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("ClaimPendingMarketOwnershipEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ClaimPendingMarketOwnershipEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(CollectMiningRewardsEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<CollectMiningRewardsEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<CollectMiningRewardsEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("CollectMiningRewardsEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CollectMiningRewardsEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(CollectStakingRewardsEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<CollectStakingRewardsEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<CollectStakingRewardsEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("CollectStakingRewardsEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CollectStakingRewardsEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(CompleteVaultProposalEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<CompleteVaultProposalEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<CompleteVaultProposalEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("CompleteVaultProposalEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CompleteVaultProposalEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(CreateLiquidityPoolEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<CreateLiquidityPoolEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<CreateLiquidityPoolEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("CreateLiquidityPoolEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CreateLiquidityPoolEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(CreateMarketEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<CreateMarketEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<CreateMarketEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("CreateMarketEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CreateMarketEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(CreateVaultCertificateEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<CreateVaultCertificateEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<CreateVaultCertificateEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("CreateVaultCertificateEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CreateVaultCertificateEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(CreateVaultProposalEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<CreateVaultProposalEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<CreateVaultProposalEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("CreateVaultProposalEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CreateVaultProposalEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(DistributionEvent).GetProperty("AdditionalProperties") == null)
                 {
                     newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<DistributionEvent>(jsonString, TransactionEvent.SerializerSettings));
@@ -235,6 +1131,226 @@ namespace Opdex.Client.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into DistributionEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(EnableMiningEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<EnableMiningEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<EnableMiningEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("EnableMiningEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into EnableMiningEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(NominationEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<NominationEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<NominationEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("NominationEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into NominationEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(RemoveLiquidityEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<RemoveLiquidityEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<RemoveLiquidityEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("RemoveLiquidityEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into RemoveLiquidityEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(RevokeVaultCertificateEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<RevokeVaultCertificateEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<RevokeVaultCertificateEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("RevokeVaultCertificateEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into RevokeVaultCertificateEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(RewardMiningPoolEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<RewardMiningPoolEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<RewardMiningPoolEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("RewardMiningPoolEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into RewardMiningPoolEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(SetPendingDeployerOwnershipEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<SetPendingDeployerOwnershipEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<SetPendingDeployerOwnershipEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("SetPendingDeployerOwnershipEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into SetPendingDeployerOwnershipEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(SetPendingMarketOwnershipEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<SetPendingMarketOwnershipEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<SetPendingMarketOwnershipEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("SetPendingMarketOwnershipEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into SetPendingMarketOwnershipEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(StartMiningEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<StartMiningEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<StartMiningEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("StartMiningEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into StartMiningEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(StartStakingEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<StartStakingEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<StartStakingEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("StartStakingEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into StartStakingEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(StopMiningEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<StopMiningEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<StopMiningEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("StopMiningEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into StopMiningEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(StopStakingEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<StopStakingEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<StopStakingEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("StopStakingEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into StopStakingEvent: {1}", jsonString, exception.ToString()));
             }
 
             try
@@ -275,6 +1391,86 @@ namespace Opdex.Client.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into TransferEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(VaultProposalPledgeEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<VaultProposalPledgeEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<VaultProposalPledgeEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("VaultProposalPledgeEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into VaultProposalPledgeEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(VaultProposalVoteEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<VaultProposalVoteEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<VaultProposalVoteEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("VaultProposalVoteEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into VaultProposalVoteEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(VaultProposalWithdrawPledgeEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<VaultProposalWithdrawPledgeEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<VaultProposalWithdrawPledgeEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("VaultProposalWithdrawPledgeEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into VaultProposalWithdrawPledgeEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(VaultProposalWithdrawVoteEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<VaultProposalWithdrawVoteEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<VaultProposalWithdrawVoteEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("VaultProposalWithdrawVoteEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into VaultProposalWithdrawVoteEvent: {1}", jsonString, exception.ToString()));
             }
 
             if (match == 0)
