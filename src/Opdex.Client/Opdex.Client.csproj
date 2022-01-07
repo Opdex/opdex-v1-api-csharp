@@ -6,17 +6,19 @@
     <AssemblyName>Opdex.Client</AssemblyName>
     <PackageId>Opdex.Client</PackageId>
     <OutputType>Library</OutputType>
-    <Authors>OpenAPI</Authors>
-    <Company>OpenAPI</Company>
+    <Authors>Opdex Contributors</Authors>
+    <Company></Company>
     <AssemblyTitle>OpenAPI Library</AssemblyTitle>
-    <Description>A library generated from a OpenAPI doc</Description>
+    <Description>API Client for the V1 Opdex API</Description>
     <Copyright>No Copyright</Copyright>
     <RootNamespace>Opdex.Client</RootNamespace>
-    <Version>1.0.0</Version>
+    <Version>1.0.0-alpha1</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Opdex.Client.xml</DocumentationFile>
-    <RepositoryUrl>https://github.com/GIT_USER_ID/GIT_REPO_ID.git</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/Opdex/opdex-v1-api-csharp.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Minor update</PackageReleaseNotes>
+    <PackageTags>opdex;defi;stratis;cirrus;blockchain</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
