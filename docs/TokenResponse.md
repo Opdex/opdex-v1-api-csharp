@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Decimals** | **int** | Number of decimals of precision for token values | [optional] 
 **Sats** | **int** | Number of parts which make up one whole token | [optional] 
 **TotalSupply** | **string** | Decimal value with uncapped precision and size | [optional] 
+**Attributes** | [**List&lt;TokenAttribute&gt;**](TokenAttribute.md) | Attributes applied to the token | [optional] 
 **Summary** | [**TokenSummaryResponse**](TokenSummaryResponse.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

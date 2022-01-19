@@ -26,16 +26,23 @@ using OpenAPIDateConverter = Opdex.Client.Client.OpenAPIDateConverter;
 namespace Opdex.Client.Model
 {
     /// <summary>
-    /// Defines crs
+    /// Mining status filter
     /// </summary>
+    /// <value>Mining status filter</value>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum Crs
+    public enum MiningStatus
     {
         /// <summary>
-        /// Enum CRS for value: CRS
+        /// Enum Enabled for value: Enabled
         /// </summary>
-        [EnumMember(Value = "CRS")]
-        CRS = 1
+        [EnumMember(Value = "Enabled")]
+        Enabled = 1,
+
+        /// <summary>
+        /// Enum Disabled for value: Disabled
+        /// </summary>
+        [EnumMember(Value = "Disabled")]
+        Disabled = 2
 
     }
 

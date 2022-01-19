@@ -1,28 +1,28 @@
 # Opdex.Client.Api.VaultsApi
 
-All URIs are relative to *https://test-api.opdex.com*
+All URIs are relative to *https://test-api.opdex.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**BuildCompleteProposalQuote**](VaultsApi.md#buildcompleteproposalquote) | **POST** /vault-governances/{vault}/proposals/{proposalId}/complete | Build Complete Proposal Transaction Quote
-[**BuildPledgeQuote**](VaultsApi.md#buildpledgequote) | **POST** /vault-governances/{vault}/proposals/{proposalId}/pledges | Build Make Pledge Transaction Quote
-[**BuildProposeChangeMinimumPledgeQuote**](VaultsApi.md#buildproposechangeminimumpledgequote) | **POST** /vault-governances/{vault}/proposals/minimum-pledge | Build Propose Change Minimum Pledge Transaction Quote
-[**BuildProposeChangeMinimumVoteQuote**](VaultsApi.md#buildproposechangeminimumvotequote) | **POST** /vault-governances/{vault}/proposals/minimum-vote | Build Propose Change Minimum Vote Transaction Quote
-[**BuildProposeCreateCertificateQuote**](VaultsApi.md#buildproposecreatecertificatequote) | **POST** /vault-governances/{vault}/proposals/create-certificate | Build Propose Create Certificate Transaction Quote
-[**BuildProposeRevokeCertificateQuote**](VaultsApi.md#buildproposerevokecertificatequote) | **POST** /vault-governances/{vault}/proposals/revoke-certificate | Build Propose Revoke Certificate Transaction Quote
-[**BuildRedeemCertificateQuote**](VaultsApi.md#buildredeemcertificatequote) | **POST** /vault-governances/{vault}/certificates/redeem | Build Redeem Vault Certificate Transaction Quote
-[**BuildVoteQuote**](VaultsApi.md#buildvotequote) | **POST** /vault-governances/{vault}/proposals/{proposalId}/votes | Build Cast Vote Transaction Quote
-[**BuildWithdrawPledgeQuote**](VaultsApi.md#buildwithdrawpledgequote) | **POST** /vault-governances/{vault}/proposals/{proposalId}/pledges/withdraw | Build Withdraw Pledge Transaction Quote
-[**BuildWithdrawVoteQuote**](VaultsApi.md#buildwithdrawvotequote) | **POST** /vault-governances/{vault}/proposals/{proposalId}/votes/withdraw | Build Withdraw Vote Transaction Quote
-[**GetCertificates**](VaultsApi.md#getcertificates) | **GET** /vault-governances/{vault}/certificates | Get Vault Certificates
-[**GetPledgePosition**](VaultsApi.md#getpledgeposition) | **GET** /vault-governances/{vault}/proposals/{proposalId}/pledges/{pledger} | Get Vault Proposal Pledge Position
-[**GetPledges**](VaultsApi.md#getpledges) | **GET** /vault-governances/{vault}/pledges | Get Vault Proposal Pledges
-[**GetProposals**](VaultsApi.md#getproposals) | **GET** /vault-governances/{vault}/proposals | Get Vault Proposals
-[**GetVault**](VaultsApi.md#getvault) | **GET** /vault-governances/{vault} | Get Vault
-[**GetVaultProposal**](VaultsApi.md#getvaultproposal) | **GET** /vault-governances/{vault}/proposals/{proposalId} | Get Vault Proposal
-[**GetVaults**](VaultsApi.md#getvaults) | **GET** /vault-governances | Get Vaults
-[**GetVotePosition**](VaultsApi.md#getvoteposition) | **GET** /vault-governances/{vault}/proposals/{proposalId}/votes/{voter} | Get Vault Proposal Vote Position
-[**GetVotes**](VaultsApi.md#getvotes) | **GET** /vault-governances/{vault}/votes | Get Vault Proposal Votes
+[**BuildCompleteProposalQuote**](VaultsApi.md#buildcompleteproposalquote) | **POST** /vaults/{vault}/proposals/{proposalId}/complete | Build Complete Proposal Transaction Quote
+[**BuildPledgeQuote**](VaultsApi.md#buildpledgequote) | **POST** /vaults/{vault}/proposals/{proposalId}/pledges | Build Make Pledge Transaction Quote
+[**BuildProposeChangeMinimumPledgeQuote**](VaultsApi.md#buildproposechangeminimumpledgequote) | **POST** /vaults/{vault}/proposals/minimum-pledge | Build Propose Change Minimum Pledge Transaction Quote
+[**BuildProposeChangeMinimumVoteQuote**](VaultsApi.md#buildproposechangeminimumvotequote) | **POST** /vaults/{vault}/proposals/minimum-vote | Build Propose Change Minimum Vote Transaction Quote
+[**BuildProposeCreateCertificateQuote**](VaultsApi.md#buildproposecreatecertificatequote) | **POST** /vaults/{vault}/proposals/create-certificate | Build Propose Create Certificate Transaction Quote
+[**BuildProposeRevokeCertificateQuote**](VaultsApi.md#buildproposerevokecertificatequote) | **POST** /vaults/{vault}/proposals/revoke-certificate | Build Propose Revoke Certificate Transaction Quote
+[**BuildRedeemCertificateQuote**](VaultsApi.md#buildredeemcertificatequote) | **POST** /vaults/{vault}/certificates/redeem | Build Redeem Vault Certificate Transaction Quote
+[**BuildVoteQuote**](VaultsApi.md#buildvotequote) | **POST** /vaults/{vault}/proposals/{proposalId}/votes | Build Cast Vote Transaction Quote
+[**BuildWithdrawPledgeQuote**](VaultsApi.md#buildwithdrawpledgequote) | **POST** /vaults/{vault}/proposals/{proposalId}/pledges/withdraw | Build Withdraw Pledge Transaction Quote
+[**BuildWithdrawVoteQuote**](VaultsApi.md#buildwithdrawvotequote) | **POST** /vaults/{vault}/proposals/{proposalId}/votes/withdraw | Build Withdraw Vote Transaction Quote
+[**GetCertificates**](VaultsApi.md#getcertificates) | **GET** /vaults/{vault}/certificates | Get Vault Certificates
+[**GetPledgePosition**](VaultsApi.md#getpledgeposition) | **GET** /vaults/{vault}/proposals/{proposalId}/pledges/{pledger} | Get Vault Proposal Pledge Position
+[**GetPledges**](VaultsApi.md#getpledges) | **GET** /vaults/{vault}/pledges | Get Vault Proposal Pledges
+[**GetProposals**](VaultsApi.md#getproposals) | **GET** /vaults/{vault}/proposals | Get Vault Proposals
+[**GetVault**](VaultsApi.md#getvault) | **GET** /vaults/{vault} | Get Vault
+[**GetVaultProposal**](VaultsApi.md#getvaultproposal) | **GET** /vaults/{vault}/proposals/{proposalId} | Get Vault Proposal
+[**GetVaults**](VaultsApi.md#getvaults) | **GET** /vaults | Get Vaults
+[**GetVotePosition**](VaultsApi.md#getvoteposition) | **GET** /vaults/{vault}/proposals/{proposalId}/votes/{voter} | Get Vault Proposal Vote Position
+[**GetVotes**](VaultsApi.md#getvotes) | **GET** /vaults/{vault}/votes | Get Vault Proposal Votes
 
 
 <a name="buildcompleteproposalquote"></a>
@@ -48,12 +48,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new VaultsApi(config);
-            var vault = tS1PEGC4VsovkDgib1MD3eYNv5BL2FAC3i;  // string | Address of the vault
+            var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var proposalId = 1;  // int | Id of the proposal
 
             try
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 <a name="buildpledgequote"></a>
 # **BuildPledgeQuote**
-> TransactionQuoteResponse BuildPledgeQuote (string vault, int proposalId)
+> TransactionQuoteResponse BuildPledgeQuote (string vault, int proposalId, QuotePledgeRequest quotePledgeRequest)
 
 Build Make Pledge Transaction Quote
 
@@ -129,18 +129,19 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new VaultsApi(config);
-            var vault = tS1PEGC4VsovkDgib1MD3eYNv5BL2FAC3i;  // string | Address of the vault
+            var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var proposalId = 1;  // int | Id of the proposal
+            var quotePledgeRequest = new QuotePledgeRequest(); // QuotePledgeRequest | Parameters used to make a pledge to a proposal
 
             try
             {
                 // Build Make Pledge Transaction Quote
-                TransactionQuoteResponse result = apiInstance.BuildPledgeQuote(vault, proposalId);
+                TransactionQuoteResponse result = apiInstance.BuildPledgeQuote(vault, proposalId, quotePledgeRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -160,6 +161,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **vault** | **string**| Address of the vault | 
  **proposalId** | **int**| Id of the proposal | 
+ **quotePledgeRequest** | [**QuotePledgeRequest**](QuotePledgeRequest.md)| Parameters used to make a pledge to a proposal | 
 
 ### Return type
 
@@ -171,7 +173,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, application/problem+json
 
 
@@ -189,7 +191,7 @@ Name | Type | Description  | Notes
 
 <a name="buildproposechangeminimumpledgequote"></a>
 # **BuildProposeChangeMinimumPledgeQuote**
-> TransactionQuoteResponse BuildProposeChangeMinimumPledgeQuote (string vault)
+> TransactionQuoteResponse BuildProposeChangeMinimumPledgeQuote (string vault, QuoteProposeMinimumPledgeRequest quoteProposeMinimumPledgeRequest)
 
 Build Propose Change Minimum Pledge Transaction Quote
 
@@ -210,17 +212,18 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new VaultsApi(config);
-            var vault = tS1PEGC4VsovkDgib1MD3eYNv5BL2FAC3i;  // string | Address of the vault
+            var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
+            var quoteProposeMinimumPledgeRequest = new QuoteProposeMinimumPledgeRequest(); // QuoteProposeMinimumPledgeRequest | Parameters used to propose the revokation of a certificate
 
             try
             {
                 // Build Propose Change Minimum Pledge Transaction Quote
-                TransactionQuoteResponse result = apiInstance.BuildProposeChangeMinimumPledgeQuote(vault);
+                TransactionQuoteResponse result = apiInstance.BuildProposeChangeMinimumPledgeQuote(vault, quoteProposeMinimumPledgeRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -239,6 +242,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **vault** | **string**| Address of the vault | 
+ **quoteProposeMinimumPledgeRequest** | [**QuoteProposeMinimumPledgeRequest**](QuoteProposeMinimumPledgeRequest.md)| Parameters used to propose the revokation of a certificate | 
 
 ### Return type
 
@@ -250,7 +254,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, application/problem+json
 
 
@@ -268,7 +272,7 @@ Name | Type | Description  | Notes
 
 <a name="buildproposechangeminimumvotequote"></a>
 # **BuildProposeChangeMinimumVoteQuote**
-> TransactionQuoteResponse BuildProposeChangeMinimumVoteQuote (string vault)
+> TransactionQuoteResponse BuildProposeChangeMinimumVoteQuote (string vault, QuoteProposeMinimumVoteRequest quoteProposeMinimumVoteRequest)
 
 Build Propose Change Minimum Vote Transaction Quote
 
@@ -289,17 +293,18 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new VaultsApi(config);
-            var vault = tS1PEGC4VsovkDgib1MD3eYNv5BL2FAC3i;  // string | Address of the vault
+            var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
+            var quoteProposeMinimumVoteRequest = new QuoteProposeMinimumVoteRequest(); // QuoteProposeMinimumVoteRequest | Parameters used to propose the revokation of a certificate
 
             try
             {
                 // Build Propose Change Minimum Vote Transaction Quote
-                TransactionQuoteResponse result = apiInstance.BuildProposeChangeMinimumVoteQuote(vault);
+                TransactionQuoteResponse result = apiInstance.BuildProposeChangeMinimumVoteQuote(vault, quoteProposeMinimumVoteRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -318,6 +323,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **vault** | **string**| Address of the vault | 
+ **quoteProposeMinimumVoteRequest** | [**QuoteProposeMinimumVoteRequest**](QuoteProposeMinimumVoteRequest.md)| Parameters used to propose the revokation of a certificate | 
 
 ### Return type
 
@@ -329,7 +335,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, application/problem+json
 
 
@@ -347,7 +353,7 @@ Name | Type | Description  | Notes
 
 <a name="buildproposecreatecertificatequote"></a>
 # **BuildProposeCreateCertificateQuote**
-> TransactionQuoteResponse BuildProposeCreateCertificateQuote (string vault)
+> TransactionQuoteResponse BuildProposeCreateCertificateQuote (string vault, QuoteProposeCreateCertificateRequest quoteProposeCreateCertificateRequest)
 
 Build Propose Create Certificate Transaction Quote
 
@@ -368,17 +374,18 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new VaultsApi(config);
-            var vault = tS1PEGC4VsovkDgib1MD3eYNv5BL2FAC3i;  // string | Address of the vault
+            var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
+            var quoteProposeCreateCertificateRequest = new QuoteProposeCreateCertificateRequest(); // QuoteProposeCreateCertificateRequest | Parameters used to propose the creation of a certificate
 
             try
             {
                 // Build Propose Create Certificate Transaction Quote
-                TransactionQuoteResponse result = apiInstance.BuildProposeCreateCertificateQuote(vault);
+                TransactionQuoteResponse result = apiInstance.BuildProposeCreateCertificateQuote(vault, quoteProposeCreateCertificateRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -397,6 +404,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **vault** | **string**| Address of the vault | 
+ **quoteProposeCreateCertificateRequest** | [**QuoteProposeCreateCertificateRequest**](QuoteProposeCreateCertificateRequest.md)| Parameters used to propose the creation of a certificate | 
 
 ### Return type
 
@@ -408,7 +416,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, application/problem+json
 
 
@@ -426,7 +434,7 @@ Name | Type | Description  | Notes
 
 <a name="buildproposerevokecertificatequote"></a>
 # **BuildProposeRevokeCertificateQuote**
-> TransactionQuoteResponse BuildProposeRevokeCertificateQuote (string vault)
+> TransactionQuoteResponse BuildProposeRevokeCertificateQuote (string vault, QuoteProposeRevokeCertificateRequest quoteProposeRevokeCertificateRequest)
 
 Build Propose Revoke Certificate Transaction Quote
 
@@ -447,17 +455,18 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new VaultsApi(config);
-            var vault = tS1PEGC4VsovkDgib1MD3eYNv5BL2FAC3i;  // string | Address of the vault
+            var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
+            var quoteProposeRevokeCertificateRequest = new QuoteProposeRevokeCertificateRequest(); // QuoteProposeRevokeCertificateRequest | Parameters used to propose the revokation of a certificate
 
             try
             {
                 // Build Propose Revoke Certificate Transaction Quote
-                TransactionQuoteResponse result = apiInstance.BuildProposeRevokeCertificateQuote(vault);
+                TransactionQuoteResponse result = apiInstance.BuildProposeRevokeCertificateQuote(vault, quoteProposeRevokeCertificateRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -476,6 +485,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **vault** | **string**| Address of the vault | 
+ **quoteProposeRevokeCertificateRequest** | [**QuoteProposeRevokeCertificateRequest**](QuoteProposeRevokeCertificateRequest.md)| Parameters used to propose the revokation of a certificate | 
 
 ### Return type
 
@@ -487,7 +497,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, application/problem+json
 
 
@@ -526,12 +536,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new VaultsApi(config);
-            var vault = tS1PEGC4VsovkDgib1MD3eYNv5BL2FAC3i;  // string | Address of the vault
+            var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
 
             try
             {
@@ -584,7 +594,7 @@ Name | Type | Description  | Notes
 
 <a name="buildvotequote"></a>
 # **BuildVoteQuote**
-> TransactionQuoteResponse BuildVoteQuote (string vault, int proposalId)
+> TransactionQuoteResponse BuildVoteQuote (string vault, int proposalId, QuoteVoteRequest quoteVoteRequest)
 
 Build Cast Vote Transaction Quote
 
@@ -605,18 +615,19 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new VaultsApi(config);
-            var vault = tS1PEGC4VsovkDgib1MD3eYNv5BL2FAC3i;  // string | Address of the vault
+            var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var proposalId = 1;  // int | Id of the proposal
+            var quoteVoteRequest = new QuoteVoteRequest(); // QuoteVoteRequest | Parameters used to vote on a proposal
 
             try
             {
                 // Build Cast Vote Transaction Quote
-                TransactionQuoteResponse result = apiInstance.BuildVoteQuote(vault, proposalId);
+                TransactionQuoteResponse result = apiInstance.BuildVoteQuote(vault, proposalId, quoteVoteRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -636,6 +647,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **vault** | **string**| Address of the vault | 
  **proposalId** | **int**| Id of the proposal | 
+ **quoteVoteRequest** | [**QuoteVoteRequest**](QuoteVoteRequest.md)| Parameters used to vote on a proposal | 
 
 ### Return type
 
@@ -647,7 +659,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, application/problem+json
 
 
@@ -665,7 +677,7 @@ Name | Type | Description  | Notes
 
 <a name="buildwithdrawpledgequote"></a>
 # **BuildWithdrawPledgeQuote**
-> TransactionQuoteResponse BuildWithdrawPledgeQuote (string vault, int proposalId)
+> TransactionQuoteResponse BuildWithdrawPledgeQuote (string vault, int proposalId, QuoteWithdrawPledgeRequest quoteWithdrawPledgeRequest)
 
 Build Withdraw Pledge Transaction Quote
 
@@ -686,18 +698,19 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new VaultsApi(config);
-            var vault = tS1PEGC4VsovkDgib1MD3eYNv5BL2FAC3i;  // string | Address of the vault
+            var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var proposalId = 1;  // int | Id of the proposal
+            var quoteWithdrawPledgeRequest = new QuoteWithdrawPledgeRequest(); // QuoteWithdrawPledgeRequest | Parameters used to withdraw a pledge balance
 
             try
             {
                 // Build Withdraw Pledge Transaction Quote
-                TransactionQuoteResponse result = apiInstance.BuildWithdrawPledgeQuote(vault, proposalId);
+                TransactionQuoteResponse result = apiInstance.BuildWithdrawPledgeQuote(vault, proposalId, quoteWithdrawPledgeRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -717,6 +730,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **vault** | **string**| Address of the vault | 
  **proposalId** | **int**| Id of the proposal | 
+ **quoteWithdrawPledgeRequest** | [**QuoteWithdrawPledgeRequest**](QuoteWithdrawPledgeRequest.md)| Parameters used to withdraw a pledge balance | 
 
 ### Return type
 
@@ -728,7 +742,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, application/problem+json
 
 
@@ -746,7 +760,7 @@ Name | Type | Description  | Notes
 
 <a name="buildwithdrawvotequote"></a>
 # **BuildWithdrawVoteQuote**
-> TransactionQuoteResponse BuildWithdrawVoteQuote (string vault, int proposalId)
+> TransactionQuoteResponse BuildWithdrawVoteQuote (string vault, int proposalId, QuoteWithdrawVoteRequest quoteWithdrawVoteRequest)
 
 Build Withdraw Vote Transaction Quote
 
@@ -767,18 +781,19 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new VaultsApi(config);
-            var vault = tS1PEGC4VsovkDgib1MD3eYNv5BL2FAC3i;  // string | Address of the vault
+            var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var proposalId = 1;  // int | Id of the proposal
+            var quoteWithdrawVoteRequest = new QuoteWithdrawVoteRequest(); // QuoteWithdrawVoteRequest | Parameters used to withdraw a vote balance
 
             try
             {
                 // Build Withdraw Vote Transaction Quote
-                TransactionQuoteResponse result = apiInstance.BuildWithdrawVoteQuote(vault, proposalId);
+                TransactionQuoteResponse result = apiInstance.BuildWithdrawVoteQuote(vault, proposalId, quoteWithdrawVoteRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -798,6 +813,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **vault** | **string**| Address of the vault | 
  **proposalId** | **int**| Id of the proposal | 
+ **quoteWithdrawVoteRequest** | [**QuoteWithdrawVoteRequest**](QuoteWithdrawVoteRequest.md)| Parameters used to withdraw a vote balance | 
 
 ### Return type
 
@@ -809,7 +825,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, application/problem+json
 
 
@@ -848,9 +864,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new VaultsApi(config);
-            var vault = tS1PEGC4VsovkDgib1MD3eYNv5BL2FAC3i;  // string | Address of the vault
+            var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var holder = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address of the certificate holder (optional) 
             var status = Vesting;  // CertificateStatus? | Status of the certificates (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
@@ -933,9 +949,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new VaultsApi(config);
-            var vault = tS1PEGC4VsovkDgib1MD3eYNv5BL2FAC3i;  // string | Address of the vault
+            var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var proposalId = 1;  // int | Id of the proposal
             var pledger = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address of the pledger
 
@@ -1012,9 +1028,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new VaultsApi(config);
-            var vault = tS1PEGC4VsovkDgib1MD3eYNv5BL2FAC3i;  // string | Address of the vault
+            var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var proposalId = 1;  // int? | Id of the proposal in the vault (optional) 
             var pledger = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address of the pledger (optional) 
             var includeZeroBalances = true;  // bool? | Includes zero balances if true, otherwise filters out zero balances if false (optional) 
@@ -1099,9 +1115,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new VaultsApi(config);
-            var vault = tS1PEGC4VsovkDgib1MD3eYNv5BL2FAC3i;  // string | Address of the vault
+            var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var status = Complete;  // ProposalStatus? | Status of the proposal (optional) 
             var type = Create;  // ProposalType? | Type of proposal (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
@@ -1184,9 +1200,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new VaultsApi(config);
-            var vault = tS1PEGC4VsovkDgib1MD3eYNv5BL2FAC3i;  // string | Address of the vault
+            var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
 
             try
             {
@@ -1259,9 +1275,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new VaultsApi(config);
-            var vault = tS1PEGC4VsovkDgib1MD3eYNv5BL2FAC3i;  // string | Address of the vault
+            var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var proposalId = 1;  // int | Id of the proposal
 
             try
@@ -1336,9 +1352,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new VaultsApi(config);
-            var lockedToken = tBeY2UAVsbHoS9jwEnT2kMmRsJwUHK1j1L;  // string | Address of the token locked in the vault (optional) 
+            var lockedToken = tTTuKbCR2UnsEByXBp1ynBz91J2yz63h1c;  // string | Address of the token locked in the vault (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
             var limit = 10;  // int? | Number of results per page (optional) 
             var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
@@ -1416,9 +1432,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new VaultsApi(config);
-            var vault = tS1PEGC4VsovkDgib1MD3eYNv5BL2FAC3i;  // string | Address of the vault
+            var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var proposalId = 1;  // int | Id of the proposal
             var voter = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address of the voter
 
@@ -1495,9 +1511,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new VaultsApi(config);
-            var vault = tS1PEGC4VsovkDgib1MD3eYNv5BL2FAC3i;  // string | Address of the vault
+            var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var proposalId = 1;  // int? | Id of the proposal in the vault (optional) 
             var voter = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address of the voter (optional) 
             var includeZeroBalances = true;  // bool? | Includes zero balances if true, otherwise filters out zero balances if false (optional) 

@@ -1,6 +1,6 @@
 # Opdex.Client.Api.TransactionsApi
 
-All URIs are relative to *https://test-api.opdex.com*
+All URIs are relative to *https://test-api.opdex.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -33,7 +33,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new TransactionsApi(config);
             var hash = 0132da001ca719cc8d98610fbd8493e92c7943c6e0c0844a819f4c90531fd3a6;  // string | The SHA256 hash of the transaction to look up
 
@@ -108,7 +108,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new TransactionsApi(config);
             var wallet = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Filter transactions by wallet address (optional) 
             var contracts = new List<string>(); // List<string> | Smart contract addresses to include (optional) 
@@ -192,7 +192,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new TransactionsApi(config);
             var notifyBroadcastRequest = new NotifyBroadcastRequest(); // NotifyBroadcastRequest | 
 
@@ -265,7 +265,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 

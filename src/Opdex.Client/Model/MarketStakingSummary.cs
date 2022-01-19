@@ -26,19 +26,19 @@ using OpenAPIDateConverter = Opdex.Client.Client.OpenAPIDateConverter;
 namespace Opdex.Client.Model
 {
     /// <summary>
-    /// StakingSummary
+    /// MarketStakingSummary
     /// </summary>
-    [DataContract(Name = "stakingSummary")]
-    public partial class StakingSummary : IEquatable<StakingSummary>, IValidatableObject
+    [DataContract(Name = "marketStakingSummary")]
+    public partial class MarketStakingSummary : IEquatable<MarketStakingSummary>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="StakingSummary" /> class.
+        /// Initializes a new instance of the <see cref="MarketStakingSummary" /> class.
         /// </summary>
         /// <param name="stakingWeight">Decimal value with uncapped precision and size.</param>
         /// <param name="dailyStakingWeightChangePercent">Percentage change of the staking weight amount from the previous day.</param>
         /// <param name="stakingUsd">Total staking weight USD amount.</param>
         /// <param name="dailyStakingUsdChangePercent">Percentage change of the staking USD amount from the previous day.</param>
-        public StakingSummary(string stakingWeight = default(string), decimal dailyStakingWeightChangePercent = default(decimal), decimal stakingUsd = default(decimal), decimal dailyStakingUsdChangePercent = default(decimal))
+        public MarketStakingSummary(string stakingWeight = default(string), decimal dailyStakingWeightChangePercent = default(decimal), decimal stakingUsd = default(decimal), decimal dailyStakingUsdChangePercent = default(decimal))
         {
             this.StakingWeight = stakingWeight;
             this.DailyStakingWeightChangePercent = dailyStakingWeightChangePercent;
@@ -81,7 +81,7 @@ namespace Opdex.Client.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class StakingSummary {\n");
+            sb.Append("class MarketStakingSummary {\n");
             sb.Append("  StakingWeight: ").Append(StakingWeight).Append("\n");
             sb.Append("  DailyStakingWeightChangePercent: ").Append(DailyStakingWeightChangePercent).Append("\n");
             sb.Append("  StakingUsd: ").Append(StakingUsd).Append("\n");
@@ -106,15 +106,15 @@ namespace Opdex.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as StakingSummary);
+            return this.Equals(input as MarketStakingSummary);
         }
 
         /// <summary>
-        /// Returns true if StakingSummary instances are equal
+        /// Returns true if MarketStakingSummary instances are equal
         /// </summary>
-        /// <param name="input">Instance of StakingSummary to be compared</param>
+        /// <param name="input">Instance of MarketStakingSummary to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(StakingSummary input)
+        public bool Equals(MarketStakingSummary input)
         {
             if (input == null)
             {

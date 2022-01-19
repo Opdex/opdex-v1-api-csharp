@@ -57,6 +57,14 @@ namespace Opdex.Client.Test.Model
 
 
         /// <summary>
+        /// Test the property 'Market'
+        /// </summary>
+        [Fact]
+        public void MarketTest()
+        {
+            // TODO unit test for the property 'Market'
+        }
+        /// <summary>
         /// Test the property 'Owner'
         /// </summary>
         [Fact]
@@ -65,20 +73,60 @@ namespace Opdex.Client.Test.Model
             // TODO unit test for the property 'Owner'
         }
         /// <summary>
-        /// Test the property 'Spender'
+        /// Test the property 'Router'
         /// </summary>
         [Fact]
-        public void SpenderTest()
+        public void RouterTest()
         {
-            // TODO unit test for the property 'Spender'
+            // TODO unit test for the property 'Router'
         }
         /// <summary>
-        /// Test the property 'Amount'
+        /// Test the property 'AuthPoolCreators'
         /// </summary>
         [Fact]
-        public void AmountTest()
+        public void AuthPoolCreatorsTest()
         {
-            // TODO unit test for the property 'Amount'
+            // TODO unit test for the property 'AuthPoolCreators'
+        }
+        /// <summary>
+        /// Test the property 'AuthProviders'
+        /// </summary>
+        [Fact]
+        public void AuthProvidersTest()
+        {
+            // TODO unit test for the property 'AuthProviders'
+        }
+        /// <summary>
+        /// Test the property 'AuthTraders'
+        /// </summary>
+        [Fact]
+        public void AuthTradersTest()
+        {
+            // TODO unit test for the property 'AuthTraders'
+        }
+        /// <summary>
+        /// Test the property 'TransactionFee'
+        /// </summary>
+        [Fact]
+        public void TransactionFeeTest()
+        {
+            // TODO unit test for the property 'TransactionFee'
+        }
+        /// <summary>
+        /// Test the property 'StakingToken'
+        /// </summary>
+        [Fact]
+        public void StakingTokenTest()
+        {
+            // TODO unit test for the property 'StakingToken'
+        }
+        /// <summary>
+        /// Test the property 'EnableMarketFee'
+        /// </summary>
+        [Fact]
+        public void EnableMarketFeeTest()
+        {
+            // TODO unit test for the property 'EnableMarketFee'
         }
         /// <summary>
         /// Test the property 'EventType'
@@ -105,46 +153,6 @@ namespace Opdex.Client.Test.Model
             // TODO unit test for the property 'SortOrder'
         }
         /// <summary>
-        /// Test the property 'VaultAmount'
-        /// </summary>
-        [Fact]
-        public void VaultAmountTest()
-        {
-            // TODO unit test for the property 'VaultAmount'
-        }
-        /// <summary>
-        /// Test the property 'MiningGovernanceAmount'
-        /// </summary>
-        [Fact]
-        public void MiningGovernanceAmountTest()
-        {
-            // TODO unit test for the property 'MiningGovernanceAmount'
-        }
-        /// <summary>
-        /// Test the property 'PeriodIndex'
-        /// </summary>
-        [Fact]
-        public void PeriodIndexTest()
-        {
-            // TODO unit test for the property 'PeriodIndex'
-        }
-        /// <summary>
-        /// Test the property 'TotalSupply'
-        /// </summary>
-        [Fact]
-        public void TotalSupplyTest()
-        {
-            // TODO unit test for the property 'TotalSupply'
-        }
-        /// <summary>
-        /// Test the property 'NextDistributionBlock'
-        /// </summary>
-        [Fact]
-        public void NextDistributionBlockTest()
-        {
-            // TODO unit test for the property 'NextDistributionBlock'
-        }
-        /// <summary>
         /// Test the property 'From'
         /// </summary>
         [Fact]
@@ -159,6 +167,94 @@ namespace Opdex.Client.Test.Model
         public void ToTest()
         {
             // TODO unit test for the property 'To'
+        }
+        /// <summary>
+        /// Test the property 'Token'
+        /// </summary>
+        [Fact]
+        public void TokenTest()
+        {
+            // TODO unit test for the property 'Token'
+        }
+        /// <summary>
+        /// Test the property 'LiquidityPool'
+        /// </summary>
+        [Fact]
+        public void LiquidityPoolTest()
+        {
+            // TODO unit test for the property 'LiquidityPool'
+        }
+        /// <summary>
+        /// Test the property 'Address'
+        /// </summary>
+        [Fact]
+        public void AddressTest()
+        {
+            // TODO unit test for the property 'Address'
+        }
+        /// <summary>
+        /// Test the property 'Permission'
+        /// </summary>
+        [Fact]
+        public void PermissionTest()
+        {
+            // TODO unit test for the property 'Permission'
+        }
+        /// <summary>
+        /// Test the property 'IsAuthorized'
+        /// </summary>
+        [Fact]
+        public void IsAuthorizedTest()
+        {
+            // TODO unit test for the property 'IsAuthorized'
+        }
+        /// <summary>
+        /// Test the property 'AmountCrs'
+        /// </summary>
+        [Fact]
+        public void AmountCrsTest()
+        {
+            // TODO unit test for the property 'AmountCrs'
+        }
+        /// <summary>
+        /// Test the property 'AmountSrc'
+        /// </summary>
+        [Fact]
+        public void AmountSrcTest()
+        {
+            // TODO unit test for the property 'AmountSrc'
+        }
+        /// <summary>
+        /// Test the property 'AmountLpt'
+        /// </summary>
+        [Fact]
+        public void AmountLptTest()
+        {
+            // TODO unit test for the property 'AmountLpt'
+        }
+        /// <summary>
+        /// Test the property 'TokenSrc'
+        /// </summary>
+        [Fact]
+        public void TokenSrcTest()
+        {
+            // TODO unit test for the property 'TokenSrc'
+        }
+        /// <summary>
+        /// Test the property 'TokenLp'
+        /// </summary>
+        [Fact]
+        public void TokenLpTest()
+        {
+            // TODO unit test for the property 'TokenLp'
+        }
+        /// <summary>
+        /// Test the property 'TokenLpTotalSupply'
+        /// </summary>
+        [Fact]
+        public void TokenLpTotalSupplyTest()
+        {
+            // TODO unit test for the property 'TokenLpTotalSupply'
         }
         /// <summary>
         /// Test the property 'Sender'
@@ -207,6 +303,326 @@ namespace Opdex.Client.Test.Model
         public void SrcTokenTest()
         {
             // TODO unit test for the property 'SrcToken'
+        }
+        /// <summary>
+        /// Test the property 'Staker'
+        /// </summary>
+        [Fact]
+        public void StakerTest()
+        {
+            // TODO unit test for the property 'Staker'
+        }
+        /// <summary>
+        /// Test the property 'Amount'
+        /// </summary>
+        [Fact]
+        public void AmountTest()
+        {
+            // TODO unit test for the property 'Amount'
+        }
+        /// <summary>
+        /// Test the property 'StakerBalance'
+        /// </summary>
+        [Fact]
+        public void StakerBalanceTest()
+        {
+            // TODO unit test for the property 'StakerBalance'
+        }
+        /// <summary>
+        /// Test the property 'TotalStaked'
+        /// </summary>
+        [Fact]
+        public void TotalStakedTest()
+        {
+            // TODO unit test for the property 'TotalStaked'
+        }
+        /// <summary>
+        /// Test the property 'MinerBalance'
+        /// </summary>
+        [Fact]
+        public void MinerBalanceTest()
+        {
+            // TODO unit test for the property 'MinerBalance'
+        }
+        /// <summary>
+        /// Test the property 'TotalSupply'
+        /// </summary>
+        [Fact]
+        public void TotalSupplyTest()
+        {
+            // TODO unit test for the property 'TotalSupply'
+        }
+        /// <summary>
+        /// Test the property 'RewardRate'
+        /// </summary>
+        [Fact]
+        public void RewardRateTest()
+        {
+            // TODO unit test for the property 'RewardRate'
+        }
+        /// <summary>
+        /// Test the property 'MiningPeriodEndBlock'
+        /// </summary>
+        [Fact]
+        public void MiningPeriodEndBlockTest()
+        {
+            // TODO unit test for the property 'MiningPeriodEndBlock'
+        }
+        /// <summary>
+        /// Test the property 'Spender'
+        /// </summary>
+        [Fact]
+        public void SpenderTest()
+        {
+            // TODO unit test for the property 'Spender'
+        }
+        /// <summary>
+        /// Test the property 'VaultAmount'
+        /// </summary>
+        [Fact]
+        public void VaultAmountTest()
+        {
+            // TODO unit test for the property 'VaultAmount'
+        }
+        /// <summary>
+        /// Test the property 'MiningGovernanceAmount'
+        /// </summary>
+        [Fact]
+        public void MiningGovernanceAmountTest()
+        {
+            // TODO unit test for the property 'MiningGovernanceAmount'
+        }
+        /// <summary>
+        /// Test the property 'PeriodIndex'
+        /// </summary>
+        [Fact]
+        public void PeriodIndexTest()
+        {
+            // TODO unit test for the property 'PeriodIndex'
+        }
+        /// <summary>
+        /// Test the property 'NextDistributionBlock'
+        /// </summary>
+        [Fact]
+        public void NextDistributionBlockTest()
+        {
+            // TODO unit test for the property 'NextDistributionBlock'
+        }
+        /// <summary>
+        /// Test the property 'StakingPool'
+        /// </summary>
+        [Fact]
+        public void StakingPoolTest()
+        {
+            // TODO unit test for the property 'StakingPool'
+        }
+        /// <summary>
+        /// Test the property 'MiningPool'
+        /// </summary>
+        [Fact]
+        public void MiningPoolTest()
+        {
+            // TODO unit test for the property 'MiningPool'
+        }
+        /// <summary>
+        /// Test the property 'Weight'
+        /// </summary>
+        [Fact]
+        public void WeightTest()
+        {
+            // TODO unit test for the property 'Weight'
+        }
+        /// <summary>
+        /// Test the property 'VestedBlock'
+        /// </summary>
+        [Fact]
+        public void VestedBlockTest()
+        {
+            // TODO unit test for the property 'VestedBlock'
+        }
+        /// <summary>
+        /// Test the property 'OldAmount'
+        /// </summary>
+        [Fact]
+        public void OldAmountTest()
+        {
+            // TODO unit test for the property 'OldAmount'
+        }
+        /// <summary>
+        /// Test the property 'NewAmount'
+        /// </summary>
+        [Fact]
+        public void NewAmountTest()
+        {
+            // TODO unit test for the property 'NewAmount'
+        }
+        /// <summary>
+        /// Test the property 'ProposalId'
+        /// </summary>
+        [Fact]
+        public void ProposalIdTest()
+        {
+            // TODO unit test for the property 'ProposalId'
+        }
+        /// <summary>
+        /// Test the property 'Wallet'
+        /// </summary>
+        [Fact]
+        public void WalletTest()
+        {
+            // TODO unit test for the property 'Wallet'
+        }
+        /// <summary>
+        /// Test the property 'Description'
+        /// </summary>
+        [Fact]
+        public void DescriptionTest()
+        {
+            // TODO unit test for the property 'Description'
+        }
+        /// <summary>
+        /// Test the property 'Type'
+        /// </summary>
+        [Fact]
+        public void TypeTest()
+        {
+            // TODO unit test for the property 'Type'
+        }
+        /// <summary>
+        /// Test the property 'Status'
+        /// </summary>
+        [Fact]
+        public void StatusTest()
+        {
+            // TODO unit test for the property 'Status'
+        }
+        /// <summary>
+        /// Test the property 'Expiration'
+        /// </summary>
+        [Fact]
+        public void ExpirationTest()
+        {
+            // TODO unit test for the property 'Expiration'
+        }
+        /// <summary>
+        /// Test the property 'Approved'
+        /// </summary>
+        [Fact]
+        public void ApprovedTest()
+        {
+            // TODO unit test for the property 'Approved'
+        }
+        /// <summary>
+        /// Test the property 'Pledger'
+        /// </summary>
+        [Fact]
+        public void PledgerTest()
+        {
+            // TODO unit test for the property 'Pledger'
+        }
+        /// <summary>
+        /// Test the property 'PledgeAmount'
+        /// </summary>
+        [Fact]
+        public void PledgeAmountTest()
+        {
+            // TODO unit test for the property 'PledgeAmount'
+        }
+        /// <summary>
+        /// Test the property 'PledgerAmount'
+        /// </summary>
+        [Fact]
+        public void PledgerAmountTest()
+        {
+            // TODO unit test for the property 'PledgerAmount'
+        }
+        /// <summary>
+        /// Test the property 'ProposalPledgeAmount'
+        /// </summary>
+        [Fact]
+        public void ProposalPledgeAmountTest()
+        {
+            // TODO unit test for the property 'ProposalPledgeAmount'
+        }
+        /// <summary>
+        /// Test the property 'TotalPledgeMinimumMet'
+        /// </summary>
+        [Fact]
+        public void TotalPledgeMinimumMetTest()
+        {
+            // TODO unit test for the property 'TotalPledgeMinimumMet'
+        }
+        /// <summary>
+        /// Test the property 'WithdrawAmount'
+        /// </summary>
+        [Fact]
+        public void WithdrawAmountTest()
+        {
+            // TODO unit test for the property 'WithdrawAmount'
+        }
+        /// <summary>
+        /// Test the property 'PledgeWithdrawn'
+        /// </summary>
+        [Fact]
+        public void PledgeWithdrawnTest()
+        {
+            // TODO unit test for the property 'PledgeWithdrawn'
+        }
+        /// <summary>
+        /// Test the property 'Voter'
+        /// </summary>
+        [Fact]
+        public void VoterTest()
+        {
+            // TODO unit test for the property 'Voter'
+        }
+        /// <summary>
+        /// Test the property 'InFavor'
+        /// </summary>
+        [Fact]
+        public void InFavorTest()
+        {
+            // TODO unit test for the property 'InFavor'
+        }
+        /// <summary>
+        /// Test the property 'VoteAmount'
+        /// </summary>
+        [Fact]
+        public void VoteAmountTest()
+        {
+            // TODO unit test for the property 'VoteAmount'
+        }
+        /// <summary>
+        /// Test the property 'VoterAmount'
+        /// </summary>
+        [Fact]
+        public void VoterAmountTest()
+        {
+            // TODO unit test for the property 'VoterAmount'
+        }
+        /// <summary>
+        /// Test the property 'ProposalYesAmount'
+        /// </summary>
+        [Fact]
+        public void ProposalYesAmountTest()
+        {
+            // TODO unit test for the property 'ProposalYesAmount'
+        }
+        /// <summary>
+        /// Test the property 'ProposalNoAmount'
+        /// </summary>
+        [Fact]
+        public void ProposalNoAmountTest()
+        {
+            // TODO unit test for the property 'ProposalNoAmount'
+        }
+        /// <summary>
+        /// Test the property 'VoteWithdrawn'
+        /// </summary>
+        [Fact]
+        public void VoteWithdrawnTest()
+        {
+            // TODO unit test for the property 'VoteWithdrawn'
         }
 
     }

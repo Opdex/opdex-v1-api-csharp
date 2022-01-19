@@ -39,7 +39,7 @@ namespace Opdex.Client.Model
         /// <param name="volumeUsd">Total volume USD amount.</param>
         /// <param name="staking">staking.</param>
         /// <param name="rewards">rewards.</param>
-        public MarketSummary(decimal liquidityUsd = default(decimal), decimal dailyLiquidityUsdChangePercent = default(decimal), decimal volumeUsd = default(decimal), StakingSummary staking = default(StakingSummary), RewardSummary rewards = default(RewardSummary))
+        public MarketSummary(decimal liquidityUsd = default(decimal), decimal dailyLiquidityUsdChangePercent = default(decimal), decimal volumeUsd = default(decimal), MarketStakingSummary staking = default(MarketStakingSummary), RewardSummary rewards = default(RewardSummary))
         {
             this.LiquidityUsd = liquidityUsd;
             this.DailyLiquidityUsdChangePercent = dailyLiquidityUsdChangePercent;
@@ -73,7 +73,7 @@ namespace Opdex.Client.Model
         /// Gets or Sets Staking
         /// </summary>
         [DataMember(Name = "staking", EmitDefaultValue = false)]
-        public StakingSummary Staking { get; set; }
+        public MarketStakingSummary Staking { get; set; }
 
         /// <summary>
         /// Gets or Sets Rewards

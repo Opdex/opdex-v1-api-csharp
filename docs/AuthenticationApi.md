@@ -1,6 +1,6 @@
 # Opdex.Client.Api.AuthenticationApi
 
-All URIs are relative to *https://test-api.opdex.com*
+All URIs are relative to *https://test-api.opdex.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,7 +30,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new AuthenticationApi(config);
             var uid = Lf5t5J-oAn3CZ9YY27JnK5XtpbjIOD3BxyvHhd80AQ4fsJ7o0J8i5uSjzHZ9jeS3;  // string | Unique identifier for the Stratis ID
             var stratisSignatureAuthRequest = new StratisSignatureAuthRequest(); // StratisSignatureAuthRequest | The Stratis Signature Auth body

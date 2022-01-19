@@ -27,6 +27,215 @@ namespace Opdex.Client.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Build Claim Market Ownership Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a claim market ownership transaction. Only the pending owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <returns>TransactionQuoteResponse</returns>
+        TransactionQuoteResponse BuildClaimMarketOwnershipQuote(string market);
+
+        /// <summary>
+        /// Build Claim Market Ownership Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a claim market ownership transaction. Only the pending owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <returns>ApiResponse of TransactionQuoteResponse</returns>
+        ApiResponse<TransactionQuoteResponse> BuildClaimMarketOwnershipQuoteWithHttpInfo(string market);
+        /// <summary>
+        /// Build Collect Market Fees Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a collect market fees transaction. Only the owner of the market can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="quoteCollectMarketFeesRequest">Parameters used to determine fees to collect</param>
+        /// <returns>TransactionQuoteResponse</returns>
+        TransactionQuoteResponse BuildCollectMarketFeesQuote(string market, QuoteCollectMarketFeesRequest quoteCollectMarketFeesRequest);
+
+        /// <summary>
+        /// Build Collect Market Fees Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a collect market fees transaction. Only the owner of the market can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="quoteCollectMarketFeesRequest">Parameters used to determine fees to collect</param>
+        /// <returns>ApiResponse of TransactionQuoteResponse</returns>
+        ApiResponse<TransactionQuoteResponse> BuildCollectMarketFeesQuoteWithHttpInfo(string market, QuoteCollectMarketFeesRequest quoteCollectMarketFeesRequest);
+        /// <summary>
+        /// Build Create Staking Market Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a create staking market transaction. Only the owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quoteCreateStakingMarketRequest">Parameters used for the creation of the staking market</param>
+        /// <returns>TransactionQuoteResponse</returns>
+        TransactionQuoteResponse BuildCreateStakingMarketQuote(QuoteCreateStakingMarketRequest quoteCreateStakingMarketRequest);
+
+        /// <summary>
+        /// Build Create Staking Market Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a create staking market transaction. Only the owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quoteCreateStakingMarketRequest">Parameters used for the creation of the staking market</param>
+        /// <returns>ApiResponse of TransactionQuoteResponse</returns>
+        ApiResponse<TransactionQuoteResponse> BuildCreateStakingMarketQuoteWithHttpInfo(QuoteCreateStakingMarketRequest quoteCreateStakingMarketRequest);
+        /// <summary>
+        /// Build Create Standard Market Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a create standard market transaction. Only the owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quoteCreateStandardMarketRequest">Parameters used for the creation of the standard market</param>
+        /// <returns>TransactionQuoteResponse</returns>
+        TransactionQuoteResponse BuildCreateStandardMarketQuote(QuoteCreateStandardMarketRequest quoteCreateStandardMarketRequest);
+
+        /// <summary>
+        /// Build Create Standard Market Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a create standard market transaction. Only the owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quoteCreateStandardMarketRequest">Parameters used for the creation of the standard market</param>
+        /// <returns>ApiResponse of TransactionQuoteResponse</returns>
+        ApiResponse<TransactionQuoteResponse> BuildCreateStandardMarketQuoteWithHttpInfo(QuoteCreateStandardMarketRequest quoteCreateStandardMarketRequest);
+        /// <summary>
+        /// Build Set Market Ownership Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a set market ownership transaction. Only the owner of the market can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="quoteSetMarketOwnerRequest">Parameters used for setting the market owner</param>
+        /// <returns>TransactionQuoteResponse</returns>
+        TransactionQuoteResponse BuildSetMarketOwnershipQuote(string market, QuoteSetMarketOwnerRequest quoteSetMarketOwnerRequest);
+
+        /// <summary>
+        /// Build Set Market Ownership Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a set market ownership transaction. Only the owner of the market can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="quoteSetMarketOwnerRequest">Parameters used for setting the market owner</param>
+        /// <returns>ApiResponse of TransactionQuoteResponse</returns>
+        ApiResponse<TransactionQuoteResponse> BuildSetMarketOwnershipQuoteWithHttpInfo(string market, QuoteSetMarketOwnerRequest quoteSetMarketOwnerRequest);
+        /// <summary>
+        /// Build Set Market Permissions Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a set market permissions transaction. This call can only successfully be executed if done by the market owner, or an address which has been assigned this permission. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="address">Address subject to the permissions</param>
+        /// <param name="quoteSetMarketPermissionsRequest">Parameters used for assigning a market permission</param>
+        /// <returns>TransactionQuoteResponse</returns>
+        TransactionQuoteResponse BuildSetMarketPermissionsQuote(string market, string address, QuoteSetMarketPermissionsRequest quoteSetMarketPermissionsRequest);
+
+        /// <summary>
+        /// Build Set Market Permissions Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a set market permissions transaction. This call can only successfully be executed if done by the market owner, or an address which has been assigned this permission. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="address">Address subject to the permissions</param>
+        /// <param name="quoteSetMarketPermissionsRequest">Parameters used for assigning a market permission</param>
+        /// <returns>ApiResponse of TransactionQuoteResponse</returns>
+        ApiResponse<TransactionQuoteResponse> BuildSetMarketPermissionsQuoteWithHttpInfo(string market, string address, QuoteSetMarketPermissionsRequest quoteSetMarketPermissionsRequest);
+        /// <summary>
+        /// Get Market
+        /// </summary>
+        /// <remarks>
+        /// Retrieves details for an Opdex market.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <returns>MarketResponse</returns>
+        MarketResponse GetMarket(string market);
+
+        /// <summary>
+        /// Get Market
+        /// </summary>
+        /// <remarks>
+        /// Retrieves details for an Opdex market.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <returns>ApiResponse of MarketResponse</returns>
+        ApiResponse<MarketResponse> GetMarketWithHttpInfo(string market);
+        /// <summary>
+        /// Get Market History
+        /// </summary>
+        /// <remarks>
+        /// Retrieves historical liquidity, rewards, volume and staking data for an Opdex market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <returns>MarketSnapshotsResponse</returns>
+        MarketSnapshotsResponse GetMarketHistory(string market, DateTime startDateTime, DateTime endDateTime, SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+
+        /// <summary>
+        /// Get Market History
+        /// </summary>
+        /// <remarks>
+        /// Retrieves historical liquidity, rewards, volume and staking data for an Opdex market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <returns>ApiResponse of MarketSnapshotsResponse</returns>
+        ApiResponse<MarketSnapshotsResponse> GetMarketHistoryWithHttpInfo(string market, DateTime startDateTime, DateTime endDateTime, SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        /// <summary>
+        /// Get Market Permissions
+        /// </summary>
+        /// <remarks>
+        /// Retrieves permissions within a market that are assigned to an address.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="address">Address subject to the permissions</param>
+        /// <returns>List&lt;MarketPermission&gt;</returns>
+        List<MarketPermission> GetMarketPermissions(string market, string address);
+
+        /// <summary>
+        /// Get Market Permissions
+        /// </summary>
+        /// <remarks>
+        /// Retrieves permissions within a market that are assigned to an address.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="address">Address subject to the permissions</param>
+        /// <returns>ApiResponse of List&lt;MarketPermission&gt;</returns>
+        ApiResponse<List<MarketPermission>> GetMarketPermissionsWithHttpInfo(string market, string address);
+        /// <summary>
         /// Get Markets
         /// </summary>
         /// <remarks>
@@ -64,6 +273,233 @@ namespace Opdex.Client.Api
     public interface IMarketsApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Build Claim Market Ownership Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a claim market ownership transaction. Only the pending owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TransactionQuoteResponse</returns>
+        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildClaimMarketOwnershipQuoteAsync(string market, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Build Claim Market Ownership Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a claim market ownership transaction. Only the pending owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildClaimMarketOwnershipQuoteWithHttpInfoAsync(string market, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Build Collect Market Fees Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a collect market fees transaction. Only the owner of the market can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="quoteCollectMarketFeesRequest">Parameters used to determine fees to collect</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TransactionQuoteResponse</returns>
+        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildCollectMarketFeesQuoteAsync(string market, QuoteCollectMarketFeesRequest quoteCollectMarketFeesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Build Collect Market Fees Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a collect market fees transaction. Only the owner of the market can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="quoteCollectMarketFeesRequest">Parameters used to determine fees to collect</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildCollectMarketFeesQuoteWithHttpInfoAsync(string market, QuoteCollectMarketFeesRequest quoteCollectMarketFeesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Build Create Staking Market Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a create staking market transaction. Only the owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quoteCreateStakingMarketRequest">Parameters used for the creation of the staking market</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TransactionQuoteResponse</returns>
+        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildCreateStakingMarketQuoteAsync(QuoteCreateStakingMarketRequest quoteCreateStakingMarketRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Build Create Staking Market Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a create staking market transaction. Only the owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quoteCreateStakingMarketRequest">Parameters used for the creation of the staking market</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildCreateStakingMarketQuoteWithHttpInfoAsync(QuoteCreateStakingMarketRequest quoteCreateStakingMarketRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Build Create Standard Market Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a create standard market transaction. Only the owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quoteCreateStandardMarketRequest">Parameters used for the creation of the standard market</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TransactionQuoteResponse</returns>
+        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildCreateStandardMarketQuoteAsync(QuoteCreateStandardMarketRequest quoteCreateStandardMarketRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Build Create Standard Market Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a create standard market transaction. Only the owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quoteCreateStandardMarketRequest">Parameters used for the creation of the standard market</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildCreateStandardMarketQuoteWithHttpInfoAsync(QuoteCreateStandardMarketRequest quoteCreateStandardMarketRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Build Set Market Ownership Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a set market ownership transaction. Only the owner of the market can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="quoteSetMarketOwnerRequest">Parameters used for setting the market owner</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TransactionQuoteResponse</returns>
+        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildSetMarketOwnershipQuoteAsync(string market, QuoteSetMarketOwnerRequest quoteSetMarketOwnerRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Build Set Market Ownership Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a set market ownership transaction. Only the owner of the market can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="quoteSetMarketOwnerRequest">Parameters used for setting the market owner</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildSetMarketOwnershipQuoteWithHttpInfoAsync(string market, QuoteSetMarketOwnerRequest quoteSetMarketOwnerRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Build Set Market Permissions Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a set market permissions transaction. This call can only successfully be executed if done by the market owner, or an address which has been assigned this permission. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="address">Address subject to the permissions</param>
+        /// <param name="quoteSetMarketPermissionsRequest">Parameters used for assigning a market permission</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TransactionQuoteResponse</returns>
+        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildSetMarketPermissionsQuoteAsync(string market, string address, QuoteSetMarketPermissionsRequest quoteSetMarketPermissionsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Build Set Market Permissions Transaction Quote
+        /// </summary>
+        /// <remarks>
+        /// Builds a quote for a set market permissions transaction. This call can only successfully be executed if done by the market owner, or an address which has been assigned this permission. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="address">Address subject to the permissions</param>
+        /// <param name="quoteSetMarketPermissionsRequest">Parameters used for assigning a market permission</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildSetMarketPermissionsQuoteWithHttpInfoAsync(string market, string address, QuoteSetMarketPermissionsRequest quoteSetMarketPermissionsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Get Market
+        /// </summary>
+        /// <remarks>
+        /// Retrieves details for an Opdex market.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of MarketResponse</returns>
+        System.Threading.Tasks.Task<MarketResponse> GetMarketAsync(string market, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get Market
+        /// </summary>
+        /// <remarks>
+        /// Retrieves details for an Opdex market.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (MarketResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MarketResponse>> GetMarketWithHttpInfoAsync(string market, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Get Market History
+        /// </summary>
+        /// <remarks>
+        /// Retrieves historical liquidity, rewards, volume and staking data for an Opdex market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of MarketSnapshotsResponse</returns>
+        System.Threading.Tasks.Task<MarketSnapshotsResponse> GetMarketHistoryAsync(string market, DateTime startDateTime, DateTime endDateTime, SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get Market History
+        /// </summary>
+        /// <remarks>
+        /// Retrieves historical liquidity, rewards, volume and staking data for an Opdex market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (MarketSnapshotsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MarketSnapshotsResponse>> GetMarketHistoryWithHttpInfoAsync(string market, DateTime startDateTime, DateTime endDateTime, SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Get Market Permissions
+        /// </summary>
+        /// <remarks>
+        /// Retrieves permissions within a market that are assigned to an address.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="address">Address subject to the permissions</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;MarketPermission&gt;</returns>
+        System.Threading.Tasks.Task<List<MarketPermission>> GetMarketPermissionsAsync(string market, string address, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get Market Permissions
+        /// </summary>
+        /// <remarks>
+        /// Retrieves permissions within a market that are assigned to an address.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="address">Address subject to the permissions</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;MarketPermission&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<MarketPermission>>> GetMarketPermissionsWithHttpInfoAsync(string market, string address, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Markets
         /// </summary>
@@ -213,6 +649,1450 @@ namespace Opdex.Client.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Build Claim Market Ownership Transaction Quote Builds a quote for a claim market ownership transaction. Only the pending owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <returns>TransactionQuoteResponse</returns>
+        public TransactionQuoteResponse BuildClaimMarketOwnershipQuote(string market)
+        {
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildClaimMarketOwnershipQuoteWithHttpInfo(market);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Build Claim Market Ownership Transaction Quote Builds a quote for a claim market ownership transaction. Only the pending owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <returns>ApiResponse of TransactionQuoteResponse</returns>
+        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildClaimMarketOwnershipQuoteWithHttpInfo(string market)
+        {
+            // verify the required parameter 'market' is set
+            if (market == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketsApi->BuildClaimMarketOwnershipQuote");
+            }
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/markets/{market}/standard/claim-ownership", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BuildClaimMarketOwnershipQuote", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Build Claim Market Ownership Transaction Quote Builds a quote for a claim market ownership transaction. Only the pending owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TransactionQuoteResponse</returns>
+        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildClaimMarketOwnershipQuoteAsync(string market, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildClaimMarketOwnershipQuoteWithHttpInfoAsync(market, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Build Claim Market Ownership Transaction Quote Builds a quote for a claim market ownership transaction. Only the pending owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildClaimMarketOwnershipQuoteWithHttpInfoAsync(string market, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'market' is set
+            if (market == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketsApi->BuildClaimMarketOwnershipQuote");
+            }
+
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/markets/{market}/standard/claim-ownership", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BuildClaimMarketOwnershipQuote", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Build Collect Market Fees Transaction Quote Builds a quote for a collect market fees transaction. Only the owner of the market can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="quoteCollectMarketFeesRequest">Parameters used to determine fees to collect</param>
+        /// <returns>TransactionQuoteResponse</returns>
+        public TransactionQuoteResponse BuildCollectMarketFeesQuote(string market, QuoteCollectMarketFeesRequest quoteCollectMarketFeesRequest)
+        {
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildCollectMarketFeesQuoteWithHttpInfo(market, quoteCollectMarketFeesRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Build Collect Market Fees Transaction Quote Builds a quote for a collect market fees transaction. Only the owner of the market can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="quoteCollectMarketFeesRequest">Parameters used to determine fees to collect</param>
+        /// <returns>ApiResponse of TransactionQuoteResponse</returns>
+        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildCollectMarketFeesQuoteWithHttpInfo(string market, QuoteCollectMarketFeesRequest quoteCollectMarketFeesRequest)
+        {
+            // verify the required parameter 'market' is set
+            if (market == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketsApi->BuildCollectMarketFeesQuote");
+            }
+
+            // verify the required parameter 'quoteCollectMarketFeesRequest' is set
+            if (quoteCollectMarketFeesRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteCollectMarketFeesRequest' when calling MarketsApi->BuildCollectMarketFeesQuote");
+            }
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
+            localVarRequestOptions.Data = quoteCollectMarketFeesRequest;
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/markets/{market}/standard/collect-fees", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BuildCollectMarketFeesQuote", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Build Collect Market Fees Transaction Quote Builds a quote for a collect market fees transaction. Only the owner of the market can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="quoteCollectMarketFeesRequest">Parameters used to determine fees to collect</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TransactionQuoteResponse</returns>
+        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildCollectMarketFeesQuoteAsync(string market, QuoteCollectMarketFeesRequest quoteCollectMarketFeesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildCollectMarketFeesQuoteWithHttpInfoAsync(market, quoteCollectMarketFeesRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Build Collect Market Fees Transaction Quote Builds a quote for a collect market fees transaction. Only the owner of the market can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="quoteCollectMarketFeesRequest">Parameters used to determine fees to collect</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildCollectMarketFeesQuoteWithHttpInfoAsync(string market, QuoteCollectMarketFeesRequest quoteCollectMarketFeesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'market' is set
+            if (market == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketsApi->BuildCollectMarketFeesQuote");
+            }
+
+            // verify the required parameter 'quoteCollectMarketFeesRequest' is set
+            if (quoteCollectMarketFeesRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteCollectMarketFeesRequest' when calling MarketsApi->BuildCollectMarketFeesQuote");
+            }
+
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
+            localVarRequestOptions.Data = quoteCollectMarketFeesRequest;
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/markets/{market}/standard/collect-fees", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BuildCollectMarketFeesQuote", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Build Create Staking Market Transaction Quote Builds a quote for a create staking market transaction. Only the owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quoteCreateStakingMarketRequest">Parameters used for the creation of the staking market</param>
+        /// <returns>TransactionQuoteResponse</returns>
+        public TransactionQuoteResponse BuildCreateStakingMarketQuote(QuoteCreateStakingMarketRequest quoteCreateStakingMarketRequest)
+        {
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildCreateStakingMarketQuoteWithHttpInfo(quoteCreateStakingMarketRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Build Create Staking Market Transaction Quote Builds a quote for a create staking market transaction. Only the owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quoteCreateStakingMarketRequest">Parameters used for the creation of the staking market</param>
+        /// <returns>ApiResponse of TransactionQuoteResponse</returns>
+        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildCreateStakingMarketQuoteWithHttpInfo(QuoteCreateStakingMarketRequest quoteCreateStakingMarketRequest)
+        {
+            // verify the required parameter 'quoteCreateStakingMarketRequest' is set
+            if (quoteCreateStakingMarketRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteCreateStakingMarketRequest' when calling MarketsApi->BuildCreateStakingMarketQuote");
+            }
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = quoteCreateStakingMarketRequest;
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/markets/staking", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BuildCreateStakingMarketQuote", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Build Create Staking Market Transaction Quote Builds a quote for a create staking market transaction. Only the owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quoteCreateStakingMarketRequest">Parameters used for the creation of the staking market</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TransactionQuoteResponse</returns>
+        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildCreateStakingMarketQuoteAsync(QuoteCreateStakingMarketRequest quoteCreateStakingMarketRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildCreateStakingMarketQuoteWithHttpInfoAsync(quoteCreateStakingMarketRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Build Create Staking Market Transaction Quote Builds a quote for a create staking market transaction. Only the owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quoteCreateStakingMarketRequest">Parameters used for the creation of the staking market</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildCreateStakingMarketQuoteWithHttpInfoAsync(QuoteCreateStakingMarketRequest quoteCreateStakingMarketRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'quoteCreateStakingMarketRequest' is set
+            if (quoteCreateStakingMarketRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteCreateStakingMarketRequest' when calling MarketsApi->BuildCreateStakingMarketQuote");
+            }
+
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = quoteCreateStakingMarketRequest;
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/markets/staking", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BuildCreateStakingMarketQuote", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Build Create Standard Market Transaction Quote Builds a quote for a create standard market transaction. Only the owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quoteCreateStandardMarketRequest">Parameters used for the creation of the standard market</param>
+        /// <returns>TransactionQuoteResponse</returns>
+        public TransactionQuoteResponse BuildCreateStandardMarketQuote(QuoteCreateStandardMarketRequest quoteCreateStandardMarketRequest)
+        {
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildCreateStandardMarketQuoteWithHttpInfo(quoteCreateStandardMarketRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Build Create Standard Market Transaction Quote Builds a quote for a create standard market transaction. Only the owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quoteCreateStandardMarketRequest">Parameters used for the creation of the standard market</param>
+        /// <returns>ApiResponse of TransactionQuoteResponse</returns>
+        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildCreateStandardMarketQuoteWithHttpInfo(QuoteCreateStandardMarketRequest quoteCreateStandardMarketRequest)
+        {
+            // verify the required parameter 'quoteCreateStandardMarketRequest' is set
+            if (quoteCreateStandardMarketRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteCreateStandardMarketRequest' when calling MarketsApi->BuildCreateStandardMarketQuote");
+            }
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = quoteCreateStandardMarketRequest;
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/markets/standard", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BuildCreateStandardMarketQuote", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Build Create Standard Market Transaction Quote Builds a quote for a create standard market transaction. Only the owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quoteCreateStandardMarketRequest">Parameters used for the creation of the standard market</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TransactionQuoteResponse</returns>
+        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildCreateStandardMarketQuoteAsync(QuoteCreateStandardMarketRequest quoteCreateStandardMarketRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildCreateStandardMarketQuoteWithHttpInfoAsync(quoteCreateStandardMarketRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Build Create Standard Market Transaction Quote Builds a quote for a create standard market transaction. Only the owner of the market deployer can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quoteCreateStandardMarketRequest">Parameters used for the creation of the standard market</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildCreateStandardMarketQuoteWithHttpInfoAsync(QuoteCreateStandardMarketRequest quoteCreateStandardMarketRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'quoteCreateStandardMarketRequest' is set
+            if (quoteCreateStandardMarketRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteCreateStandardMarketRequest' when calling MarketsApi->BuildCreateStandardMarketQuote");
+            }
+
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = quoteCreateStandardMarketRequest;
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/markets/standard", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BuildCreateStandardMarketQuote", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Build Set Market Ownership Transaction Quote Builds a quote for a set market ownership transaction. Only the owner of the market can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="quoteSetMarketOwnerRequest">Parameters used for setting the market owner</param>
+        /// <returns>TransactionQuoteResponse</returns>
+        public TransactionQuoteResponse BuildSetMarketOwnershipQuote(string market, QuoteSetMarketOwnerRequest quoteSetMarketOwnerRequest)
+        {
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildSetMarketOwnershipQuoteWithHttpInfo(market, quoteSetMarketOwnerRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Build Set Market Ownership Transaction Quote Builds a quote for a set market ownership transaction. Only the owner of the market can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="quoteSetMarketOwnerRequest">Parameters used for setting the market owner</param>
+        /// <returns>ApiResponse of TransactionQuoteResponse</returns>
+        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildSetMarketOwnershipQuoteWithHttpInfo(string market, QuoteSetMarketOwnerRequest quoteSetMarketOwnerRequest)
+        {
+            // verify the required parameter 'market' is set
+            if (market == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketsApi->BuildSetMarketOwnershipQuote");
+            }
+
+            // verify the required parameter 'quoteSetMarketOwnerRequest' is set
+            if (quoteSetMarketOwnerRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteSetMarketOwnerRequest' when calling MarketsApi->BuildSetMarketOwnershipQuote");
+            }
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
+            localVarRequestOptions.Data = quoteSetMarketOwnerRequest;
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/markets/{market}/standard/set-ownership", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BuildSetMarketOwnershipQuote", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Build Set Market Ownership Transaction Quote Builds a quote for a set market ownership transaction. Only the owner of the market can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="quoteSetMarketOwnerRequest">Parameters used for setting the market owner</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TransactionQuoteResponse</returns>
+        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildSetMarketOwnershipQuoteAsync(string market, QuoteSetMarketOwnerRequest quoteSetMarketOwnerRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildSetMarketOwnershipQuoteWithHttpInfoAsync(market, quoteSetMarketOwnerRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Build Set Market Ownership Transaction Quote Builds a quote for a set market ownership transaction. Only the owner of the market can successfully execute this call. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="quoteSetMarketOwnerRequest">Parameters used for setting the market owner</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildSetMarketOwnershipQuoteWithHttpInfoAsync(string market, QuoteSetMarketOwnerRequest quoteSetMarketOwnerRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'market' is set
+            if (market == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketsApi->BuildSetMarketOwnershipQuote");
+            }
+
+            // verify the required parameter 'quoteSetMarketOwnerRequest' is set
+            if (quoteSetMarketOwnerRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteSetMarketOwnerRequest' when calling MarketsApi->BuildSetMarketOwnershipQuote");
+            }
+
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
+            localVarRequestOptions.Data = quoteSetMarketOwnerRequest;
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/markets/{market}/standard/set-ownership", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BuildSetMarketOwnershipQuote", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Build Set Market Permissions Transaction Quote Builds a quote for a set market permissions transaction. This call can only successfully be executed if done by the market owner, or an address which has been assigned this permission. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="address">Address subject to the permissions</param>
+        /// <param name="quoteSetMarketPermissionsRequest">Parameters used for assigning a market permission</param>
+        /// <returns>TransactionQuoteResponse</returns>
+        public TransactionQuoteResponse BuildSetMarketPermissionsQuote(string market, string address, QuoteSetMarketPermissionsRequest quoteSetMarketPermissionsRequest)
+        {
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildSetMarketPermissionsQuoteWithHttpInfo(market, address, quoteSetMarketPermissionsRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Build Set Market Permissions Transaction Quote Builds a quote for a set market permissions transaction. This call can only successfully be executed if done by the market owner, or an address which has been assigned this permission. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="address">Address subject to the permissions</param>
+        /// <param name="quoteSetMarketPermissionsRequest">Parameters used for assigning a market permission</param>
+        /// <returns>ApiResponse of TransactionQuoteResponse</returns>
+        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildSetMarketPermissionsQuoteWithHttpInfo(string market, string address, QuoteSetMarketPermissionsRequest quoteSetMarketPermissionsRequest)
+        {
+            // verify the required parameter 'market' is set
+            if (market == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketsApi->BuildSetMarketPermissionsQuote");
+            }
+
+            // verify the required parameter 'address' is set
+            if (address == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling MarketsApi->BuildSetMarketPermissionsQuote");
+            }
+
+            // verify the required parameter 'quoteSetMarketPermissionsRequest' is set
+            if (quoteSetMarketPermissionsRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteSetMarketPermissionsRequest' when calling MarketsApi->BuildSetMarketPermissionsQuote");
+            }
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
+            localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
+            localVarRequestOptions.Data = quoteSetMarketPermissionsRequest;
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/markets/{market}/standard/permissions/{address}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BuildSetMarketPermissionsQuote", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Build Set Market Permissions Transaction Quote Builds a quote for a set market permissions transaction. This call can only successfully be executed if done by the market owner, or an address which has been assigned this permission. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="address">Address subject to the permissions</param>
+        /// <param name="quoteSetMarketPermissionsRequest">Parameters used for assigning a market permission</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TransactionQuoteResponse</returns>
+        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildSetMarketPermissionsQuoteAsync(string market, string address, QuoteSetMarketPermissionsRequest quoteSetMarketPermissionsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildSetMarketPermissionsQuoteWithHttpInfoAsync(market, address, quoteSetMarketPermissionsRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Build Set Market Permissions Transaction Quote Builds a quote for a set market permissions transaction. This call can only successfully be executed if done by the market owner, or an address which has been assigned this permission. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="address">Address subject to the permissions</param>
+        /// <param name="quoteSetMarketPermissionsRequest">Parameters used for assigning a market permission</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildSetMarketPermissionsQuoteWithHttpInfoAsync(string market, string address, QuoteSetMarketPermissionsRequest quoteSetMarketPermissionsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'market' is set
+            if (market == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketsApi->BuildSetMarketPermissionsQuote");
+            }
+
+            // verify the required parameter 'address' is set
+            if (address == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling MarketsApi->BuildSetMarketPermissionsQuote");
+            }
+
+            // verify the required parameter 'quoteSetMarketPermissionsRequest' is set
+            if (quoteSetMarketPermissionsRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteSetMarketPermissionsRequest' when calling MarketsApi->BuildSetMarketPermissionsQuote");
+            }
+
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
+            localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
+            localVarRequestOptions.Data = quoteSetMarketPermissionsRequest;
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/markets/{market}/standard/permissions/{address}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BuildSetMarketPermissionsQuote", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Market Retrieves details for an Opdex market.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <returns>MarketResponse</returns>
+        public MarketResponse GetMarket(string market)
+        {
+            Opdex.Client.Client.ApiResponse<MarketResponse> localVarResponse = GetMarketWithHttpInfo(market);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Market Retrieves details for an Opdex market.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <returns>ApiResponse of MarketResponse</returns>
+        public Opdex.Client.Client.ApiResponse<MarketResponse> GetMarketWithHttpInfo(string market)
+        {
+            // verify the required parameter 'market' is set
+            if (market == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketsApi->GetMarket");
+            }
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<MarketResponse>("/markets/{market}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarket", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Market Retrieves details for an Opdex market.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of MarketResponse</returns>
+        public async System.Threading.Tasks.Task<MarketResponse> GetMarketAsync(string market, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Opdex.Client.Client.ApiResponse<MarketResponse> localVarResponse = await GetMarketWithHttpInfoAsync(market, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Market Retrieves details for an Opdex market.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (MarketResponse)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<MarketResponse>> GetMarketWithHttpInfoAsync(string market, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'market' is set
+            if (market == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketsApi->GetMarket");
+            }
+
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<MarketResponse>("/markets/{market}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarket", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Market History Retrieves historical liquidity, rewards, volume and staking data for an Opdex market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <returns>MarketSnapshotsResponse</returns>
+        public MarketSnapshotsResponse GetMarketHistory(string market, DateTime startDateTime, DateTime endDateTime, SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        {
+            Opdex.Client.Client.ApiResponse<MarketSnapshotsResponse> localVarResponse = GetMarketHistoryWithHttpInfo(market, startDateTime, endDateTime, direction, limit, cursor);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Market History Retrieves historical liquidity, rewards, volume and staking data for an Opdex market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <returns>ApiResponse of MarketSnapshotsResponse</returns>
+        public Opdex.Client.Client.ApiResponse<MarketSnapshotsResponse> GetMarketHistoryWithHttpInfo(string market, DateTime startDateTime, DateTime endDateTime, SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        {
+            // verify the required parameter 'market' is set
+            if (market == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketsApi->GetMarketHistory");
+            }
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "startDateTime", startDateTime));
+            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "endDateTime", endDateTime));
+            if (direction != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "direction", direction));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<MarketSnapshotsResponse>("/markets/{market}/history", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarketHistory", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Market History Retrieves historical liquidity, rewards, volume and staking data for an Opdex market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of MarketSnapshotsResponse</returns>
+        public async System.Threading.Tasks.Task<MarketSnapshotsResponse> GetMarketHistoryAsync(string market, DateTime startDateTime, DateTime endDateTime, SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Opdex.Client.Client.ApiResponse<MarketSnapshotsResponse> localVarResponse = await GetMarketHistoryWithHttpInfoAsync(market, startDateTime, endDateTime, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Market History Retrieves historical liquidity, rewards, volume and staking data for an Opdex market. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="direction">Order direction of the results (optional)</param>
+        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (MarketSnapshotsResponse)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<MarketSnapshotsResponse>> GetMarketHistoryWithHttpInfoAsync(string market, DateTime startDateTime, DateTime endDateTime, SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'market' is set
+            if (market == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketsApi->GetMarketHistory");
+            }
+
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "startDateTime", startDateTime));
+            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "endDateTime", endDateTime));
+            if (direction != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "direction", direction));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<MarketSnapshotsResponse>("/markets/{market}/history", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarketHistory", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Market Permissions Retrieves permissions within a market that are assigned to an address.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="address">Address subject to the permissions</param>
+        /// <returns>List&lt;MarketPermission&gt;</returns>
+        public List<MarketPermission> GetMarketPermissions(string market, string address)
+        {
+            Opdex.Client.Client.ApiResponse<List<MarketPermission>> localVarResponse = GetMarketPermissionsWithHttpInfo(market, address);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Market Permissions Retrieves permissions within a market that are assigned to an address.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="address">Address subject to the permissions</param>
+        /// <returns>ApiResponse of List&lt;MarketPermission&gt;</returns>
+        public Opdex.Client.Client.ApiResponse<List<MarketPermission>> GetMarketPermissionsWithHttpInfo(string market, string address)
+        {
+            // verify the required parameter 'market' is set
+            if (market == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketsApi->GetMarketPermissions");
+            }
+
+            // verify the required parameter 'address' is set
+            if (address == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling MarketsApi->GetMarketPermissions");
+            }
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
+            localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<MarketPermission>>("/markets/{market}/standard/permissions/{address}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarketPermissions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Market Permissions Retrieves permissions within a market that are assigned to an address.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="address">Address subject to the permissions</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;MarketPermission&gt;</returns>
+        public async System.Threading.Tasks.Task<List<MarketPermission>> GetMarketPermissionsAsync(string market, string address, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Opdex.Client.Client.ApiResponse<List<MarketPermission>> localVarResponse = await GetMarketPermissionsWithHttpInfoAsync(market, address, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Market Permissions Retrieves permissions within a market that are assigned to an address.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">Address of a market</param>
+        /// <param name="address">Address subject to the permissions</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;MarketPermission&gt;)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<List<MarketPermission>>> GetMarketPermissionsWithHttpInfoAsync(string market, string address, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'market' is set
+            if (market == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketsApi->GetMarketPermissions");
+            }
+
+            // verify the required parameter 'address' is set
+            if (address == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling MarketsApi->GetMarketPermissions");
+            }
+
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
+            localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<MarketPermission>>("/markets/{market}/standard/permissions/{address}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarketPermissions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>

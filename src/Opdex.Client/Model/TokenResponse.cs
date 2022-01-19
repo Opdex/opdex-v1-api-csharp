@@ -40,8 +40,9 @@ namespace Opdex.Client.Model
         /// <param name="decimals">Number of decimals of precision for token values.</param>
         /// <param name="sats">Number of parts which make up one whole token.</param>
         /// <param name="totalSupply">Decimal value with uncapped precision and size.</param>
+        /// <param name="attributes">Attributes applied to the token.</param>
         /// <param name="summary">summary.</param>
-        public TokenResponse(string address = default(string), string name = default(string), string symbol = default(string), int decimals = default(int), int sats = default(int), string totalSupply = default(string), TokenSummaryResponse summary = default(TokenSummaryResponse))
+        public TokenResponse(string address = default(string), string name = default(string), string symbol = default(string), int decimals = default(int), int sats = default(int), string totalSupply = default(string), List<TokenAttribute> attributes = default(List<TokenAttribute>), TokenSummaryResponse summary = default(TokenSummaryResponse))
         {
             this.Address = address;
             this.Name = name;
@@ -49,6 +50,7 @@ namespace Opdex.Client.Model
             this.Decimals = decimals;
             this.Sats = sats;
             this.TotalSupply = totalSupply;
+            this.Attributes = attributes;
             this.Summary = summary;
         }
 
@@ -95,6 +97,13 @@ namespace Opdex.Client.Model
         public string TotalSupply { get; set; }
 
         /// <summary>
+        /// Attributes applied to the token
+        /// </summary>
+        /// <value>Attributes applied to the token</value>
+        [DataMember(Name = "attributes", EmitDefaultValue = false)]
+        public List<TokenAttribute> Attributes { get; set; }
+
+        /// <summary>
         /// Gets or Sets Summary
         /// </summary>
         [DataMember(Name = "summary", EmitDefaultValue = false)]
@@ -114,6 +123,7 @@ namespace Opdex.Client.Model
             sb.Append("  Decimals: ").Append(Decimals).Append("\n");
             sb.Append("  Sats: ").Append(Sats).Append("\n");
             sb.Append("  TotalSupply: ").Append(TotalSupply).Append("\n");
+            sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  Summary: ").Append(Summary).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -179,6 +189,12 @@ namespace Opdex.Client.Model
                     this.TotalSupply.Equals(input.TotalSupply))
                 ) && 
                 (
+                    this.Attributes == input.Attributes ||
+                    this.Attributes != null &&
+                    input.Attributes != null &&
+                    this.Attributes.SequenceEqual(input.Attributes)
+                ) && 
+                (
                     this.Summary == input.Summary ||
                     (this.Summary != null &&
                     this.Summary.Equals(input.Summary))
@@ -211,6 +227,10 @@ namespace Opdex.Client.Model
                 if (this.TotalSupply != null)
                 {
                     hashCode = (hashCode * 59) + this.TotalSupply.GetHashCode();
+                }
+                if (this.Attributes != null)
+                {
+                    hashCode = (hashCode * 59) + this.Attributes.GetHashCode();
                 }
                 if (this.Summary != null)
                 {

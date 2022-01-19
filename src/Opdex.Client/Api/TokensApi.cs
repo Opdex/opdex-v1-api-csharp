@@ -55,8 +55,9 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Address of the token</param>
+        /// <param name="quoteApproveAllowanceRequest">Parameters used for the approval of a token allowance</param>
         /// <returns>TransactionQuoteResponse</returns>
-        TransactionQuoteResponse BuildApproveAllowanceQuote(string token);
+        TransactionQuoteResponse BuildApproveAllowanceQuote(string token, QuoteApproveAllowanceRequest quoteApproveAllowanceRequest);
 
         /// <summary>
         /// Build Approve Allowance Transaction Quote
@@ -66,8 +67,9 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Address of the token</param>
+        /// <param name="quoteApproveAllowanceRequest">Parameters used for the approval of a token allowance</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        ApiResponse<TransactionQuoteResponse> BuildApproveAllowanceQuoteWithHttpInfo(string token);
+        ApiResponse<TransactionQuoteResponse> BuildApproveAllowanceQuoteWithHttpInfo(string token, QuoteApproveAllowanceRequest quoteApproveAllowanceRequest);
         /// <summary>
         /// Build Distribute Tokens Transaction Quote
         /// </summary>
@@ -216,9 +218,10 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Address of the token</param>
+        /// <param name="quoteApproveAllowanceRequest">Parameters used for the approval of a token allowance</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildApproveAllowanceQuoteAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildApproveAllowanceQuoteAsync(string token, QuoteApproveAllowanceRequest quoteApproveAllowanceRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Build Approve Allowance Transaction Quote
@@ -228,9 +231,10 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Address of the token</param>
+        /// <param name="quoteApproveAllowanceRequest">Parameters used for the approval of a token allowance</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildApproveAllowanceQuoteWithHttpInfoAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildApproveAllowanceQuoteWithHttpInfoAsync(string token, QuoteApproveAllowanceRequest quoteApproveAllowanceRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Build Distribute Tokens Transaction Quote
         /// </summary>
@@ -622,10 +626,11 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Address of the token</param>
+        /// <param name="quoteApproveAllowanceRequest">Parameters used for the approval of a token allowance</param>
         /// <returns>TransactionQuoteResponse</returns>
-        public TransactionQuoteResponse BuildApproveAllowanceQuote(string token)
+        public TransactionQuoteResponse BuildApproveAllowanceQuote(string token, QuoteApproveAllowanceRequest quoteApproveAllowanceRequest)
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildApproveAllowanceQuoteWithHttpInfo(token);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildApproveAllowanceQuoteWithHttpInfo(token, quoteApproveAllowanceRequest);
             return localVarResponse.Data;
         }
 
@@ -634,8 +639,9 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Address of the token</param>
+        /// <param name="quoteApproveAllowanceRequest">Parameters used for the approval of a token allowance</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildApproveAllowanceQuoteWithHttpInfo(string token)
+        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildApproveAllowanceQuoteWithHttpInfo(string token, QuoteApproveAllowanceRequest quoteApproveAllowanceRequest)
         {
             // verify the required parameter 'token' is set
             if (token == null)
@@ -643,9 +649,16 @@ namespace Opdex.Client.Api
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling TokensApi->BuildApproveAllowanceQuote");
             }
 
+            // verify the required parameter 'quoteApproveAllowanceRequest' is set
+            if (quoteApproveAllowanceRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteApproveAllowanceRequest' when calling TokensApi->BuildApproveAllowanceQuote");
+            }
+
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -667,6 +680,7 @@ namespace Opdex.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
+            localVarRequestOptions.Data = quoteApproveAllowanceRequest;
 
             // authentication (opdexAuth) required
             // bearer authentication required
@@ -694,11 +708,12 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Address of the token</param>
+        /// <param name="quoteApproveAllowanceRequest">Parameters used for the approval of a token allowance</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildApproveAllowanceQuoteAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildApproveAllowanceQuoteAsync(string token, QuoteApproveAllowanceRequest quoteApproveAllowanceRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildApproveAllowanceQuoteWithHttpInfoAsync(token, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildApproveAllowanceQuoteWithHttpInfoAsync(token, quoteApproveAllowanceRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -707,9 +722,10 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Address of the token</param>
+        /// <param name="quoteApproveAllowanceRequest">Parameters used for the approval of a token allowance</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildApproveAllowanceQuoteWithHttpInfoAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildApproveAllowanceQuoteWithHttpInfoAsync(string token, QuoteApproveAllowanceRequest quoteApproveAllowanceRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'token' is set
             if (token == null)
@@ -717,10 +733,17 @@ namespace Opdex.Client.Api
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling TokensApi->BuildApproveAllowanceQuote");
             }
 
+            // verify the required parameter 'quoteApproveAllowanceRequest' is set
+            if (quoteApproveAllowanceRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteApproveAllowanceRequest' when calling TokensApi->BuildApproveAllowanceQuote");
+            }
+
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -742,6 +765,7 @@ namespace Opdex.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
+            localVarRequestOptions.Data = quoteApproveAllowanceRequest;
 
             // authentication (opdexAuth) required
             // bearer authentication required

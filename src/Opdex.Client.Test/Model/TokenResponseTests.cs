@@ -105,6 +105,14 @@ namespace Opdex.Client.Test.Model
             // TODO unit test for the property 'TotalSupply'
         }
         /// <summary>
+        /// Test the property 'Attributes'
+        /// </summary>
+        [Fact]
+        public void AttributesTest()
+        {
+            // TODO unit test for the property 'Attributes'
+        }
+        /// <summary>
         /// Test the property 'Summary'
         /// </summary>
         [Fact]

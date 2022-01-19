@@ -107,7 +107,7 @@ namespace Opdex.Client.Client
         {
             Proxy = null;
             UserAgent = "OpenAPI-Generator/1.0.0-alpha1/csharp";
-            BasePath = "https://test-api.opdex.com";
+            BasePath = "https://test-api.opdex.com/v1";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -115,7 +115,7 @@ namespace Opdex.Client.Client
             {
                 {
                     new Dictionary<string, object> {
-                        {"url", "https://test-api.opdex.com"},
+                        {"url", "https://test-api.opdex.com/v1"},
                         {"description", "No description provided"},
                     }
                 }
@@ -133,7 +133,7 @@ namespace Opdex.Client.Client
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "https://test-api.opdex.com") : this()
+            string basePath = "https://test-api.opdex.com/v1") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");

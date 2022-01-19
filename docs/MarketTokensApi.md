@@ -1,6 +1,6 @@
 # Opdex.Client.Api.MarketTokensApi
 
-All URIs are relative to *https://test-api.opdex.com*
+All URIs are relative to *https://test-api.opdex.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -35,9 +35,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new MarketTokensApi(config);
-            var market = t8kAxvbaFzpPTWDE8f2bdgV7V1276xu2VH;  // string | Address of the market
+            var market = t7RorA7xQCMVYKPM1ibPE1NSswaLbpqLQb;  // string | Address of the market
             var token = tGSk2dVENuqAQ2rNXbui37XHuurFCTqadD;  // string | Address of the token
 
             try
@@ -112,9 +112,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new MarketTokensApi(config);
-            var market = t8kAxvbaFzpPTWDE8f2bdgV7V1276xu2VH;  // string | Address of the market
+            var market = t7RorA7xQCMVYKPM1ibPE1NSswaLbpqLQb;  // string | Address of the market
             var token = tGSk2dVENuqAQ2rNXbui37XHuurFCTqadD;  // string | Address of the token
             var startDateTime = 2022-01-01T00:00:00Z;  // DateTime | Start time for which to retrieve snapshots
             var endDateTime = 2022-12-31T23:59:59;  // DateTime | End time for which to retrieve snapshots
@@ -170,7 +170,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Market token results found |  -  |
+| **200** | Market token snapshot results found |  -  |
 | **400** | The request is not valid |  -  |
 | **404** | Market or token not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -201,9 +201,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new MarketTokensApi(config);
-            var market = t8kAxvbaFzpPTWDE8f2bdgV7V1276xu2VH;  // string | Address of the market
+            var market = t7RorA7xQCMVYKPM1ibPE1NSswaLbpqLQb;  // string | Address of the market
             var tokenType = Provisional;  // TokenType? | Token type filter (optional) 
             var tokens = new List<string>(); // List<string> | Specific tokens to include (optional) 
             var keyword = keyword_example;  // string | Keyword search against token address, name and ticker symbol (optional) 
@@ -290,9 +290,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new MarketTokensApi(config);
-            var market = t8kAxvbaFzpPTWDE8f2bdgV7V1276xu2VH;  // string | Address of the market
+            var market = t7RorA7xQCMVYKPM1ibPE1NSswaLbpqLQb;  // string | Address of the market
             var token = tGSk2dVENuqAQ2rNXbui37XHuurFCTqadD;  // string | Address of the input token
             var swapAmountInQuoteRequest = new SwapAmountInQuoteRequest(); // SwapAmountInQuoteRequest | 
 
@@ -369,9 +369,9 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new MarketTokensApi(config);
-            var market = t8kAxvbaFzpPTWDE8f2bdgV7V1276xu2VH;  // string | Address of the market
+            var market = t7RorA7xQCMVYKPM1ibPE1NSswaLbpqLQb;  // string | Address of the market
             var token = tGSk2dVENuqAQ2rNXbui37XHuurFCTqadD;  // string | Address of the input token
             var swapAmountOutQuoteRequest = new SwapAmountOutQuoteRequest(); // SwapAmountOutQuoteRequest | 
 
@@ -448,12 +448,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new MarketTokensApi(config);
-            var market = t8kAxvbaFzpPTWDE8f2bdgV7V1276xu2VH;  // string | Address of the market
+            var market = t7RorA7xQCMVYKPM1ibPE1NSswaLbpqLQb;  // string | Address of the market
             var token = tGSk2dVENuqAQ2rNXbui37XHuurFCTqadD;  // string | Address of the input token
             var quoteSwapTransactionRequest = new QuoteSwapTransactionRequest(); // QuoteSwapTransactionRequest | 
 

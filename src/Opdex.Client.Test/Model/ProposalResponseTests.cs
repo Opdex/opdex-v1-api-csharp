@@ -168,6 +168,14 @@ namespace Opdex.Client.Test.Model
         {
             // TODO unit test for the property 'Approved'
         }
+        /// <summary>
+        /// Test the property 'Certificate'
+        /// </summary>
+        [Fact]
+        public void CertificateTest()
+        {
+            // TODO unit test for the property 'Certificate'
+        }
 
     }
 

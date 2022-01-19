@@ -1,6 +1,6 @@
 # Opdex.Client.Api.StatusApi
 
-All URIs are relative to *https://test-api.opdex.com*
+All URIs are relative to *https://test-api.opdex.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,7 +30,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new StatusApi(config);
 
             try

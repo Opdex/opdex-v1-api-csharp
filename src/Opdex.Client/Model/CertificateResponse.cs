@@ -40,7 +40,8 @@ namespace Opdex.Client.Model
         /// <param name="vestingEndBlock">Block that the vesting period ends.</param>
         /// <param name="redeemed">Whether the certificate has been redeemed by the certificate owner.</param>
         /// <param name="revoked">Whether the certificate was revoked by the vault owner.</param>
-        public CertificateResponse(string owner = default(string), string amount = default(string), int vestingStartBlock = default(int), int vestingEndBlock = default(int), bool redeemed = default(bool), bool revoked = default(bool))
+        /// <param name="proposals">Create and revoke proposal ids relating to the certificate.</param>
+        public CertificateResponse(string owner = default(string), string amount = default(string), int vestingStartBlock = default(int), int vestingEndBlock = default(int), bool redeemed = default(bool), bool revoked = default(bool), List<int> proposals = default(List<int>))
         {
             this.Owner = owner;
             this.Amount = amount;
@@ -48,6 +49,7 @@ namespace Opdex.Client.Model
             this.VestingEndBlock = vestingEndBlock;
             this.Redeemed = redeemed;
             this.Revoked = revoked;
+            this.Proposals = proposals;
         }
 
         /// <summary>
@@ -93,6 +95,13 @@ namespace Opdex.Client.Model
         public bool Revoked { get; set; }
 
         /// <summary>
+        /// Create and revoke proposal ids relating to the certificate
+        /// </summary>
+        /// <value>Create and revoke proposal ids relating to the certificate</value>
+        [DataMember(Name = "proposals", EmitDefaultValue = false)]
+        public List<int> Proposals { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -106,6 +115,7 @@ namespace Opdex.Client.Model
             sb.Append("  VestingEndBlock: ").Append(VestingEndBlock).Append("\n");
             sb.Append("  Redeemed: ").Append(Redeemed).Append("\n");
             sb.Append("  Revoked: ").Append(Revoked).Append("\n");
+            sb.Append("  Proposals: ").Append(Proposals).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -166,6 +176,12 @@ namespace Opdex.Client.Model
                 (
                     this.Revoked == input.Revoked ||
                     this.Revoked.Equals(input.Revoked)
+                ) && 
+                (
+                    this.Proposals == input.Proposals ||
+                    this.Proposals != null &&
+                    input.Proposals != null &&
+                    this.Proposals.SequenceEqual(input.Proposals)
                 );
         }
 
@@ -190,6 +206,10 @@ namespace Opdex.Client.Model
                 hashCode = (hashCode * 59) + this.VestingEndBlock.GetHashCode();
                 hashCode = (hashCode * 59) + this.Redeemed.GetHashCode();
                 hashCode = (hashCode * 59) + this.Revoked.GetHashCode();
+                if (this.Proposals != null)
+                {
+                    hashCode = (hashCode * 59) + this.Proposals.GetHashCode();
+                }
                 return hashCode;
             }
         }

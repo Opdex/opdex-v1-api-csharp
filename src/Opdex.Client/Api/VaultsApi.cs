@@ -58,8 +58,9 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quotePledgeRequest">Parameters used to make a pledge to a proposal</param>
         /// <returns>TransactionQuoteResponse</returns>
-        TransactionQuoteResponse BuildPledgeQuote(string vault, int proposalId);
+        TransactionQuoteResponse BuildPledgeQuote(string vault, int proposalId, QuotePledgeRequest quotePledgeRequest);
 
         /// <summary>
         /// Build Make Pledge Transaction Quote
@@ -70,8 +71,9 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quotePledgeRequest">Parameters used to make a pledge to a proposal</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        ApiResponse<TransactionQuoteResponse> BuildPledgeQuoteWithHttpInfo(string vault, int proposalId);
+        ApiResponse<TransactionQuoteResponse> BuildPledgeQuoteWithHttpInfo(string vault, int proposalId, QuotePledgeRequest quotePledgeRequest);
         /// <summary>
         /// Build Propose Change Minimum Pledge Transaction Quote
         /// </summary>
@@ -80,8 +82,9 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeMinimumPledgeRequest">Parameters used to propose the revokation of a certificate</param>
         /// <returns>TransactionQuoteResponse</returns>
-        TransactionQuoteResponse BuildProposeChangeMinimumPledgeQuote(string vault);
+        TransactionQuoteResponse BuildProposeChangeMinimumPledgeQuote(string vault, QuoteProposeMinimumPledgeRequest quoteProposeMinimumPledgeRequest);
 
         /// <summary>
         /// Build Propose Change Minimum Pledge Transaction Quote
@@ -91,8 +94,9 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeMinimumPledgeRequest">Parameters used to propose the revokation of a certificate</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        ApiResponse<TransactionQuoteResponse> BuildProposeChangeMinimumPledgeQuoteWithHttpInfo(string vault);
+        ApiResponse<TransactionQuoteResponse> BuildProposeChangeMinimumPledgeQuoteWithHttpInfo(string vault, QuoteProposeMinimumPledgeRequest quoteProposeMinimumPledgeRequest);
         /// <summary>
         /// Build Propose Change Minimum Vote Transaction Quote
         /// </summary>
@@ -101,8 +105,9 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeMinimumVoteRequest">Parameters used to propose the revokation of a certificate</param>
         /// <returns>TransactionQuoteResponse</returns>
-        TransactionQuoteResponse BuildProposeChangeMinimumVoteQuote(string vault);
+        TransactionQuoteResponse BuildProposeChangeMinimumVoteQuote(string vault, QuoteProposeMinimumVoteRequest quoteProposeMinimumVoteRequest);
 
         /// <summary>
         /// Build Propose Change Minimum Vote Transaction Quote
@@ -112,8 +117,9 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeMinimumVoteRequest">Parameters used to propose the revokation of a certificate</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        ApiResponse<TransactionQuoteResponse> BuildProposeChangeMinimumVoteQuoteWithHttpInfo(string vault);
+        ApiResponse<TransactionQuoteResponse> BuildProposeChangeMinimumVoteQuoteWithHttpInfo(string vault, QuoteProposeMinimumVoteRequest quoteProposeMinimumVoteRequest);
         /// <summary>
         /// Build Propose Create Certificate Transaction Quote
         /// </summary>
@@ -122,8 +128,9 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeCreateCertificateRequest">Parameters used to propose the creation of a certificate</param>
         /// <returns>TransactionQuoteResponse</returns>
-        TransactionQuoteResponse BuildProposeCreateCertificateQuote(string vault);
+        TransactionQuoteResponse BuildProposeCreateCertificateQuote(string vault, QuoteProposeCreateCertificateRequest quoteProposeCreateCertificateRequest);
 
         /// <summary>
         /// Build Propose Create Certificate Transaction Quote
@@ -133,8 +140,9 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeCreateCertificateRequest">Parameters used to propose the creation of a certificate</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        ApiResponse<TransactionQuoteResponse> BuildProposeCreateCertificateQuoteWithHttpInfo(string vault);
+        ApiResponse<TransactionQuoteResponse> BuildProposeCreateCertificateQuoteWithHttpInfo(string vault, QuoteProposeCreateCertificateRequest quoteProposeCreateCertificateRequest);
         /// <summary>
         /// Build Propose Revoke Certificate Transaction Quote
         /// </summary>
@@ -143,8 +151,9 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeRevokeCertificateRequest">Parameters used to propose the revokation of a certificate</param>
         /// <returns>TransactionQuoteResponse</returns>
-        TransactionQuoteResponse BuildProposeRevokeCertificateQuote(string vault);
+        TransactionQuoteResponse BuildProposeRevokeCertificateQuote(string vault, QuoteProposeRevokeCertificateRequest quoteProposeRevokeCertificateRequest);
 
         /// <summary>
         /// Build Propose Revoke Certificate Transaction Quote
@@ -154,8 +163,9 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeRevokeCertificateRequest">Parameters used to propose the revokation of a certificate</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        ApiResponse<TransactionQuoteResponse> BuildProposeRevokeCertificateQuoteWithHttpInfo(string vault);
+        ApiResponse<TransactionQuoteResponse> BuildProposeRevokeCertificateQuoteWithHttpInfo(string vault, QuoteProposeRevokeCertificateRequest quoteProposeRevokeCertificateRequest);
         /// <summary>
         /// Build Redeem Vault Certificate Transaction Quote
         /// </summary>
@@ -186,8 +196,9 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteVoteRequest">Parameters used to vote on a proposal</param>
         /// <returns>TransactionQuoteResponse</returns>
-        TransactionQuoteResponse BuildVoteQuote(string vault, int proposalId);
+        TransactionQuoteResponse BuildVoteQuote(string vault, int proposalId, QuoteVoteRequest quoteVoteRequest);
 
         /// <summary>
         /// Build Cast Vote Transaction Quote
@@ -198,8 +209,9 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteVoteRequest">Parameters used to vote on a proposal</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        ApiResponse<TransactionQuoteResponse> BuildVoteQuoteWithHttpInfo(string vault, int proposalId);
+        ApiResponse<TransactionQuoteResponse> BuildVoteQuoteWithHttpInfo(string vault, int proposalId, QuoteVoteRequest quoteVoteRequest);
         /// <summary>
         /// Build Withdraw Pledge Transaction Quote
         /// </summary>
@@ -209,8 +221,9 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteWithdrawPledgeRequest">Parameters used to withdraw a pledge balance</param>
         /// <returns>TransactionQuoteResponse</returns>
-        TransactionQuoteResponse BuildWithdrawPledgeQuote(string vault, int proposalId);
+        TransactionQuoteResponse BuildWithdrawPledgeQuote(string vault, int proposalId, QuoteWithdrawPledgeRequest quoteWithdrawPledgeRequest);
 
         /// <summary>
         /// Build Withdraw Pledge Transaction Quote
@@ -221,8 +234,9 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteWithdrawPledgeRequest">Parameters used to withdraw a pledge balance</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        ApiResponse<TransactionQuoteResponse> BuildWithdrawPledgeQuoteWithHttpInfo(string vault, int proposalId);
+        ApiResponse<TransactionQuoteResponse> BuildWithdrawPledgeQuoteWithHttpInfo(string vault, int proposalId, QuoteWithdrawPledgeRequest quoteWithdrawPledgeRequest);
         /// <summary>
         /// Build Withdraw Vote Transaction Quote
         /// </summary>
@@ -232,8 +246,9 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteWithdrawVoteRequest">Parameters used to withdraw a vote balance</param>
         /// <returns>TransactionQuoteResponse</returns>
-        TransactionQuoteResponse BuildWithdrawVoteQuote(string vault, int proposalId);
+        TransactionQuoteResponse BuildWithdrawVoteQuote(string vault, int proposalId, QuoteWithdrawVoteRequest quoteWithdrawVoteRequest);
 
         /// <summary>
         /// Build Withdraw Vote Transaction Quote
@@ -244,8 +259,9 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteWithdrawVoteRequest">Parameters used to withdraw a vote balance</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        ApiResponse<TransactionQuoteResponse> BuildWithdrawVoteQuoteWithHttpInfo(string vault, int proposalId);
+        ApiResponse<TransactionQuoteResponse> BuildWithdrawVoteQuoteWithHttpInfo(string vault, int proposalId, QuoteWithdrawVoteRequest quoteWithdrawVoteRequest);
         /// <summary>
         /// Get Vault Certificates
         /// </summary>
@@ -538,9 +554,10 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quotePledgeRequest">Parameters used to make a pledge to a proposal</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildPledgeQuoteAsync(string vault, int proposalId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildPledgeQuoteAsync(string vault, int proposalId, QuotePledgeRequest quotePledgeRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Build Make Pledge Transaction Quote
@@ -551,9 +568,10 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quotePledgeRequest">Parameters used to make a pledge to a proposal</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildPledgeQuoteWithHttpInfoAsync(string vault, int proposalId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildPledgeQuoteWithHttpInfoAsync(string vault, int proposalId, QuotePledgeRequest quotePledgeRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Build Propose Change Minimum Pledge Transaction Quote
         /// </summary>
@@ -562,9 +580,10 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeMinimumPledgeRequest">Parameters used to propose the revokation of a certificate</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildProposeChangeMinimumPledgeQuoteAsync(string vault, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildProposeChangeMinimumPledgeQuoteAsync(string vault, QuoteProposeMinimumPledgeRequest quoteProposeMinimumPledgeRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Build Propose Change Minimum Pledge Transaction Quote
@@ -574,9 +593,10 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeMinimumPledgeRequest">Parameters used to propose the revokation of a certificate</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildProposeChangeMinimumPledgeQuoteWithHttpInfoAsync(string vault, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildProposeChangeMinimumPledgeQuoteWithHttpInfoAsync(string vault, QuoteProposeMinimumPledgeRequest quoteProposeMinimumPledgeRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Build Propose Change Minimum Vote Transaction Quote
         /// </summary>
@@ -585,9 +605,10 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeMinimumVoteRequest">Parameters used to propose the revokation of a certificate</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildProposeChangeMinimumVoteQuoteAsync(string vault, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildProposeChangeMinimumVoteQuoteAsync(string vault, QuoteProposeMinimumVoteRequest quoteProposeMinimumVoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Build Propose Change Minimum Vote Transaction Quote
@@ -597,9 +618,10 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeMinimumVoteRequest">Parameters used to propose the revokation of a certificate</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildProposeChangeMinimumVoteQuoteWithHttpInfoAsync(string vault, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildProposeChangeMinimumVoteQuoteWithHttpInfoAsync(string vault, QuoteProposeMinimumVoteRequest quoteProposeMinimumVoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Build Propose Create Certificate Transaction Quote
         /// </summary>
@@ -608,9 +630,10 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeCreateCertificateRequest">Parameters used to propose the creation of a certificate</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildProposeCreateCertificateQuoteAsync(string vault, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildProposeCreateCertificateQuoteAsync(string vault, QuoteProposeCreateCertificateRequest quoteProposeCreateCertificateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Build Propose Create Certificate Transaction Quote
@@ -620,9 +643,10 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeCreateCertificateRequest">Parameters used to propose the creation of a certificate</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildProposeCreateCertificateQuoteWithHttpInfoAsync(string vault, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildProposeCreateCertificateQuoteWithHttpInfoAsync(string vault, QuoteProposeCreateCertificateRequest quoteProposeCreateCertificateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Build Propose Revoke Certificate Transaction Quote
         /// </summary>
@@ -631,9 +655,10 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeRevokeCertificateRequest">Parameters used to propose the revokation of a certificate</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildProposeRevokeCertificateQuoteAsync(string vault, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildProposeRevokeCertificateQuoteAsync(string vault, QuoteProposeRevokeCertificateRequest quoteProposeRevokeCertificateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Build Propose Revoke Certificate Transaction Quote
@@ -643,9 +668,10 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeRevokeCertificateRequest">Parameters used to propose the revokation of a certificate</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildProposeRevokeCertificateQuoteWithHttpInfoAsync(string vault, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildProposeRevokeCertificateQuoteWithHttpInfoAsync(string vault, QuoteProposeRevokeCertificateRequest quoteProposeRevokeCertificateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Build Redeem Vault Certificate Transaction Quote
         /// </summary>
@@ -678,9 +704,10 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteVoteRequest">Parameters used to vote on a proposal</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildVoteQuoteAsync(string vault, int proposalId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildVoteQuoteAsync(string vault, int proposalId, QuoteVoteRequest quoteVoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Build Cast Vote Transaction Quote
@@ -691,9 +718,10 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteVoteRequest">Parameters used to vote on a proposal</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildVoteQuoteWithHttpInfoAsync(string vault, int proposalId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildVoteQuoteWithHttpInfoAsync(string vault, int proposalId, QuoteVoteRequest quoteVoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Build Withdraw Pledge Transaction Quote
         /// </summary>
@@ -703,9 +731,10 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteWithdrawPledgeRequest">Parameters used to withdraw a pledge balance</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildWithdrawPledgeQuoteAsync(string vault, int proposalId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildWithdrawPledgeQuoteAsync(string vault, int proposalId, QuoteWithdrawPledgeRequest quoteWithdrawPledgeRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Build Withdraw Pledge Transaction Quote
@@ -716,9 +745,10 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteWithdrawPledgeRequest">Parameters used to withdraw a pledge balance</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildWithdrawPledgeQuoteWithHttpInfoAsync(string vault, int proposalId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildWithdrawPledgeQuoteWithHttpInfoAsync(string vault, int proposalId, QuoteWithdrawPledgeRequest quoteWithdrawPledgeRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Build Withdraw Vote Transaction Quote
         /// </summary>
@@ -728,9 +758,10 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteWithdrawVoteRequest">Parameters used to withdraw a vote balance</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildWithdrawVoteQuoteAsync(string vault, int proposalId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionQuoteResponse> BuildWithdrawVoteQuoteAsync(string vault, int proposalId, QuoteWithdrawVoteRequest quoteWithdrawVoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Build Withdraw Vote Transaction Quote
@@ -741,9 +772,10 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteWithdrawVoteRequest">Parameters used to withdraw a vote balance</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildWithdrawVoteQuoteWithHttpInfoAsync(string vault, int proposalId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> BuildWithdrawVoteQuoteWithHttpInfoAsync(string vault, int proposalId, QuoteWithdrawVoteRequest quoteWithdrawVoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Vault Certificates
         /// </summary>
@@ -1193,7 +1225,7 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vault-governances/{vault}/proposals/{proposalId}/complete", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vaults/{vault}/proposals/{proposalId}/complete", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildCompleteProposalQuote", localVarResponse);
@@ -1271,7 +1303,7 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vault-governances/{vault}/proposals/{proposalId}/complete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vaults/{vault}/proposals/{proposalId}/complete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1291,10 +1323,11 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quotePledgeRequest">Parameters used to make a pledge to a proposal</param>
         /// <returns>TransactionQuoteResponse</returns>
-        public TransactionQuoteResponse BuildPledgeQuote(string vault, int proposalId)
+        public TransactionQuoteResponse BuildPledgeQuote(string vault, int proposalId, QuotePledgeRequest quotePledgeRequest)
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildPledgeQuoteWithHttpInfo(vault, proposalId);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildPledgeQuoteWithHttpInfo(vault, proposalId, quotePledgeRequest);
             return localVarResponse.Data;
         }
 
@@ -1304,8 +1337,9 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quotePledgeRequest">Parameters used to make a pledge to a proposal</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildPledgeQuoteWithHttpInfo(string vault, int proposalId)
+        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildPledgeQuoteWithHttpInfo(string vault, int proposalId, QuotePledgeRequest quotePledgeRequest)
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
@@ -1313,9 +1347,16 @@ namespace Opdex.Client.Api
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildPledgeQuote");
             }
 
+            // verify the required parameter 'quotePledgeRequest' is set
+            if (quotePledgeRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quotePledgeRequest' when calling VaultsApi->BuildPledgeQuote");
+            }
+
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -1338,6 +1379,7 @@ namespace Opdex.Client.Api
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
+            localVarRequestOptions.Data = quotePledgeRequest;
 
             // authentication (opdexAuth) required
             // bearer authentication required
@@ -1347,7 +1389,7 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vault-governances/{vault}/proposals/{proposalId}/pledges", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vaults/{vault}/proposals/{proposalId}/pledges", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildPledgeQuote", localVarResponse);
@@ -1366,11 +1408,12 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quotePledgeRequest">Parameters used to make a pledge to a proposal</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildPledgeQuoteAsync(string vault, int proposalId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildPledgeQuoteAsync(string vault, int proposalId, QuotePledgeRequest quotePledgeRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildPledgeQuoteWithHttpInfoAsync(vault, proposalId, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildPledgeQuoteWithHttpInfoAsync(vault, proposalId, quotePledgeRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1380,9 +1423,10 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quotePledgeRequest">Parameters used to make a pledge to a proposal</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildPledgeQuoteWithHttpInfoAsync(string vault, int proposalId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildPledgeQuoteWithHttpInfoAsync(string vault, int proposalId, QuotePledgeRequest quotePledgeRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
@@ -1390,10 +1434,17 @@ namespace Opdex.Client.Api
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildPledgeQuote");
             }
 
+            // verify the required parameter 'quotePledgeRequest' is set
+            if (quotePledgeRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quotePledgeRequest' when calling VaultsApi->BuildPledgeQuote");
+            }
+
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -1416,6 +1467,7 @@ namespace Opdex.Client.Api
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
+            localVarRequestOptions.Data = quotePledgeRequest;
 
             // authentication (opdexAuth) required
             // bearer authentication required
@@ -1425,7 +1477,7 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vault-governances/{vault}/proposals/{proposalId}/pledges", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vaults/{vault}/proposals/{proposalId}/pledges", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1444,10 +1496,11 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeMinimumPledgeRequest">Parameters used to propose the revokation of a certificate</param>
         /// <returns>TransactionQuoteResponse</returns>
-        public TransactionQuoteResponse BuildProposeChangeMinimumPledgeQuote(string vault)
+        public TransactionQuoteResponse BuildProposeChangeMinimumPledgeQuote(string vault, QuoteProposeMinimumPledgeRequest quoteProposeMinimumPledgeRequest)
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildProposeChangeMinimumPledgeQuoteWithHttpInfo(vault);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildProposeChangeMinimumPledgeQuoteWithHttpInfo(vault, quoteProposeMinimumPledgeRequest);
             return localVarResponse.Data;
         }
 
@@ -1456,8 +1509,9 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeMinimumPledgeRequest">Parameters used to propose the revokation of a certificate</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildProposeChangeMinimumPledgeQuoteWithHttpInfo(string vault)
+        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildProposeChangeMinimumPledgeQuoteWithHttpInfo(string vault, QuoteProposeMinimumPledgeRequest quoteProposeMinimumPledgeRequest)
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
@@ -1465,9 +1519,16 @@ namespace Opdex.Client.Api
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildProposeChangeMinimumPledgeQuote");
             }
 
+            // verify the required parameter 'quoteProposeMinimumPledgeRequest' is set
+            if (quoteProposeMinimumPledgeRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteProposeMinimumPledgeRequest' when calling VaultsApi->BuildProposeChangeMinimumPledgeQuote");
+            }
+
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -1489,6 +1550,7 @@ namespace Opdex.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
+            localVarRequestOptions.Data = quoteProposeMinimumPledgeRequest;
 
             // authentication (opdexAuth) required
             // bearer authentication required
@@ -1498,7 +1560,7 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vault-governances/{vault}/proposals/minimum-pledge", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vaults/{vault}/proposals/minimum-pledge", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildProposeChangeMinimumPledgeQuote", localVarResponse);
@@ -1516,11 +1578,12 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeMinimumPledgeRequest">Parameters used to propose the revokation of a certificate</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildProposeChangeMinimumPledgeQuoteAsync(string vault, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildProposeChangeMinimumPledgeQuoteAsync(string vault, QuoteProposeMinimumPledgeRequest quoteProposeMinimumPledgeRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildProposeChangeMinimumPledgeQuoteWithHttpInfoAsync(vault, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildProposeChangeMinimumPledgeQuoteWithHttpInfoAsync(vault, quoteProposeMinimumPledgeRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1529,9 +1592,10 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeMinimumPledgeRequest">Parameters used to propose the revokation of a certificate</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildProposeChangeMinimumPledgeQuoteWithHttpInfoAsync(string vault, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildProposeChangeMinimumPledgeQuoteWithHttpInfoAsync(string vault, QuoteProposeMinimumPledgeRequest quoteProposeMinimumPledgeRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
@@ -1539,10 +1603,17 @@ namespace Opdex.Client.Api
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildProposeChangeMinimumPledgeQuote");
             }
 
+            // verify the required parameter 'quoteProposeMinimumPledgeRequest' is set
+            if (quoteProposeMinimumPledgeRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteProposeMinimumPledgeRequest' when calling VaultsApi->BuildProposeChangeMinimumPledgeQuote");
+            }
+
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -1564,6 +1635,7 @@ namespace Opdex.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
+            localVarRequestOptions.Data = quoteProposeMinimumPledgeRequest;
 
             // authentication (opdexAuth) required
             // bearer authentication required
@@ -1573,7 +1645,7 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vault-governances/{vault}/proposals/minimum-pledge", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vaults/{vault}/proposals/minimum-pledge", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1592,10 +1664,11 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeMinimumVoteRequest">Parameters used to propose the revokation of a certificate</param>
         /// <returns>TransactionQuoteResponse</returns>
-        public TransactionQuoteResponse BuildProposeChangeMinimumVoteQuote(string vault)
+        public TransactionQuoteResponse BuildProposeChangeMinimumVoteQuote(string vault, QuoteProposeMinimumVoteRequest quoteProposeMinimumVoteRequest)
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildProposeChangeMinimumVoteQuoteWithHttpInfo(vault);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildProposeChangeMinimumVoteQuoteWithHttpInfo(vault, quoteProposeMinimumVoteRequest);
             return localVarResponse.Data;
         }
 
@@ -1604,8 +1677,9 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeMinimumVoteRequest">Parameters used to propose the revokation of a certificate</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildProposeChangeMinimumVoteQuoteWithHttpInfo(string vault)
+        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildProposeChangeMinimumVoteQuoteWithHttpInfo(string vault, QuoteProposeMinimumVoteRequest quoteProposeMinimumVoteRequest)
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
@@ -1613,9 +1687,16 @@ namespace Opdex.Client.Api
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildProposeChangeMinimumVoteQuote");
             }
 
+            // verify the required parameter 'quoteProposeMinimumVoteRequest' is set
+            if (quoteProposeMinimumVoteRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteProposeMinimumVoteRequest' when calling VaultsApi->BuildProposeChangeMinimumVoteQuote");
+            }
+
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -1637,6 +1718,7 @@ namespace Opdex.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
+            localVarRequestOptions.Data = quoteProposeMinimumVoteRequest;
 
             // authentication (opdexAuth) required
             // bearer authentication required
@@ -1646,7 +1728,7 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vault-governances/{vault}/proposals/minimum-vote", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vaults/{vault}/proposals/minimum-vote", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildProposeChangeMinimumVoteQuote", localVarResponse);
@@ -1664,11 +1746,12 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeMinimumVoteRequest">Parameters used to propose the revokation of a certificate</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildProposeChangeMinimumVoteQuoteAsync(string vault, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildProposeChangeMinimumVoteQuoteAsync(string vault, QuoteProposeMinimumVoteRequest quoteProposeMinimumVoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildProposeChangeMinimumVoteQuoteWithHttpInfoAsync(vault, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildProposeChangeMinimumVoteQuoteWithHttpInfoAsync(vault, quoteProposeMinimumVoteRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1677,9 +1760,10 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeMinimumVoteRequest">Parameters used to propose the revokation of a certificate</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildProposeChangeMinimumVoteQuoteWithHttpInfoAsync(string vault, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildProposeChangeMinimumVoteQuoteWithHttpInfoAsync(string vault, QuoteProposeMinimumVoteRequest quoteProposeMinimumVoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
@@ -1687,10 +1771,17 @@ namespace Opdex.Client.Api
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildProposeChangeMinimumVoteQuote");
             }
 
+            // verify the required parameter 'quoteProposeMinimumVoteRequest' is set
+            if (quoteProposeMinimumVoteRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteProposeMinimumVoteRequest' when calling VaultsApi->BuildProposeChangeMinimumVoteQuote");
+            }
+
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -1712,6 +1803,7 @@ namespace Opdex.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
+            localVarRequestOptions.Data = quoteProposeMinimumVoteRequest;
 
             // authentication (opdexAuth) required
             // bearer authentication required
@@ -1721,7 +1813,7 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vault-governances/{vault}/proposals/minimum-vote", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vaults/{vault}/proposals/minimum-vote", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1740,10 +1832,11 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeCreateCertificateRequest">Parameters used to propose the creation of a certificate</param>
         /// <returns>TransactionQuoteResponse</returns>
-        public TransactionQuoteResponse BuildProposeCreateCertificateQuote(string vault)
+        public TransactionQuoteResponse BuildProposeCreateCertificateQuote(string vault, QuoteProposeCreateCertificateRequest quoteProposeCreateCertificateRequest)
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildProposeCreateCertificateQuoteWithHttpInfo(vault);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildProposeCreateCertificateQuoteWithHttpInfo(vault, quoteProposeCreateCertificateRequest);
             return localVarResponse.Data;
         }
 
@@ -1752,8 +1845,9 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeCreateCertificateRequest">Parameters used to propose the creation of a certificate</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildProposeCreateCertificateQuoteWithHttpInfo(string vault)
+        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildProposeCreateCertificateQuoteWithHttpInfo(string vault, QuoteProposeCreateCertificateRequest quoteProposeCreateCertificateRequest)
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
@@ -1761,9 +1855,16 @@ namespace Opdex.Client.Api
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildProposeCreateCertificateQuote");
             }
 
+            // verify the required parameter 'quoteProposeCreateCertificateRequest' is set
+            if (quoteProposeCreateCertificateRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteProposeCreateCertificateRequest' when calling VaultsApi->BuildProposeCreateCertificateQuote");
+            }
+
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -1785,6 +1886,7 @@ namespace Opdex.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
+            localVarRequestOptions.Data = quoteProposeCreateCertificateRequest;
 
             // authentication (opdexAuth) required
             // bearer authentication required
@@ -1794,7 +1896,7 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vault-governances/{vault}/proposals/create-certificate", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vaults/{vault}/proposals/create-certificate", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildProposeCreateCertificateQuote", localVarResponse);
@@ -1812,11 +1914,12 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeCreateCertificateRequest">Parameters used to propose the creation of a certificate</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildProposeCreateCertificateQuoteAsync(string vault, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildProposeCreateCertificateQuoteAsync(string vault, QuoteProposeCreateCertificateRequest quoteProposeCreateCertificateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildProposeCreateCertificateQuoteWithHttpInfoAsync(vault, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildProposeCreateCertificateQuoteWithHttpInfoAsync(vault, quoteProposeCreateCertificateRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1825,9 +1928,10 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeCreateCertificateRequest">Parameters used to propose the creation of a certificate</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildProposeCreateCertificateQuoteWithHttpInfoAsync(string vault, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildProposeCreateCertificateQuoteWithHttpInfoAsync(string vault, QuoteProposeCreateCertificateRequest quoteProposeCreateCertificateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
@@ -1835,10 +1939,17 @@ namespace Opdex.Client.Api
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildProposeCreateCertificateQuote");
             }
 
+            // verify the required parameter 'quoteProposeCreateCertificateRequest' is set
+            if (quoteProposeCreateCertificateRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteProposeCreateCertificateRequest' when calling VaultsApi->BuildProposeCreateCertificateQuote");
+            }
+
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -1860,6 +1971,7 @@ namespace Opdex.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
+            localVarRequestOptions.Data = quoteProposeCreateCertificateRequest;
 
             // authentication (opdexAuth) required
             // bearer authentication required
@@ -1869,7 +1981,7 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vault-governances/{vault}/proposals/create-certificate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vaults/{vault}/proposals/create-certificate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1888,10 +2000,11 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeRevokeCertificateRequest">Parameters used to propose the revokation of a certificate</param>
         /// <returns>TransactionQuoteResponse</returns>
-        public TransactionQuoteResponse BuildProposeRevokeCertificateQuote(string vault)
+        public TransactionQuoteResponse BuildProposeRevokeCertificateQuote(string vault, QuoteProposeRevokeCertificateRequest quoteProposeRevokeCertificateRequest)
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildProposeRevokeCertificateQuoteWithHttpInfo(vault);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildProposeRevokeCertificateQuoteWithHttpInfo(vault, quoteProposeRevokeCertificateRequest);
             return localVarResponse.Data;
         }
 
@@ -1900,8 +2013,9 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeRevokeCertificateRequest">Parameters used to propose the revokation of a certificate</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildProposeRevokeCertificateQuoteWithHttpInfo(string vault)
+        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildProposeRevokeCertificateQuoteWithHttpInfo(string vault, QuoteProposeRevokeCertificateRequest quoteProposeRevokeCertificateRequest)
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
@@ -1909,9 +2023,16 @@ namespace Opdex.Client.Api
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildProposeRevokeCertificateQuote");
             }
 
+            // verify the required parameter 'quoteProposeRevokeCertificateRequest' is set
+            if (quoteProposeRevokeCertificateRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteProposeRevokeCertificateRequest' when calling VaultsApi->BuildProposeRevokeCertificateQuote");
+            }
+
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -1933,6 +2054,7 @@ namespace Opdex.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
+            localVarRequestOptions.Data = quoteProposeRevokeCertificateRequest;
 
             // authentication (opdexAuth) required
             // bearer authentication required
@@ -1942,7 +2064,7 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vault-governances/{vault}/proposals/revoke-certificate", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vaults/{vault}/proposals/revoke-certificate", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildProposeRevokeCertificateQuote", localVarResponse);
@@ -1960,11 +2082,12 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeRevokeCertificateRequest">Parameters used to propose the revokation of a certificate</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildProposeRevokeCertificateQuoteAsync(string vault, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildProposeRevokeCertificateQuoteAsync(string vault, QuoteProposeRevokeCertificateRequest quoteProposeRevokeCertificateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildProposeRevokeCertificateQuoteWithHttpInfoAsync(vault, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildProposeRevokeCertificateQuoteWithHttpInfoAsync(vault, quoteProposeRevokeCertificateRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1973,9 +2096,10 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
+        /// <param name="quoteProposeRevokeCertificateRequest">Parameters used to propose the revokation of a certificate</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildProposeRevokeCertificateQuoteWithHttpInfoAsync(string vault, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildProposeRevokeCertificateQuoteWithHttpInfoAsync(string vault, QuoteProposeRevokeCertificateRequest quoteProposeRevokeCertificateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
@@ -1983,10 +2107,17 @@ namespace Opdex.Client.Api
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildProposeRevokeCertificateQuote");
             }
 
+            // verify the required parameter 'quoteProposeRevokeCertificateRequest' is set
+            if (quoteProposeRevokeCertificateRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteProposeRevokeCertificateRequest' when calling VaultsApi->BuildProposeRevokeCertificateQuote");
+            }
+
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -2008,6 +2139,7 @@ namespace Opdex.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
+            localVarRequestOptions.Data = quoteProposeRevokeCertificateRequest;
 
             // authentication (opdexAuth) required
             // bearer authentication required
@@ -2017,7 +2149,7 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vault-governances/{vault}/proposals/revoke-certificate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vaults/{vault}/proposals/revoke-certificate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2090,7 +2222,7 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vault-governances/{vault}/certificates/redeem", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vaults/{vault}/certificates/redeem", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildRedeemCertificateQuote", localVarResponse);
@@ -2165,7 +2297,7 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vault-governances/{vault}/certificates/redeem", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vaults/{vault}/certificates/redeem", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2185,10 +2317,11 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteVoteRequest">Parameters used to vote on a proposal</param>
         /// <returns>TransactionQuoteResponse</returns>
-        public TransactionQuoteResponse BuildVoteQuote(string vault, int proposalId)
+        public TransactionQuoteResponse BuildVoteQuote(string vault, int proposalId, QuoteVoteRequest quoteVoteRequest)
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildVoteQuoteWithHttpInfo(vault, proposalId);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildVoteQuoteWithHttpInfo(vault, proposalId, quoteVoteRequest);
             return localVarResponse.Data;
         }
 
@@ -2198,8 +2331,9 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteVoteRequest">Parameters used to vote on a proposal</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildVoteQuoteWithHttpInfo(string vault, int proposalId)
+        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildVoteQuoteWithHttpInfo(string vault, int proposalId, QuoteVoteRequest quoteVoteRequest)
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
@@ -2207,9 +2341,16 @@ namespace Opdex.Client.Api
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildVoteQuote");
             }
 
+            // verify the required parameter 'quoteVoteRequest' is set
+            if (quoteVoteRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteVoteRequest' when calling VaultsApi->BuildVoteQuote");
+            }
+
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -2232,6 +2373,7 @@ namespace Opdex.Client.Api
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
+            localVarRequestOptions.Data = quoteVoteRequest;
 
             // authentication (opdexAuth) required
             // bearer authentication required
@@ -2241,7 +2383,7 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vault-governances/{vault}/proposals/{proposalId}/votes", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vaults/{vault}/proposals/{proposalId}/votes", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildVoteQuote", localVarResponse);
@@ -2260,11 +2402,12 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteVoteRequest">Parameters used to vote on a proposal</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildVoteQuoteAsync(string vault, int proposalId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildVoteQuoteAsync(string vault, int proposalId, QuoteVoteRequest quoteVoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildVoteQuoteWithHttpInfoAsync(vault, proposalId, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildVoteQuoteWithHttpInfoAsync(vault, proposalId, quoteVoteRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2274,9 +2417,10 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteVoteRequest">Parameters used to vote on a proposal</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildVoteQuoteWithHttpInfoAsync(string vault, int proposalId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildVoteQuoteWithHttpInfoAsync(string vault, int proposalId, QuoteVoteRequest quoteVoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
@@ -2284,10 +2428,17 @@ namespace Opdex.Client.Api
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildVoteQuote");
             }
 
+            // verify the required parameter 'quoteVoteRequest' is set
+            if (quoteVoteRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteVoteRequest' when calling VaultsApi->BuildVoteQuote");
+            }
+
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -2310,6 +2461,7 @@ namespace Opdex.Client.Api
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
+            localVarRequestOptions.Data = quoteVoteRequest;
 
             // authentication (opdexAuth) required
             // bearer authentication required
@@ -2319,7 +2471,7 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vault-governances/{vault}/proposals/{proposalId}/votes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vaults/{vault}/proposals/{proposalId}/votes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2339,10 +2491,11 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteWithdrawPledgeRequest">Parameters used to withdraw a pledge balance</param>
         /// <returns>TransactionQuoteResponse</returns>
-        public TransactionQuoteResponse BuildWithdrawPledgeQuote(string vault, int proposalId)
+        public TransactionQuoteResponse BuildWithdrawPledgeQuote(string vault, int proposalId, QuoteWithdrawPledgeRequest quoteWithdrawPledgeRequest)
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildWithdrawPledgeQuoteWithHttpInfo(vault, proposalId);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildWithdrawPledgeQuoteWithHttpInfo(vault, proposalId, quoteWithdrawPledgeRequest);
             return localVarResponse.Data;
         }
 
@@ -2352,8 +2505,9 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteWithdrawPledgeRequest">Parameters used to withdraw a pledge balance</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildWithdrawPledgeQuoteWithHttpInfo(string vault, int proposalId)
+        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildWithdrawPledgeQuoteWithHttpInfo(string vault, int proposalId, QuoteWithdrawPledgeRequest quoteWithdrawPledgeRequest)
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
@@ -2361,9 +2515,16 @@ namespace Opdex.Client.Api
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildWithdrawPledgeQuote");
             }
 
+            // verify the required parameter 'quoteWithdrawPledgeRequest' is set
+            if (quoteWithdrawPledgeRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteWithdrawPledgeRequest' when calling VaultsApi->BuildWithdrawPledgeQuote");
+            }
+
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -2386,6 +2547,7 @@ namespace Opdex.Client.Api
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
+            localVarRequestOptions.Data = quoteWithdrawPledgeRequest;
 
             // authentication (opdexAuth) required
             // bearer authentication required
@@ -2395,7 +2557,7 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vault-governances/{vault}/proposals/{proposalId}/pledges/withdraw", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vaults/{vault}/proposals/{proposalId}/pledges/withdraw", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildWithdrawPledgeQuote", localVarResponse);
@@ -2414,11 +2576,12 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteWithdrawPledgeRequest">Parameters used to withdraw a pledge balance</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildWithdrawPledgeQuoteAsync(string vault, int proposalId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildWithdrawPledgeQuoteAsync(string vault, int proposalId, QuoteWithdrawPledgeRequest quoteWithdrawPledgeRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildWithdrawPledgeQuoteWithHttpInfoAsync(vault, proposalId, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildWithdrawPledgeQuoteWithHttpInfoAsync(vault, proposalId, quoteWithdrawPledgeRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2428,9 +2591,10 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteWithdrawPledgeRequest">Parameters used to withdraw a pledge balance</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildWithdrawPledgeQuoteWithHttpInfoAsync(string vault, int proposalId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildWithdrawPledgeQuoteWithHttpInfoAsync(string vault, int proposalId, QuoteWithdrawPledgeRequest quoteWithdrawPledgeRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
@@ -2438,10 +2602,17 @@ namespace Opdex.Client.Api
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildWithdrawPledgeQuote");
             }
 
+            // verify the required parameter 'quoteWithdrawPledgeRequest' is set
+            if (quoteWithdrawPledgeRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteWithdrawPledgeRequest' when calling VaultsApi->BuildWithdrawPledgeQuote");
+            }
+
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -2464,6 +2635,7 @@ namespace Opdex.Client.Api
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
+            localVarRequestOptions.Data = quoteWithdrawPledgeRequest;
 
             // authentication (opdexAuth) required
             // bearer authentication required
@@ -2473,7 +2645,7 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vault-governances/{vault}/proposals/{proposalId}/pledges/withdraw", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vaults/{vault}/proposals/{proposalId}/pledges/withdraw", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2493,10 +2665,11 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteWithdrawVoteRequest">Parameters used to withdraw a vote balance</param>
         /// <returns>TransactionQuoteResponse</returns>
-        public TransactionQuoteResponse BuildWithdrawVoteQuote(string vault, int proposalId)
+        public TransactionQuoteResponse BuildWithdrawVoteQuote(string vault, int proposalId, QuoteWithdrawVoteRequest quoteWithdrawVoteRequest)
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildWithdrawVoteQuoteWithHttpInfo(vault, proposalId);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = BuildWithdrawVoteQuoteWithHttpInfo(vault, proposalId, quoteWithdrawVoteRequest);
             return localVarResponse.Data;
         }
 
@@ -2506,8 +2679,9 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteWithdrawVoteRequest">Parameters used to withdraw a vote balance</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildWithdrawVoteQuoteWithHttpInfo(string vault, int proposalId)
+        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> BuildWithdrawVoteQuoteWithHttpInfo(string vault, int proposalId, QuoteWithdrawVoteRequest quoteWithdrawVoteRequest)
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
@@ -2515,9 +2689,16 @@ namespace Opdex.Client.Api
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildWithdrawVoteQuote");
             }
 
+            // verify the required parameter 'quoteWithdrawVoteRequest' is set
+            if (quoteWithdrawVoteRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteWithdrawVoteRequest' when calling VaultsApi->BuildWithdrawVoteQuote");
+            }
+
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -2540,6 +2721,7 @@ namespace Opdex.Client.Api
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
+            localVarRequestOptions.Data = quoteWithdrawVoteRequest;
 
             // authentication (opdexAuth) required
             // bearer authentication required
@@ -2549,7 +2731,7 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vault-governances/{vault}/proposals/{proposalId}/votes/withdraw", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vaults/{vault}/proposals/{proposalId}/votes/withdraw", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildWithdrawVoteQuote", localVarResponse);
@@ -2568,11 +2750,12 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteWithdrawVoteRequest">Parameters used to withdraw a vote balance</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildWithdrawVoteQuoteAsync(string vault, int proposalId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionQuoteResponse> BuildWithdrawVoteQuoteAsync(string vault, int proposalId, QuoteWithdrawVoteRequest quoteWithdrawVoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildWithdrawVoteQuoteWithHttpInfoAsync(vault, proposalId, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await BuildWithdrawVoteQuoteWithHttpInfoAsync(vault, proposalId, quoteWithdrawVoteRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2582,9 +2765,10 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal</param>
+        /// <param name="quoteWithdrawVoteRequest">Parameters used to withdraw a vote balance</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildWithdrawVoteQuoteWithHttpInfoAsync(string vault, int proposalId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> BuildWithdrawVoteQuoteWithHttpInfoAsync(string vault, int proposalId, QuoteWithdrawVoteRequest quoteWithdrawVoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
@@ -2592,10 +2776,17 @@ namespace Opdex.Client.Api
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildWithdrawVoteQuote");
             }
 
+            // verify the required parameter 'quoteWithdrawVoteRequest' is set
+            if (quoteWithdrawVoteRequest == null)
+            {
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteWithdrawVoteRequest' when calling VaultsApi->BuildWithdrawVoteQuote");
+            }
+
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -2618,6 +2809,7 @@ namespace Opdex.Client.Api
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
+            localVarRequestOptions.Data = quoteWithdrawVoteRequest;
 
             // authentication (opdexAuth) required
             // bearer authentication required
@@ -2627,7 +2819,7 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vault-governances/{vault}/proposals/{proposalId}/votes/withdraw", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vaults/{vault}/proposals/{proposalId}/votes/withdraw", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2724,7 +2916,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<CertificatesResponse>("/vault-governances/{vault}/certificates", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<CertificatesResponse>("/vaults/{vault}/certificates", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCertificates", localVarResponse);
@@ -2823,7 +3015,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<CertificatesResponse>("/vault-governances/{vault}/certificates", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<CertificatesResponse>("/vaults/{vault}/certificates", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2902,7 +3094,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PledgeResponse>("/vault-governances/{vault}/proposals/{proposalId}/pledges/{pledger}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PledgeResponse>("/vaults/{vault}/proposals/{proposalId}/pledges/{pledger}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPledgePosition", localVarResponse);
@@ -2983,7 +3175,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PledgeResponse>("/vault-governances/{vault}/proposals/{proposalId}/pledges/{pledger}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PledgeResponse>("/vaults/{vault}/proposals/{proposalId}/pledges/{pledger}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3086,7 +3278,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PledgesResponse>("/vault-governances/{vault}/pledges", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PledgesResponse>("/vaults/{vault}/pledges", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPledges", localVarResponse);
@@ -3191,7 +3383,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PledgesResponse>("/vault-governances/{vault}/pledges", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PledgesResponse>("/vaults/{vault}/pledges", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3288,7 +3480,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<ProposalsResponse>("/vault-governances/{vault}/proposals", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ProposalsResponse>("/vaults/{vault}/proposals", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetProposals", localVarResponse);
@@ -3387,7 +3579,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ProposalsResponse>("/vault-governances/{vault}/proposals", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ProposalsResponse>("/vaults/{vault}/proposals", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3454,7 +3646,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<VaultResponse>("/vault-governances/{vault}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<VaultResponse>("/vaults/{vault}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVault", localVarResponse);
@@ -3523,7 +3715,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<VaultResponse>("/vault-governances/{vault}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<VaultResponse>("/vaults/{vault}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3593,7 +3785,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<ProposalResponse>("/vault-governances/{vault}/proposals/{proposalId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ProposalResponse>("/vaults/{vault}/proposals/{proposalId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVaultProposal", localVarResponse);
@@ -3665,7 +3857,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ProposalResponse>("/vault-governances/{vault}/proposals/{proposalId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ProposalResponse>("/vaults/{vault}/proposals/{proposalId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3747,7 +3939,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<VaultsResponse>("/vault-governances", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<VaultsResponse>("/vaults", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVaults", localVarResponse);
@@ -3831,7 +4023,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<VaultsResponse>("/vault-governances", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<VaultsResponse>("/vaults", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3910,7 +4102,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<VoteResponse>("/vault-governances/{vault}/proposals/{proposalId}/votes/{voter}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<VoteResponse>("/vaults/{vault}/proposals/{proposalId}/votes/{voter}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVotePosition", localVarResponse);
@@ -3991,7 +4183,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<VoteResponse>("/vault-governances/{vault}/proposals/{proposalId}/votes/{voter}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<VoteResponse>("/vaults/{vault}/proposals/{proposalId}/votes/{voter}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4094,7 +4286,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<VotesResponse>("/vault-governances/{vault}/votes", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<VotesResponse>("/vaults/{vault}/votes", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVotes", localVarResponse);
@@ -4199,7 +4391,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<VotesResponse>("/vault-governances/{vault}/votes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<VotesResponse>("/vaults/{vault}/votes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

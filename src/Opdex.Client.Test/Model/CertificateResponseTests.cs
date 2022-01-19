@@ -104,6 +104,14 @@ namespace Opdex.Client.Test.Model
         {
             // TODO unit test for the property 'Revoked'
         }
+        /// <summary>
+        /// Test the property 'Proposals'
+        /// </summary>
+        [Fact]
+        public void ProposalsTest()
+        {
+            // TODO unit test for the property 'Proposals'
+        }
 
     }
 

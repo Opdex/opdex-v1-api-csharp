@@ -48,7 +48,8 @@ namespace Opdex.Client.Model
         /// <param name="noAmount">Decimal value with uncapped precision and size.</param>
         /// <param name="pledgeAmount">Decimal value with uncapped precision and size.</param>
         /// <param name="approved">Whether the proposal has been approved.</param>
-        public ProposalResponse(string vault = default(string), string token = default(string), int proposalId = default(int), string creator = default(string), string wallet = default(string), string amount = default(string), string description = default(string), ProposalType type = default(ProposalType), ProposalStatus status = default(ProposalStatus), int expiration = default(int), string yesAmount = default(string), string noAmount = default(string), string pledgeAmount = default(string), bool approved = default(bool))
+        /// <param name="certificate">certificate.</param>
+        public ProposalResponse(string vault = default(string), string token = default(string), int proposalId = default(int), string creator = default(string), string wallet = default(string), string amount = default(string), string description = default(string), ProposalType type = default(ProposalType), ProposalStatus status = default(ProposalStatus), int expiration = default(int), string yesAmount = default(string), string noAmount = default(string), string pledgeAmount = default(string), bool approved = default(bool), CertificateResponse certificate = default(CertificateResponse))
         {
             this.Vault = vault;
             this.Token = token;
@@ -64,6 +65,7 @@ namespace Opdex.Client.Model
             this.NoAmount = noAmount;
             this.PledgeAmount = pledgeAmount;
             this.Approved = approved;
+            this.Certificate = certificate;
         }
 
         /// <summary>
@@ -163,6 +165,12 @@ namespace Opdex.Client.Model
         public bool Approved { get; set; }
 
         /// <summary>
+        /// Gets or Sets Certificate
+        /// </summary>
+        [DataMember(Name = "certificate", EmitDefaultValue = false)]
+        public CertificateResponse Certificate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -184,6 +192,7 @@ namespace Opdex.Client.Model
             sb.Append("  NoAmount: ").Append(NoAmount).Append("\n");
             sb.Append("  PledgeAmount: ").Append(PledgeAmount).Append("\n");
             sb.Append("  Approved: ").Append(Approved).Append("\n");
+            sb.Append("  Certificate: ").Append(Certificate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -285,6 +294,11 @@ namespace Opdex.Client.Model
                 (
                     this.Approved == input.Approved ||
                     this.Approved.Equals(input.Approved)
+                ) && 
+                (
+                    this.Certificate == input.Certificate ||
+                    (this.Certificate != null &&
+                    this.Certificate.Equals(input.Certificate))
                 );
         }
 
@@ -344,6 +358,10 @@ namespace Opdex.Client.Model
                     hashCode = (hashCode * 59) + this.PledgeAmount.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Approved.GetHashCode();
+                if (this.Certificate != null)
+                {
+                    hashCode = (hashCode * 59) + this.Certificate.GetHashCode();
+                }
                 return hashCode;
             }
         }

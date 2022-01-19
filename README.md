@@ -85,7 +85,7 @@ namespace Example
         {
 
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new AuthenticationApi(config);
             var uid = Lf5t5J-oAn3CZ9YY27JnK5XtpbjIOD3BxyvHhd80AQ4fsJ7o0J8i5uSjzHZ9jeS3;  // string | Unique identifier for the Stratis ID
             var stratisSignatureAuthRequest = new StratisSignatureAuthRequest(); // StratisSignatureAuthRequest | The Stratis Signature Auth body
@@ -111,18 +111,48 @@ namespace Example
 <a name="documentation-for-api-endpoints"></a>
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://test-api.opdex.com*
+All URIs are relative to *https://test-api.opdex.com/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AuthenticationApi* | [**Authenticate**](docs/AuthenticationApi.md#authenticate) | **POST** /auth | Stratis Signature Auth
+*IndexerApi* | [**GetIndexerStatus**](docs/IndexerApi.md#getindexerstatus) | **GET** /indexer | Get Indexer Status
+*LiquidityPoolsApi* | [**BuildAddLiquidityQuote**](docs/LiquidityPoolsApi.md#buildaddliquidityquote) | **POST** /liquidity-pools/{pool}/add | Build Add Liquidity Transaction Quote
+*LiquidityPoolsApi* | [**BuildCollectStakingRewardsQuote**](docs/LiquidityPoolsApi.md#buildcollectstakingrewardsquote) | **POST** /liquidity-pools/{pool}/staking/collect | Build Collect Staking Rewards Transaction Quote
+*LiquidityPoolsApi* | [**BuildCreateLiquidityPoolQuote**](docs/LiquidityPoolsApi.md#buildcreateliquiditypoolquote) | **POST** /liquidity-pools | Build Create Liquidity Pool Transaction Quote
+*LiquidityPoolsApi* | [**BuildRemoveLiquidityQuote**](docs/LiquidityPoolsApi.md#buildremoveliquidityquote) | **POST** /liquidity-pools/{pool}/remove | Build Remove Liquidity Transaction Quote
+*LiquidityPoolsApi* | [**BuildSkimQuote**](docs/LiquidityPoolsApi.md#buildskimquote) | **POST** /liquidity-pools/{pool}/skim | Build Skim Transaction Quote
+*LiquidityPoolsApi* | [**BuildStartStakingQuote**](docs/LiquidityPoolsApi.md#buildstartstakingquote) | **POST** /liquidity-pools/{pool}/staking/start | Build Start Staking Transaction Quote
+*LiquidityPoolsApi* | [**BuildStopStakingQuote**](docs/LiquidityPoolsApi.md#buildstopstakingquote) | **POST** /liquidity-pools/{pool}/staking/stop | Build Stop Staking Transaction Quote
+*LiquidityPoolsApi* | [**BuildSyncQuote**](docs/LiquidityPoolsApi.md#buildsyncquote) | **POST** /liquidity-pools/{pool}/sync | Build Sync Transaction Quote
+*LiquidityPoolsApi* | [**GetLiquidityAmountInQuote**](docs/LiquidityPoolsApi.md#getliquidityamountinquote) | **POST** /liquidity-pools/{pool}/add/amount-in | Add Liquidity Amount In Quote
+*LiquidityPoolsApi* | [**GetLiquidityPool**](docs/LiquidityPoolsApi.md#getliquiditypool) | **GET** /liquidity-pools/{pool} | Get Liquidity Pool
+*LiquidityPoolsApi* | [**GetLiquidityPoolHistory**](docs/LiquidityPoolsApi.md#getliquiditypoolhistory) | **GET** /liquidity-pools/{pool}/history | Get Liquidity Pool History
+*LiquidityPoolsApi* | [**GetLiquidityPools**](docs/LiquidityPoolsApi.md#getliquiditypools) | **GET** /liquidity-pools | Get Liquidity Pools
 *MarketTokensApi* | [**GetMarketToken**](docs/MarketTokensApi.md#getmarkettoken) | **GET** /markets/{market}/tokens/{token} | Get Market Token
 *MarketTokensApi* | [**GetMarketTokenHistory**](docs/MarketTokensApi.md#getmarkettokenhistory) | **GET** /markets/{market}/tokens/{token}/history | Get Market Token History
 *MarketTokensApi* | [**GetMarketTokens**](docs/MarketTokensApi.md#getmarkettokens) | **GET** /markets/{market}/tokens | Get Market Tokens
 *MarketTokensApi* | [**GetSwapAmountInQuote**](docs/MarketTokensApi.md#getswapamountinquote) | **POST** /markets/{market}/tokens/{token}/swap/amount-in | Swap Amount In Quote
 *MarketTokensApi* | [**GetSwapAmountOutQuote**](docs/MarketTokensApi.md#getswapamountoutquote) | **POST** /markets/{market}/tokens/{token}/swap/amount-out | Swap Amount Out Quote
 *MarketTokensApi* | [**Swap**](docs/MarketTokensApi.md#swap) | **POST** /markets/{market}/tokens/{token}/swap | Build Swap Tokens Transaction Quote
+*MarketsApi* | [**BuildClaimMarketOwnershipQuote**](docs/MarketsApi.md#buildclaimmarketownershipquote) | **POST** /markets/{market}/standard/claim-ownership | Build Claim Market Ownership Transaction Quote
+*MarketsApi* | [**BuildCollectMarketFeesQuote**](docs/MarketsApi.md#buildcollectmarketfeesquote) | **POST** /markets/{market}/standard/collect-fees | Build Collect Market Fees Transaction Quote
+*MarketsApi* | [**BuildCreateStakingMarketQuote**](docs/MarketsApi.md#buildcreatestakingmarketquote) | **POST** /markets/staking | Build Create Staking Market Transaction Quote
+*MarketsApi* | [**BuildCreateStandardMarketQuote**](docs/MarketsApi.md#buildcreatestandardmarketquote) | **POST** /markets/standard | Build Create Standard Market Transaction Quote
+*MarketsApi* | [**BuildSetMarketOwnershipQuote**](docs/MarketsApi.md#buildsetmarketownershipquote) | **POST** /markets/{market}/standard/set-ownership | Build Set Market Ownership Transaction Quote
+*MarketsApi* | [**BuildSetMarketPermissionsQuote**](docs/MarketsApi.md#buildsetmarketpermissionsquote) | **POST** /markets/{market}/standard/permissions/{address} | Build Set Market Permissions Transaction Quote
+*MarketsApi* | [**GetMarket**](docs/MarketsApi.md#getmarket) | **GET** /markets/{market} | Get Market
+*MarketsApi* | [**GetMarketHistory**](docs/MarketsApi.md#getmarkethistory) | **GET** /markets/{market}/history | Get Market History
+*MarketsApi* | [**GetMarketPermissions**](docs/MarketsApi.md#getmarketpermissions) | **GET** /markets/{market}/standard/permissions/{address} | Get Market Permissions
 *MarketsApi* | [**GetMarkets**](docs/MarketsApi.md#getmarkets) | **GET** /markets | Get Markets
+*MiningGovernancesApi* | [**BuildRewardMiningPoolsQuote**](docs/MiningGovernancesApi.md#buildrewardminingpoolsquote) | **POST** /mining-governances/{governance}/reward-mining-pools | Build Reward Mining Pools Transaction Quote
+*MiningGovernancesApi* | [**GetMiningGovernance**](docs/MiningGovernancesApi.md#getmininggovernance) | **GET** /mining-governances/{governance} | Get Mining Governance
+*MiningGovernancesApi* | [**GetMiningGovernances**](docs/MiningGovernancesApi.md#getmininggovernances) | **GET** /mining-governances | Get Mining Governances
+*MiningPoolsApi* | [**BuildCollectMiningRewardsQuote**](docs/MiningPoolsApi.md#buildcollectminingrewardsquote) | **POST** /mining-pools/{pool}/collect | Build Collect Mining Rewards Transaction Quote
+*MiningPoolsApi* | [**BuildStartMiningQuote**](docs/MiningPoolsApi.md#buildstartminingquote) | **POST** /mining-pools/{pool}/start | Build Start Mining Transaction Quote
+*MiningPoolsApi* | [**BuildStopMiningQuote**](docs/MiningPoolsApi.md#buildstopminingquote) | **POST** /mining-pools/{pool}/stop | Build Stop Mining Transaction Quote
+*MiningPoolsApi* | [**GetMiningPool**](docs/MiningPoolsApi.md#getminingpool) | **GET** /mining-pools/{pool} | Get Mining Pool
+*MiningPoolsApi* | [**GetMiningPools**](docs/MiningPoolsApi.md#getminingpools) | **GET** /mining-pools | Get Mining Pools
 *StatusApi* | [**GetStatus**](docs/StatusApi.md#getstatus) | **GET** /status | Get Status
 *TokensApi* | [**AddToken**](docs/TokensApi.md#addtoken) | **POST** /tokens | Add Token
 *TokensApi* | [**BuildApproveAllowanceQuote**](docs/TokensApi.md#buildapproveallowancequote) | **POST** /tokens/{token}/approve | Build Approve Allowance Transaction Quote
@@ -134,25 +164,33 @@ Class | Method | HTTP request | Description
 *TransactionsApi* | [**GetTransactions**](docs/TransactionsApi.md#gettransactions) | **GET** /transactions | Get Transactions
 *TransactionsApi* | [**NotifyTransactionBroadcast**](docs/TransactionsApi.md#notifytransactionbroadcast) | **POST** /transactions | Notify Broadcast
 *TransactionsApi* | [**ReplayQuote**](docs/TransactionsApi.md#replayquote) | **POST** /transaction/replay-quote | Replay Transaction Quote
-*VaultsApi* | [**BuildCompleteProposalQuote**](docs/VaultsApi.md#buildcompleteproposalquote) | **POST** /vault-governances/{vault}/proposals/{proposalId}/complete | Build Complete Proposal Transaction Quote
-*VaultsApi* | [**BuildPledgeQuote**](docs/VaultsApi.md#buildpledgequote) | **POST** /vault-governances/{vault}/proposals/{proposalId}/pledges | Build Make Pledge Transaction Quote
-*VaultsApi* | [**BuildProposeChangeMinimumPledgeQuote**](docs/VaultsApi.md#buildproposechangeminimumpledgequote) | **POST** /vault-governances/{vault}/proposals/minimum-pledge | Build Propose Change Minimum Pledge Transaction Quote
-*VaultsApi* | [**BuildProposeChangeMinimumVoteQuote**](docs/VaultsApi.md#buildproposechangeminimumvotequote) | **POST** /vault-governances/{vault}/proposals/minimum-vote | Build Propose Change Minimum Vote Transaction Quote
-*VaultsApi* | [**BuildProposeCreateCertificateQuote**](docs/VaultsApi.md#buildproposecreatecertificatequote) | **POST** /vault-governances/{vault}/proposals/create-certificate | Build Propose Create Certificate Transaction Quote
-*VaultsApi* | [**BuildProposeRevokeCertificateQuote**](docs/VaultsApi.md#buildproposerevokecertificatequote) | **POST** /vault-governances/{vault}/proposals/revoke-certificate | Build Propose Revoke Certificate Transaction Quote
-*VaultsApi* | [**BuildRedeemCertificateQuote**](docs/VaultsApi.md#buildredeemcertificatequote) | **POST** /vault-governances/{vault}/certificates/redeem | Build Redeem Vault Certificate Transaction Quote
-*VaultsApi* | [**BuildVoteQuote**](docs/VaultsApi.md#buildvotequote) | **POST** /vault-governances/{vault}/proposals/{proposalId}/votes | Build Cast Vote Transaction Quote
-*VaultsApi* | [**BuildWithdrawPledgeQuote**](docs/VaultsApi.md#buildwithdrawpledgequote) | **POST** /vault-governances/{vault}/proposals/{proposalId}/pledges/withdraw | Build Withdraw Pledge Transaction Quote
-*VaultsApi* | [**BuildWithdrawVoteQuote**](docs/VaultsApi.md#buildwithdrawvotequote) | **POST** /vault-governances/{vault}/proposals/{proposalId}/votes/withdraw | Build Withdraw Vote Transaction Quote
-*VaultsApi* | [**GetCertificates**](docs/VaultsApi.md#getcertificates) | **GET** /vault-governances/{vault}/certificates | Get Vault Certificates
-*VaultsApi* | [**GetPledgePosition**](docs/VaultsApi.md#getpledgeposition) | **GET** /vault-governances/{vault}/proposals/{proposalId}/pledges/{pledger} | Get Vault Proposal Pledge Position
-*VaultsApi* | [**GetPledges**](docs/VaultsApi.md#getpledges) | **GET** /vault-governances/{vault}/pledges | Get Vault Proposal Pledges
-*VaultsApi* | [**GetProposals**](docs/VaultsApi.md#getproposals) | **GET** /vault-governances/{vault}/proposals | Get Vault Proposals
-*VaultsApi* | [**GetVault**](docs/VaultsApi.md#getvault) | **GET** /vault-governances/{vault} | Get Vault
-*VaultsApi* | [**GetVaultProposal**](docs/VaultsApi.md#getvaultproposal) | **GET** /vault-governances/{vault}/proposals/{proposalId} | Get Vault Proposal
-*VaultsApi* | [**GetVaults**](docs/VaultsApi.md#getvaults) | **GET** /vault-governances | Get Vaults
-*VaultsApi* | [**GetVotePosition**](docs/VaultsApi.md#getvoteposition) | **GET** /vault-governances/{vault}/proposals/{proposalId}/votes/{voter} | Get Vault Proposal Vote Position
-*VaultsApi* | [**GetVotes**](docs/VaultsApi.md#getvotes) | **GET** /vault-governances/{vault}/votes | Get Vault Proposal Votes
+*VaultsApi* | [**BuildCompleteProposalQuote**](docs/VaultsApi.md#buildcompleteproposalquote) | **POST** /vaults/{vault}/proposals/{proposalId}/complete | Build Complete Proposal Transaction Quote
+*VaultsApi* | [**BuildPledgeQuote**](docs/VaultsApi.md#buildpledgequote) | **POST** /vaults/{vault}/proposals/{proposalId}/pledges | Build Make Pledge Transaction Quote
+*VaultsApi* | [**BuildProposeChangeMinimumPledgeQuote**](docs/VaultsApi.md#buildproposechangeminimumpledgequote) | **POST** /vaults/{vault}/proposals/minimum-pledge | Build Propose Change Minimum Pledge Transaction Quote
+*VaultsApi* | [**BuildProposeChangeMinimumVoteQuote**](docs/VaultsApi.md#buildproposechangeminimumvotequote) | **POST** /vaults/{vault}/proposals/minimum-vote | Build Propose Change Minimum Vote Transaction Quote
+*VaultsApi* | [**BuildProposeCreateCertificateQuote**](docs/VaultsApi.md#buildproposecreatecertificatequote) | **POST** /vaults/{vault}/proposals/create-certificate | Build Propose Create Certificate Transaction Quote
+*VaultsApi* | [**BuildProposeRevokeCertificateQuote**](docs/VaultsApi.md#buildproposerevokecertificatequote) | **POST** /vaults/{vault}/proposals/revoke-certificate | Build Propose Revoke Certificate Transaction Quote
+*VaultsApi* | [**BuildRedeemCertificateQuote**](docs/VaultsApi.md#buildredeemcertificatequote) | **POST** /vaults/{vault}/certificates/redeem | Build Redeem Vault Certificate Transaction Quote
+*VaultsApi* | [**BuildVoteQuote**](docs/VaultsApi.md#buildvotequote) | **POST** /vaults/{vault}/proposals/{proposalId}/votes | Build Cast Vote Transaction Quote
+*VaultsApi* | [**BuildWithdrawPledgeQuote**](docs/VaultsApi.md#buildwithdrawpledgequote) | **POST** /vaults/{vault}/proposals/{proposalId}/pledges/withdraw | Build Withdraw Pledge Transaction Quote
+*VaultsApi* | [**BuildWithdrawVoteQuote**](docs/VaultsApi.md#buildwithdrawvotequote) | **POST** /vaults/{vault}/proposals/{proposalId}/votes/withdraw | Build Withdraw Vote Transaction Quote
+*VaultsApi* | [**GetCertificates**](docs/VaultsApi.md#getcertificates) | **GET** /vaults/{vault}/certificates | Get Vault Certificates
+*VaultsApi* | [**GetPledgePosition**](docs/VaultsApi.md#getpledgeposition) | **GET** /vaults/{vault}/proposals/{proposalId}/pledges/{pledger} | Get Vault Proposal Pledge Position
+*VaultsApi* | [**GetPledges**](docs/VaultsApi.md#getpledges) | **GET** /vaults/{vault}/pledges | Get Vault Proposal Pledges
+*VaultsApi* | [**GetProposals**](docs/VaultsApi.md#getproposals) | **GET** /vaults/{vault}/proposals | Get Vault Proposals
+*VaultsApi* | [**GetVault**](docs/VaultsApi.md#getvault) | **GET** /vaults/{vault} | Get Vault
+*VaultsApi* | [**GetVaultProposal**](docs/VaultsApi.md#getvaultproposal) | **GET** /vaults/{vault}/proposals/{proposalId} | Get Vault Proposal
+*VaultsApi* | [**GetVaults**](docs/VaultsApi.md#getvaults) | **GET** /vaults | Get Vaults
+*VaultsApi* | [**GetVotePosition**](docs/VaultsApi.md#getvoteposition) | **GET** /vaults/{vault}/proposals/{proposalId}/votes/{voter} | Get Vault Proposal Vote Position
+*VaultsApi* | [**GetVotes**](docs/VaultsApi.md#getvotes) | **GET** /vaults/{vault}/votes | Get Vault Proposal Votes
+*WalletsApi* | [**GetApprovedAllowance**](docs/WalletsApi.md#getapprovedallowance) | **GET** /wallets/{address}/allowance/{token}/approved/{spender} | Get Approved Allowance
+*WalletsApi* | [**GetBalance**](docs/WalletsApi.md#getbalance) | **GET** /wallets/{address}/balance/{token} | Get Balance
+*WalletsApi* | [**GetBalances**](docs/WalletsApi.md#getbalances) | **GET** /wallets/{address}/balance | Get Balances
+*WalletsApi* | [**GetMiningPosition**](docs/WalletsApi.md#getminingposition) | **GET** /wallets/{address}/mining/{pool} | Get Mining Position
+*WalletsApi* | [**GetMiningPositions**](docs/WalletsApi.md#getminingpositions) | **GET** /wallets/{address}/mining | Get Mining Positions
+*WalletsApi* | [**GetStakingPosition**](docs/WalletsApi.md#getstakingposition) | **GET** /wallets/{address}/staking/{pool} | Get Staking Position
+*WalletsApi* | [**GetStakingPositions**](docs/WalletsApi.md#getstakingpositions) | **GET** /wallets/{address}/staking | Get Staking Positions
+*WalletsApi* | [**RefreshBalance**](docs/WalletsApi.md#refreshbalance) | **POST** /wallets/{address}/balance/{token} | Refresh Balance
 
 
 <a name="documentation-for-models"></a>
@@ -160,7 +198,10 @@ Class | Method | HTTP request | Description
 
  - [Model.AddLiquidityEvent](docs/AddLiquidityEvent.md)
  - [Model.AddTokenRequest](docs/AddTokenRequest.md)
+ - [Model.AddressBalanceResponse](docs/AddressBalanceResponse.md)
+ - [Model.AddressBalancesResponse](docs/AddressBalancesResponse.md)
  - [Model.ApprovalEvent](docs/ApprovalEvent.md)
+ - [Model.ApprovedAllowanceResponse](docs/ApprovedAllowanceResponse.md)
  - [Model.BlockResponse](docs/BlockResponse.md)
  - [Model.CertificateResponse](docs/CertificateResponse.md)
  - [Model.CertificateStatus](docs/CertificateStatus.md)
@@ -171,24 +212,54 @@ Class | Method | HTTP request | Description
  - [Model.CollectMiningRewardsEvent](docs/CollectMiningRewardsEvent.md)
  - [Model.CollectStakingRewardsEvent](docs/CollectStakingRewardsEvent.md)
  - [Model.CompleteVaultProposalEvent](docs/CompleteVaultProposalEvent.md)
+ - [Model.CostSnapshot](docs/CostSnapshot.md)
+ - [Model.CostSummary](docs/CostSummary.md)
  - [Model.CreateLiquidityPoolEvent](docs/CreateLiquidityPoolEvent.md)
  - [Model.CreateMarketEvent](docs/CreateMarketEvent.md)
  - [Model.CreateVaultCertificateEvent](docs/CreateVaultCertificateEvent.md)
  - [Model.CreateVaultProposalEvent](docs/CreateVaultProposalEvent.md)
  - [Model.DistributionEvent](docs/DistributionEvent.md)
  - [Model.EnableMiningEvent](docs/EnableMiningEvent.md)
+ - [Model.IndexerStatusResponse](docs/IndexerStatusResponse.md)
  - [Model.Interval](docs/Interval.md)
+ - [Model.LiquidityAmountInQuoteRequest](docs/LiquidityAmountInQuoteRequest.md)
+ - [Model.LiquidityAmountInQuoteResponse](docs/LiquidityAmountInQuoteResponse.md)
+ - [Model.LiquidityPoolOrderByType](docs/LiquidityPoolOrderByType.md)
+ - [Model.LiquidityPoolResponse](docs/LiquidityPoolResponse.md)
+ - [Model.LiquidityPoolRewardsSnapshot](docs/LiquidityPoolRewardsSnapshot.md)
+ - [Model.LiquidityPoolSnapshotResponse](docs/LiquidityPoolSnapshotResponse.md)
+ - [Model.LiquidityPoolSnapshotsResponse](docs/LiquidityPoolSnapshotsResponse.md)
+ - [Model.LiquidityPoolStakingSnapshot](docs/LiquidityPoolStakingSnapshot.md)
+ - [Model.LiquidityPoolStakingSummary](docs/LiquidityPoolStakingSummary.md)
+ - [Model.LiquidityPoolSummary](docs/LiquidityPoolSummary.md)
+ - [Model.LiquidityPoolTokenBreakdown](docs/LiquidityPoolTokenBreakdown.md)
+ - [Model.LiquidityPoolsResponse](docs/LiquidityPoolsResponse.md)
  - [Model.MarketOrderByType](docs/MarketOrderByType.md)
  - [Model.MarketPermission](docs/MarketPermission.md)
  - [Model.MarketResponse](docs/MarketResponse.md)
+ - [Model.MarketRewardsSnapshot](docs/MarketRewardsSnapshot.md)
+ - [Model.MarketSnapshotResponse](docs/MarketSnapshotResponse.md)
+ - [Model.MarketSnapshotsResponse](docs/MarketSnapshotsResponse.md)
+ - [Model.MarketStakingSnapshot](docs/MarketStakingSnapshot.md)
+ - [Model.MarketStakingSummary](docs/MarketStakingSummary.md)
  - [Model.MarketSummary](docs/MarketSummary.md)
  - [Model.MarketTokenResponse](docs/MarketTokenResponse.md)
  - [Model.MarketTokensResponse](docs/MarketTokensResponse.md)
  - [Model.MarketType](docs/MarketType.md)
  - [Model.MarketsResponse](docs/MarketsResponse.md)
+ - [Model.MiningActivityStatus](docs/MiningActivityStatus.md)
+ - [Model.MiningGovernanceResponse](docs/MiningGovernanceResponse.md)
+ - [Model.MiningGovernancesResponse](docs/MiningGovernancesResponse.md)
+ - [Model.MiningPoolResponse](docs/MiningPoolResponse.md)
+ - [Model.MiningPoolsResponse](docs/MiningPoolsResponse.md)
+ - [Model.MiningPositionResponse](docs/MiningPositionResponse.md)
+ - [Model.MiningPositionsResponse](docs/MiningPositionsResponse.md)
+ - [Model.MiningStatus](docs/MiningStatus.md)
  - [Model.NominationEvent](docs/NominationEvent.md)
+ - [Model.NominationStatus](docs/NominationStatus.md)
  - [Model.NotifyBroadcastRequest](docs/NotifyBroadcastRequest.md)
  - [Model.OhlcDecimalResponse](docs/OhlcDecimalResponse.md)
+ - [Model.OhlcFixedDecimalResponse](docs/OhlcFixedDecimalResponse.md)
  - [Model.PagingResponse](docs/PagingResponse.md)
  - [Model.PledgeResponse](docs/PledgeResponse.md)
  - [Model.PledgesResponse](docs/PledgesResponse.md)
@@ -197,16 +268,44 @@ Class | Method | HTTP request | Description
  - [Model.ProposalStatus](docs/ProposalStatus.md)
  - [Model.ProposalType](docs/ProposalType.md)
  - [Model.ProposalsResponse](docs/ProposalsResponse.md)
+ - [Model.QuoteAddLiquidityRequest](docs/QuoteAddLiquidityRequest.md)
+ - [Model.QuoteApproveAllowanceRequest](docs/QuoteApproveAllowanceRequest.md)
+ - [Model.QuoteCollectMarketFeesRequest](docs/QuoteCollectMarketFeesRequest.md)
+ - [Model.QuoteCollectStakingRewardsRequest](docs/QuoteCollectStakingRewardsRequest.md)
+ - [Model.QuoteCreateLiquidityPoolRequest](docs/QuoteCreateLiquidityPoolRequest.md)
+ - [Model.QuoteCreateStakingMarketRequest](docs/QuoteCreateStakingMarketRequest.md)
+ - [Model.QuoteCreateStandardMarketRequest](docs/QuoteCreateStandardMarketRequest.md)
+ - [Model.QuotePledgeRequest](docs/QuotePledgeRequest.md)
+ - [Model.QuoteProposeCreateCertificateRequest](docs/QuoteProposeCreateCertificateRequest.md)
+ - [Model.QuoteProposeMinimumPledgeRequest](docs/QuoteProposeMinimumPledgeRequest.md)
+ - [Model.QuoteProposeMinimumVoteRequest](docs/QuoteProposeMinimumVoteRequest.md)
+ - [Model.QuoteProposeRevokeCertificateRequest](docs/QuoteProposeRevokeCertificateRequest.md)
+ - [Model.QuoteRemoveLiquidityRequest](docs/QuoteRemoveLiquidityRequest.md)
+ - [Model.QuoteRewardMiningPoolsRequest](docs/QuoteRewardMiningPoolsRequest.md)
+ - [Model.QuoteSetMarketOwnerRequest](docs/QuoteSetMarketOwnerRequest.md)
+ - [Model.QuoteSetMarketPermissionsRequest](docs/QuoteSetMarketPermissionsRequest.md)
+ - [Model.QuoteSkimRequest](docs/QuoteSkimRequest.md)
+ - [Model.QuoteStartMiningRequest](docs/QuoteStartMiningRequest.md)
+ - [Model.QuoteStartStakingRequest](docs/QuoteStartStakingRequest.md)
+ - [Model.QuoteStopMiningRequest](docs/QuoteStopMiningRequest.md)
+ - [Model.QuoteStopStakingRequest](docs/QuoteStopStakingRequest.md)
  - [Model.QuoteSwapTransactionRequest](docs/QuoteSwapTransactionRequest.md)
+ - [Model.QuoteVoteRequest](docs/QuoteVoteRequest.md)
+ - [Model.QuoteWithdrawPledgeRequest](docs/QuoteWithdrawPledgeRequest.md)
+ - [Model.QuoteWithdrawVoteRequest](docs/QuoteWithdrawVoteRequest.md)
  - [Model.RemoveLiquidityEvent](docs/RemoveLiquidityEvent.md)
  - [Model.ReplayQuoteRequest](docs/ReplayQuoteRequest.md)
+ - [Model.ReservesSnapshot](docs/ReservesSnapshot.md)
+ - [Model.ReservesSummary](docs/ReservesSummary.md)
  - [Model.RevokeVaultCertificateEvent](docs/RevokeVaultCertificateEvent.md)
  - [Model.RewardMiningPoolEvent](docs/RewardMiningPoolEvent.md)
  - [Model.RewardSummary](docs/RewardSummary.md)
  - [Model.SetPendingDeployerOwnershipEvent](docs/SetPendingDeployerOwnershipEvent.md)
  - [Model.SetPendingMarketOwnershipEvent](docs/SetPendingMarketOwnershipEvent.md)
  - [Model.SortDirection](docs/SortDirection.md)
- - [Model.StakingSummary](docs/StakingSummary.md)
+ - [Model.StakingPositionResponse](docs/StakingPositionResponse.md)
+ - [Model.StakingPositionsResponse](docs/StakingPositionsResponse.md)
+ - [Model.StakingStatus](docs/StakingStatus.md)
  - [Model.StartMiningEvent](docs/StartMiningEvent.md)
  - [Model.StartStakingEvent](docs/StartStakingEvent.md)
  - [Model.StatusResponse](docs/StatusResponse.md)
@@ -219,6 +318,8 @@ Class | Method | HTTP request | Description
  - [Model.SwapAmountOutQuoteResponse](docs/SwapAmountOutQuoteResponse.md)
  - [Model.SwapEvent](docs/SwapEvent.md)
  - [Model.TokenAddress](docs/TokenAddress.md)
+ - [Model.TokenAttribute](docs/TokenAttribute.md)
+ - [Model.TokenAttributeFilter](docs/TokenAttributeFilter.md)
  - [Model.TokenOrderByType](docs/TokenOrderByType.md)
  - [Model.TokenResponse](docs/TokenResponse.md)
  - [Model.TokenSnapshotResponse](docs/TokenSnapshotResponse.md)
@@ -240,6 +341,8 @@ Class | Method | HTTP request | Description
  - [Model.VaultProposalWithdrawVoteEvent](docs/VaultProposalWithdrawVoteEvent.md)
  - [Model.VaultResponse](docs/VaultResponse.md)
  - [Model.VaultsResponse](docs/VaultsResponse.md)
+ - [Model.VolumeSnapshot](docs/VolumeSnapshot.md)
+ - [Model.VolumeSummary](docs/VolumeSummary.md)
  - [Model.VoteResponse](docs/VoteResponse.md)
  - [Model.VotesResponse](docs/VotesResponse.md)
 

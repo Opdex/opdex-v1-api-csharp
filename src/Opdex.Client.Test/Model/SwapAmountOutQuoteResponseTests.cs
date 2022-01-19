@@ -57,12 +57,12 @@ namespace Opdex.Client.Test.Model
 
 
         /// <summary>
-        /// Test the property 'AmountIn'
+        /// Test the property 'AmountOut'
         /// </summary>
         [Fact]
-        public void AmountInTest()
+        public void AmountOutTest()
         {
-            // TODO unit test for the property 'AmountIn'
+            // TODO unit test for the property 'AmountOut'
         }
 
     }

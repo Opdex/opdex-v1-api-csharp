@@ -1,6 +1,6 @@
 # Opdex.Client.Api.TokensApi
 
-All URIs are relative to *https://test-api.opdex.com*
+All URIs are relative to *https://test-api.opdex.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -35,7 +35,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 <a name="buildapproveallowancequote"></a>
 # **BuildApproveAllowanceQuote**
-> TransactionQuoteResponse BuildApproveAllowanceQuote (string token)
+> TransactionQuoteResponse BuildApproveAllowanceQuote (string token, QuoteApproveAllowanceRequest quoteApproveAllowanceRequest)
 
 Build Approve Allowance Transaction Quote
 
@@ -114,17 +114,18 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new TokensApi(config);
             var token = tGSk2dVENuqAQ2rNXbui37XHuurFCTqadD;  // string | Address of the token
+            var quoteApproveAllowanceRequest = new QuoteApproveAllowanceRequest(); // QuoteApproveAllowanceRequest | Parameters used for the approval of a token allowance
 
             try
             {
                 // Build Approve Allowance Transaction Quote
-                TransactionQuoteResponse result = apiInstance.BuildApproveAllowanceQuote(token);
+                TransactionQuoteResponse result = apiInstance.BuildApproveAllowanceQuote(token, quoteApproveAllowanceRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -143,6 +144,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **token** | **string**| Address of the token | 
+ **quoteApproveAllowanceRequest** | [**QuoteApproveAllowanceRequest**](QuoteApproveAllowanceRequest.md)| Parameters used for the approval of a token allowance | 
 
 ### Return type
 
@@ -154,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, application/problem+json
 
 
@@ -193,12 +195,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new TokensApi(config);
-            var token = tBeY2UAVsbHoS9jwEnT2kMmRsJwUHK1j1L;  // string | Address of the governance token
+            var token = tTTuKbCR2UnsEByXBp1ynBz91J2yz63h1c;  // string | Address of the governance token
 
             try
             {
@@ -272,7 +274,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new TokensApi(config);
             var token = tGSk2dVENuqAQ2rNXbui37XHuurFCTqadD;  // string | Address of the token
 
@@ -347,7 +349,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new TokensApi(config);
             var token = tGSk2dVENuqAQ2rNXbui37XHuurFCTqadD;  // string | Address of the token
             var startDateTime = 2022-01-01T00:00:00Z;  // DateTime | Start time for which to retrieve snapshots
@@ -403,7 +405,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Token results found |  -  |
+| **200** | Token snapshot results found |  -  |
 | **400** | The request is not valid |  -  |
 | **404** | Token not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -434,7 +436,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com";
+            config.BasePath = "https://test-api.opdex.com/v1";
             var apiInstance = new TokensApi(config);
             var tokenType = Provisional;  // TokenType? | Token type filter (optional) 
             var tokens = new List<string>(); // List<string> | Specific tokens to include (optional) 

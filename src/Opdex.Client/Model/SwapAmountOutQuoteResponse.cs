@@ -34,18 +34,18 @@ namespace Opdex.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SwapAmountOutQuoteResponse" /> class.
         /// </summary>
-        /// <param name="amountIn">Decimal value with uncapped precision and size.</param>
-        public SwapAmountOutQuoteResponse(string amountIn = default(string))
+        /// <param name="amountOut">Decimal value with uncapped precision and size.</param>
+        public SwapAmountOutQuoteResponse(string amountOut = default(string))
         {
-            this.AmountIn = amountIn;
+            this.AmountOut = amountOut;
         }
 
         /// <summary>
         /// Decimal value with uncapped precision and size
         /// </summary>
         /// <value>Decimal value with uncapped precision and size</value>
-        [DataMember(Name = "amountIn", EmitDefaultValue = false)]
-        public string AmountIn { get; set; }
+        [DataMember(Name = "amountOut", EmitDefaultValue = false)]
+        public string AmountOut { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -55,7 +55,7 @@ namespace Opdex.Client.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class SwapAmountOutQuoteResponse {\n");
-            sb.Append("  AmountIn: ").Append(AmountIn).Append("\n");
+            sb.Append("  AmountOut: ").Append(AmountOut).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,9 +92,9 @@ namespace Opdex.Client.Model
             }
             return 
                 (
-                    this.AmountIn == input.AmountIn ||
-                    (this.AmountIn != null &&
-                    this.AmountIn.Equals(input.AmountIn))
+                    this.AmountOut == input.AmountOut ||
+                    (this.AmountOut != null &&
+                    this.AmountOut.Equals(input.AmountOut))
                 );
         }
 
@@ -107,9 +107,9 @@ namespace Opdex.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.AmountIn != null)
+                if (this.AmountOut != null)
                 {
-                    hashCode = (hashCode * 59) + this.AmountIn.GetHashCode();
+                    hashCode = (hashCode * 59) + this.AmountOut.GetHashCode();
                 }
                 return hashCode;
             }
@@ -122,11 +122,11 @@ namespace Opdex.Client.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
-            // AmountIn (string) pattern
-            Regex regexAmountIn = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
-            if (false == regexAmountIn.Match(this.AmountIn).Success)
+            // AmountOut (string) pattern
+            Regex regexAmountOut = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexAmountOut.Match(this.AmountOut).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AmountIn, must match a pattern of " + regexAmountIn, new [] { "AmountIn" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AmountOut, must match a pattern of " + regexAmountOut, new [] { "AmountOut" });
             }
 
             yield break;
