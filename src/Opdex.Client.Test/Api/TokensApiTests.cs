@@ -13,7 +13,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-using RestSharp;
 using Xunit;
 
 using Opdex.Client.Client;
@@ -55,76 +54,59 @@ namespace Opdex.Client.Test.Api
         }
 
         /// <summary>
-        /// Test TokensGet
+        /// Test AddToken
         /// </summary>
         [Fact]
-        public void TokensGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //TokenType? tokenType = null;
-            //List<string> tokens = null;
-            //string keyword = null;
-            //TokenOrderByType? orderBy = null;
-            //SortDirection? direction = null;
-            //int? limit = null;
-            //string cursor = null;
-            //var response = instance.TokensGet(tokenType, tokens, keyword, orderBy, direction, limit, cursor);
-            //Assert.IsType<TokensResponse>(response);
-        }
-
-        /// <summary>
-        /// Test TokensPost
-        /// </summary>
-        [Fact]
-        public void TokensPostTest()
+        public void AddTokenTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //AddTokenRequest addTokenRequest = null;
-            //var response = instance.TokensPost(addTokenRequest);
+            //var response = instance.AddToken(addTokenRequest);
             //Assert.IsType<TokenResponse>(response);
         }
 
         /// <summary>
-        /// Test TokensTokenApprovePost
+        /// Test BuildApproveAllowanceQuote
         /// </summary>
         [Fact]
-        public void TokensTokenApprovePostTest()
+        public void BuildApproveAllowanceQuoteTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string token = null;
-            //var response = instance.TokensTokenApprovePost(token);
+            //QuoteApproveAllowanceRequest quoteApproveAllowanceRequest = null;
+            //var response = instance.BuildApproveAllowanceQuote(token, quoteApproveAllowanceRequest);
             //Assert.IsType<TransactionQuoteResponse>(response);
         }
 
         /// <summary>
-        /// Test TokensTokenDistributePost
+        /// Test BuildDistributeTokensQuote
         /// </summary>
         [Fact]
-        public void TokensTokenDistributePostTest()
+        public void BuildDistributeTokensQuoteTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string token = null;
-            //var response = instance.TokensTokenDistributePost(token);
+            //var response = instance.BuildDistributeTokensQuote(token);
             //Assert.IsType<TransactionQuoteResponse>(response);
         }
 
         /// <summary>
-        /// Test TokensTokenGet
+        /// Test GetToken
         /// </summary>
         [Fact]
-        public void TokensTokenGetTest()
+        public void GetTokenTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string token = null;
-            //var response = instance.TokensTokenGet(token);
+            //var response = instance.GetToken(token);
             //Assert.IsType<TokenResponse>(response);
         }
 
         /// <summary>
-        /// Test TokensTokenHistoryGet
+        /// Test GetTokenHistory
         /// </summary>
         [Fact]
-        public void TokensTokenHistoryGetTest()
+        public void GetTokenHistoryTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string token = null;
@@ -134,8 +116,26 @@ namespace Opdex.Client.Test.Api
             //SortDirection? direction = null;
             //int? limit = null;
             //string cursor = null;
-            //var response = instance.TokensTokenHistoryGet(token, startDateTime, endDateTime, interval, direction, limit, cursor);
+            //var response = instance.GetTokenHistory(token, startDateTime, endDateTime, interval, direction, limit, cursor);
             //Assert.IsType<TokenSnapshotsResponse>(response);
+        }
+
+        /// <summary>
+        /// Test GetTokens
+        /// </summary>
+        [Fact]
+        public void GetTokensTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //TokenType? tokenType = null;
+            //List<string> tokens = null;
+            //string keyword = null;
+            //TokenOrderByType? orderBy = null;
+            //SortDirection? direction = null;
+            //int? limit = null;
+            //string cursor = null;
+            //var response = instance.GetTokens(tokenType, tokens, keyword, orderBy, direction, limit, cursor);
+            //Assert.IsType<TokensResponse>(response);
         }
     }
 }

@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Mime;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -270,13 +271,13 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
-        /// <param name="holder">Address of the certificate holder (optional)</param>
+        /// <param name="owner">Address of the certificate owner (optional)</param>
         /// <param name="status">Status of the certificates (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>CertificatesResponse</returns>
-        CertificatesResponse GetCertificates(string vault, string holder = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        CertificatesResponse GetCertificates(string vault, string owner = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
 
         /// <summary>
         /// Get Vault Certificates
@@ -286,13 +287,13 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
-        /// <param name="holder">Address of the certificate holder (optional)</param>
+        /// <param name="owner">Address of the certificate owner (optional)</param>
         /// <param name="status">Status of the certificates (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of CertificatesResponse</returns>
-        ApiResponse<CertificatesResponse> GetCertificatesWithHttpInfo(string vault, string holder = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        ApiResponse<CertificatesResponse> GetCertificatesWithHttpInfo(string vault, string owner = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
         /// <summary>
         /// Get Vault Proposal Pledge Position
         /// </summary>
@@ -328,9 +329,9 @@ namespace Opdex.Client.Api
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal in the vault (optional)</param>
         /// <param name="pledger">Address of the pledger (optional)</param>
-        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional)</param>
+        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>PledgesResponse</returns>
         PledgesResponse GetPledges(string vault, int? proposalId = default(int?), string pledger = default(string), bool? includeZeroBalances = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
@@ -345,9 +346,9 @@ namespace Opdex.Client.Api
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal in the vault (optional)</param>
         /// <param name="pledger">Address of the pledger (optional)</param>
-        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional)</param>
+        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of PledgesResponse</returns>
         ApiResponse<PledgesResponse> GetPledgesWithHttpInfo(string vault, int? proposalId = default(int?), string pledger = default(string), bool? includeZeroBalances = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
@@ -362,7 +363,7 @@ namespace Opdex.Client.Api
         /// <param name="status">Status of the proposal (optional)</param>
         /// <param name="type">Type of proposal (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ProposalsResponse</returns>
         ProposalsResponse GetProposals(string vault, ProposalStatus? status = default(ProposalStatus?), ProposalType? type = default(ProposalType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
@@ -378,7 +379,7 @@ namespace Opdex.Client.Api
         /// <param name="status">Status of the proposal (optional)</param>
         /// <param name="type">Type of proposal (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of ProposalsResponse</returns>
         ApiResponse<ProposalsResponse> GetProposalsWithHttpInfo(string vault, ProposalStatus? status = default(ProposalStatus?), ProposalType? type = default(ProposalType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
@@ -435,7 +436,7 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lockedToken">Address of the token locked in the vault (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>VaultsResponse</returns>
         VaultsResponse GetVaults(string lockedToken = default(string), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
@@ -449,7 +450,7 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lockedToken">Address of the token locked in the vault (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of VaultsResponse</returns>
         ApiResponse<VaultsResponse> GetVaultsWithHttpInfo(string lockedToken = default(string), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
@@ -488,9 +489,9 @@ namespace Opdex.Client.Api
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal in the vault (optional)</param>
         /// <param name="voter">Address of the voter (optional)</param>
-        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional)</param>
+        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>VotesResponse</returns>
         VotesResponse GetVotes(string vault, int? proposalId = default(int?), string voter = default(string), bool? includeZeroBalances = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
@@ -505,9 +506,9 @@ namespace Opdex.Client.Api
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal in the vault (optional)</param>
         /// <param name="voter">Address of the voter (optional)</param>
-        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional)</param>
+        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of VotesResponse</returns>
         ApiResponse<VotesResponse> GetVotesWithHttpInfo(string vault, int? proposalId = default(int?), string voter = default(string), bool? includeZeroBalances = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
@@ -784,14 +785,14 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
-        /// <param name="holder">Address of the certificate holder (optional)</param>
+        /// <param name="owner">Address of the certificate owner (optional)</param>
         /// <param name="status">Status of the certificates (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CertificatesResponse</returns>
-        System.Threading.Tasks.Task<CertificatesResponse> GetCertificatesAsync(string vault, string holder = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CertificatesResponse> GetCertificatesAsync(string vault, string owner = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Vault Certificates
@@ -801,14 +802,14 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
-        /// <param name="holder">Address of the certificate holder (optional)</param>
+        /// <param name="owner">Address of the certificate owner (optional)</param>
         /// <param name="status">Status of the certificates (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CertificatesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CertificatesResponse>> GetCertificatesWithHttpInfoAsync(string vault, string holder = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CertificatesResponse>> GetCertificatesWithHttpInfoAsync(string vault, string owner = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Vault Proposal Pledge Position
         /// </summary>
@@ -846,9 +847,9 @@ namespace Opdex.Client.Api
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal in the vault (optional)</param>
         /// <param name="pledger">Address of the pledger (optional)</param>
-        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional)</param>
+        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PledgesResponse</returns>
@@ -864,9 +865,9 @@ namespace Opdex.Client.Api
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal in the vault (optional)</param>
         /// <param name="pledger">Address of the pledger (optional)</param>
-        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional)</param>
+        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PledgesResponse)</returns>
@@ -882,7 +883,7 @@ namespace Opdex.Client.Api
         /// <param name="status">Status of the proposal (optional)</param>
         /// <param name="type">Type of proposal (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProposalsResponse</returns>
@@ -899,7 +900,7 @@ namespace Opdex.Client.Api
         /// <param name="status">Status of the proposal (optional)</param>
         /// <param name="type">Type of proposal (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProposalsResponse)</returns>
@@ -961,7 +962,7 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lockedToken">Address of the token locked in the vault (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VaultsResponse</returns>
@@ -976,7 +977,7 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lockedToken">Address of the token locked in the vault (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VaultsResponse)</returns>
@@ -1018,9 +1019,9 @@ namespace Opdex.Client.Api
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal in the vault (optional)</param>
         /// <param name="voter">Address of the voter (optional)</param>
-        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional)</param>
+        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VotesResponse</returns>
@@ -1036,9 +1037,9 @@ namespace Opdex.Client.Api
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal in the vault (optional)</param>
         /// <param name="voter">Address of the voter (optional)</param>
-        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional)</param>
+        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VotesResponse)</returns>
@@ -1057,12 +1058,14 @@ namespace Opdex.Client.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class VaultsApi : IVaultsApi
+    public partial class VaultsApi : IDisposable, IVaultsApi
     {
         private Opdex.Client.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="VaultsApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <returns></returns>
         public VaultsApi() : this((string)null)
@@ -1071,7 +1074,11 @@ namespace Opdex.Client.Api
 
         /// <summary>
         /// Initializes a new instance of the <see cref="VaultsApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <exception cref="ArgumentException"></exception>
         /// <returns></returns>
         public VaultsApi(string basePath)
         {
@@ -1079,16 +1086,19 @@ namespace Opdex.Client.Api
                 Opdex.Client.Client.GlobalConfiguration.Instance,
                 new Opdex.Client.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VaultsApi"/> class
-        /// using Configuration object
+        /// Initializes a new instance of the <see cref="VaultsApi"/> class using Configuration object.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
-        /// <param name="configuration">An instance of Configuration</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
         public VaultsApi(Opdex.Client.Client.Configuration configuration)
         {
@@ -1098,8 +1108,78 @@ namespace Opdex.Client.Api
                 Opdex.Client.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VaultsApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public VaultsApi(HttpClient client, HttpClientHandler handler = null) : this(client, (string)null, handler)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VaultsApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public VaultsApi(HttpClient client, string basePath, HttpClientHandler handler = null)
+        {
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = Opdex.Client.Client.Configuration.MergeConfigurations(
+                Opdex.Client.Client.GlobalConfiguration.Instance,
+                new Opdex.Client.Client.Configuration { BasePath = basePath }
+            );
+            this.ApiClient = new Opdex.Client.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            this.ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VaultsApi"/> class using Configuration object.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public VaultsApi(HttpClient client, Opdex.Client.Client.Configuration configuration, HttpClientHandler handler = null)
+        {
+            if (configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = Opdex.Client.Client.Configuration.MergeConfigurations(
+                Opdex.Client.Client.GlobalConfiguration.Instance,
+                configuration
+            );
+            this.ApiClient = new Opdex.Client.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -1110,6 +1190,7 @@ namespace Opdex.Client.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public VaultsApi(Opdex.Client.Client.ISynchronousClient client, Opdex.Client.Client.IAsynchronousClient asyncClient, Opdex.Client.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
@@ -1121,6 +1202,19 @@ namespace Opdex.Client.Api
             this.Configuration = configuration;
             this.ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
         }
+
+        /// <summary>
+        /// Disposes resources if they were created by us
+        /// </summary>
+        public void Dispose()
+        {
+            this.ApiClient?.Dispose();
+        }
+
+        /// <summary>
+        /// Holds the ApiClient if created
+        /// </summary>
+        public Opdex.Client.Client.ApiClient ApiClient { get; set; } = null;
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
@@ -1187,9 +1281,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildCompleteProposalQuote");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -1203,16 +1295,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
@@ -1226,13 +1312,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vaults/{vault}/proposals/{proposalId}/complete", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildCompleteProposalQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1264,9 +1348,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildCompleteProposalQuote");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1280,17 +1362,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
@@ -1303,15 +1380,13 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vaults/{vault}/proposals/{proposalId}/complete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildCompleteProposalQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1343,15 +1418,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildPledgeQuote");
-            }
 
             // verify the required parameter 'quotePledgeRequest' is set
             if (quotePledgeRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quotePledgeRequest' when calling VaultsApi->BuildPledgeQuote");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -1366,16 +1437,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
@@ -1390,13 +1455,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vaults/{vault}/proposals/{proposalId}/pledges", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildPledgeQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1430,15 +1493,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildPledgeQuote");
-            }
 
             // verify the required parameter 'quotePledgeRequest' is set
             if (quotePledgeRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quotePledgeRequest' when calling VaultsApi->BuildPledgeQuote");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1453,17 +1512,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
@@ -1477,15 +1531,13 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vaults/{vault}/proposals/{proposalId}/pledges", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildPledgeQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1515,15 +1567,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildProposeChangeMinimumPledgeQuote");
-            }
 
             // verify the required parameter 'quoteProposeMinimumPledgeRequest' is set
             if (quoteProposeMinimumPledgeRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteProposeMinimumPledgeRequest' when calling VaultsApi->BuildProposeChangeMinimumPledgeQuote");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -1538,16 +1586,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.Data = quoteProposeMinimumPledgeRequest;
@@ -1561,13 +1603,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vaults/{vault}/proposals/minimum-pledge", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildProposeChangeMinimumPledgeQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1599,15 +1639,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildProposeChangeMinimumPledgeQuote");
-            }
 
             // verify the required parameter 'quoteProposeMinimumPledgeRequest' is set
             if (quoteProposeMinimumPledgeRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteProposeMinimumPledgeRequest' when calling VaultsApi->BuildProposeChangeMinimumPledgeQuote");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1622,17 +1658,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.Data = quoteProposeMinimumPledgeRequest;
@@ -1645,15 +1676,13 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vaults/{vault}/proposals/minimum-pledge", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildProposeChangeMinimumPledgeQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1683,15 +1712,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildProposeChangeMinimumVoteQuote");
-            }
 
             // verify the required parameter 'quoteProposeMinimumVoteRequest' is set
             if (quoteProposeMinimumVoteRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteProposeMinimumVoteRequest' when calling VaultsApi->BuildProposeChangeMinimumVoteQuote");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -1706,16 +1731,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.Data = quoteProposeMinimumVoteRequest;
@@ -1729,13 +1748,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vaults/{vault}/proposals/minimum-vote", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildProposeChangeMinimumVoteQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1767,15 +1784,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildProposeChangeMinimumVoteQuote");
-            }
 
             // verify the required parameter 'quoteProposeMinimumVoteRequest' is set
             if (quoteProposeMinimumVoteRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteProposeMinimumVoteRequest' when calling VaultsApi->BuildProposeChangeMinimumVoteQuote");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1790,17 +1803,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.Data = quoteProposeMinimumVoteRequest;
@@ -1813,15 +1821,13 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vaults/{vault}/proposals/minimum-vote", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildProposeChangeMinimumVoteQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1851,15 +1857,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildProposeCreateCertificateQuote");
-            }
 
             // verify the required parameter 'quoteProposeCreateCertificateRequest' is set
             if (quoteProposeCreateCertificateRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteProposeCreateCertificateRequest' when calling VaultsApi->BuildProposeCreateCertificateQuote");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -1874,16 +1876,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.Data = quoteProposeCreateCertificateRequest;
@@ -1897,13 +1893,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vaults/{vault}/proposals/create-certificate", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildProposeCreateCertificateQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1935,15 +1929,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildProposeCreateCertificateQuote");
-            }
 
             // verify the required parameter 'quoteProposeCreateCertificateRequest' is set
             if (quoteProposeCreateCertificateRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteProposeCreateCertificateRequest' when calling VaultsApi->BuildProposeCreateCertificateQuote");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1958,17 +1948,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.Data = quoteProposeCreateCertificateRequest;
@@ -1981,15 +1966,13 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vaults/{vault}/proposals/create-certificate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildProposeCreateCertificateQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2019,15 +2002,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildProposeRevokeCertificateQuote");
-            }
 
             // verify the required parameter 'quoteProposeRevokeCertificateRequest' is set
             if (quoteProposeRevokeCertificateRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteProposeRevokeCertificateRequest' when calling VaultsApi->BuildProposeRevokeCertificateQuote");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -2042,16 +2021,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.Data = quoteProposeRevokeCertificateRequest;
@@ -2065,13 +2038,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vaults/{vault}/proposals/revoke-certificate", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildProposeRevokeCertificateQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2103,15 +2074,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildProposeRevokeCertificateQuote");
-            }
 
             // verify the required parameter 'quoteProposeRevokeCertificateRequest' is set
             if (quoteProposeRevokeCertificateRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteProposeRevokeCertificateRequest' when calling VaultsApi->BuildProposeRevokeCertificateQuote");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -2126,17 +2093,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.Data = quoteProposeRevokeCertificateRequest;
@@ -2149,15 +2111,13 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vaults/{vault}/proposals/revoke-certificate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildProposeRevokeCertificateQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2185,9 +2145,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildRedeemCertificateQuote");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -2201,16 +2159,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
 
@@ -2223,13 +2175,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vaults/{vault}/certificates/redeem", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildRedeemCertificateQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2259,9 +2209,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildRedeemCertificateQuote");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -2275,17 +2223,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
 
@@ -2297,15 +2240,13 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vaults/{vault}/certificates/redeem", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildRedeemCertificateQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2337,15 +2278,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildVoteQuote");
-            }
 
             // verify the required parameter 'quoteVoteRequest' is set
             if (quoteVoteRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteVoteRequest' when calling VaultsApi->BuildVoteQuote");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -2360,16 +2297,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
@@ -2384,13 +2315,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vaults/{vault}/proposals/{proposalId}/votes", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildVoteQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2424,15 +2353,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildVoteQuote");
-            }
 
             // verify the required parameter 'quoteVoteRequest' is set
             if (quoteVoteRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteVoteRequest' when calling VaultsApi->BuildVoteQuote");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -2447,17 +2372,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
@@ -2471,15 +2391,13 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vaults/{vault}/proposals/{proposalId}/votes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildVoteQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2511,15 +2429,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildWithdrawPledgeQuote");
-            }
 
             // verify the required parameter 'quoteWithdrawPledgeRequest' is set
             if (quoteWithdrawPledgeRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteWithdrawPledgeRequest' when calling VaultsApi->BuildWithdrawPledgeQuote");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -2534,16 +2448,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
@@ -2558,13 +2466,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vaults/{vault}/proposals/{proposalId}/pledges/withdraw", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildWithdrawPledgeQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2598,15 +2504,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildWithdrawPledgeQuote");
-            }
 
             // verify the required parameter 'quoteWithdrawPledgeRequest' is set
             if (quoteWithdrawPledgeRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteWithdrawPledgeRequest' when calling VaultsApi->BuildWithdrawPledgeQuote");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -2621,17 +2523,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
@@ -2645,15 +2542,13 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vaults/{vault}/proposals/{proposalId}/pledges/withdraw", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildWithdrawPledgeQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2685,15 +2580,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildWithdrawVoteQuote");
-            }
 
             // verify the required parameter 'quoteWithdrawVoteRequest' is set
             if (quoteWithdrawVoteRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteWithdrawVoteRequest' when calling VaultsApi->BuildWithdrawVoteQuote");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -2708,16 +2599,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
@@ -2732,13 +2617,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/vaults/{vault}/proposals/{proposalId}/votes/withdraw", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildWithdrawVoteQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2772,15 +2655,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->BuildWithdrawVoteQuote");
-            }
 
             // verify the required parameter 'quoteWithdrawVoteRequest' is set
             if (quoteWithdrawVoteRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteWithdrawVoteRequest' when calling VaultsApi->BuildWithdrawVoteQuote");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -2795,17 +2674,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
@@ -2819,15 +2693,13 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/vaults/{vault}/proposals/{proposalId}/votes/withdraw", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildWithdrawVoteQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2838,15 +2710,15 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
-        /// <param name="holder">Address of the certificate holder (optional)</param>
+        /// <param name="owner">Address of the certificate owner (optional)</param>
         /// <param name="status">Status of the certificates (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>CertificatesResponse</returns>
-        public CertificatesResponse GetCertificates(string vault, string holder = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public CertificatesResponse GetCertificates(string vault, string owner = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
-            Opdex.Client.Client.ApiResponse<CertificatesResponse> localVarResponse = GetCertificatesWithHttpInfo(vault, holder, status, direction, limit, cursor);
+            Opdex.Client.Client.ApiResponse<CertificatesResponse> localVarResponse = GetCertificatesWithHttpInfo(vault, owner, status, direction, limit, cursor);
             return localVarResponse.Data;
         }
 
@@ -2855,19 +2727,17 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
-        /// <param name="holder">Address of the certificate holder (optional)</param>
+        /// <param name="owner">Address of the certificate owner (optional)</param>
         /// <param name="status">Status of the certificates (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of CertificatesResponse</returns>
-        public Opdex.Client.Client.ApiResponse<CertificatesResponse> GetCertificatesWithHttpInfo(string vault, string holder = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public Opdex.Client.Client.ApiResponse<CertificatesResponse> GetCertificatesWithHttpInfo(string vault, string owner = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->GetCertificates");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -2881,21 +2751,15 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
-            if (holder != null)
+            if (owner != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "holder", holder));
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "owner", owner));
             }
             if (status != null)
             {
@@ -2917,13 +2781,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<CertificatesResponse>("/vaults/{vault}/certificates", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCertificates", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2934,16 +2796,16 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
-        /// <param name="holder">Address of the certificate holder (optional)</param>
+        /// <param name="owner">Address of the certificate owner (optional)</param>
         /// <param name="status">Status of the certificates (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CertificatesResponse</returns>
-        public async System.Threading.Tasks.Task<CertificatesResponse> GetCertificatesAsync(string vault, string holder = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CertificatesResponse> GetCertificatesAsync(string vault, string owner = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<CertificatesResponse> localVarResponse = await GetCertificatesWithHttpInfoAsync(vault, holder, status, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<CertificatesResponse> localVarResponse = await GetCertificatesWithHttpInfoAsync(vault, owner, status, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2952,20 +2814,18 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
-        /// <param name="holder">Address of the certificate holder (optional)</param>
+        /// <param name="owner">Address of the certificate owner (optional)</param>
         /// <param name="status">Status of the certificates (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CertificatesResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<CertificatesResponse>> GetCertificatesWithHttpInfoAsync(string vault, string holder = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<CertificatesResponse>> GetCertificatesWithHttpInfoAsync(string vault, string owner = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->GetCertificates");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -2979,22 +2839,17 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
-            if (holder != null)
+            if (owner != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "holder", holder));
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "owner", owner));
             }
             if (status != null)
             {
@@ -3015,15 +2870,13 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<CertificatesResponse>("/vaults/{vault}/certificates", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCertificates", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3055,15 +2908,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->GetPledgePosition");
-            }
 
             // verify the required parameter 'pledger' is set
             if (pledger == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pledger' when calling VaultsApi->GetPledgePosition");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -3077,16 +2926,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
@@ -3095,13 +2938,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<PledgeResponse>("/vaults/{vault}/proposals/{proposalId}/pledges/{pledger}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPledgePosition", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3135,15 +2976,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->GetPledgePosition");
-            }
 
             // verify the required parameter 'pledger' is set
             if (pledger == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pledger' when calling VaultsApi->GetPledgePosition");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -3157,17 +2994,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
@@ -3175,15 +3007,13 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<PledgeResponse>("/vaults/{vault}/proposals/{proposalId}/pledges/{pledger}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPledgePosition", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3196,9 +3026,9 @@ namespace Opdex.Client.Api
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal in the vault (optional)</param>
         /// <param name="pledger">Address of the pledger (optional)</param>
-        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional)</param>
+        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>PledgesResponse</returns>
         public PledgesResponse GetPledges(string vault, int? proposalId = default(int?), string pledger = default(string), bool? includeZeroBalances = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
@@ -3214,18 +3044,16 @@ namespace Opdex.Client.Api
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal in the vault (optional)</param>
         /// <param name="pledger">Address of the pledger (optional)</param>
-        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional)</param>
+        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of PledgesResponse</returns>
         public Opdex.Client.Client.ApiResponse<PledgesResponse> GetPledgesWithHttpInfo(string vault, int? proposalId = default(int?), string pledger = default(string), bool? includeZeroBalances = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->GetPledges");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -3239,16 +3067,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             if (proposalId != null)
@@ -3279,13 +3101,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<PledgesResponse>("/vaults/{vault}/pledges", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPledges", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3298,9 +3118,9 @@ namespace Opdex.Client.Api
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal in the vault (optional)</param>
         /// <param name="pledger">Address of the pledger (optional)</param>
-        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional)</param>
+        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PledgesResponse</returns>
@@ -3317,9 +3137,9 @@ namespace Opdex.Client.Api
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal in the vault (optional)</param>
         /// <param name="pledger">Address of the pledger (optional)</param>
-        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional)</param>
+        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PledgesResponse)</returns>
@@ -3327,9 +3147,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->GetPledges");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -3343,17 +3161,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             if (proposalId != null)
@@ -3383,15 +3196,13 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<PledgesResponse>("/vaults/{vault}/pledges", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPledges", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3405,7 +3216,7 @@ namespace Opdex.Client.Api
         /// <param name="status">Status of the proposal (optional)</param>
         /// <param name="type">Type of proposal (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ProposalsResponse</returns>
         public ProposalsResponse GetProposals(string vault, ProposalStatus? status = default(ProposalStatus?), ProposalType? type = default(ProposalType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
@@ -3422,16 +3233,14 @@ namespace Opdex.Client.Api
         /// <param name="status">Status of the proposal (optional)</param>
         /// <param name="type">Type of proposal (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of ProposalsResponse</returns>
         public Opdex.Client.Client.ApiResponse<ProposalsResponse> GetProposalsWithHttpInfo(string vault, ProposalStatus? status = default(ProposalStatus?), ProposalType? type = default(ProposalType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->GetProposals");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -3445,16 +3254,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             if (status != null)
@@ -3481,13 +3284,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<ProposalsResponse>("/vaults/{vault}/proposals", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetProposals", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3501,7 +3302,7 @@ namespace Opdex.Client.Api
         /// <param name="status">Status of the proposal (optional)</param>
         /// <param name="type">Type of proposal (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProposalsResponse</returns>
@@ -3519,7 +3320,7 @@ namespace Opdex.Client.Api
         /// <param name="status">Status of the proposal (optional)</param>
         /// <param name="type">Type of proposal (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProposalsResponse)</returns>
@@ -3527,9 +3328,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->GetProposals");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -3543,17 +3342,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             if (status != null)
@@ -3579,15 +3373,13 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<ProposalsResponse>("/vaults/{vault}/proposals", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetProposals", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3615,9 +3407,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->GetVault");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -3631,29 +3421,21 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
 
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VaultResponse>("/vaults/{vault}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVault", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3683,9 +3465,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->GetVault");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -3699,31 +3479,24 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<VaultResponse>("/vaults/{vault}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVault", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3753,9 +3526,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->GetVaultProposal");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -3769,16 +3540,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
@@ -3786,13 +3551,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<ProposalResponse>("/vaults/{vault}/proposals/{proposalId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVaultProposal", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3824,9 +3587,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->GetVaultProposal");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -3840,32 +3601,25 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<ProposalResponse>("/vaults/{vault}/proposals/{proposalId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVaultProposal", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3877,7 +3631,7 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lockedToken">Address of the token locked in the vault (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>VaultsResponse</returns>
         public VaultsResponse GetVaults(string lockedToken = default(string), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
@@ -3892,7 +3646,7 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lockedToken">Address of the token locked in the vault (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of VaultsResponse</returns>
         public Opdex.Client.Client.ApiResponse<VaultsResponse> GetVaultsWithHttpInfo(string lockedToken = default(string), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
@@ -3909,16 +3663,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (lockedToken != null)
             {
@@ -3940,13 +3688,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VaultsResponse>("/vaults", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVaults", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3958,7 +3704,7 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lockedToken">Address of the token locked in the vault (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VaultsResponse</returns>
@@ -3974,7 +3720,7 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lockedToken">Address of the token locked in the vault (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VaultsResponse)</returns>
@@ -3992,17 +3738,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (lockedToken != null)
             {
@@ -4023,15 +3764,13 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<VaultsResponse>("/vaults", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVaults", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -4063,15 +3802,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->GetVotePosition");
-            }
 
             // verify the required parameter 'voter' is set
             if (voter == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'voter' when calling VaultsApi->GetVotePosition");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -4085,16 +3820,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
@@ -4103,13 +3832,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VoteResponse>("/vaults/{vault}/proposals/{proposalId}/votes/{voter}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVotePosition", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -4143,15 +3870,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->GetVotePosition");
-            }
 
             // verify the required parameter 'voter' is set
             if (voter == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'voter' when calling VaultsApi->GetVotePosition");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -4165,17 +3888,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             localVarRequestOptions.PathParameters.Add("proposalId", Opdex.Client.Client.ClientUtils.ParameterToString(proposalId)); // path parameter
@@ -4183,15 +3901,13 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<VoteResponse>("/vaults/{vault}/proposals/{proposalId}/votes/{voter}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVotePosition", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -4204,9 +3920,9 @@ namespace Opdex.Client.Api
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal in the vault (optional)</param>
         /// <param name="voter">Address of the voter (optional)</param>
-        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional)</param>
+        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>VotesResponse</returns>
         public VotesResponse GetVotes(string vault, int? proposalId = default(int?), string voter = default(string), bool? includeZeroBalances = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
@@ -4222,18 +3938,16 @@ namespace Opdex.Client.Api
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal in the vault (optional)</param>
         /// <param name="voter">Address of the voter (optional)</param>
-        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional)</param>
+        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of VotesResponse</returns>
         public Opdex.Client.Client.ApiResponse<VotesResponse> GetVotesWithHttpInfo(string vault, int? proposalId = default(int?), string voter = default(string), bool? includeZeroBalances = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->GetVotes");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -4247,16 +3961,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             if (proposalId != null)
@@ -4287,13 +3995,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VotesResponse>("/vaults/{vault}/votes", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVotes", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -4306,9 +4012,9 @@ namespace Opdex.Client.Api
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal in the vault (optional)</param>
         /// <param name="voter">Address of the voter (optional)</param>
-        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional)</param>
+        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VotesResponse</returns>
@@ -4325,9 +4031,9 @@ namespace Opdex.Client.Api
         /// <param name="vault">Address of the vault</param>
         /// <param name="proposalId">Id of the proposal in the vault (optional)</param>
         /// <param name="voter">Address of the voter (optional)</param>
-        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional)</param>
+        /// <param name="includeZeroBalances">Includes zero balances if true, otherwise filters out zero balances if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VotesResponse)</returns>
@@ -4335,9 +4041,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'vault' when calling VaultsApi->GetVotes");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -4351,17 +4055,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             if (proposalId != null)
@@ -4391,15 +4090,13 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<VotesResponse>("/vaults/{vault}/votes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVotes", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;

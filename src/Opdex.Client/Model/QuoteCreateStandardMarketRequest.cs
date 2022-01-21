@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = Opdex.Client.Client.FileParameter;
 using OpenAPIDateConverter = Opdex.Client.Client.OpenAPIDateConverter;
 
 namespace Opdex.Client.Model
@@ -39,20 +40,20 @@ namespace Opdex.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QuoteCreateStandardMarketRequest" /> class.
         /// </summary>
-        /// <param name="marketOwner">An address on the Cirrus network (required).</param>
-        /// <param name="transactionFee">Swap fee amount equivalent to the percentage fee multiplied by 10 (required).</param>
+        /// <param name="owner">An address on the Cirrus network (required).</param>
+        /// <param name="transactionFeePercent">Swap fee percentage amount (required).</param>
         /// <param name="authPoolCreators">If true, requires permissions to be assigned to create liquidity pools; or if false anyone can create a liquidity pool (required).</param>
         /// <param name="authLiquidityProviders">If true, requires permissions to be assigned to provide liquidity; or if false anyone can provide liquidity (required).</param>
         /// <param name="authTraders">If true, requires permissions to be assigned to swap; or if false anyone can swap (required).</param>
         /// <param name="enableMarketFee">If true, enables the market fee; note this must be false if transaction fee is zero (required).</param>
-        public QuoteCreateStandardMarketRequest(string marketOwner = default(string), int transactionFee = default(int), bool authPoolCreators = default(bool), bool authLiquidityProviders = default(bool), bool authTraders = default(bool), bool enableMarketFee = default(bool))
+        public QuoteCreateStandardMarketRequest(string owner = default(string), decimal transactionFeePercent = default(decimal), bool authPoolCreators = default(bool), bool authLiquidityProviders = default(bool), bool authTraders = default(bool), bool enableMarketFee = default(bool))
         {
-            // to ensure "marketOwner" is required (not null)
-            if (marketOwner == null) {
-                throw new ArgumentNullException("marketOwner is a required property for QuoteCreateStandardMarketRequest and cannot be null");
+            // to ensure "owner" is required (not null)
+            if (owner == null) {
+                throw new ArgumentNullException("owner is a required property for QuoteCreateStandardMarketRequest and cannot be null");
             }
-            this.MarketOwner = marketOwner;
-            this.TransactionFee = transactionFee;
+            this.Owner = owner;
+            this.TransactionFeePercent = transactionFeePercent;
             this.AuthPoolCreators = authPoolCreators;
             this.AuthLiquidityProviders = authLiquidityProviders;
             this.AuthTraders = authTraders;
@@ -63,15 +64,15 @@ namespace Opdex.Client.Model
         /// An address on the Cirrus network
         /// </summary>
         /// <value>An address on the Cirrus network</value>
-        [DataMember(Name = "marketOwner", IsRequired = true, EmitDefaultValue = false)]
-        public string MarketOwner { get; set; }
+        [DataMember(Name = "owner", IsRequired = true, EmitDefaultValue = false)]
+        public string Owner { get; set; }
 
         /// <summary>
-        /// Swap fee amount equivalent to the percentage fee multiplied by 10
+        /// Swap fee percentage amount
         /// </summary>
-        /// <value>Swap fee amount equivalent to the percentage fee multiplied by 10</value>
-        [DataMember(Name = "transactionFee", IsRequired = true, EmitDefaultValue = false)]
-        public int TransactionFee { get; set; }
+        /// <value>Swap fee percentage amount</value>
+        [DataMember(Name = "transactionFeePercent", IsRequired = true, EmitDefaultValue = false)]
+        public decimal TransactionFeePercent { get; set; }
 
         /// <summary>
         /// If true, requires permissions to be assigned to create liquidity pools; or if false anyone can create a liquidity pool
@@ -109,8 +110,8 @@ namespace Opdex.Client.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class QuoteCreateStandardMarketRequest {\n");
-            sb.Append("  MarketOwner: ").Append(MarketOwner).Append("\n");
-            sb.Append("  TransactionFee: ").Append(TransactionFee).Append("\n");
+            sb.Append("  Owner: ").Append(Owner).Append("\n");
+            sb.Append("  TransactionFeePercent: ").Append(TransactionFeePercent).Append("\n");
             sb.Append("  AuthPoolCreators: ").Append(AuthPoolCreators).Append("\n");
             sb.Append("  AuthLiquidityProviders: ").Append(AuthLiquidityProviders).Append("\n");
             sb.Append("  AuthTraders: ").Append(AuthTraders).Append("\n");
@@ -151,13 +152,13 @@ namespace Opdex.Client.Model
             }
             return 
                 (
-                    this.MarketOwner == input.MarketOwner ||
-                    (this.MarketOwner != null &&
-                    this.MarketOwner.Equals(input.MarketOwner))
+                    this.Owner == input.Owner ||
+                    (this.Owner != null &&
+                    this.Owner.Equals(input.Owner))
                 ) && 
                 (
-                    this.TransactionFee == input.TransactionFee ||
-                    this.TransactionFee.Equals(input.TransactionFee)
+                    this.TransactionFeePercent == input.TransactionFeePercent ||
+                    this.TransactionFeePercent.Equals(input.TransactionFeePercent)
                 ) && 
                 (
                     this.AuthPoolCreators == input.AuthPoolCreators ||
@@ -186,11 +187,11 @@ namespace Opdex.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.MarketOwner != null)
+                if (this.Owner != null)
                 {
-                    hashCode = (hashCode * 59) + this.MarketOwner.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Owner.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.TransactionFee.GetHashCode();
+                hashCode = (hashCode * 59) + this.TransactionFeePercent.GetHashCode();
                 hashCode = (hashCode * 59) + this.AuthPoolCreators.GetHashCode();
                 hashCode = (hashCode * 59) + this.AuthLiquidityProviders.GetHashCode();
                 hashCode = (hashCode * 59) + this.AuthTraders.GetHashCode();
@@ -206,35 +207,35 @@ namespace Opdex.Client.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
-            // MarketOwner (string) maxLength
-            if (this.MarketOwner != null && this.MarketOwner.Length > 42)
+            // Owner (string) maxLength
+            if (this.Owner != null && this.Owner.Length > 42)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MarketOwner, length must be less than 42.", new [] { "MarketOwner" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Owner, length must be less than 42.", new [] { "Owner" });
             }
 
-            // MarketOwner (string) minLength
-            if (this.MarketOwner != null && this.MarketOwner.Length < 30)
+            // Owner (string) minLength
+            if (this.Owner != null && this.Owner.Length < 30)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MarketOwner, length must be greater than 30.", new [] { "MarketOwner" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Owner, length must be greater than 30.", new [] { "Owner" });
             }
 
-            // MarketOwner (string) pattern
-            Regex regexMarketOwner = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
-            if (false == regexMarketOwner.Match(this.MarketOwner).Success)
+            // Owner (string) pattern
+            Regex regexOwner = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            if (false == regexOwner.Match(this.Owner).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MarketOwner, must match a pattern of " + regexMarketOwner, new [] { "MarketOwner" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Owner, must match a pattern of " + regexOwner, new [] { "Owner" });
             }
 
-            // TransactionFee (int) maximum
-            if (this.TransactionFee > (int)10)
+            // TransactionFeePercent (decimal) maximum
+            if (this.TransactionFeePercent > (decimal)1.0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFee, must be a value less than or equal to 10.", new [] { "TransactionFee" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFeePercent, must be a value less than or equal to 1.0.", new [] { "TransactionFeePercent" });
             }
 
-            // TransactionFee (int) minimum
-            if (this.TransactionFee < (int)0)
+            // TransactionFeePercent (decimal) minimum
+            if (this.TransactionFeePercent < (decimal)0.0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFee, must be a value greater than or equal to 0.", new [] { "TransactionFee" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFeePercent, must be a value greater than or equal to 0.0.", new [] { "TransactionFeePercent" });
             }
 
             yield break;

@@ -13,7 +13,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-using RestSharp;
 using Xunit;
 
 using Opdex.Client.Client;
@@ -55,55 +54,55 @@ namespace Opdex.Client.Test.Api
         }
 
         /// <summary>
-        /// Test TransactionHashGet
+        /// Test GetTransaction
         /// </summary>
         [Fact]
-        public void TransactionHashGetTest()
+        public void GetTransactionTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string hash = null;
-            //var response = instance.TransactionHashGet(hash);
+            //var response = instance.GetTransaction(hash);
             //Assert.IsType<TransactionResponse>(response);
         }
 
         /// <summary>
-        /// Test TransactionReplayQuotePost
+        /// Test GetTransactions
         /// </summary>
         [Fact]
-        public void TransactionReplayQuotePostTest()
+        public void GetTransactionsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //ReplayQuoteRequest replayQuoteRequest = null;
-            //var response = instance.TransactionReplayQuotePost(replayQuoteRequest);
-            //Assert.IsType<TransactionQuoteResponse>(response);
-        }
-
-        /// <summary>
-        /// Test TransactionsGet
-        /// </summary>
-        [Fact]
-        public void TransactionsGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string wallet = null;
+            //string sender = null;
             //List<string> contracts = null;
             //List<TransactionEventType> eventTypes = null;
             //SortDirection? direction = null;
             //int? limit = null;
             //string cursor = null;
-            //var response = instance.TransactionsGet(wallet, contracts, eventTypes, direction, limit, cursor);
+            //var response = instance.GetTransactions(sender, contracts, eventTypes, direction, limit, cursor);
             //Assert.IsType<TransactionsResponse>(response);
         }
 
         /// <summary>
-        /// Test TransactionsPost
+        /// Test NotifyTransactionBroadcast
         /// </summary>
         [Fact]
-        public void TransactionsPostTest()
+        public void NotifyTransactionBroadcastTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //NotifyBroadcastRequest notifyBroadcastRequest = null;
-            //instance.TransactionsPost(notifyBroadcastRequest);
+            //instance.NotifyTransactionBroadcast(notifyBroadcastRequest);
+        }
+
+        /// <summary>
+        /// Test ReplayQuote
+        /// </summary>
+        [Fact]
+        public void ReplayQuoteTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //ReplayQuoteRequest replayQuoteRequest = null;
+            //var response = instance.ReplayQuote(replayQuoteRequest);
+            //Assert.IsType<TransactionQuoteResponse>(response);
         }
     }
 }

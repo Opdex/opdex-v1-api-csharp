@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Mime;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -62,7 +63,7 @@ namespace Opdex.Client.Api
         /// <param name="endDateTime">End time for which to retrieve snapshots</param>
         /// <param name="interval">Time range between each snapshot (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional, default to 168)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>TokenSnapshotsResponse</returns>
         TokenSnapshotsResponse GetMarketTokenHistory(string market, string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
@@ -80,7 +81,7 @@ namespace Opdex.Client.Api
         /// <param name="endDateTime">End time for which to retrieve snapshots</param>
         /// <param name="interval">Time range between each snapshot (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional, default to 168)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of TokenSnapshotsResponse</returns>
         ApiResponse<TokenSnapshotsResponse> GetMarketTokenHistoryWithHttpInfo(string market, string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
@@ -97,7 +98,7 @@ namespace Opdex.Client.Api
         /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>MarketTokensResponse</returns>
         MarketTokensResponse GetMarketTokens(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
@@ -115,7 +116,7 @@ namespace Opdex.Client.Api
         /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of MarketTokensResponse</returns>
         ApiResponse<MarketTokensResponse> GetMarketTokensWithHttpInfo(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
@@ -241,7 +242,7 @@ namespace Opdex.Client.Api
         /// <param name="endDateTime">End time for which to retrieve snapshots</param>
         /// <param name="interval">Time range between each snapshot (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional, default to 168)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TokenSnapshotsResponse</returns>
@@ -260,7 +261,7 @@ namespace Opdex.Client.Api
         /// <param name="endDateTime">End time for which to retrieve snapshots</param>
         /// <param name="interval">Time range between each snapshot (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional, default to 168)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TokenSnapshotsResponse)</returns>
@@ -278,7 +279,7 @@ namespace Opdex.Client.Api
         /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MarketTokensResponse</returns>
@@ -297,7 +298,7 @@ namespace Opdex.Client.Api
         /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MarketTokensResponse)</returns>
@@ -397,12 +398,14 @@ namespace Opdex.Client.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class MarketTokensApi : IMarketTokensApi
+    public partial class MarketTokensApi : IDisposable, IMarketTokensApi
     {
         private Opdex.Client.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MarketTokensApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <returns></returns>
         public MarketTokensApi() : this((string)null)
@@ -411,7 +414,11 @@ namespace Opdex.Client.Api
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MarketTokensApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <exception cref="ArgumentException"></exception>
         /// <returns></returns>
         public MarketTokensApi(string basePath)
         {
@@ -419,16 +426,19 @@ namespace Opdex.Client.Api
                 Opdex.Client.Client.GlobalConfiguration.Instance,
                 new Opdex.Client.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MarketTokensApi"/> class
-        /// using Configuration object
+        /// Initializes a new instance of the <see cref="MarketTokensApi"/> class using Configuration object.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
-        /// <param name="configuration">An instance of Configuration</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
         public MarketTokensApi(Opdex.Client.Client.Configuration configuration)
         {
@@ -438,8 +448,78 @@ namespace Opdex.Client.Api
                 Opdex.Client.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MarketTokensApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public MarketTokensApi(HttpClient client, HttpClientHandler handler = null) : this(client, (string)null, handler)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MarketTokensApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public MarketTokensApi(HttpClient client, string basePath, HttpClientHandler handler = null)
+        {
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = Opdex.Client.Client.Configuration.MergeConfigurations(
+                Opdex.Client.Client.GlobalConfiguration.Instance,
+                new Opdex.Client.Client.Configuration { BasePath = basePath }
+            );
+            this.ApiClient = new Opdex.Client.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            this.ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MarketTokensApi"/> class using Configuration object.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public MarketTokensApi(HttpClient client, Opdex.Client.Client.Configuration configuration, HttpClientHandler handler = null)
+        {
+            if (configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = Opdex.Client.Client.Configuration.MergeConfigurations(
+                Opdex.Client.Client.GlobalConfiguration.Instance,
+                configuration
+            );
+            this.ApiClient = new Opdex.Client.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -450,6 +530,7 @@ namespace Opdex.Client.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public MarketTokensApi(Opdex.Client.Client.ISynchronousClient client, Opdex.Client.Client.IAsynchronousClient asyncClient, Opdex.Client.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
@@ -461,6 +542,19 @@ namespace Opdex.Client.Api
             this.Configuration = configuration;
             this.ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
         }
+
+        /// <summary>
+        /// Disposes resources if they were created by us
+        /// </summary>
+        public void Dispose()
+        {
+            this.ApiClient?.Dispose();
+        }
+
+        /// <summary>
+        /// Holds the ApiClient if created
+        /// </summary>
+        public Opdex.Client.Client.ApiClient ApiClient { get; set; } = null;
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
@@ -527,15 +621,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'market' is set
             if (market == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->GetMarketToken");
-            }
 
             // verify the required parameter 'token' is set
             if (token == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->GetMarketToken");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -549,16 +639,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
             localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
@@ -566,13 +650,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<MarketTokenResponse>("/markets/{market}/tokens/{token}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMarketToken", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -604,15 +686,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'market' is set
             if (market == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->GetMarketToken");
-            }
 
             // verify the required parameter 'token' is set
             if (token == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->GetMarketToken");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -626,32 +704,25 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
             localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<MarketTokenResponse>("/markets/{market}/tokens/{token}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMarketToken", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -667,7 +738,7 @@ namespace Opdex.Client.Api
         /// <param name="endDateTime">End time for which to retrieve snapshots</param>
         /// <param name="interval">Time range between each snapshot (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional, default to 168)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>TokenSnapshotsResponse</returns>
         public TokenSnapshotsResponse GetMarketTokenHistory(string market, string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
@@ -686,22 +757,18 @@ namespace Opdex.Client.Api
         /// <param name="endDateTime">End time for which to retrieve snapshots</param>
         /// <param name="interval">Time range between each snapshot (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional, default to 168)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of TokenSnapshotsResponse</returns>
         public Opdex.Client.Client.ApiResponse<TokenSnapshotsResponse> GetMarketTokenHistoryWithHttpInfo(string market, string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             // verify the required parameter 'market' is set
             if (market == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->GetMarketTokenHistory");
-            }
 
             // verify the required parameter 'token' is set
             if (token == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->GetMarketTokenHistory");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -715,16 +782,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
             localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
@@ -750,13 +811,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<TokenSnapshotsResponse>("/markets/{market}/tokens/{token}/history", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMarketTokenHistory", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -772,7 +831,7 @@ namespace Opdex.Client.Api
         /// <param name="endDateTime">End time for which to retrieve snapshots</param>
         /// <param name="interval">Time range between each snapshot (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional, default to 168)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TokenSnapshotsResponse</returns>
@@ -792,7 +851,7 @@ namespace Opdex.Client.Api
         /// <param name="endDateTime">End time for which to retrieve snapshots</param>
         /// <param name="interval">Time range between each snapshot (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional, default to 168)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TokenSnapshotsResponse)</returns>
@@ -800,15 +859,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'market' is set
             if (market == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->GetMarketTokenHistory");
-            }
 
             // verify the required parameter 'token' is set
             if (token == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->GetMarketTokenHistory");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -822,17 +877,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
             localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
@@ -857,15 +907,13 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<TokenSnapshotsResponse>("/markets/{market}/tokens/{token}/history", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMarketTokenHistory", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -881,7 +929,7 @@ namespace Opdex.Client.Api
         /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>MarketTokensResponse</returns>
         public MarketTokensResponse GetMarketTokens(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
@@ -900,16 +948,14 @@ namespace Opdex.Client.Api
         /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of MarketTokensResponse</returns>
         public Opdex.Client.Client.ApiResponse<MarketTokensResponse> GetMarketTokensWithHttpInfo(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             // verify the required parameter 'market' is set
             if (market == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->GetMarketTokens");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -923,16 +969,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
             if (tokenType != null)
@@ -967,13 +1007,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<MarketTokensResponse>("/markets/{market}/tokens", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMarketTokens", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -989,7 +1027,7 @@ namespace Opdex.Client.Api
         /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MarketTokensResponse</returns>
@@ -1009,7 +1047,7 @@ namespace Opdex.Client.Api
         /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MarketTokensResponse)</returns>
@@ -1017,9 +1055,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'market' is set
             if (market == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->GetMarketTokens");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1033,17 +1069,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
             if (tokenType != null)
@@ -1077,15 +1108,13 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<MarketTokensResponse>("/markets/{market}/tokens", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMarketTokens", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1117,21 +1146,15 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'market' is set
             if (market == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->GetSwapAmountInQuote");
-            }
 
             // verify the required parameter 'token' is set
             if (token == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->GetSwapAmountInQuote");
-            }
 
             // verify the required parameter 'swapAmountInQuoteRequest' is set
             if (swapAmountInQuoteRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'swapAmountInQuoteRequest' when calling MarketTokensApi->GetSwapAmountInQuote");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -1146,16 +1169,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
             localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
@@ -1164,13 +1181,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SwapAmountInQuoteResponse>("/markets/{market}/tokens/{token}/swap/amount-in", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSwapAmountInQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1204,21 +1219,15 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'market' is set
             if (market == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->GetSwapAmountInQuote");
-            }
 
             // verify the required parameter 'token' is set
             if (token == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->GetSwapAmountInQuote");
-            }
 
             // verify the required parameter 'swapAmountInQuoteRequest' is set
             if (swapAmountInQuoteRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'swapAmountInQuoteRequest' when calling MarketTokensApi->GetSwapAmountInQuote");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1233,17 +1242,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
             localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
@@ -1251,15 +1255,13 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<SwapAmountInQuoteResponse>("/markets/{market}/tokens/{token}/swap/amount-in", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSwapAmountInQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1291,21 +1293,15 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'market' is set
             if (market == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->GetSwapAmountOutQuote");
-            }
 
             // verify the required parameter 'token' is set
             if (token == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->GetSwapAmountOutQuote");
-            }
 
             // verify the required parameter 'swapAmountOutQuoteRequest' is set
             if (swapAmountOutQuoteRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'swapAmountOutQuoteRequest' when calling MarketTokensApi->GetSwapAmountOutQuote");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -1320,16 +1316,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
             localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
@@ -1338,13 +1328,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SwapAmountOutQuoteResponse>("/markets/{market}/tokens/{token}/swap/amount-out", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSwapAmountOutQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1378,21 +1366,15 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'market' is set
             if (market == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->GetSwapAmountOutQuote");
-            }
 
             // verify the required parameter 'token' is set
             if (token == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->GetSwapAmountOutQuote");
-            }
 
             // verify the required parameter 'swapAmountOutQuoteRequest' is set
             if (swapAmountOutQuoteRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'swapAmountOutQuoteRequest' when calling MarketTokensApi->GetSwapAmountOutQuote");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1407,17 +1389,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
             localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
@@ -1425,15 +1402,13 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<SwapAmountOutQuoteResponse>("/markets/{market}/tokens/{token}/swap/amount-out", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSwapAmountOutQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1465,21 +1440,15 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'market' is set
             if (market == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->Swap");
-            }
 
             // verify the required parameter 'token' is set
             if (token == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->Swap");
-            }
 
             // verify the required parameter 'quoteSwapTransactionRequest' is set
             if (quoteSwapTransactionRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteSwapTransactionRequest' when calling MarketTokensApi->Swap");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -1494,16 +1463,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
             localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
@@ -1518,13 +1481,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/markets/{market}/tokens/{token}/swap", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Swap", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1558,21 +1519,15 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'market' is set
             if (market == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'market' when calling MarketTokensApi->Swap");
-            }
 
             // verify the required parameter 'token' is set
             if (token == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling MarketTokensApi->Swap");
-            }
 
             // verify the required parameter 'quoteSwapTransactionRequest' is set
             if (quoteSwapTransactionRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteSwapTransactionRequest' when calling MarketTokensApi->Swap");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1587,17 +1542,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
             localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
@@ -1611,15 +1561,13 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/markets/{market}/tokens/{token}/swap", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Swap", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;

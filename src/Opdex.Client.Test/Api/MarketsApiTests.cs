@@ -13,7 +13,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-using RestSharp;
 using Xunit;
 
 using Opdex.Client.Client;
@@ -55,10 +54,128 @@ namespace Opdex.Client.Test.Api
         }
 
         /// <summary>
-        /// Test MarketsGet
+        /// Test BuildClaimMarketOwnershipQuote
         /// </summary>
         [Fact]
-        public void MarketsGetTest()
+        public void BuildClaimMarketOwnershipQuoteTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string market = null;
+            //var response = instance.BuildClaimMarketOwnershipQuote(market);
+            //Assert.IsType<TransactionQuoteResponse>(response);
+        }
+
+        /// <summary>
+        /// Test BuildCollectMarketFeesQuote
+        /// </summary>
+        [Fact]
+        public void BuildCollectMarketFeesQuoteTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string market = null;
+            //QuoteCollectMarketFeesRequest quoteCollectMarketFeesRequest = null;
+            //var response = instance.BuildCollectMarketFeesQuote(market, quoteCollectMarketFeesRequest);
+            //Assert.IsType<TransactionQuoteResponse>(response);
+        }
+
+        /// <summary>
+        /// Test BuildCreateStakingMarketQuote
+        /// </summary>
+        [Fact]
+        public void BuildCreateStakingMarketQuoteTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //QuoteCreateStakingMarketRequest quoteCreateStakingMarketRequest = null;
+            //var response = instance.BuildCreateStakingMarketQuote(quoteCreateStakingMarketRequest);
+            //Assert.IsType<TransactionQuoteResponse>(response);
+        }
+
+        /// <summary>
+        /// Test BuildCreateStandardMarketQuote
+        /// </summary>
+        [Fact]
+        public void BuildCreateStandardMarketQuoteTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //QuoteCreateStandardMarketRequest quoteCreateStandardMarketRequest = null;
+            //var response = instance.BuildCreateStandardMarketQuote(quoteCreateStandardMarketRequest);
+            //Assert.IsType<TransactionQuoteResponse>(response);
+        }
+
+        /// <summary>
+        /// Test BuildSetMarketOwnershipQuote
+        /// </summary>
+        [Fact]
+        public void BuildSetMarketOwnershipQuoteTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string market = null;
+            //QuoteSetMarketOwnerRequest quoteSetMarketOwnerRequest = null;
+            //var response = instance.BuildSetMarketOwnershipQuote(market, quoteSetMarketOwnerRequest);
+            //Assert.IsType<TransactionQuoteResponse>(response);
+        }
+
+        /// <summary>
+        /// Test BuildSetMarketPermissionsQuote
+        /// </summary>
+        [Fact]
+        public void BuildSetMarketPermissionsQuoteTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string market = null;
+            //string address = null;
+            //QuoteSetMarketPermissionsRequest quoteSetMarketPermissionsRequest = null;
+            //var response = instance.BuildSetMarketPermissionsQuote(market, address, quoteSetMarketPermissionsRequest);
+            //Assert.IsType<TransactionQuoteResponse>(response);
+        }
+
+        /// <summary>
+        /// Test GetMarket
+        /// </summary>
+        [Fact]
+        public void GetMarketTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string market = null;
+            //var response = instance.GetMarket(market);
+            //Assert.IsType<MarketResponse>(response);
+        }
+
+        /// <summary>
+        /// Test GetMarketHistory
+        /// </summary>
+        [Fact]
+        public void GetMarketHistoryTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string market = null;
+            //DateTime startDateTime = null;
+            //DateTime endDateTime = null;
+            //SortDirection? direction = null;
+            //int? limit = null;
+            //string cursor = null;
+            //var response = instance.GetMarketHistory(market, startDateTime, endDateTime, direction, limit, cursor);
+            //Assert.IsType<MarketSnapshotsResponse>(response);
+        }
+
+        /// <summary>
+        /// Test GetMarketPermissions
+        /// </summary>
+        [Fact]
+        public void GetMarketPermissionsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string market = null;
+            //string address = null;
+            //var response = instance.GetMarketPermissions(market, address);
+            //Assert.IsType<List<MarketPermission>>(response);
+        }
+
+        /// <summary>
+        /// Test GetMarkets
+        /// </summary>
+        [Fact]
+        public void GetMarketsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //MarketType? marketType = null;
@@ -66,7 +183,7 @@ namespace Opdex.Client.Test.Api
             //SortDirection? direction = null;
             //int? limit = null;
             //string cursor = null;
-            //var response = instance.MarketsGet(marketType, orderBy, direction, limit, cursor);
+            //var response = instance.GetMarkets(marketType, orderBy, direction, limit, cursor);
             //Assert.IsType<MarketsResponse>(response);
         }
     }

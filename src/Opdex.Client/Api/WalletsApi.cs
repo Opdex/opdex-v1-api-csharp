@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Mime;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -84,9 +85,9 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="tokens">Tokens to retrieve balances for (optional)</param>
         /// <param name="tokenAttributes">Types of tokens to retrieve balances for (optional)</param>
-        /// <param name="includeZeroBalances">Include zero balances if true, otherwise zero balances are excluded (optional)</param>
+        /// <param name="includeZeroBalances">Include zero balances if true, otherwise zero balances are excluded if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>AddressBalancesResponse</returns>
         AddressBalancesResponse GetBalances(string address, List<string> tokens = default(List<string>), List<TokenAttributeFilter> tokenAttributes = default(List<TokenAttributeFilter>), bool? includeZeroBalances = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
@@ -101,9 +102,9 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="tokens">Tokens to retrieve balances for (optional)</param>
         /// <param name="tokenAttributes">Types of tokens to retrieve balances for (optional)</param>
-        /// <param name="includeZeroBalances">Include zero balances if true, otherwise zero balances are excluded (optional)</param>
+        /// <param name="includeZeroBalances">Include zero balances if true, otherwise zero balances are excluded if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of AddressBalancesResponse</returns>
         ApiResponse<AddressBalancesResponse> GetBalancesWithHttpInfo(string address, List<string> tokens = default(List<string>), List<TokenAttributeFilter> tokenAttributes = default(List<TokenAttributeFilter>), bool? includeZeroBalances = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
@@ -140,12 +141,12 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="miningPools">Mining pools to retrieve positions for (optional)</param>
         /// <param name="liquidityPools">Related liquidity pools to retrieve positions for (optional)</param>
-        /// <param name="includeZeroAmount">Include zero amounts if true, otherwise zero amounts are excluded (optional)</param>
+        /// <param name="includeZeroAmounts">Include zero amounts if true, otherwise zero amounts are excluded (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>MiningPositionsResponse</returns>
-        MiningPositionsResponse GetMiningPositions(string address, List<string> miningPools = default(List<string>), List<string> liquidityPools = default(List<string>), bool? includeZeroAmount = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        MiningPositionsResponse GetMiningPositions(string address, List<string> miningPools = default(List<string>), List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
 
         /// <summary>
         /// Get Mining Positions
@@ -157,12 +158,12 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="miningPools">Mining pools to retrieve positions for (optional)</param>
         /// <param name="liquidityPools">Related liquidity pools to retrieve positions for (optional)</param>
-        /// <param name="includeZeroAmount">Include zero amounts if true, otherwise zero amounts are excluded (optional)</param>
+        /// <param name="includeZeroAmounts">Include zero amounts if true, otherwise zero amounts are excluded (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of MiningPositionsResponse</returns>
-        ApiResponse<MiningPositionsResponse> GetMiningPositionsWithHttpInfo(string address, List<string> miningPools = default(List<string>), List<string> liquidityPools = default(List<string>), bool? includeZeroAmount = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        ApiResponse<MiningPositionsResponse> GetMiningPositionsWithHttpInfo(string address, List<string> miningPools = default(List<string>), List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
         /// <summary>
         /// Get Staking Position
         /// </summary>
@@ -195,12 +196,12 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">Address holding the position</param>
         /// <param name="liquidityPools">Liquidity pools to retrieve positions for (optional)</param>
-        /// <param name="includeZeroAmount">Include zero amounts if true, otherwise zero amounts are excluded (optional)</param>
+        /// <param name="includeZeroAmounts">Include zero amounts if true, otherwise zero amounts are excluded if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>MiningPositionsResponse</returns>
-        MiningPositionsResponse GetStakingPositions(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmount = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        MiningPositionsResponse GetStakingPositions(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
 
         /// <summary>
         /// Get Staking Positions
@@ -211,12 +212,12 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">Address holding the position</param>
         /// <param name="liquidityPools">Liquidity pools to retrieve positions for (optional)</param>
-        /// <param name="includeZeroAmount">Include zero amounts if true, otherwise zero amounts are excluded (optional)</param>
+        /// <param name="includeZeroAmounts">Include zero amounts if true, otherwise zero amounts are excluded if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of MiningPositionsResponse</returns>
-        ApiResponse<MiningPositionsResponse> GetStakingPositionsWithHttpInfo(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmount = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        ApiResponse<MiningPositionsResponse> GetStakingPositionsWithHttpInfo(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
         /// <summary>
         /// Refresh Balance
         /// </summary>
@@ -311,9 +312,9 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="tokens">Tokens to retrieve balances for (optional)</param>
         /// <param name="tokenAttributes">Types of tokens to retrieve balances for (optional)</param>
-        /// <param name="includeZeroBalances">Include zero balances if true, otherwise zero balances are excluded (optional)</param>
+        /// <param name="includeZeroBalances">Include zero balances if true, otherwise zero balances are excluded if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AddressBalancesResponse</returns>
@@ -329,9 +330,9 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="tokens">Tokens to retrieve balances for (optional)</param>
         /// <param name="tokenAttributes">Types of tokens to retrieve balances for (optional)</param>
-        /// <param name="includeZeroBalances">Include zero balances if true, otherwise zero balances are excluded (optional)</param>
+        /// <param name="includeZeroBalances">Include zero balances if true, otherwise zero balances are excluded if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AddressBalancesResponse)</returns>
@@ -371,13 +372,13 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="miningPools">Mining pools to retrieve positions for (optional)</param>
         /// <param name="liquidityPools">Related liquidity pools to retrieve positions for (optional)</param>
-        /// <param name="includeZeroAmount">Include zero amounts if true, otherwise zero amounts are excluded (optional)</param>
+        /// <param name="includeZeroAmounts">Include zero amounts if true, otherwise zero amounts are excluded (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MiningPositionsResponse</returns>
-        System.Threading.Tasks.Task<MiningPositionsResponse> GetMiningPositionsAsync(string address, List<string> miningPools = default(List<string>), List<string> liquidityPools = default(List<string>), bool? includeZeroAmount = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<MiningPositionsResponse> GetMiningPositionsAsync(string address, List<string> miningPools = default(List<string>), List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Mining Positions
@@ -389,13 +390,13 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="miningPools">Mining pools to retrieve positions for (optional)</param>
         /// <param name="liquidityPools">Related liquidity pools to retrieve positions for (optional)</param>
-        /// <param name="includeZeroAmount">Include zero amounts if true, otherwise zero amounts are excluded (optional)</param>
+        /// <param name="includeZeroAmounts">Include zero amounts if true, otherwise zero amounts are excluded (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MiningPositionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MiningPositionsResponse>> GetMiningPositionsWithHttpInfoAsync(string address, List<string> miningPools = default(List<string>), List<string> liquidityPools = default(List<string>), bool? includeZeroAmount = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<MiningPositionsResponse>> GetMiningPositionsWithHttpInfoAsync(string address, List<string> miningPools = default(List<string>), List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Staking Position
         /// </summary>
@@ -430,13 +431,13 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">Address holding the position</param>
         /// <param name="liquidityPools">Liquidity pools to retrieve positions for (optional)</param>
-        /// <param name="includeZeroAmount">Include zero amounts if true, otherwise zero amounts are excluded (optional)</param>
+        /// <param name="includeZeroAmounts">Include zero amounts if true, otherwise zero amounts are excluded if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MiningPositionsResponse</returns>
-        System.Threading.Tasks.Task<MiningPositionsResponse> GetStakingPositionsAsync(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmount = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<MiningPositionsResponse> GetStakingPositionsAsync(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Staking Positions
@@ -447,13 +448,13 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">Address holding the position</param>
         /// <param name="liquidityPools">Liquidity pools to retrieve positions for (optional)</param>
-        /// <param name="includeZeroAmount">Include zero amounts if true, otherwise zero amounts are excluded (optional)</param>
+        /// <param name="includeZeroAmounts">Include zero amounts if true, otherwise zero amounts are excluded if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MiningPositionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MiningPositionsResponse>> GetStakingPositionsWithHttpInfoAsync(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmount = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<MiningPositionsResponse>> GetStakingPositionsWithHttpInfoAsync(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Refresh Balance
         /// </summary>
@@ -493,12 +494,14 @@ namespace Opdex.Client.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class WalletsApi : IWalletsApi
+    public partial class WalletsApi : IDisposable, IWalletsApi
     {
         private Opdex.Client.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WalletsApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <returns></returns>
         public WalletsApi() : this((string)null)
@@ -507,7 +510,11 @@ namespace Opdex.Client.Api
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WalletsApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <exception cref="ArgumentException"></exception>
         /// <returns></returns>
         public WalletsApi(string basePath)
         {
@@ -515,16 +522,19 @@ namespace Opdex.Client.Api
                 Opdex.Client.Client.GlobalConfiguration.Instance,
                 new Opdex.Client.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="WalletsApi"/> class
-        /// using Configuration object
+        /// Initializes a new instance of the <see cref="WalletsApi"/> class using Configuration object.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
-        /// <param name="configuration">An instance of Configuration</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
         public WalletsApi(Opdex.Client.Client.Configuration configuration)
         {
@@ -534,8 +544,78 @@ namespace Opdex.Client.Api
                 Opdex.Client.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WalletsApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public WalletsApi(HttpClient client, HttpClientHandler handler = null) : this(client, (string)null, handler)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WalletsApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public WalletsApi(HttpClient client, string basePath, HttpClientHandler handler = null)
+        {
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = Opdex.Client.Client.Configuration.MergeConfigurations(
+                Opdex.Client.Client.GlobalConfiguration.Instance,
+                new Opdex.Client.Client.Configuration { BasePath = basePath }
+            );
+            this.ApiClient = new Opdex.Client.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            this.ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WalletsApi"/> class using Configuration object.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public WalletsApi(HttpClient client, Opdex.Client.Client.Configuration configuration, HttpClientHandler handler = null)
+        {
+            if (configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = Opdex.Client.Client.Configuration.MergeConfigurations(
+                Opdex.Client.Client.GlobalConfiguration.Instance,
+                configuration
+            );
+            this.ApiClient = new Opdex.Client.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -546,6 +626,7 @@ namespace Opdex.Client.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public WalletsApi(Opdex.Client.Client.ISynchronousClient client, Opdex.Client.Client.IAsynchronousClient asyncClient, Opdex.Client.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
@@ -557,6 +638,19 @@ namespace Opdex.Client.Api
             this.Configuration = configuration;
             this.ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
         }
+
+        /// <summary>
+        /// Disposes resources if they were created by us
+        /// </summary>
+        public void Dispose()
+        {
+            this.ApiClient?.Dispose();
+        }
+
+        /// <summary>
+        /// Holds the ApiClient if created
+        /// </summary>
+        public Opdex.Client.Client.ApiClient ApiClient { get; set; } = null;
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
@@ -625,21 +719,15 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'address' is set
             if (address == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling WalletsApi->GetApprovedAllowance");
-            }
 
             // verify the required parameter 'token' is set
             if (token == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling WalletsApi->GetApprovedAllowance");
-            }
 
             // verify the required parameter 'spender' is set
             if (spender == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'spender' when calling WalletsApi->GetApprovedAllowance");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -653,16 +741,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
             localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
@@ -671,13 +753,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<ApprovedAllowanceResponse>("/wallets/{address}/allowance/{token}/approved/{spender}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetApprovedAllowance", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -711,21 +791,15 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'address' is set
             if (address == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling WalletsApi->GetApprovedAllowance");
-            }
 
             // verify the required parameter 'token' is set
             if (token == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling WalletsApi->GetApprovedAllowance");
-            }
 
             // verify the required parameter 'spender' is set
             if (spender == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'spender' when calling WalletsApi->GetApprovedAllowance");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -739,17 +813,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
             localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
@@ -757,15 +826,13 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<ApprovedAllowanceResponse>("/wallets/{address}/allowance/{token}/approved/{spender}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetApprovedAllowance", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -795,15 +862,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'address' is set
             if (address == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling WalletsApi->GetBalance");
-            }
 
             // verify the required parameter 'token' is set
             if (token == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling WalletsApi->GetBalance");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -817,16 +880,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
             localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
@@ -834,13 +891,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<AddressBalanceResponse>("/wallets/{address}/balance/{token}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetBalance", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -872,15 +927,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'address' is set
             if (address == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling WalletsApi->GetBalance");
-            }
 
             // verify the required parameter 'token' is set
             if (token == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling WalletsApi->GetBalance");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -894,32 +945,25 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
             localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<AddressBalanceResponse>("/wallets/{address}/balance/{token}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetBalance", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -932,9 +976,9 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="tokens">Tokens to retrieve balances for (optional)</param>
         /// <param name="tokenAttributes">Types of tokens to retrieve balances for (optional)</param>
-        /// <param name="includeZeroBalances">Include zero balances if true, otherwise zero balances are excluded (optional)</param>
+        /// <param name="includeZeroBalances">Include zero balances if true, otherwise zero balances are excluded if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>AddressBalancesResponse</returns>
         public AddressBalancesResponse GetBalances(string address, List<string> tokens = default(List<string>), List<TokenAttributeFilter> tokenAttributes = default(List<TokenAttributeFilter>), bool? includeZeroBalances = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
@@ -950,18 +994,16 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="tokens">Tokens to retrieve balances for (optional)</param>
         /// <param name="tokenAttributes">Types of tokens to retrieve balances for (optional)</param>
-        /// <param name="includeZeroBalances">Include zero balances if true, otherwise zero balances are excluded (optional)</param>
+        /// <param name="includeZeroBalances">Include zero balances if true, otherwise zero balances are excluded if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of AddressBalancesResponse</returns>
         public Opdex.Client.Client.ApiResponse<AddressBalancesResponse> GetBalancesWithHttpInfo(string address, List<string> tokens = default(List<string>), List<TokenAttributeFilter> tokenAttributes = default(List<TokenAttributeFilter>), bool? includeZeroBalances = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             // verify the required parameter 'address' is set
             if (address == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling WalletsApi->GetBalances");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -975,16 +1017,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
             if (tokens != null)
@@ -1015,13 +1051,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<AddressBalancesResponse>("/wallets/{address}/balance", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetBalances", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1034,9 +1068,9 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="tokens">Tokens to retrieve balances for (optional)</param>
         /// <param name="tokenAttributes">Types of tokens to retrieve balances for (optional)</param>
-        /// <param name="includeZeroBalances">Include zero balances if true, otherwise zero balances are excluded (optional)</param>
+        /// <param name="includeZeroBalances">Include zero balances if true, otherwise zero balances are excluded if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AddressBalancesResponse</returns>
@@ -1053,9 +1087,9 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="tokens">Tokens to retrieve balances for (optional)</param>
         /// <param name="tokenAttributes">Types of tokens to retrieve balances for (optional)</param>
-        /// <param name="includeZeroBalances">Include zero balances if true, otherwise zero balances are excluded (optional)</param>
+        /// <param name="includeZeroBalances">Include zero balances if true, otherwise zero balances are excluded if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AddressBalancesResponse)</returns>
@@ -1063,9 +1097,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'address' is set
             if (address == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling WalletsApi->GetBalances");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1079,17 +1111,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
             if (tokens != null)
@@ -1119,15 +1146,13 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<AddressBalancesResponse>("/wallets/{address}/balance", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetBalances", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1157,15 +1182,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'address' is set
             if (address == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling WalletsApi->GetMiningPosition");
-            }
 
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling WalletsApi->GetMiningPosition");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -1179,16 +1200,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
@@ -1196,13 +1211,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<MiningPositionsResponse>("/wallets/{address}/mining/{pool}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMiningPosition", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1234,15 +1247,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'address' is set
             if (address == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling WalletsApi->GetMiningPosition");
-            }
 
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling WalletsApi->GetMiningPosition");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1256,32 +1265,25 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<MiningPositionsResponse>("/wallets/{address}/mining/{pool}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMiningPosition", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1294,14 +1296,14 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="miningPools">Mining pools to retrieve positions for (optional)</param>
         /// <param name="liquidityPools">Related liquidity pools to retrieve positions for (optional)</param>
-        /// <param name="includeZeroAmount">Include zero amounts if true, otherwise zero amounts are excluded (optional)</param>
+        /// <param name="includeZeroAmounts">Include zero amounts if true, otherwise zero amounts are excluded (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>MiningPositionsResponse</returns>
-        public MiningPositionsResponse GetMiningPositions(string address, List<string> miningPools = default(List<string>), List<string> liquidityPools = default(List<string>), bool? includeZeroAmount = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public MiningPositionsResponse GetMiningPositions(string address, List<string> miningPools = default(List<string>), List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
-            Opdex.Client.Client.ApiResponse<MiningPositionsResponse> localVarResponse = GetMiningPositionsWithHttpInfo(address, miningPools, liquidityPools, includeZeroAmount, direction, limit, cursor);
+            Opdex.Client.Client.ApiResponse<MiningPositionsResponse> localVarResponse = GetMiningPositionsWithHttpInfo(address, miningPools, liquidityPools, includeZeroAmounts, direction, limit, cursor);
             return localVarResponse.Data;
         }
 
@@ -1312,18 +1314,16 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="miningPools">Mining pools to retrieve positions for (optional)</param>
         /// <param name="liquidityPools">Related liquidity pools to retrieve positions for (optional)</param>
-        /// <param name="includeZeroAmount">Include zero amounts if true, otherwise zero amounts are excluded (optional)</param>
+        /// <param name="includeZeroAmounts">Include zero amounts if true, otherwise zero amounts are excluded (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of MiningPositionsResponse</returns>
-        public Opdex.Client.Client.ApiResponse<MiningPositionsResponse> GetMiningPositionsWithHttpInfo(string address, List<string> miningPools = default(List<string>), List<string> liquidityPools = default(List<string>), bool? includeZeroAmount = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public Opdex.Client.Client.ApiResponse<MiningPositionsResponse> GetMiningPositionsWithHttpInfo(string address, List<string> miningPools = default(List<string>), List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             // verify the required parameter 'address' is set
             if (address == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling WalletsApi->GetMiningPositions");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -1337,16 +1337,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
             if (miningPools != null)
@@ -1357,9 +1351,9 @@ namespace Opdex.Client.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("multi", "liquidityPools", liquidityPools));
             }
-            if (includeZeroAmount != null)
+            if (includeZeroAmounts != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "includeZeroAmount", includeZeroAmount));
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "includeZeroAmounts", includeZeroAmounts));
             }
             if (direction != null)
             {
@@ -1377,13 +1371,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<MiningPositionsResponse>("/wallets/{address}/mining", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMiningPositions", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1396,15 +1388,15 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="miningPools">Mining pools to retrieve positions for (optional)</param>
         /// <param name="liquidityPools">Related liquidity pools to retrieve positions for (optional)</param>
-        /// <param name="includeZeroAmount">Include zero amounts if true, otherwise zero amounts are excluded (optional)</param>
+        /// <param name="includeZeroAmounts">Include zero amounts if true, otherwise zero amounts are excluded (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MiningPositionsResponse</returns>
-        public async System.Threading.Tasks.Task<MiningPositionsResponse> GetMiningPositionsAsync(string address, List<string> miningPools = default(List<string>), List<string> liquidityPools = default(List<string>), bool? includeZeroAmount = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<MiningPositionsResponse> GetMiningPositionsAsync(string address, List<string> miningPools = default(List<string>), List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<MiningPositionsResponse> localVarResponse = await GetMiningPositionsWithHttpInfoAsync(address, miningPools, liquidityPools, includeZeroAmount, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<MiningPositionsResponse> localVarResponse = await GetMiningPositionsWithHttpInfoAsync(address, miningPools, liquidityPools, includeZeroAmounts, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1415,19 +1407,17 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="miningPools">Mining pools to retrieve positions for (optional)</param>
         /// <param name="liquidityPools">Related liquidity pools to retrieve positions for (optional)</param>
-        /// <param name="includeZeroAmount">Include zero amounts if true, otherwise zero amounts are excluded (optional)</param>
+        /// <param name="includeZeroAmounts">Include zero amounts if true, otherwise zero amounts are excluded (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MiningPositionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<MiningPositionsResponse>> GetMiningPositionsWithHttpInfoAsync(string address, List<string> miningPools = default(List<string>), List<string> liquidityPools = default(List<string>), bool? includeZeroAmount = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<MiningPositionsResponse>> GetMiningPositionsWithHttpInfoAsync(string address, List<string> miningPools = default(List<string>), List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'address' is set
             if (address == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling WalletsApi->GetMiningPositions");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1441,17 +1431,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
             if (miningPools != null)
@@ -1462,9 +1447,9 @@ namespace Opdex.Client.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("multi", "liquidityPools", liquidityPools));
             }
-            if (includeZeroAmount != null)
+            if (includeZeroAmounts != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "includeZeroAmount", includeZeroAmount));
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "includeZeroAmounts", includeZeroAmounts));
             }
             if (direction != null)
             {
@@ -1481,15 +1466,13 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<MiningPositionsResponse>("/wallets/{address}/mining", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMiningPositions", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1519,15 +1502,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'address' is set
             if (address == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling WalletsApi->GetStakingPosition");
-            }
 
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling WalletsApi->GetStakingPosition");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -1541,16 +1520,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
@@ -1558,13 +1531,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<MiningPositionsResponse>("/wallets/{address}/staking/{pool}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStakingPosition", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1596,15 +1567,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'address' is set
             if (address == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling WalletsApi->GetStakingPosition");
-            }
 
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling WalletsApi->GetStakingPosition");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1618,32 +1585,25 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<MiningPositionsResponse>("/wallets/{address}/staking/{pool}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStakingPosition", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1655,14 +1615,14 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">Address holding the position</param>
         /// <param name="liquidityPools">Liquidity pools to retrieve positions for (optional)</param>
-        /// <param name="includeZeroAmount">Include zero amounts if true, otherwise zero amounts are excluded (optional)</param>
+        /// <param name="includeZeroAmounts">Include zero amounts if true, otherwise zero amounts are excluded if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>MiningPositionsResponse</returns>
-        public MiningPositionsResponse GetStakingPositions(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmount = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public MiningPositionsResponse GetStakingPositions(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
-            Opdex.Client.Client.ApiResponse<MiningPositionsResponse> localVarResponse = GetStakingPositionsWithHttpInfo(address, liquidityPools, includeZeroAmount, direction, limit, cursor);
+            Opdex.Client.Client.ApiResponse<MiningPositionsResponse> localVarResponse = GetStakingPositionsWithHttpInfo(address, liquidityPools, includeZeroAmounts, direction, limit, cursor);
             return localVarResponse.Data;
         }
 
@@ -1672,18 +1632,16 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">Address holding the position</param>
         /// <param name="liquidityPools">Liquidity pools to retrieve positions for (optional)</param>
-        /// <param name="includeZeroAmount">Include zero amounts if true, otherwise zero amounts are excluded (optional)</param>
+        /// <param name="includeZeroAmounts">Include zero amounts if true, otherwise zero amounts are excluded if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of MiningPositionsResponse</returns>
-        public Opdex.Client.Client.ApiResponse<MiningPositionsResponse> GetStakingPositionsWithHttpInfo(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmount = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public Opdex.Client.Client.ApiResponse<MiningPositionsResponse> GetStakingPositionsWithHttpInfo(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             // verify the required parameter 'address' is set
             if (address == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling WalletsApi->GetStakingPositions");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -1697,25 +1655,19 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
             if (liquidityPools != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("multi", "liquidityPools", liquidityPools));
             }
-            if (includeZeroAmount != null)
+            if (includeZeroAmounts != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "includeZeroAmount", includeZeroAmount));
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "includeZeroAmounts", includeZeroAmounts));
             }
             if (direction != null)
             {
@@ -1733,13 +1685,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<MiningPositionsResponse>("/wallets/{address}/staking", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStakingPositions", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1751,15 +1701,15 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">Address holding the position</param>
         /// <param name="liquidityPools">Liquidity pools to retrieve positions for (optional)</param>
-        /// <param name="includeZeroAmount">Include zero amounts if true, otherwise zero amounts are excluded (optional)</param>
+        /// <param name="includeZeroAmounts">Include zero amounts if true, otherwise zero amounts are excluded if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MiningPositionsResponse</returns>
-        public async System.Threading.Tasks.Task<MiningPositionsResponse> GetStakingPositionsAsync(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmount = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<MiningPositionsResponse> GetStakingPositionsAsync(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<MiningPositionsResponse> localVarResponse = await GetStakingPositionsWithHttpInfoAsync(address, liquidityPools, includeZeroAmount, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<MiningPositionsResponse> localVarResponse = await GetStakingPositionsWithHttpInfoAsync(address, liquidityPools, includeZeroAmounts, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1769,19 +1719,17 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">Address holding the position</param>
         /// <param name="liquidityPools">Liquidity pools to retrieve positions for (optional)</param>
-        /// <param name="includeZeroAmount">Include zero amounts if true, otherwise zero amounts are excluded (optional)</param>
+        /// <param name="includeZeroAmounts">Include zero amounts if true, otherwise zero amounts are excluded if false (optional, default to false)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MiningPositionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<MiningPositionsResponse>> GetStakingPositionsWithHttpInfoAsync(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmount = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<MiningPositionsResponse>> GetStakingPositionsWithHttpInfoAsync(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'address' is set
             if (address == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling WalletsApi->GetStakingPositions");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1795,26 +1743,21 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
             if (liquidityPools != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("multi", "liquidityPools", liquidityPools));
             }
-            if (includeZeroAmount != null)
+            if (includeZeroAmounts != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "includeZeroAmount", includeZeroAmount));
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "includeZeroAmounts", includeZeroAmounts));
             }
             if (direction != null)
             {
@@ -1831,15 +1774,13 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<MiningPositionsResponse>("/wallets/{address}/staking", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStakingPositions", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1869,15 +1810,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'address' is set
             if (address == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling WalletsApi->RefreshBalance");
-            }
 
             // verify the required parameter 'token' is set
             if (token == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling WalletsApi->RefreshBalance");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -1891,16 +1828,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
             localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
@@ -1908,13 +1839,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<AddressBalanceResponse>("/wallets/{address}/balance/{token}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RefreshBalance", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1946,15 +1875,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'address' is set
             if (address == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling WalletsApi->RefreshBalance");
-            }
 
             // verify the required parameter 'token' is set
             if (token == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'token' when calling WalletsApi->RefreshBalance");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1968,32 +1893,25 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
             localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<AddressBalanceResponse>("/wallets/{address}/balance/{token}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RefreshBalance", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;

@@ -13,7 +13,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-using RestSharp;
 using Xunit;
 
 using Opdex.Client.Client;
@@ -122,11 +121,11 @@ namespace Opdex.Client.Test.Api
             //string address = null;
             //List<string> miningPools = null;
             //List<string> liquidityPools = null;
-            //bool? includeZeroAmount = null;
+            //bool? includeZeroAmounts = null;
             //SortDirection? direction = null;
             //int? limit = null;
             //string cursor = null;
-            //var response = instance.GetMiningPositions(address, miningPools, liquidityPools, includeZeroAmount, direction, limit, cursor);
+            //var response = instance.GetMiningPositions(address, miningPools, liquidityPools, includeZeroAmounts, direction, limit, cursor);
             //Assert.IsType<MiningPositionsResponse>(response);
         }
 
@@ -152,11 +151,11 @@ namespace Opdex.Client.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string address = null;
             //List<string> liquidityPools = null;
-            //bool? includeZeroAmount = null;
+            //bool? includeZeroAmounts = null;
             //SortDirection? direction = null;
             //int? limit = null;
             //string cursor = null;
-            //var response = instance.GetStakingPositions(address, liquidityPools, includeZeroAmount, direction, limit, cursor);
+            //var response = instance.GetStakingPositions(address, liquidityPools, includeZeroAmounts, direction, limit, cursor);
             //Assert.IsType<MiningPositionsResponse>(response);
         }
 

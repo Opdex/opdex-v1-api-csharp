@@ -46,7 +46,7 @@ namespace Opdex.Client.Client
         /// <summary>
         /// File parameters to be sent along with the request.
         /// </summary>
-        public Dictionary<string, Stream> FileParameters { get; set; }
+        public Dictionary<string, FileParameter> FileParameters { get; set; }
 
         /// <summary>
         /// Cookies to be sent along with the request.
@@ -67,7 +67,7 @@ namespace Opdex.Client.Client
             QueryParameters = new Multimap<string, string>();
             HeaderParameters = new Multimap<string, string>();
             FormParameters = new Dictionary<string, string>();
-            FileParameters = new Dictionary<string, Stream>();
+            FileParameters = new Dictionary<string, FileParameter>();
             Cookies = new List<Cookie>();
         }
     }

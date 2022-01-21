@@ -37,6 +37,7 @@ Builds a quote for a transaction to complete a vault proposal. The quote can be 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -52,7 +53,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new VaultsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new VaultsApi(httpClient, config, httpClientHandler);
             var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var proposalId = 1;  // int | Id of the proposal
 
@@ -118,6 +122,7 @@ Builds a quote for a transaction to make a pledge to a vault proposal. The quote
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -133,7 +138,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new VaultsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new VaultsApi(httpClient, config, httpClientHandler);
             var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var proposalId = 1;  // int | Id of the proposal
             var quotePledgeRequest = new QuotePledgeRequest(); // QuotePledgeRequest | Parameters used to make a pledge to a proposal
@@ -201,6 +209,7 @@ Builds a quote for a transaction to create a proposal for changing the minimum p
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -216,7 +225,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new VaultsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new VaultsApi(httpClient, config, httpClientHandler);
             var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var quoteProposeMinimumPledgeRequest = new QuoteProposeMinimumPledgeRequest(); // QuoteProposeMinimumPledgeRequest | Parameters used to propose the revokation of a certificate
 
@@ -282,6 +294,7 @@ Builds a quote for a transaction to create a proposal for changing the minimum v
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -297,7 +310,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new VaultsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new VaultsApi(httpClient, config, httpClientHandler);
             var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var quoteProposeMinimumVoteRequest = new QuoteProposeMinimumVoteRequest(); // QuoteProposeMinimumVoteRequest | Parameters used to propose the revokation of a certificate
 
@@ -363,6 +379,7 @@ Builds a quote for a transaction to create a proposal for creating a vault certi
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -378,7 +395,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new VaultsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new VaultsApi(httpClient, config, httpClientHandler);
             var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var quoteProposeCreateCertificateRequest = new QuoteProposeCreateCertificateRequest(); // QuoteProposeCreateCertificateRequest | Parameters used to propose the creation of a certificate
 
@@ -444,6 +464,7 @@ Builds a quote for a transaction to create a proposal for revoking a vault certi
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -459,7 +480,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new VaultsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new VaultsApi(httpClient, config, httpClientHandler);
             var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var quoteProposeRevokeCertificateRequest = new QuoteProposeRevokeCertificateRequest(); // QuoteProposeRevokeCertificateRequest | Parameters used to propose the revokation of a certificate
 
@@ -525,6 +549,7 @@ Builds a quote for a transaction to redeem a vault certificate. The quote can be
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -540,7 +565,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new VaultsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new VaultsApi(httpClient, config, httpClientHandler);
             var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
 
             try
@@ -604,6 +632,7 @@ Builds a quote for a transaction to make a vote on a vault proposal. The quote c
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -619,7 +648,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new VaultsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new VaultsApi(httpClient, config, httpClientHandler);
             var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var proposalId = 1;  // int | Id of the proposal
             var quoteVoteRequest = new QuoteVoteRequest(); // QuoteVoteRequest | Parameters used to vote on a proposal
@@ -687,6 +719,7 @@ Builds a quote for a transaction to withdraw a pledge from a vault proposal. If 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -702,7 +735,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new VaultsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new VaultsApi(httpClient, config, httpClientHandler);
             var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var proposalId = 1;  // int | Id of the proposal
             var quoteWithdrawPledgeRequest = new QuoteWithdrawPledgeRequest(); // QuoteWithdrawPledgeRequest | Parameters used to withdraw a pledge balance
@@ -770,6 +806,7 @@ Builds a quote for a transaction to withdraw a vote from a vault proposal. If th
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -785,7 +822,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new VaultsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new VaultsApi(httpClient, config, httpClientHandler);
             var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var proposalId = 1;  // int | Id of the proposal
             var quoteWithdrawVoteRequest = new QuoteWithdrawVoteRequest(); // QuoteWithdrawVoteRequest | Parameters used to withdraw a vote balance
@@ -843,7 +883,7 @@ Name | Type | Description  | Notes
 
 <a name="getcertificates"></a>
 # **GetCertificates**
-> CertificatesResponse GetCertificates (string vault, string holder = null, CertificateStatus? status = null, SortDirection? direction = null, int? limit = null, string cursor = null)
+> CertificatesResponse GetCertificates (string vault, string owner = null, CertificateStatus? status = null, SortDirection? direction = null, int? limit = null, string cursor = null)
 
 Get Vault Certificates
 
@@ -853,6 +893,7 @@ Retrieves details for certificates existing within tracked Opdex vaults. This is
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -865,18 +906,21 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new VaultsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new VaultsApi(httpClient, config, httpClientHandler);
             var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
-            var holder = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address of the certificate holder (optional) 
+            var owner = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address of the certificate owner (optional) 
             var status = Vesting;  // CertificateStatus? | Status of the certificates (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
-            var limit = 10;  // int? | Number of results per page (optional) 
+            var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
             var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
             {
                 // Get Vault Certificates
-                CertificatesResponse result = apiInstance.GetCertificates(vault, holder, status, direction, limit, cursor);
+                CertificatesResponse result = apiInstance.GetCertificates(vault, owner, status, direction, limit, cursor);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -895,10 +939,10 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **vault** | **string**| Address of the vault | 
- **holder** | **string**| Address of the certificate holder | [optional] 
+ **owner** | **string**| Address of the certificate owner | [optional] 
  **status** | **CertificateStatus?**| Status of the certificates | [optional] 
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
- **limit** | **int?**| Number of results per page | [optional] 
+ **limit** | **int?**| Number of results per page | [optional] [default to 10]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
 
 ### Return type
@@ -938,6 +982,7 @@ Retrieves details for a pledgers position on a vault proposal.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -950,7 +995,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new VaultsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new VaultsApi(httpClient, config, httpClientHandler);
             var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var proposalId = 1;  // int | Id of the proposal
             var pledger = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address of the pledger
@@ -1017,6 +1065,7 @@ Retrieves details for pledges that have been made to proposals within tracked Op
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -1029,13 +1078,16 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new VaultsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new VaultsApi(httpClient, config, httpClientHandler);
             var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var proposalId = 1;  // int? | Id of the proposal in the vault (optional) 
             var pledger = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address of the pledger (optional) 
-            var includeZeroBalances = true;  // bool? | Includes zero balances if true, otherwise filters out zero balances if false (optional) 
+            var includeZeroBalances = true;  // bool? | Includes zero balances if true, otherwise filters out zero balances if false (optional)  (default to false)
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
-            var limit = 10;  // int? | Number of results per page (optional) 
+            var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
             var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
@@ -1062,9 +1114,9 @@ Name | Type | Description  | Notes
  **vault** | **string**| Address of the vault | 
  **proposalId** | **int?**| Id of the proposal in the vault | [optional] 
  **pledger** | **string**| Address of the pledger | [optional] 
- **includeZeroBalances** | **bool?**| Includes zero balances if true, otherwise filters out zero balances if false | [optional] 
+ **includeZeroBalances** | **bool?**| Includes zero balances if true, otherwise filters out zero balances if false | [optional] [default to false]
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
- **limit** | **int?**| Number of results per page | [optional] 
+ **limit** | **int?**| Number of results per page | [optional] [default to 10]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
 
 ### Return type
@@ -1104,6 +1156,7 @@ Retrieves details for proposals existing within tracked Opdex vaults. This is a 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -1116,12 +1169,15 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new VaultsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new VaultsApi(httpClient, config, httpClientHandler);
             var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var status = Complete;  // ProposalStatus? | Status of the proposal (optional) 
             var type = Create;  // ProposalType? | Type of proposal (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
-            var limit = 10;  // int? | Number of results per page (optional) 
+            var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
             var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
@@ -1149,7 +1205,7 @@ Name | Type | Description  | Notes
  **status** | **ProposalStatus?**| Status of the proposal | [optional] 
  **type** | **ProposalType?**| Type of proposal | [optional] 
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
- **limit** | **int?**| Number of results per page | [optional] 
+ **limit** | **int?**| Number of results per page | [optional] [default to 10]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
 
 ### Return type
@@ -1189,6 +1245,7 @@ Retrieves details of a vault tracked by the Opdex indexer.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -1201,7 +1258,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new VaultsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new VaultsApi(httpClient, config, httpClientHandler);
             var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
 
             try
@@ -1264,6 +1324,7 @@ Retrieves a proposal that exists in a tracked Opdex vault.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -1276,7 +1337,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new VaultsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new VaultsApi(httpClient, config, httpClientHandler);
             var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var proposalId = 1;  // int | Id of the proposal
 
@@ -1341,6 +1405,7 @@ Retrieves details for tracked Opdex vaults. This is a [paginated endpoint](https
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -1353,10 +1418,13 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new VaultsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new VaultsApi(httpClient, config, httpClientHandler);
             var lockedToken = tTTuKbCR2UnsEByXBp1ynBz91J2yz63h1c;  // string | Address of the token locked in the vault (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
-            var limit = 10;  // int? | Number of results per page (optional) 
+            var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
             var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
@@ -1382,7 +1450,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **lockedToken** | **string**| Address of the token locked in the vault | [optional] 
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
- **limit** | **int?**| Number of results per page | [optional] 
+ **limit** | **int?**| Number of results per page | [optional] [default to 10]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
 
 ### Return type
@@ -1421,6 +1489,7 @@ Retrieves details for a voters position on a vault proposal.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -1433,7 +1502,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new VaultsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new VaultsApi(httpClient, config, httpClientHandler);
             var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var proposalId = 1;  // int | Id of the proposal
             var voter = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address of the voter
@@ -1500,6 +1572,7 @@ Retrieves details for votes that have been made against proposals within tracked
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -1512,13 +1585,16 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new VaultsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new VaultsApi(httpClient, config, httpClientHandler);
             var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var proposalId = 1;  // int? | Id of the proposal in the vault (optional) 
             var voter = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address of the voter (optional) 
-            var includeZeroBalances = true;  // bool? | Includes zero balances if true, otherwise filters out zero balances if false (optional) 
+            var includeZeroBalances = true;  // bool? | Includes zero balances if true, otherwise filters out zero balances if false (optional)  (default to false)
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
-            var limit = 10;  // int? | Number of results per page (optional) 
+            var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
             var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
@@ -1545,9 +1621,9 @@ Name | Type | Description  | Notes
  **vault** | **string**| Address of the vault | 
  **proposalId** | **int?**| Id of the proposal in the vault | [optional] 
  **voter** | **string**| Address of the voter | [optional] 
- **includeZeroBalances** | **bool?**| Includes zero balances if true, otherwise filters out zero balances if false | [optional] 
+ **includeZeroBalances** | **bool?**| Includes zero balances if true, otherwise filters out zero balances if false | [optional] [default to false]
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
- **limit** | **int?**| Number of results per page | [optional] 
+ **limit** | **int?**| Number of results per page | [optional] [default to 10]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
 
 ### Return type

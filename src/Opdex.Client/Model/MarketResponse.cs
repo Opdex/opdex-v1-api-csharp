@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = Opdex.Client.Client.FileParameter;
 using OpenAPIDateConverter = Opdex.Client.Client.OpenAPIDateConverter;
 
 namespace Opdex.Client.Model
@@ -43,9 +44,9 @@ namespace Opdex.Client.Model
         /// <param name="authTraders">Whether the market owner authorizes traders.</param>
         /// <param name="authProviders">Whether the market owner authorizes liquidity providers.</param>
         /// <param name="marketFeeEnabled">Whether the market fee is enabled.</param>
-        /// <param name="transactionFee">Percentage fee for a trade.</param>
+        /// <param name="transactionFeePercent">Percentage fee for a trade.</param>
         /// <param name="summary">summary.</param>
-        public MarketResponse(string address = default(string), string pendingOwner = default(string), string owner = default(string), TokenResponse crsToken = default(TokenResponse), TokenResponse stakingToken = default(TokenResponse), bool authPoolCreators = default(bool), bool authTraders = default(bool), bool authProviders = default(bool), bool marketFeeEnabled = default(bool), decimal transactionFee = default(decimal), MarketSummary summary = default(MarketSummary))
+        public MarketResponse(string address = default(string), string pendingOwner = default(string), string owner = default(string), TokenResponse crsToken = default(TokenResponse), TokenResponse stakingToken = default(TokenResponse), bool authPoolCreators = default(bool), bool authTraders = default(bool), bool authProviders = default(bool), bool marketFeeEnabled = default(bool), decimal transactionFeePercent = default(decimal), MarketSummary summary = default(MarketSummary))
         {
             this.Address = address;
             this.PendingOwner = pendingOwner;
@@ -56,7 +57,7 @@ namespace Opdex.Client.Model
             this.AuthTraders = authTraders;
             this.AuthProviders = authProviders;
             this.MarketFeeEnabled = marketFeeEnabled;
-            this.TransactionFee = transactionFee;
+            this.TransactionFeePercent = transactionFeePercent;
             this.Summary = summary;
         }
 
@@ -125,8 +126,8 @@ namespace Opdex.Client.Model
         /// Percentage fee for a trade
         /// </summary>
         /// <value>Percentage fee for a trade</value>
-        [DataMember(Name = "transactionFee", EmitDefaultValue = false)]
-        public decimal TransactionFee { get; set; }
+        [DataMember(Name = "transactionFeePercent", EmitDefaultValue = false)]
+        public decimal TransactionFeePercent { get; set; }
 
         /// <summary>
         /// Gets or Sets Summary
@@ -151,7 +152,7 @@ namespace Opdex.Client.Model
             sb.Append("  AuthTraders: ").Append(AuthTraders).Append("\n");
             sb.Append("  AuthProviders: ").Append(AuthProviders).Append("\n");
             sb.Append("  MarketFeeEnabled: ").Append(MarketFeeEnabled).Append("\n");
-            sb.Append("  TransactionFee: ").Append(TransactionFee).Append("\n");
+            sb.Append("  TransactionFeePercent: ").Append(TransactionFeePercent).Append("\n");
             sb.Append("  Summary: ").Append(Summary).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -230,8 +231,8 @@ namespace Opdex.Client.Model
                     this.MarketFeeEnabled.Equals(input.MarketFeeEnabled)
                 ) && 
                 (
-                    this.TransactionFee == input.TransactionFee ||
-                    this.TransactionFee.Equals(input.TransactionFee)
+                    this.TransactionFeePercent == input.TransactionFeePercent ||
+                    this.TransactionFeePercent.Equals(input.TransactionFeePercent)
                 ) && 
                 (
                     this.Summary == input.Summary ||
@@ -273,7 +274,7 @@ namespace Opdex.Client.Model
                 hashCode = (hashCode * 59) + this.AuthTraders.GetHashCode();
                 hashCode = (hashCode * 59) + this.AuthProviders.GetHashCode();
                 hashCode = (hashCode * 59) + this.MarketFeeEnabled.GetHashCode();
-                hashCode = (hashCode * 59) + this.TransactionFee.GetHashCode();
+                hashCode = (hashCode * 59) + this.TransactionFeePercent.GetHashCode();
                 if (this.Summary != null)
                 {
                     hashCode = (hashCode * 59) + this.Summary.GetHashCode();
@@ -346,16 +347,16 @@ namespace Opdex.Client.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Owner, must match a pattern of " + regexOwner, new [] { "Owner" });
             }
 
-            // TransactionFee (decimal) maximum
-            if (this.TransactionFee > (decimal)1.0)
+            // TransactionFeePercent (decimal) maximum
+            if (this.TransactionFeePercent > (decimal)1.0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFee, must be a value less than or equal to 1.0.", new [] { "TransactionFee" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFeePercent, must be a value less than or equal to 1.0.", new [] { "TransactionFeePercent" });
             }
 
-            // TransactionFee (decimal) minimum
-            if (this.TransactionFee < (decimal)0.0)
+            // TransactionFeePercent (decimal) minimum
+            if (this.TransactionFeePercent < (decimal)0.0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFee, must be a value greater than or equal to 0.0.", new [] { "TransactionFee" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFeePercent, must be a value greater than or equal to 0.0.", new [] { "TransactionFeePercent" });
             }
 
             yield break;

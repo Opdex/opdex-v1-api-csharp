@@ -30,6 +30,7 @@ Builds a quote for a transaction to add liquidity to an Opdex liquidity pool. Th
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -45,7 +46,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new LiquidityPoolsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
             var pool = tMdZ2UfwJorAyErDvqNdVU8kmiLaykuE5L;  // string | Address of a liquidity pool
             var quoteAddLiquidityRequest = new QuoteAddLiquidityRequest(); // QuoteAddLiquidityRequest | 
 
@@ -111,6 +115,7 @@ Builds a quote for a transaction to collect staking rewards from an Opdex liquid
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -126,7 +131,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new LiquidityPoolsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
             var pool = tMdZ2UfwJorAyErDvqNdVU8kmiLaykuE5L;  // string | Address of a liquidity pool
             var quoteCollectStakingRewardsRequest = new QuoteCollectStakingRewardsRequest(); // QuoteCollectStakingRewardsRequest | 
 
@@ -192,6 +200,7 @@ Builds a quote for a transaction to create an Opdex liquidity pool. The quote ca
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -207,7 +216,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new LiquidityPoolsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
             var quoteCreateLiquidityPoolRequest = new QuoteCreateLiquidityPoolRequest(); // QuoteCreateLiquidityPoolRequest |  (optional) 
 
             try
@@ -270,6 +282,7 @@ Builds a quote for a transaction to remove liquidity from an Opdex liquidity poo
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -285,7 +298,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new LiquidityPoolsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
             var pool = tMdZ2UfwJorAyErDvqNdVU8kmiLaykuE5L;  // string | Address of a liquidity pool
             var quoteRemoveLiquidityRequest = new QuoteRemoveLiquidityRequest(); // QuoteRemoveLiquidityRequest | 
 
@@ -351,6 +367,7 @@ Builds a quote for a transaction to skim an Opdex liquidity pool. This transacti
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -366,7 +383,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new LiquidityPoolsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
             var pool = tMdZ2UfwJorAyErDvqNdVU8kmiLaykuE5L;  // string | Address of a liquidity pool
             var quoteSkimRequest = new QuoteSkimRequest(); // QuoteSkimRequest | 
 
@@ -432,6 +452,7 @@ Builds a quote for a transaction to begin staking in an Opdex liquidity pool. Th
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -447,7 +468,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new LiquidityPoolsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
             var pool = tMdZ2UfwJorAyErDvqNdVU8kmiLaykuE5L;  // string | Address of a liquidity pool
             var quoteStartStakingRequest = new QuoteStartStakingRequest(); // QuoteStartStakingRequest | 
 
@@ -513,6 +537,7 @@ Builds a quote for a transaction to stop staking in an Opdex liquidity pool. The
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -528,7 +553,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new LiquidityPoolsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
             var pool = tMdZ2UfwJorAyErDvqNdVU8kmiLaykuE5L;  // string | Address of a liquidity pool
             var quoteStopStakingRequest = new QuoteStopStakingRequest(); // QuoteStopStakingRequest | 
 
@@ -594,6 +622,7 @@ Builds a quote for a transaction to sync an Opdex liquidity pool. This transacti
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -609,7 +638,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new LiquidityPoolsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
             var pool = tMdZ2UfwJorAyErDvqNdVU8kmiLaykuE5L;  // string | Address of a liquidity pool
 
             try
@@ -673,6 +705,7 @@ Retrieves an estimate for the amount of a token required to be added, give an in
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -685,7 +718,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new LiquidityPoolsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
             var pool = tMdZ2UfwJorAyErDvqNdVU8kmiLaykuE5L;  // string | Address of a liquidity pool
             var liquidityAmountInQuoteRequest = new LiquidityAmountInQuoteRequest(); // LiquidityAmountInQuoteRequest | 
 
@@ -750,6 +786,7 @@ Retrieve details for an Opdex liquidity pool.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -762,7 +799,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new LiquidityPoolsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
             var pool = tMdZ2UfwJorAyErDvqNdVU8kmiLaykuE5L;  // string | Address of a liquidity pool
 
             try
@@ -825,6 +865,7 @@ Retrieves historical transactions, reserves, rewards, volume, cost and staking d
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -837,13 +878,16 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new LiquidityPoolsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
             var pool = tMdZ2UfwJorAyErDvqNdVU8kmiLaykuE5L;  // string | Address of a liquidity pool
             var startDateTime = 2022-01-01T00:00:00Z;  // DateTime | Start time for which to retrieve snapshots
             var endDateTime = 2022-12-31T23:59:59;  // DateTime | End time for which to retrieve snapshots
             var interval = 1D;  // Interval? | Time range between each snapshot (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
-            var limit = 10;  // int? | Number of results per page (optional) 
+            var limit = 100;  // int? | Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional)  (default to 168)
             var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
@@ -872,7 +916,7 @@ Name | Type | Description  | Notes
  **endDateTime** | **DateTime**| End time for which to retrieve snapshots | 
  **interval** | **Interval?**| Time range between each snapshot | [optional] 
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
- **limit** | **int?**| Number of results per page | [optional] 
+ **limit** | **int?**| Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) | [optional] [default to 168]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
 
 ### Return type
@@ -912,6 +956,7 @@ Retrieves details for Opdex liquidity pools across one or many markets. This is 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -924,7 +969,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new LiquidityPoolsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
             var keyword = BTC;  // string | Keyword search against liquidity pool addresses and names (optional) 
             var markets = new List<string>(); // List<string> | Addresses of markets to search within (optional) 
             var liquidityPools = new List<string>(); // List<string> | Addresses of liquidity pools to fetch (optional) 
@@ -934,7 +982,7 @@ namespace Example
             var miningStatus = Enabled;  // MiningStatus? | Mining status filter; default is not to filter (optional) 
             var orderBy = Volume;  // LiquidityPoolOrderByType? | Property by which to sort results (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
-            var limit = 10;  // int? | Number of results per page (optional) 
+            var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
             var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
@@ -967,7 +1015,7 @@ Name | Type | Description  | Notes
  **miningStatus** | **MiningStatus?**| Mining status filter; default is not to filter | [optional] 
  **orderBy** | **LiquidityPoolOrderByType?**| Property by which to sort results | [optional] 
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
- **limit** | **int?**| Number of results per page | [optional] 
+ **limit** | **int?**| Number of results per page | [optional] [default to 10]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
 
 ### Return type

@@ -57,12 +57,12 @@ namespace Opdex.Client.Test.Model
 
 
         /// <summary>
-        /// Test the property 'TokenAddress'
+        /// Test the property 'Token'
         /// </summary>
         [Fact]
-        public void TokenAddressTest()
+        public void TokenTest()
         {
-            // TODO unit test for the property 'TokenAddress'
+            // TODO unit test for the property 'Token'
         }
 
     }

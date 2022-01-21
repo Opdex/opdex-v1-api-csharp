@@ -22,6 +22,7 @@ Retrieves details for a tracked Opdex transaction with the supplied hash.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -34,7 +35,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new TransactionsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new TransactionsApi(httpClient, config, httpClientHandler);
             var hash = 0132da001ca719cc8d98610fbd8493e92c7943c6e0c0844a819f4c90531fd3a6;  // string | The SHA256 hash of the transaction to look up
 
             try
@@ -87,7 +91,7 @@ No authorization required
 
 <a name="gettransactions"></a>
 # **GetTransactions**
-> TransactionsResponse GetTransactions (string wallet = null, List<string> contracts = null, List<TransactionEventType> eventTypes = null, SortDirection? direction = null, int? limit = null, string cursor = null)
+> TransactionsResponse GetTransactions (string sender = null, List<string> contracts = null, List<TransactionEventType> eventTypes = null, SortDirection? direction = null, int? limit = null, string cursor = null)
 
 Get Transactions
 
@@ -97,6 +101,7 @@ Retrieves details for tracked Opdex transactions. This is a [paginated endpoint]
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -109,18 +114,21 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new TransactionsApi(config);
-            var wallet = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Filter transactions by wallet address (optional) 
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new TransactionsApi(httpClient, config, httpClientHandler);
+            var sender = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Filter transactions by sender address (optional) 
             var contracts = new List<string>(); // List<string> | Smart contract addresses to include (optional) 
             var eventTypes = new List<TransactionEventType>(); // List<TransactionEventType> | Filter to include transactions with event types (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
-            var limit = 10;  // int? | Number of results per page (optional) 
+            var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
             var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
             {
                 // Get Transactions
-                TransactionsResponse result = apiInstance.GetTransactions(wallet, contracts, eventTypes, direction, limit, cursor);
+                TransactionsResponse result = apiInstance.GetTransactions(sender, contracts, eventTypes, direction, limit, cursor);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -138,11 +146,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **wallet** | **string**| Filter transactions by wallet address | [optional] 
+ **sender** | **string**| Filter transactions by sender address | [optional] 
  **contracts** | [**List&lt;string&gt;**](string.md)| Smart contract addresses to include | [optional] 
  **eventTypes** | [**List&lt;TransactionEventType&gt;**](TransactionEventType.md)| Filter to include transactions with event types | [optional] 
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
- **limit** | **int?**| Number of results per page | [optional] 
+ **limit** | **int?**| Number of results per page | [optional] [default to 10]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
 
 ### Return type
@@ -181,6 +189,7 @@ Sends notifications to a user about broadcast transactions. This endpoint is int
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -193,7 +202,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new TransactionsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new TransactionsApi(httpClient, config, httpClientHandler);
             var notifyBroadcastRequest = new NotifyBroadcastRequest(); // NotifyBroadcastRequest | 
 
             try
@@ -254,6 +266,7 @@ Replays a previous transaction quote at the current point in time. The quote can
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -269,7 +282,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new TransactionsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new TransactionsApi(httpClient, config, httpClientHandler);
             var replayQuoteRequest = new ReplayQuoteRequest(); // ReplayQuoteRequest | 
 
             try

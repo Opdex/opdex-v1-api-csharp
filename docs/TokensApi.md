@@ -24,6 +24,7 @@ Adds an SRC token to the Opdex indexer, so that it can be tracked and used withi
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -39,7 +40,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new TokensApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new TokensApi(httpClient, config, httpClientHandler);
             var addTokenRequest = new AddTokenRequest(); // AddTokenRequest | 
 
             try
@@ -103,6 +107,7 @@ Builds a quote for an allowance approval transaction. The quote can be broadcast
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -118,7 +123,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new TokensApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new TokensApi(httpClient, config, httpClientHandler);
             var token = tGSk2dVENuqAQ2rNXbui37XHuurFCTqadD;  // string | Address of the token
             var quoteApproveAllowanceRequest = new QuoteApproveAllowanceRequest(); // QuoteApproveAllowanceRequest | Parameters used for the approval of a token allowance
 
@@ -184,6 +192,7 @@ Builds a quote for a transaction to distribute governance tokens, to the mining 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -199,7 +208,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new TokensApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new TokensApi(httpClient, config, httpClientHandler);
             var token = tTTuKbCR2UnsEByXBp1ynBz91J2yz63h1c;  // string | Address of the governance token
 
             try
@@ -263,6 +275,7 @@ Retrieves details of a token tracked by the Opdex indexer.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -275,7 +288,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new TokensApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new TokensApi(httpClient, config, httpClientHandler);
             var token = tGSk2dVENuqAQ2rNXbui37XHuurFCTqadD;  // string | Address of the token
 
             try
@@ -338,6 +354,7 @@ Retrieves historical pricing data for a token tracked by the Opdex indexer. This
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -350,13 +367,16 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new TokensApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new TokensApi(httpClient, config, httpClientHandler);
             var token = tGSk2dVENuqAQ2rNXbui37XHuurFCTqadD;  // string | Address of the token
             var startDateTime = 2022-01-01T00:00:00Z;  // DateTime | Start time for which to retrieve snapshots
             var endDateTime = 2022-12-31T23:59:59;  // DateTime | End time for which to retrieve snapshots
             var interval = 1D;  // Interval? | Time range between each snapshot (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
-            var limit = 100;  // int? | Number of results per page (optional) 
+            var limit = 100;  // int? | Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional)  (default to 168)
             var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
@@ -385,7 +405,7 @@ Name | Type | Description  | Notes
  **endDateTime** | **DateTime**| End time for which to retrieve snapshots | 
  **interval** | **Interval?**| Time range between each snapshot | [optional] 
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
- **limit** | **int?**| Number of results per page | [optional] 
+ **limit** | **int?**| Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) | [optional] [default to 168]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
 
 ### Return type
@@ -425,6 +445,7 @@ Retrieves details of all tracked tokens across markets. This is a [paginated end
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -437,13 +458,16 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new TokensApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new TokensApi(httpClient, config, httpClientHandler);
             var tokenType = Provisional;  // TokenType? | Token type filter (optional) 
             var tokens = new List<string>(); // List<string> | Specific tokens to include (optional) 
             var keyword = keyword_example;  // string | Keyword search against token address, name and ticker symbol (optional) 
             var orderBy = ;  // TokenOrderByType? | Property by which to sort results (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
-            var limit = 10;  // int? | Number of results per page (optional) 
+            var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
             var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
@@ -472,7 +496,7 @@ Name | Type | Description  | Notes
  **keyword** | **string**| Keyword search against token address, name and ticker symbol | [optional] 
  **orderBy** | **TokenOrderByType?**| Property by which to sort results | [optional] 
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
- **limit** | **int?**| Number of results per page | [optional] 
+ **limit** | **int?**| Number of results per page | [optional] [default to 10]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
 
 ### Return type

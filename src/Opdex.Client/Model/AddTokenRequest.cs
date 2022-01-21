@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = Opdex.Client.Client.FileParameter;
 using OpenAPIDateConverter = Opdex.Client.Client.OpenAPIDateConverter;
 
 namespace Opdex.Client.Model
@@ -39,22 +40,22 @@ namespace Opdex.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AddTokenRequest" /> class.
         /// </summary>
-        /// <param name="tokenAddress">An address on the Cirrus network (required).</param>
-        public AddTokenRequest(string tokenAddress = default(string))
+        /// <param name="token">An address on the Cirrus network (required).</param>
+        public AddTokenRequest(string token = default(string))
         {
-            // to ensure "tokenAddress" is required (not null)
-            if (tokenAddress == null) {
-                throw new ArgumentNullException("tokenAddress is a required property for AddTokenRequest and cannot be null");
+            // to ensure "token" is required (not null)
+            if (token == null) {
+                throw new ArgumentNullException("token is a required property for AddTokenRequest and cannot be null");
             }
-            this.TokenAddress = tokenAddress;
+            this.Token = token;
         }
 
         /// <summary>
         /// An address on the Cirrus network
         /// </summary>
         /// <value>An address on the Cirrus network</value>
-        [DataMember(Name = "tokenAddress", IsRequired = true, EmitDefaultValue = false)]
-        public string TokenAddress { get; set; }
+        [DataMember(Name = "token", IsRequired = true, EmitDefaultValue = false)]
+        public string Token { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,7 +65,7 @@ namespace Opdex.Client.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class AddTokenRequest {\n");
-            sb.Append("  TokenAddress: ").Append(TokenAddress).Append("\n");
+            sb.Append("  Token: ").Append(Token).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,9 +102,9 @@ namespace Opdex.Client.Model
             }
             return 
                 (
-                    this.TokenAddress == input.TokenAddress ||
-                    (this.TokenAddress != null &&
-                    this.TokenAddress.Equals(input.TokenAddress))
+                    this.Token == input.Token ||
+                    (this.Token != null &&
+                    this.Token.Equals(input.Token))
                 );
         }
 
@@ -116,9 +117,9 @@ namespace Opdex.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.TokenAddress != null)
+                if (this.Token != null)
                 {
-                    hashCode = (hashCode * 59) + this.TokenAddress.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Token.GetHashCode();
                 }
                 return hashCode;
             }
@@ -131,23 +132,23 @@ namespace Opdex.Client.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
-            // TokenAddress (string) maxLength
-            if (this.TokenAddress != null && this.TokenAddress.Length > 42)
+            // Token (string) maxLength
+            if (this.Token != null && this.Token.Length > 42)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TokenAddress, length must be less than 42.", new [] { "TokenAddress" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Token, length must be less than 42.", new [] { "Token" });
             }
 
-            // TokenAddress (string) minLength
-            if (this.TokenAddress != null && this.TokenAddress.Length < 30)
+            // Token (string) minLength
+            if (this.Token != null && this.Token.Length < 30)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TokenAddress, length must be greater than 30.", new [] { "TokenAddress" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Token, length must be greater than 30.", new [] { "Token" });
             }
 
-            // TokenAddress (string) pattern
-            Regex regexTokenAddress = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
-            if (false == regexTokenAddress.Match(this.TokenAddress).Success)
+            // Token (string) pattern
+            Regex regexToken = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            if (false == regexToken.Match(this.Token).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TokenAddress, must match a pattern of " + regexTokenAddress, new [] { "TokenAddress" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Token, must match a pattern of " + regexToken, new [] { "Token" });
             }
 
             yield break;

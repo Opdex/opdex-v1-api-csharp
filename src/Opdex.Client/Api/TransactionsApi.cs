@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Mime;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -54,14 +55,14 @@ namespace Opdex.Client.Api
         /// Retrieves details for tracked Opdex transactions. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wallet">Filter transactions by wallet address (optional)</param>
+        /// <param name="sender">Filter transactions by sender address (optional)</param>
         /// <param name="contracts">Smart contract addresses to include (optional)</param>
         /// <param name="eventTypes">Filter to include transactions with event types (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>TransactionsResponse</returns>
-        TransactionsResponse GetTransactions(string wallet = default(string), List<string> contracts = default(List<string>), List<TransactionEventType> eventTypes = default(List<TransactionEventType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        TransactionsResponse GetTransactions(string sender = default(string), List<string> contracts = default(List<string>), List<TransactionEventType> eventTypes = default(List<TransactionEventType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
 
         /// <summary>
         /// Get Transactions
@@ -70,14 +71,14 @@ namespace Opdex.Client.Api
         /// Retrieves details for tracked Opdex transactions. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wallet">Filter transactions by wallet address (optional)</param>
+        /// <param name="sender">Filter transactions by sender address (optional)</param>
         /// <param name="contracts">Smart contract addresses to include (optional)</param>
         /// <param name="eventTypes">Filter to include transactions with event types (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of TransactionsResponse</returns>
-        ApiResponse<TransactionsResponse> GetTransactionsWithHttpInfo(string wallet = default(string), List<string> contracts = default(List<string>), List<TransactionEventType> eventTypes = default(List<TransactionEventType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        ApiResponse<TransactionsResponse> GetTransactionsWithHttpInfo(string sender = default(string), List<string> contracts = default(List<string>), List<TransactionEventType> eventTypes = default(List<TransactionEventType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
         /// <summary>
         /// Notify Broadcast
         /// </summary>
@@ -159,15 +160,15 @@ namespace Opdex.Client.Api
         /// Retrieves details for tracked Opdex transactions. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wallet">Filter transactions by wallet address (optional)</param>
+        /// <param name="sender">Filter transactions by sender address (optional)</param>
         /// <param name="contracts">Smart contract addresses to include (optional)</param>
         /// <param name="eventTypes">Filter to include transactions with event types (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionsResponse</returns>
-        System.Threading.Tasks.Task<TransactionsResponse> GetTransactionsAsync(string wallet = default(string), List<string> contracts = default(List<string>), List<TransactionEventType> eventTypes = default(List<TransactionEventType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionsResponse> GetTransactionsAsync(string sender = default(string), List<string> contracts = default(List<string>), List<TransactionEventType> eventTypes = default(List<TransactionEventType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Transactions
@@ -176,15 +177,15 @@ namespace Opdex.Client.Api
         /// Retrieves details for tracked Opdex transactions. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wallet">Filter transactions by wallet address (optional)</param>
+        /// <param name="sender">Filter transactions by sender address (optional)</param>
         /// <param name="contracts">Smart contract addresses to include (optional)</param>
         /// <param name="eventTypes">Filter to include transactions with event types (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionsResponse>> GetTransactionsWithHttpInfoAsync(string wallet = default(string), List<string> contracts = default(List<string>), List<TransactionEventType> eventTypes = default(List<TransactionEventType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionsResponse>> GetTransactionsWithHttpInfoAsync(string sender = default(string), List<string> contracts = default(List<string>), List<TransactionEventType> eventTypes = default(List<TransactionEventType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Notify Broadcast
         /// </summary>
@@ -245,12 +246,14 @@ namespace Opdex.Client.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class TransactionsApi : ITransactionsApi
+    public partial class TransactionsApi : IDisposable, ITransactionsApi
     {
         private Opdex.Client.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionsApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <returns></returns>
         public TransactionsApi() : this((string)null)
@@ -259,7 +262,11 @@ namespace Opdex.Client.Api
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionsApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <exception cref="ArgumentException"></exception>
         /// <returns></returns>
         public TransactionsApi(string basePath)
         {
@@ -267,16 +274,19 @@ namespace Opdex.Client.Api
                 Opdex.Client.Client.GlobalConfiguration.Instance,
                 new Opdex.Client.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionsApi"/> class
-        /// using Configuration object
+        /// Initializes a new instance of the <see cref="TransactionsApi"/> class using Configuration object.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
-        /// <param name="configuration">An instance of Configuration</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
         public TransactionsApi(Opdex.Client.Client.Configuration configuration)
         {
@@ -286,8 +296,78 @@ namespace Opdex.Client.Api
                 Opdex.Client.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionsApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public TransactionsApi(HttpClient client, HttpClientHandler handler = null) : this(client, (string)null, handler)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionsApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public TransactionsApi(HttpClient client, string basePath, HttpClientHandler handler = null)
+        {
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = Opdex.Client.Client.Configuration.MergeConfigurations(
+                Opdex.Client.Client.GlobalConfiguration.Instance,
+                new Opdex.Client.Client.Configuration { BasePath = basePath }
+            );
+            this.ApiClient = new Opdex.Client.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            this.ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionsApi"/> class using Configuration object.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public TransactionsApi(HttpClient client, Opdex.Client.Client.Configuration configuration, HttpClientHandler handler = null)
+        {
+            if (configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = Opdex.Client.Client.Configuration.MergeConfigurations(
+                Opdex.Client.Client.GlobalConfiguration.Instance,
+                configuration
+            );
+            this.ApiClient = new Opdex.Client.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -298,6 +378,7 @@ namespace Opdex.Client.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public TransactionsApi(Opdex.Client.Client.ISynchronousClient client, Opdex.Client.Client.IAsynchronousClient asyncClient, Opdex.Client.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
@@ -309,6 +390,19 @@ namespace Opdex.Client.Api
             this.Configuration = configuration;
             this.ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
         }
+
+        /// <summary>
+        /// Disposes resources if they were created by us
+        /// </summary>
+        public void Dispose()
+        {
+            this.ApiClient?.Dispose();
+        }
+
+        /// <summary>
+        /// Holds the ApiClient if created
+        /// </summary>
+        public Opdex.Client.Client.ApiClient ApiClient { get; set; } = null;
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
@@ -373,9 +467,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'hash' is set
             if (hash == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'hash' when calling TransactionsApi->GetTransaction");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -389,29 +481,21 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("hash", Opdex.Client.Client.ClientUtils.ParameterToString(hash)); // path parameter
 
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<TransactionResponse>("/transaction/{hash}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetTransaction", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -441,9 +525,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'hash' is set
             if (hash == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'hash' when calling TransactionsApi->GetTransaction");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -457,31 +539,24 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("hash", Opdex.Client.Client.ClientUtils.ParameterToString(hash)); // path parameter
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<TransactionResponse>("/transaction/{hash}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetTransaction", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -491,16 +566,16 @@ namespace Opdex.Client.Api
         /// Get Transactions Retrieves details for tracked Opdex transactions. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wallet">Filter transactions by wallet address (optional)</param>
+        /// <param name="sender">Filter transactions by sender address (optional)</param>
         /// <param name="contracts">Smart contract addresses to include (optional)</param>
         /// <param name="eventTypes">Filter to include transactions with event types (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>TransactionsResponse</returns>
-        public TransactionsResponse GetTransactions(string wallet = default(string), List<string> contracts = default(List<string>), List<TransactionEventType> eventTypes = default(List<TransactionEventType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public TransactionsResponse GetTransactions(string sender = default(string), List<string> contracts = default(List<string>), List<TransactionEventType> eventTypes = default(List<TransactionEventType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
-            Opdex.Client.Client.ApiResponse<TransactionsResponse> localVarResponse = GetTransactionsWithHttpInfo(wallet, contracts, eventTypes, direction, limit, cursor);
+            Opdex.Client.Client.ApiResponse<TransactionsResponse> localVarResponse = GetTransactionsWithHttpInfo(sender, contracts, eventTypes, direction, limit, cursor);
             return localVarResponse.Data;
         }
 
@@ -508,14 +583,14 @@ namespace Opdex.Client.Api
         /// Get Transactions Retrieves details for tracked Opdex transactions. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wallet">Filter transactions by wallet address (optional)</param>
+        /// <param name="sender">Filter transactions by sender address (optional)</param>
         /// <param name="contracts">Smart contract addresses to include (optional)</param>
         /// <param name="eventTypes">Filter to include transactions with event types (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of TransactionsResponse</returns>
-        public Opdex.Client.Client.ApiResponse<TransactionsResponse> GetTransactionsWithHttpInfo(string wallet = default(string), List<string> contracts = default(List<string>), List<TransactionEventType> eventTypes = default(List<TransactionEventType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public Opdex.Client.Client.ApiResponse<TransactionsResponse> GetTransactionsWithHttpInfo(string sender = default(string), List<string> contracts = default(List<string>), List<TransactionEventType> eventTypes = default(List<TransactionEventType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -529,20 +604,14 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (wallet != null)
+            if (sender != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "wallet", wallet));
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "sender", sender));
             }
             if (contracts != null)
             {
@@ -568,13 +637,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<TransactionsResponse>("/transactions", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetTransactions", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -584,17 +651,17 @@ namespace Opdex.Client.Api
         /// Get Transactions Retrieves details for tracked Opdex transactions. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wallet">Filter transactions by wallet address (optional)</param>
+        /// <param name="sender">Filter transactions by sender address (optional)</param>
         /// <param name="contracts">Smart contract addresses to include (optional)</param>
         /// <param name="eventTypes">Filter to include transactions with event types (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionsResponse</returns>
-        public async System.Threading.Tasks.Task<TransactionsResponse> GetTransactionsAsync(string wallet = default(string), List<string> contracts = default(List<string>), List<TransactionEventType> eventTypes = default(List<TransactionEventType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionsResponse> GetTransactionsAsync(string sender = default(string), List<string> contracts = default(List<string>), List<TransactionEventType> eventTypes = default(List<TransactionEventType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<TransactionsResponse> localVarResponse = await GetTransactionsWithHttpInfoAsync(wallet, contracts, eventTypes, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<TransactionsResponse> localVarResponse = await GetTransactionsWithHttpInfoAsync(sender, contracts, eventTypes, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -602,15 +669,15 @@ namespace Opdex.Client.Api
         /// Get Transactions Retrieves details for tracked Opdex transactions. This is a [paginated endpoint](https://docs.opdex.com/reference/using-the-opdex-platform-api#paginated-endpoints), so a request will retrieve a single page of results. It is recommended to supply filters to your query, to reduce the total number of requests that you may have to make.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wallet">Filter transactions by wallet address (optional)</param>
+        /// <param name="sender">Filter transactions by sender address (optional)</param>
         /// <param name="contracts">Smart contract addresses to include (optional)</param>
         /// <param name="eventTypes">Filter to include transactions with event types (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionsResponse>> GetTransactionsWithHttpInfoAsync(string wallet = default(string), List<string> contracts = default(List<string>), List<TransactionEventType> eventTypes = default(List<TransactionEventType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionsResponse>> GetTransactionsWithHttpInfoAsync(string sender = default(string), List<string> contracts = default(List<string>), List<TransactionEventType> eventTypes = default(List<TransactionEventType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -624,21 +691,16 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (wallet != null)
+            if (sender != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "wallet", wallet));
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "sender", sender));
             }
             if (contracts != null)
             {
@@ -663,15 +725,13 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<TransactionsResponse>("/transactions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetTransactions", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -698,9 +758,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'notifyBroadcastRequest' is set
             if (notifyBroadcastRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'notifyBroadcastRequest' when calling TransactionsApi->NotifyTransactionBroadcast");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -714,29 +772,21 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = notifyBroadcastRequest;
 
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Object>("/transactions", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("NotifyTransactionBroadcast", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -765,9 +815,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'notifyBroadcastRequest' is set
             if (notifyBroadcastRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'notifyBroadcastRequest' when calling TransactionsApi->NotifyTransactionBroadcast");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -781,31 +829,24 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = notifyBroadcastRequest;
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/transactions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("NotifyTransactionBroadcast", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -833,9 +874,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'replayQuoteRequest' is set
             if (replayQuoteRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'replayQuoteRequest' when calling TransactionsApi->ReplayQuote");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -850,16 +889,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = replayQuoteRequest;
 
@@ -872,13 +905,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/transaction/replay-quote", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ReplayQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -908,9 +939,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'replayQuoteRequest' is set
             if (replayQuoteRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'replayQuoteRequest' when calling TransactionsApi->ReplayQuote");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -925,17 +954,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = replayQuoteRequest;
 
@@ -947,15 +971,13 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/transaction/replay-quote", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ReplayQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;

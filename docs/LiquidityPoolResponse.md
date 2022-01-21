@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Address** | **string** | An address on the Cirrus network | [optional] 
 **Name** | **string** | Name of the liquidity pool | [optional] 
-**TransactionFee** | **decimal** | Percentage fee for a trade | [optional] 
+**TransactionFeePercent** | **decimal** | Percentage fee for a trade | [optional] 
 **MiningPool** | [**MiningPoolResponse**](MiningPoolResponse.md) |  | [optional] 
 **Tokens** | [**LiquidityPoolTokenBreakdown**](LiquidityPoolTokenBreakdown.md) |  | [optional] 
 **Summary** | [**LiquidityPoolSummary**](LiquidityPoolSummary.md) |  | [optional] 

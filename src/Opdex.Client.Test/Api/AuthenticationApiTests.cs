@@ -13,7 +13,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-using RestSharp;
 using Xunit;
 
 using Opdex.Client.Client;
@@ -55,16 +54,16 @@ namespace Opdex.Client.Test.Api
         }
 
         /// <summary>
-        /// Test AuthPost
+        /// Test Authenticate
         /// </summary>
         [Fact]
-        public void AuthPostTest()
+        public void AuthenticateTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string uid = null;
             //StratisSignatureAuthRequest stratisSignatureAuthRequest = null;
             //long? exp = null;
-            //instance.AuthPost(uid, stratisSignatureAuthRequest, exp);
+            //instance.Authenticate(uid, stratisSignatureAuthRequest, exp);
         }
     }
 }

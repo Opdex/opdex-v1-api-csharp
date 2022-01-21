@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = Opdex.Client.Client.FileParameter;
 using OpenAPIDateConverter = Opdex.Client.Client.OpenAPIDateConverter;
 
 namespace Opdex.Client.Model
@@ -36,15 +37,15 @@ namespace Opdex.Client.Model
         /// </summary>
         /// <param name="address">An address on the Cirrus network.</param>
         /// <param name="name">Name of the liquidity pool.</param>
-        /// <param name="transactionFee">Percentage fee for a trade.</param>
+        /// <param name="transactionFeePercent">Percentage fee for a trade.</param>
         /// <param name="miningPool">miningPool.</param>
         /// <param name="tokens">tokens.</param>
         /// <param name="summary">summary.</param>
-        public LiquidityPoolResponse(string address = default(string), string name = default(string), decimal transactionFee = default(decimal), MiningPoolResponse miningPool = default(MiningPoolResponse), LiquidityPoolTokenBreakdown tokens = default(LiquidityPoolTokenBreakdown), LiquidityPoolSummary summary = default(LiquidityPoolSummary))
+        public LiquidityPoolResponse(string address = default(string), string name = default(string), decimal transactionFeePercent = default(decimal), MiningPoolResponse miningPool = default(MiningPoolResponse), LiquidityPoolTokenBreakdown tokens = default(LiquidityPoolTokenBreakdown), LiquidityPoolSummary summary = default(LiquidityPoolSummary))
         {
             this.Address = address;
             this.Name = name;
-            this.TransactionFee = transactionFee;
+            this.TransactionFeePercent = transactionFeePercent;
             this.MiningPool = miningPool;
             this.Tokens = tokens;
             this.Summary = summary;
@@ -68,8 +69,8 @@ namespace Opdex.Client.Model
         /// Percentage fee for a trade
         /// </summary>
         /// <value>Percentage fee for a trade</value>
-        [DataMember(Name = "transactionFee", EmitDefaultValue = false)]
-        public decimal TransactionFee { get; set; }
+        [DataMember(Name = "transactionFeePercent", EmitDefaultValue = false)]
+        public decimal TransactionFeePercent { get; set; }
 
         /// <summary>
         /// Gets or Sets MiningPool
@@ -99,7 +100,7 @@ namespace Opdex.Client.Model
             sb.Append("class LiquidityPoolResponse {\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  TransactionFee: ").Append(TransactionFee).Append("\n");
+            sb.Append("  TransactionFeePercent: ").Append(TransactionFeePercent).Append("\n");
             sb.Append("  MiningPool: ").Append(MiningPool).Append("\n");
             sb.Append("  Tokens: ").Append(Tokens).Append("\n");
             sb.Append("  Summary: ").Append(Summary).Append("\n");
@@ -149,8 +150,8 @@ namespace Opdex.Client.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.TransactionFee == input.TransactionFee ||
-                    this.TransactionFee.Equals(input.TransactionFee)
+                    this.TransactionFeePercent == input.TransactionFeePercent ||
+                    this.TransactionFeePercent.Equals(input.TransactionFeePercent)
                 ) && 
                 (
                     this.MiningPool == input.MiningPool ||
@@ -186,7 +187,7 @@ namespace Opdex.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.TransactionFee.GetHashCode();
+                hashCode = (hashCode * 59) + this.TransactionFeePercent.GetHashCode();
                 if (this.MiningPool != null)
                 {
                     hashCode = (hashCode * 59) + this.MiningPool.GetHashCode();
@@ -229,16 +230,16 @@ namespace Opdex.Client.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address, must match a pattern of " + regexAddress, new [] { "Address" });
             }
 
-            // TransactionFee (decimal) maximum
-            if (this.TransactionFee > (decimal)1.0)
+            // TransactionFeePercent (decimal) maximum
+            if (this.TransactionFeePercent > (decimal)1.0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFee, must be a value less than or equal to 1.0.", new [] { "TransactionFee" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFeePercent, must be a value less than or equal to 1.0.", new [] { "TransactionFeePercent" });
             }
 
-            // TransactionFee (decimal) minimum
-            if (this.TransactionFee < (decimal)0.0)
+            // TransactionFeePercent (decimal) minimum
+            if (this.TransactionFeePercent < (decimal)0.0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFee, must be a value greater than or equal to 0.0.", new [] { "TransactionFee" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFeePercent, must be a value greater than or equal to 0.0.", new [] { "TransactionFeePercent" });
             }
 
             yield break;

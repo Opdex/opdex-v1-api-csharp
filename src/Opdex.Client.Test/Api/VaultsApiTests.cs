@@ -13,7 +13,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-using RestSharp;
 using Xunit;
 
 using Opdex.Client.Client;
@@ -76,7 +75,8 @@ namespace Opdex.Client.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string vault = null;
             //int proposalId = null;
-            //var response = instance.BuildPledgeQuote(vault, proposalId);
+            //QuotePledgeRequest quotePledgeRequest = null;
+            //var response = instance.BuildPledgeQuote(vault, proposalId, quotePledgeRequest);
             //Assert.IsType<TransactionQuoteResponse>(response);
         }
 
@@ -88,7 +88,8 @@ namespace Opdex.Client.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string vault = null;
-            //var response = instance.BuildProposeChangeMinimumPledgeQuote(vault);
+            //QuoteProposeMinimumPledgeRequest quoteProposeMinimumPledgeRequest = null;
+            //var response = instance.BuildProposeChangeMinimumPledgeQuote(vault, quoteProposeMinimumPledgeRequest);
             //Assert.IsType<TransactionQuoteResponse>(response);
         }
 
@@ -100,7 +101,8 @@ namespace Opdex.Client.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string vault = null;
-            //var response = instance.BuildProposeChangeMinimumVoteQuote(vault);
+            //QuoteProposeMinimumVoteRequest quoteProposeMinimumVoteRequest = null;
+            //var response = instance.BuildProposeChangeMinimumVoteQuote(vault, quoteProposeMinimumVoteRequest);
             //Assert.IsType<TransactionQuoteResponse>(response);
         }
 
@@ -112,7 +114,8 @@ namespace Opdex.Client.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string vault = null;
-            //var response = instance.BuildProposeCreateCertificateQuote(vault);
+            //QuoteProposeCreateCertificateRequest quoteProposeCreateCertificateRequest = null;
+            //var response = instance.BuildProposeCreateCertificateQuote(vault, quoteProposeCreateCertificateRequest);
             //Assert.IsType<TransactionQuoteResponse>(response);
         }
 
@@ -124,7 +127,8 @@ namespace Opdex.Client.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string vault = null;
-            //var response = instance.BuildProposeRevokeCertificateQuote(vault);
+            //QuoteProposeRevokeCertificateRequest quoteProposeRevokeCertificateRequest = null;
+            //var response = instance.BuildProposeRevokeCertificateQuote(vault, quoteProposeRevokeCertificateRequest);
             //Assert.IsType<TransactionQuoteResponse>(response);
         }
 
@@ -149,7 +153,8 @@ namespace Opdex.Client.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string vault = null;
             //int proposalId = null;
-            //var response = instance.BuildVoteQuote(vault, proposalId);
+            //QuoteVoteRequest quoteVoteRequest = null;
+            //var response = instance.BuildVoteQuote(vault, proposalId, quoteVoteRequest);
             //Assert.IsType<TransactionQuoteResponse>(response);
         }
 
@@ -162,7 +167,8 @@ namespace Opdex.Client.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string vault = null;
             //int proposalId = null;
-            //var response = instance.BuildWithdrawPledgeQuote(vault, proposalId);
+            //QuoteWithdrawPledgeRequest quoteWithdrawPledgeRequest = null;
+            //var response = instance.BuildWithdrawPledgeQuote(vault, proposalId, quoteWithdrawPledgeRequest);
             //Assert.IsType<TransactionQuoteResponse>(response);
         }
 
@@ -175,7 +181,8 @@ namespace Opdex.Client.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string vault = null;
             //int proposalId = null;
-            //var response = instance.BuildWithdrawVoteQuote(vault, proposalId);
+            //QuoteWithdrawVoteRequest quoteWithdrawVoteRequest = null;
+            //var response = instance.BuildWithdrawVoteQuote(vault, proposalId, quoteWithdrawVoteRequest);
             //Assert.IsType<TransactionQuoteResponse>(response);
         }
 
@@ -187,12 +194,12 @@ namespace Opdex.Client.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string vault = null;
-            //string holder = null;
+            //string owner = null;
             //CertificateStatus? status = null;
             //SortDirection? direction = null;
             //int? limit = null;
             //string cursor = null;
-            //var response = instance.GetCertificates(vault, holder, status, direction, limit, cursor);
+            //var response = instance.GetCertificates(vault, owner, status, direction, limit, cursor);
             //Assert.IsType<CertificatesResponse>(response);
         }
 

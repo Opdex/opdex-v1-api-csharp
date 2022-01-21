@@ -13,7 +13,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-using RestSharp;
 using Xunit;
 
 using Opdex.Client.Client;
@@ -55,13 +54,13 @@ namespace Opdex.Client.Test.Api
         }
 
         /// <summary>
-        /// Test StatusGet
+        /// Test GetStatus
         /// </summary>
         [Fact]
-        public void StatusGetTest()
+        public void GetStatusTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.StatusGet();
+            //var response = instance.GetStatus();
             //Assert.IsType<StatusResponse>(response);
         }
     }

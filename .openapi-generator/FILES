@@ -163,6 +163,18 @@ docs/VoteResponse.md
 docs/VotesResponse.md
 docs/WalletsApi.md
 git_push.sh
+src/Opdex.Client.Test/Api/AuthenticationApiTests.cs
+src/Opdex.Client.Test/Api/IndexerApiTests.cs
+src/Opdex.Client.Test/Api/LiquidityPoolsApiTests.cs
+src/Opdex.Client.Test/Api/MarketTokensApiTests.cs
+src/Opdex.Client.Test/Api/MarketsApiTests.cs
+src/Opdex.Client.Test/Api/MiningGovernancesApiTests.cs
+src/Opdex.Client.Test/Api/MiningPoolsApiTests.cs
+src/Opdex.Client.Test/Api/StatusApiTests.cs
+src/Opdex.Client.Test/Api/TokensApiTests.cs
+src/Opdex.Client.Test/Api/TransactionsApiTests.cs
+src/Opdex.Client.Test/Api/VaultsApiTests.cs
+src/Opdex.Client.Test/Api/WalletsApiTests.cs
 src/Opdex.Client.Test/Model/AddLiquidityEventTests.cs
 src/Opdex.Client.Test/Model/AddTokenRequestTests.cs
 src/Opdex.Client.Test/Model/AddressBalanceResponseTests.cs
@@ -331,8 +343,8 @@ src/Opdex.Client/Client/ApiResponse.cs
 src/Opdex.Client/Client/ClientUtils.cs
 src/Opdex.Client/Client/Configuration.cs
 src/Opdex.Client/Client/ExceptionFactory.cs
+src/Opdex.Client/Client/FileParameter.cs
 src/Opdex.Client/Client/GlobalConfiguration.cs
-src/Opdex.Client/Client/HttpMethod.cs
 src/Opdex.Client/Client/IApiAccessor.cs
 src/Opdex.Client/Client/IAsynchronousClient.cs
 src/Opdex.Client/Client/IReadableConfiguration.cs
@@ -341,6 +353,7 @@ src/Opdex.Client/Client/Multimap.cs
 src/Opdex.Client/Client/OpenAPIDateConverter.cs
 src/Opdex.Client/Client/RequestOptions.cs
 src/Opdex.Client/Client/RetryConfiguration.cs
+src/Opdex.Client/Client/WebRequestPathBuilder.cs
 src/Opdex.Client/Model/AbstractOpenAPISchema.cs
 src/Opdex.Client/Model/AddLiquidityEvent.cs
 src/Opdex.Client/Model/AddTokenRequest.cs

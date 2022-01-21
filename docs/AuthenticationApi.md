@@ -19,6 +19,7 @@ Responds to a request from a Stratis Signature Auth Signer. See the [specificati
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -31,7 +32,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new AuthenticationApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
             var uid = Lf5t5J-oAn3CZ9YY27JnK5XtpbjIOD3BxyvHhd80AQ4fsJ7o0J8i5uSjzHZ9jeS3;  // string | Unique identifier for the Stratis ID
             var stratisSignatureAuthRequest = new StratisSignatureAuthRequest(); // StratisSignatureAuthRequest | The Stratis Signature Auth body
             var exp = 1641220000;  // long? | Unix timestamp indicating when the signature expires (optional) 

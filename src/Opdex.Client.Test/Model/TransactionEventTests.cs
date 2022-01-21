@@ -105,12 +105,12 @@ namespace Opdex.Client.Test.Model
             // TODO unit test for the property 'AuthTraders'
         }
         /// <summary>
-        /// Test the property 'TransactionFee'
+        /// Test the property 'TransactionFeePercent'
         /// </summary>
         [Fact]
-        public void TransactionFeeTest()
+        public void TransactionFeePercentTest()
         {
-            // TODO unit test for the property 'TransactionFee'
+            // TODO unit test for the property 'TransactionFeePercent'
         }
         /// <summary>
         /// Test the property 'StakingToken'

@@ -23,6 +23,7 @@ Builds a quote for a collect mining rewards transaction. The quote can be broadc
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -38,7 +39,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new MiningPoolsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new MiningPoolsApi(httpClient, config, httpClientHandler);
             var pool = tRs6rXfHuLhKZhWuWpycLASzAyn4kXo6bT;  // string | Address of a mining pool
 
             try
@@ -102,6 +106,7 @@ Builds a quote for a start mining transaction. The quote can be broadcast by a S
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -117,7 +122,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new MiningPoolsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new MiningPoolsApi(httpClient, config, httpClientHandler);
             var pool = tRs6rXfHuLhKZhWuWpycLASzAyn4kXo6bT;  // string | Address of a mining pool
             var quoteStartMiningRequest = new QuoteStartMiningRequest(); // QuoteStartMiningRequest | Details for a start mining transaction request
 
@@ -183,6 +191,7 @@ Builds a quote for a stop mining transaction. The quote can be broadcast by a St
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -198,7 +207,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new MiningPoolsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new MiningPoolsApi(httpClient, config, httpClientHandler);
             var pool = tRs6rXfHuLhKZhWuWpycLASzAyn4kXo6bT;  // string | Address of a mining pool
             var quoteStopMiningRequest = new QuoteStopMiningRequest(); // QuoteStopMiningRequest | Details for a stop mining transaction request
 
@@ -264,6 +276,7 @@ Retrieves details of a tracked mining pool by its contract address.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -276,7 +289,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new MiningPoolsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new MiningPoolsApi(httpClient, config, httpClientHandler);
             var pool = tRs6rXfHuLhKZhWuWpycLASzAyn4kXo6bT;  // string | Address of a mining pool
 
             try
@@ -339,6 +355,7 @@ Retrieves details of all tracked mining pools across staking markets. This is a 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -351,11 +368,14 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new MiningPoolsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new MiningPoolsApi(httpClient, config, httpClientHandler);
             var liquidityPools = new List<string>(); // List<string> | Liquidity pools used for mining (optional) 
             var miningStatus = Inactive;  // MiningActivityStatus? | Mining pool activity status (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
-            var limit = 10;  // int? | Number of results per page (optional) 
+            var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
             var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
@@ -382,7 +402,7 @@ Name | Type | Description  | Notes
  **liquidityPools** | [**List&lt;string&gt;**](string.md)| Liquidity pools used for mining | [optional] 
  **miningStatus** | **MiningActivityStatus?**| Mining pool activity status | [optional] 
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
- **limit** | **int?**| Number of results per page | [optional] 
+ **limit** | **int?**| Number of results per page | [optional] [default to 10]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
 
 ### Return type

@@ -13,7 +13,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-using RestSharp;
 using Xunit;
 
 using Opdex.Client.Client;
@@ -55,42 +54,23 @@ namespace Opdex.Client.Test.Api
         }
 
         /// <summary>
-        /// Test MarketsMarketTokensGet
+        /// Test GetMarketToken
         /// </summary>
         [Fact]
-        public void MarketsMarketTokensGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string market = null;
-            //TokenType? tokenType = null;
-            //List<string> tokens = null;
-            //string keyword = null;
-            //TokenOrderByType? orderBy = null;
-            //SortDirection? direction = null;
-            //int? limit = null;
-            //string cursor = null;
-            //var response = instance.MarketsMarketTokensGet(market, tokenType, tokens, keyword, orderBy, direction, limit, cursor);
-            //Assert.IsType<MarketTokensResponse>(response);
-        }
-
-        /// <summary>
-        /// Test MarketsMarketTokensTokenGet
-        /// </summary>
-        [Fact]
-        public void MarketsMarketTokensTokenGetTest()
+        public void GetMarketTokenTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string market = null;
             //string token = null;
-            //var response = instance.MarketsMarketTokensTokenGet(market, token);
+            //var response = instance.GetMarketToken(market, token);
             //Assert.IsType<MarketTokenResponse>(response);
         }
 
         /// <summary>
-        /// Test MarketsMarketTokensTokenHistoryGet
+        /// Test GetMarketTokenHistory
         /// </summary>
         [Fact]
-        public void MarketsMarketTokensTokenHistoryGetTest()
+        public void GetMarketTokenHistoryTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string market = null;
@@ -101,49 +81,68 @@ namespace Opdex.Client.Test.Api
             //SortDirection? direction = null;
             //int? limit = null;
             //string cursor = null;
-            //var response = instance.MarketsMarketTokensTokenHistoryGet(market, token, startDateTime, endDateTime, interval, direction, limit, cursor);
+            //var response = instance.GetMarketTokenHistory(market, token, startDateTime, endDateTime, interval, direction, limit, cursor);
             //Assert.IsType<TokenSnapshotsResponse>(response);
         }
 
         /// <summary>
-        /// Test MarketsMarketTokensTokenSwapAmountInPost
+        /// Test GetMarketTokens
         /// </summary>
         [Fact]
-        public void MarketsMarketTokensTokenSwapAmountInPostTest()
+        public void GetMarketTokensTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string market = null;
+            //TokenType? tokenType = null;
+            //List<string> tokens = null;
+            //string keyword = null;
+            //TokenOrderByType? orderBy = null;
+            //SortDirection? direction = null;
+            //int? limit = null;
+            //string cursor = null;
+            //var response = instance.GetMarketTokens(market, tokenType, tokens, keyword, orderBy, direction, limit, cursor);
+            //Assert.IsType<MarketTokensResponse>(response);
+        }
+
+        /// <summary>
+        /// Test GetSwapAmountInQuote
+        /// </summary>
+        [Fact]
+        public void GetSwapAmountInQuoteTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string market = null;
             //string token = null;
             //SwapAmountInQuoteRequest swapAmountInQuoteRequest = null;
-            //var response = instance.MarketsMarketTokensTokenSwapAmountInPost(market, token, swapAmountInQuoteRequest);
+            //var response = instance.GetSwapAmountInQuote(market, token, swapAmountInQuoteRequest);
             //Assert.IsType<SwapAmountInQuoteResponse>(response);
         }
 
         /// <summary>
-        /// Test MarketsMarketTokensTokenSwapAmountOutPost
+        /// Test GetSwapAmountOutQuote
         /// </summary>
         [Fact]
-        public void MarketsMarketTokensTokenSwapAmountOutPostTest()
+        public void GetSwapAmountOutQuoteTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string market = null;
             //string token = null;
             //SwapAmountOutQuoteRequest swapAmountOutQuoteRequest = null;
-            //var response = instance.MarketsMarketTokensTokenSwapAmountOutPost(market, token, swapAmountOutQuoteRequest);
+            //var response = instance.GetSwapAmountOutQuote(market, token, swapAmountOutQuoteRequest);
             //Assert.IsType<SwapAmountOutQuoteResponse>(response);
         }
 
         /// <summary>
-        /// Test MarketsMarketTokensTokenSwapPost
+        /// Test Swap
         /// </summary>
         [Fact]
-        public void MarketsMarketTokensTokenSwapPostTest()
+        public void SwapTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string market = null;
             //string token = null;
             //QuoteSwapTransactionRequest quoteSwapTransactionRequest = null;
-            //var response = instance.MarketsMarketTokensTokenSwapPost(market, token, quoteSwapTransactionRequest);
+            //var response = instance.Swap(market, token, quoteSwapTransactionRequest);
             //Assert.IsType<TransactionQuoteResponse>(response);
         }
     }

@@ -57,20 +57,20 @@ namespace Opdex.Client.Test.Model
 
 
         /// <summary>
-        /// Test the property 'MarketOwner'
+        /// Test the property 'Owner'
         /// </summary>
         [Fact]
-        public void MarketOwnerTest()
+        public void OwnerTest()
         {
-            // TODO unit test for the property 'MarketOwner'
+            // TODO unit test for the property 'Owner'
         }
         /// <summary>
-        /// Test the property 'TransactionFee'
+        /// Test the property 'TransactionFeePercent'
         /// </summary>
         [Fact]
-        public void TransactionFeeTest()
+        public void TransactionFeePercentTest()
         {
-            // TODO unit test for the property 'TransactionFee'
+            // TODO unit test for the property 'TransactionFeePercent'
         }
         /// <summary>
         /// Test the property 'AuthPoolCreators'

@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Mime;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -262,7 +263,7 @@ namespace Opdex.Client.Api
         /// <param name="endDateTime">End time for which to retrieve snapshots</param>
         /// <param name="interval">Time range between each snapshot (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional, default to 168)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>LiquidityPoolSnapshotsResponse</returns>
         LiquidityPoolSnapshotsResponse GetLiquidityPoolHistory(string pool, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
@@ -279,7 +280,7 @@ namespace Opdex.Client.Api
         /// <param name="endDateTime">End time for which to retrieve snapshots</param>
         /// <param name="interval">Time range between each snapshot (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional, default to 168)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of LiquidityPoolSnapshotsResponse</returns>
         ApiResponse<LiquidityPoolSnapshotsResponse> GetLiquidityPoolHistoryWithHttpInfo(string pool, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
@@ -299,7 +300,7 @@ namespace Opdex.Client.Api
         /// <param name="miningStatus">Mining status filter; default is not to filter (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>LiquidityPoolsResponse</returns>
         LiquidityPoolsResponse GetLiquidityPools(string keyword = default(string), List<string> markets = default(List<string>), List<string> liquidityPools = default(List<string>), List<string> tokens = default(List<string>), StakingStatus? stakingStatus = default(StakingStatus?), NominationStatus? nominationStatus = default(NominationStatus?), MiningStatus? miningStatus = default(MiningStatus?), LiquidityPoolOrderByType? orderBy = default(LiquidityPoolOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
@@ -320,7 +321,7 @@ namespace Opdex.Client.Api
         /// <param name="miningStatus">Mining status filter; default is not to filter (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of LiquidityPoolsResponse</returns>
         ApiResponse<LiquidityPoolsResponse> GetLiquidityPoolsWithHttpInfo(string keyword = default(string), List<string> markets = default(List<string>), List<string> liquidityPools = default(List<string>), List<string> tokens = default(List<string>), StakingStatus? stakingStatus = default(StakingStatus?), NominationStatus? nominationStatus = default(NominationStatus?), MiningStatus? miningStatus = default(MiningStatus?), LiquidityPoolOrderByType? orderBy = default(LiquidityPoolOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
@@ -589,7 +590,7 @@ namespace Opdex.Client.Api
         /// <param name="endDateTime">End time for which to retrieve snapshots</param>
         /// <param name="interval">Time range between each snapshot (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional, default to 168)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LiquidityPoolSnapshotsResponse</returns>
@@ -607,7 +608,7 @@ namespace Opdex.Client.Api
         /// <param name="endDateTime">End time for which to retrieve snapshots</param>
         /// <param name="interval">Time range between each snapshot (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional, default to 168)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LiquidityPoolSnapshotsResponse)</returns>
@@ -628,7 +629,7 @@ namespace Opdex.Client.Api
         /// <param name="miningStatus">Mining status filter; default is not to filter (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LiquidityPoolsResponse</returns>
@@ -650,7 +651,7 @@ namespace Opdex.Client.Api
         /// <param name="miningStatus">Mining status filter; default is not to filter (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LiquidityPoolsResponse)</returns>
@@ -669,12 +670,14 @@ namespace Opdex.Client.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class LiquidityPoolsApi : ILiquidityPoolsApi
+    public partial class LiquidityPoolsApi : IDisposable, ILiquidityPoolsApi
     {
         private Opdex.Client.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LiquidityPoolsApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <returns></returns>
         public LiquidityPoolsApi() : this((string)null)
@@ -683,7 +686,11 @@ namespace Opdex.Client.Api
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LiquidityPoolsApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <exception cref="ArgumentException"></exception>
         /// <returns></returns>
         public LiquidityPoolsApi(string basePath)
         {
@@ -691,16 +698,19 @@ namespace Opdex.Client.Api
                 Opdex.Client.Client.GlobalConfiguration.Instance,
                 new Opdex.Client.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LiquidityPoolsApi"/> class
-        /// using Configuration object
+        /// Initializes a new instance of the <see cref="LiquidityPoolsApi"/> class using Configuration object.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
-        /// <param name="configuration">An instance of Configuration</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
         public LiquidityPoolsApi(Opdex.Client.Client.Configuration configuration)
         {
@@ -710,8 +720,78 @@ namespace Opdex.Client.Api
                 Opdex.Client.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new Opdex.Client.Client.ApiClient(this.Configuration.BasePath);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LiquidityPoolsApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public LiquidityPoolsApi(HttpClient client, HttpClientHandler handler = null) : this(client, (string)null, handler)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LiquidityPoolsApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public LiquidityPoolsApi(HttpClient client, string basePath, HttpClientHandler handler = null)
+        {
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = Opdex.Client.Client.Configuration.MergeConfigurations(
+                Opdex.Client.Client.GlobalConfiguration.Instance,
+                new Opdex.Client.Client.Configuration { BasePath = basePath }
+            );
+            this.ApiClient = new Opdex.Client.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            this.ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LiquidityPoolsApi"/> class using Configuration object.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public LiquidityPoolsApi(HttpClient client, Opdex.Client.Client.Configuration configuration, HttpClientHandler handler = null)
+        {
+            if (configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = Opdex.Client.Client.Configuration.MergeConfigurations(
+                Opdex.Client.Client.GlobalConfiguration.Instance,
+                configuration
+            );
+            this.ApiClient = new Opdex.Client.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -722,6 +802,7 @@ namespace Opdex.Client.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public LiquidityPoolsApi(Opdex.Client.Client.ISynchronousClient client, Opdex.Client.Client.IAsynchronousClient asyncClient, Opdex.Client.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
@@ -733,6 +814,19 @@ namespace Opdex.Client.Api
             this.Configuration = configuration;
             this.ExceptionFactory = Opdex.Client.Client.Configuration.DefaultExceptionFactory;
         }
+
+        /// <summary>
+        /// Disposes resources if they were created by us
+        /// </summary>
+        public void Dispose()
+        {
+            this.ApiClient?.Dispose();
+        }
+
+        /// <summary>
+        /// Holds the ApiClient if created
+        /// </summary>
+        public Opdex.Client.Client.ApiClient ApiClient { get; set; } = null;
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
@@ -799,15 +893,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling LiquidityPoolsApi->BuildAddLiquidityQuote");
-            }
 
             // verify the required parameter 'quoteAddLiquidityRequest' is set
             if (quoteAddLiquidityRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteAddLiquidityRequest' when calling LiquidityPoolsApi->BuildAddLiquidityQuote");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -822,16 +912,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
             localVarRequestOptions.Data = quoteAddLiquidityRequest;
@@ -845,13 +929,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/liquidity-pools/{pool}/add", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildAddLiquidityQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -883,15 +965,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling LiquidityPoolsApi->BuildAddLiquidityQuote");
-            }
 
             // verify the required parameter 'quoteAddLiquidityRequest' is set
             if (quoteAddLiquidityRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteAddLiquidityRequest' when calling LiquidityPoolsApi->BuildAddLiquidityQuote");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -906,17 +984,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
             localVarRequestOptions.Data = quoteAddLiquidityRequest;
@@ -929,15 +1002,13 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/liquidity-pools/{pool}/add", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildAddLiquidityQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -967,15 +1038,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling LiquidityPoolsApi->BuildCollectStakingRewardsQuote");
-            }
 
             // verify the required parameter 'quoteCollectStakingRewardsRequest' is set
             if (quoteCollectStakingRewardsRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteCollectStakingRewardsRequest' when calling LiquidityPoolsApi->BuildCollectStakingRewardsQuote");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -990,16 +1057,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
             localVarRequestOptions.Data = quoteCollectStakingRewardsRequest;
@@ -1013,13 +1074,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/liquidity-pools/{pool}/staking/collect", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildCollectStakingRewardsQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1051,15 +1110,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling LiquidityPoolsApi->BuildCollectStakingRewardsQuote");
-            }
 
             // verify the required parameter 'quoteCollectStakingRewardsRequest' is set
             if (quoteCollectStakingRewardsRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteCollectStakingRewardsRequest' when calling LiquidityPoolsApi->BuildCollectStakingRewardsQuote");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1074,17 +1129,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
             localVarRequestOptions.Data = quoteCollectStakingRewardsRequest;
@@ -1097,15 +1147,13 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/liquidity-pools/{pool}/staking/collect", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildCollectStakingRewardsQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1144,16 +1192,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = quoteCreateLiquidityPoolRequest;
 
@@ -1166,13 +1208,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/liquidity-pools", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildCreateLiquidityPoolQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1213,17 +1253,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = quoteCreateLiquidityPoolRequest;
 
@@ -1235,15 +1270,13 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/liquidity-pools", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildCreateLiquidityPoolQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1273,15 +1306,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling LiquidityPoolsApi->BuildRemoveLiquidityQuote");
-            }
 
             // verify the required parameter 'quoteRemoveLiquidityRequest' is set
             if (quoteRemoveLiquidityRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteRemoveLiquidityRequest' when calling LiquidityPoolsApi->BuildRemoveLiquidityQuote");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -1296,16 +1325,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
             localVarRequestOptions.Data = quoteRemoveLiquidityRequest;
@@ -1319,13 +1342,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/liquidity-pools/{pool}/remove", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildRemoveLiquidityQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1357,15 +1378,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling LiquidityPoolsApi->BuildRemoveLiquidityQuote");
-            }
 
             // verify the required parameter 'quoteRemoveLiquidityRequest' is set
             if (quoteRemoveLiquidityRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteRemoveLiquidityRequest' when calling LiquidityPoolsApi->BuildRemoveLiquidityQuote");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1380,17 +1397,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
             localVarRequestOptions.Data = quoteRemoveLiquidityRequest;
@@ -1403,15 +1415,13 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/liquidity-pools/{pool}/remove", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildRemoveLiquidityQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1441,15 +1451,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling LiquidityPoolsApi->BuildSkimQuote");
-            }
 
             // verify the required parameter 'quoteSkimRequest' is set
             if (quoteSkimRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteSkimRequest' when calling LiquidityPoolsApi->BuildSkimQuote");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -1464,16 +1470,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
             localVarRequestOptions.Data = quoteSkimRequest;
@@ -1487,13 +1487,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/liquidity-pools/{pool}/skim", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildSkimQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1525,15 +1523,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling LiquidityPoolsApi->BuildSkimQuote");
-            }
 
             // verify the required parameter 'quoteSkimRequest' is set
             if (quoteSkimRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteSkimRequest' when calling LiquidityPoolsApi->BuildSkimQuote");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1548,17 +1542,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
             localVarRequestOptions.Data = quoteSkimRequest;
@@ -1571,15 +1560,13 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/liquidity-pools/{pool}/skim", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildSkimQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1609,15 +1596,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling LiquidityPoolsApi->BuildStartStakingQuote");
-            }
 
             // verify the required parameter 'quoteStartStakingRequest' is set
             if (quoteStartStakingRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteStartStakingRequest' when calling LiquidityPoolsApi->BuildStartStakingQuote");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -1632,16 +1615,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
             localVarRequestOptions.Data = quoteStartStakingRequest;
@@ -1655,13 +1632,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/liquidity-pools/{pool}/staking/start", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildStartStakingQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1693,15 +1668,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling LiquidityPoolsApi->BuildStartStakingQuote");
-            }
 
             // verify the required parameter 'quoteStartStakingRequest' is set
             if (quoteStartStakingRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteStartStakingRequest' when calling LiquidityPoolsApi->BuildStartStakingQuote");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1716,17 +1687,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
             localVarRequestOptions.Data = quoteStartStakingRequest;
@@ -1739,15 +1705,13 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/liquidity-pools/{pool}/staking/start", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildStartStakingQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1777,15 +1741,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling LiquidityPoolsApi->BuildStopStakingQuote");
-            }
 
             // verify the required parameter 'quoteStopStakingRequest' is set
             if (quoteStopStakingRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteStopStakingRequest' when calling LiquidityPoolsApi->BuildStopStakingQuote");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -1800,16 +1760,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
             localVarRequestOptions.Data = quoteStopStakingRequest;
@@ -1823,13 +1777,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/liquidity-pools/{pool}/staking/stop", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildStopStakingQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1861,15 +1813,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling LiquidityPoolsApi->BuildStopStakingQuote");
-            }
 
             // verify the required parameter 'quoteStopStakingRequest' is set
             if (quoteStopStakingRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quoteStopStakingRequest' when calling LiquidityPoolsApi->BuildStopStakingQuote");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -1884,17 +1832,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
             localVarRequestOptions.Data = quoteStopStakingRequest;
@@ -1907,15 +1850,13 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/liquidity-pools/{pool}/staking/stop", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildStopStakingQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1943,9 +1884,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling LiquidityPoolsApi->BuildSyncQuote");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -1959,16 +1898,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
 
@@ -1981,13 +1914,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/liquidity-pools/{pool}/sync", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildSyncQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2017,9 +1948,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling LiquidityPoolsApi->BuildSyncQuote");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -2033,17 +1962,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
 
@@ -2055,15 +1979,13 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/liquidity-pools/{pool}/sync", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BuildSyncQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2093,15 +2015,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling LiquidityPoolsApi->GetLiquidityAmountInQuote");
-            }
 
             // verify the required parameter 'liquidityAmountInQuoteRequest' is set
             if (liquidityAmountInQuoteRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'liquidityAmountInQuoteRequest' when calling LiquidityPoolsApi->GetLiquidityAmountInQuote");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -2116,16 +2034,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
             localVarRequestOptions.Data = liquidityAmountInQuoteRequest;
@@ -2133,13 +2045,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<LiquidityAmountInQuoteResponse>("/liquidity-pools/{pool}/add/amount-in", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLiquidityAmountInQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2171,15 +2081,11 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling LiquidityPoolsApi->GetLiquidityAmountInQuote");
-            }
 
             // verify the required parameter 'liquidityAmountInQuoteRequest' is set
             if (liquidityAmountInQuoteRequest == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'liquidityAmountInQuoteRequest' when calling LiquidityPoolsApi->GetLiquidityAmountInQuote");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -2194,32 +2100,25 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
             localVarRequestOptions.Data = liquidityAmountInQuoteRequest;
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<LiquidityAmountInQuoteResponse>("/liquidity-pools/{pool}/add/amount-in", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLiquidityAmountInQuote", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2247,9 +2146,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling LiquidityPoolsApi->GetLiquidityPool");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -2263,29 +2160,21 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
 
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<LiquidityPoolResponse>("/liquidity-pools/{pool}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLiquidityPool", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2315,9 +2204,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling LiquidityPoolsApi->GetLiquidityPool");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -2331,31 +2218,24 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<LiquidityPoolResponse>("/liquidity-pools/{pool}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLiquidityPool", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2370,7 +2250,7 @@ namespace Opdex.Client.Api
         /// <param name="endDateTime">End time for which to retrieve snapshots</param>
         /// <param name="interval">Time range between each snapshot (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional, default to 168)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>LiquidityPoolSnapshotsResponse</returns>
         public LiquidityPoolSnapshotsResponse GetLiquidityPoolHistory(string pool, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
@@ -2388,16 +2268,14 @@ namespace Opdex.Client.Api
         /// <param name="endDateTime">End time for which to retrieve snapshots</param>
         /// <param name="interval">Time range between each snapshot (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional, default to 168)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of LiquidityPoolSnapshotsResponse</returns>
         public Opdex.Client.Client.ApiResponse<LiquidityPoolSnapshotsResponse> GetLiquidityPoolHistoryWithHttpInfo(string pool, DateTime startDateTime, DateTime endDateTime, Interval? interval = default(Interval?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling LiquidityPoolsApi->GetLiquidityPoolHistory");
-            }
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -2411,16 +2289,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
             if (interval != null)
@@ -2445,13 +2317,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<LiquidityPoolSnapshotsResponse>("/liquidity-pools/{pool}/history", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLiquidityPoolHistory", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2466,7 +2336,7 @@ namespace Opdex.Client.Api
         /// <param name="endDateTime">End time for which to retrieve snapshots</param>
         /// <param name="interval">Time range between each snapshot (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional, default to 168)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LiquidityPoolSnapshotsResponse</returns>
@@ -2485,7 +2355,7 @@ namespace Opdex.Client.Api
         /// <param name="endDateTime">End time for which to retrieve snapshots</param>
         /// <param name="interval">Time range between each snapshot (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional, default to 168)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LiquidityPoolSnapshotsResponse)</returns>
@@ -2493,9 +2363,7 @@ namespace Opdex.Client.Api
         {
             // verify the required parameter 'pool' is set
             if (pool == null)
-            {
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling LiquidityPoolsApi->GetLiquidityPoolHistory");
-            }
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -2509,17 +2377,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
             if (interval != null)
@@ -2543,15 +2406,13 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<LiquidityPoolSnapshotsResponse>("/liquidity-pools/{pool}/history", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLiquidityPoolHistory", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2570,7 +2431,7 @@ namespace Opdex.Client.Api
         /// <param name="miningStatus">Mining status filter; default is not to filter (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>LiquidityPoolsResponse</returns>
         public LiquidityPoolsResponse GetLiquidityPools(string keyword = default(string), List<string> markets = default(List<string>), List<string> liquidityPools = default(List<string>), List<string> tokens = default(List<string>), StakingStatus? stakingStatus = default(StakingStatus?), NominationStatus? nominationStatus = default(NominationStatus?), MiningStatus? miningStatus = default(MiningStatus?), LiquidityPoolOrderByType? orderBy = default(LiquidityPoolOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
@@ -2592,7 +2453,7 @@ namespace Opdex.Client.Api
         /// <param name="miningStatus">Mining status filter; default is not to filter (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of LiquidityPoolsResponse</returns>
         public Opdex.Client.Client.ApiResponse<LiquidityPoolsResponse> GetLiquidityPoolsWithHttpInfo(string keyword = default(string), List<string> markets = default(List<string>), List<string> liquidityPools = default(List<string>), List<string> tokens = default(List<string>), StakingStatus? stakingStatus = default(StakingStatus?), NominationStatus? nominationStatus = default(NominationStatus?), MiningStatus? miningStatus = default(MiningStatus?), LiquidityPoolOrderByType? orderBy = default(LiquidityPoolOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
@@ -2609,16 +2470,10 @@ namespace Opdex.Client.Api
             };
 
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (keyword != null)
             {
@@ -2668,13 +2523,11 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<LiquidityPoolsResponse>("/liquidity-pools", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLiquidityPools", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2693,7 +2546,7 @@ namespace Opdex.Client.Api
         /// <param name="miningStatus">Mining status filter; default is not to filter (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LiquidityPoolsResponse</returns>
@@ -2716,7 +2569,7 @@ namespace Opdex.Client.Api
         /// <param name="miningStatus">Mining status filter; default is not to filter (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
-        /// <param name="limit">Number of results per page (optional)</param>
+        /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LiquidityPoolsResponse)</returns>
@@ -2734,17 +2587,12 @@ namespace Opdex.Client.Api
                 "application/problem+json"
             };
 
+
             var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (keyword != null)
             {
@@ -2793,15 +2641,13 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<LiquidityPoolsResponse>("/liquidity-pools", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLiquidityPools", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;

@@ -21,6 +21,7 @@ Builds a quote for a reward mining pools transaction. The quote can be broadcast
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -36,7 +37,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new MiningGovernancesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new MiningGovernancesApi(httpClient, config, httpClientHandler);
             var governance = tVfGTqrToiTU9bfnvD5UDC5ZQVY4oj4jrc;  // string | Address of the mining governance contract
             var quoteRewardMiningPoolsRequest = new QuoteRewardMiningPoolsRequest(); // QuoteRewardMiningPoolsRequest | 
 
@@ -102,6 +106,7 @@ Retrieves details for a tracked mining governance.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -114,7 +119,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new MiningGovernancesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new MiningGovernancesApi(httpClient, config, httpClientHandler);
             var governance = tVfGTqrToiTU9bfnvD5UDC5ZQVY4oj4jrc;  // string | Address of the mining governance contract
 
             try
@@ -177,6 +185,7 @@ Retrieves details for all tracked mining governances.  This is a [paginated endp
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -189,10 +198,13 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new MiningGovernancesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new MiningGovernancesApi(httpClient, config, httpClientHandler);
             var minedToken = tTTuKbCR2UnsEByXBp1ynBz91J2yz63h1c;  // string | Address of the mined token (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
-            var limit = 10;  // int? | Number of results per page (optional) 
+            var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
             var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
@@ -218,7 +230,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **minedToken** | **string**| Address of the mined token | [optional] 
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
- **limit** | **int?**| Number of results per page | [optional] 
+ **limit** | **int?**| Number of results per page | [optional] [default to 10]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
 
 ### Return type

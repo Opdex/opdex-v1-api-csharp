@@ -26,6 +26,7 @@ Retrieves the allowance of a spender for SRC tokens owned by another address.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -38,7 +39,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new WalletsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WalletsApi(httpClient, config, httpClientHandler);
             var address = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address holding the position
             var token = tGSk2dVENuqAQ2rNXbui37XHuurFCTqadD;  // string | Address of the SRC token
             var spender = tAFxpxRdcV9foADqD6gK3c8sY5MeANzFp5;  // string | Address approved to spend the token
@@ -105,6 +109,7 @@ Retrieves the indexed balance of a tracked SRC token for an address. If you are 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -117,7 +122,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new WalletsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WalletsApi(httpClient, config, httpClientHandler);
             var address = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address holding the position
             var token = tGSk2dVENuqAQ2rNXbui37XHuurFCTqadD;  // string | Address of the SRC token
 
@@ -182,6 +190,7 @@ Retrieves details of all indexed token balances for an address. This is a [pagin
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -194,13 +203,16 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new WalletsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WalletsApi(httpClient, config, httpClientHandler);
             var address = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address holding the position
             var tokens = new List<string>(); // List<string> | Tokens to retrieve balances for (optional) 
             var tokenAttributes = new List<TokenAttributeFilter>(); // List<TokenAttributeFilter> | Types of tokens to retrieve balances for (optional) 
-            var includeZeroBalances = true;  // bool? | Include zero balances if true, otherwise zero balances are excluded (optional) 
+            var includeZeroBalances = true;  // bool? | Include zero balances if true, otherwise zero balances are excluded if false (optional)  (default to false)
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
-            var limit = 10;  // int? | Number of results per page (optional) 
+            var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
             var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
@@ -227,9 +239,9 @@ Name | Type | Description  | Notes
  **address** | **string**| Address holding the position | 
  **tokens** | [**List&lt;string&gt;**](string.md)| Tokens to retrieve balances for | [optional] 
  **tokenAttributes** | [**List&lt;TokenAttributeFilter&gt;**](TokenAttributeFilter.md)| Types of tokens to retrieve balances for | [optional] 
- **includeZeroBalances** | **bool?**| Include zero balances if true, otherwise zero balances are excluded | [optional] 
+ **includeZeroBalances** | **bool?**| Include zero balances if true, otherwise zero balances are excluded if false | [optional] [default to false]
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
- **limit** | **int?**| Number of results per page | [optional] 
+ **limit** | **int?**| Number of results per page | [optional] [default to 10]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
 
 ### Return type
@@ -268,6 +280,7 @@ Retrieves details of an Opdex mining position that has been indexed.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -280,7 +293,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new WalletsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WalletsApi(httpClient, config, httpClientHandler);
             var address = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address holding the position
             var pool = tRs6rXfHuLhKZhWuWpycLASzAyn4kXo6bT;  // string | Address of the mining pool
 
@@ -335,7 +351,7 @@ No authorization required
 
 <a name="getminingpositions"></a>
 # **GetMiningPositions**
-> MiningPositionsResponse GetMiningPositions (string address, List<string> miningPools = null, List<string> liquidityPools = null, bool? includeZeroAmount = null, SortDirection? direction = null, int? limit = null, string cursor = null)
+> MiningPositionsResponse GetMiningPositions (string address, List<string> miningPools = null, List<string> liquidityPools = null, bool? includeZeroAmounts = null, SortDirection? direction = null, int? limit = null, string cursor = null)
 
 Get Mining Positions
 
@@ -345,6 +361,7 @@ Retrieves details of all indexed Opdex mining positions for an address. This is 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -357,19 +374,22 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new WalletsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WalletsApi(httpClient, config, httpClientHandler);
             var address = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address holding the position
             var miningPools = new List<string>(); // List<string> | Mining pools to retrieve positions for (optional) 
             var liquidityPools = new List<string>(); // List<string> | Related liquidity pools to retrieve positions for (optional) 
-            var includeZeroAmount = true;  // bool? | Include zero amounts if true, otherwise zero amounts are excluded (optional) 
+            var includeZeroAmounts = true;  // bool? | Include zero amounts if true, otherwise zero amounts are excluded (optional)  (default to false)
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
-            var limit = 10;  // int? | Number of results per page (optional) 
+            var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
             var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
             {
                 // Get Mining Positions
-                MiningPositionsResponse result = apiInstance.GetMiningPositions(address, miningPools, liquidityPools, includeZeroAmount, direction, limit, cursor);
+                MiningPositionsResponse result = apiInstance.GetMiningPositions(address, miningPools, liquidityPools, includeZeroAmounts, direction, limit, cursor);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -390,9 +410,9 @@ Name | Type | Description  | Notes
  **address** | **string**| Address holding the position | 
  **miningPools** | [**List&lt;string&gt;**](string.md)| Mining pools to retrieve positions for | [optional] 
  **liquidityPools** | [**List&lt;string&gt;**](string.md)| Related liquidity pools to retrieve positions for | [optional] 
- **includeZeroAmount** | **bool?**| Include zero amounts if true, otherwise zero amounts are excluded | [optional] 
+ **includeZeroAmounts** | **bool?**| Include zero amounts if true, otherwise zero amounts are excluded | [optional] [default to false]
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
- **limit** | **int?**| Number of results per page | [optional] 
+ **limit** | **int?**| Number of results per page | [optional] [default to 10]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
 
 ### Return type
@@ -431,6 +451,7 @@ Retrieves details of an Opdex staking position that has been indexed.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -443,7 +464,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new WalletsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WalletsApi(httpClient, config, httpClientHandler);
             var address = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address holding the position
             var pool = tVFhXcS3gVb49MSTsaDFoqkxLrAUiNEN7n;  // string | Address of the liquidity pool
 
@@ -498,7 +522,7 @@ No authorization required
 
 <a name="getstakingpositions"></a>
 # **GetStakingPositions**
-> MiningPositionsResponse GetStakingPositions (string address, List<string> liquidityPools = null, bool? includeZeroAmount = null, SortDirection? direction = null, int? limit = null, string cursor = null)
+> MiningPositionsResponse GetStakingPositions (string address, List<string> liquidityPools = null, bool? includeZeroAmounts = null, SortDirection? direction = null, int? limit = null, string cursor = null)
 
 Get Staking Positions
 
@@ -508,6 +532,7 @@ Retrieves details of all indexed Opdex staking positions for an address. This is
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -520,18 +545,21 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new WalletsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WalletsApi(httpClient, config, httpClientHandler);
             var address = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address holding the position
             var liquidityPools = new List<string>(); // List<string> | Liquidity pools to retrieve positions for (optional) 
-            var includeZeroAmount = true;  // bool? | Include zero amounts if true, otherwise zero amounts are excluded (optional) 
+            var includeZeroAmounts = true;  // bool? | Include zero amounts if true, otherwise zero amounts are excluded if false (optional)  (default to false)
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
-            var limit = 10;  // int? | Number of results per page (optional) 
+            var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
             var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
             {
                 // Get Staking Positions
-                MiningPositionsResponse result = apiInstance.GetStakingPositions(address, liquidityPools, includeZeroAmount, direction, limit, cursor);
+                MiningPositionsResponse result = apiInstance.GetStakingPositions(address, liquidityPools, includeZeroAmounts, direction, limit, cursor);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -551,9 +579,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **address** | **string**| Address holding the position | 
  **liquidityPools** | [**List&lt;string&gt;**](string.md)| Liquidity pools to retrieve positions for | [optional] 
- **includeZeroAmount** | **bool?**| Include zero amounts if true, otherwise zero amounts are excluded | [optional] 
+ **includeZeroAmounts** | **bool?**| Include zero amounts if true, otherwise zero amounts are excluded if false | [optional] [default to false]
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
- **limit** | **int?**| Number of results per page | [optional] 
+ **limit** | **int?**| Number of results per page | [optional] [default to 10]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
 
 ### Return type
@@ -592,6 +620,7 @@ Retrieves and indexes the latest balance of a tracked SRC token for an address.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -604,7 +633,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new WalletsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WalletsApi(httpClient, config, httpClientHandler);
             var address = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address holding the position
             var token = tGSk2dVENuqAQ2rNXbui37XHuurFCTqadD;  // string | Address of the SRC token
 

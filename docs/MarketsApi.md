@@ -28,6 +28,7 @@ Builds a quote for a claim market ownership transaction. Only the pending owner 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -43,7 +44,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new MarketsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new MarketsApi(httpClient, config, httpClientHandler);
             var market = t7RorA7xQCMVYKPM1ibPE1NSswaLbpqLQb;  // string | Address of a market
 
             try
@@ -107,6 +111,7 @@ Builds a quote for a collect market fees transaction. Only the owner of the mark
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -122,7 +127,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new MarketsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new MarketsApi(httpClient, config, httpClientHandler);
             var market = t7RorA7xQCMVYKPM1ibPE1NSswaLbpqLQb;  // string | Address of a market
             var quoteCollectMarketFeesRequest = new QuoteCollectMarketFeesRequest(); // QuoteCollectMarketFeesRequest | Parameters used to determine fees to collect
 
@@ -188,6 +196,7 @@ Builds a quote for a create staking market transaction. Only the owner of the ma
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -203,7 +212,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new MarketsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new MarketsApi(httpClient, config, httpClientHandler);
             var quoteCreateStakingMarketRequest = new QuoteCreateStakingMarketRequest(); // QuoteCreateStakingMarketRequest | Parameters used for the creation of the staking market
 
             try
@@ -267,6 +279,7 @@ Builds a quote for a create standard market transaction. Only the owner of the m
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -282,7 +295,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new MarketsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new MarketsApi(httpClient, config, httpClientHandler);
             var quoteCreateStandardMarketRequest = new QuoteCreateStandardMarketRequest(); // QuoteCreateStandardMarketRequest | Parameters used for the creation of the standard market
 
             try
@@ -346,6 +362,7 @@ Builds a quote for a set market ownership transaction. Only the owner of the mar
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -361,7 +378,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new MarketsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new MarketsApi(httpClient, config, httpClientHandler);
             var market = t7RorA7xQCMVYKPM1ibPE1NSswaLbpqLQb;  // string | Address of a market
             var quoteSetMarketOwnerRequest = new QuoteSetMarketOwnerRequest(); // QuoteSetMarketOwnerRequest | Parameters used for setting the market owner
 
@@ -427,6 +447,7 @@ Builds a quote for a set market permissions transaction. This call can only succ
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -442,7 +463,10 @@ namespace Example
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new MarketsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new MarketsApi(httpClient, config, httpClientHandler);
             var market = t7RorA7xQCMVYKPM1ibPE1NSswaLbpqLQb;  // string | Address of a market
             var address = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address subject to the permissions
             var quoteSetMarketPermissionsRequest = new QuoteSetMarketPermissionsRequest(); // QuoteSetMarketPermissionsRequest | Parameters used for assigning a market permission
@@ -510,6 +534,7 @@ Retrieves details for an Opdex market.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -522,7 +547,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new MarketsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new MarketsApi(httpClient, config, httpClientHandler);
             var market = t7RorA7xQCMVYKPM1ibPE1NSswaLbpqLQb;  // string | Address of a market
 
             try
@@ -585,6 +613,7 @@ Retrieves historical liquidity, rewards, volume and staking data for an Opdex ma
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -597,12 +626,15 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new MarketsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new MarketsApi(httpClient, config, httpClientHandler);
             var market = t7RorA7xQCMVYKPM1ibPE1NSswaLbpqLQb;  // string | Address of a market
             var startDateTime = 2022-01-01T00:00:00Z;  // DateTime | Start time for which to retrieve snapshots
             var endDateTime = 2022-12-31T23:59:59;  // DateTime | End time for which to retrieve snapshots
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
-            var limit = 10;  // int? | Number of results per page (optional) 
+            var limit = 10;  // int? | Number of results per page; defaults to 28 (4 weeks) (optional)  (default to 28)
             var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
@@ -630,7 +662,7 @@ Name | Type | Description  | Notes
  **startDateTime** | **DateTime**| Start time for which to retrieve snapshots | 
  **endDateTime** | **DateTime**| End time for which to retrieve snapshots | 
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
- **limit** | **int?**| Number of results per page | [optional] 
+ **limit** | **int?**| Number of results per page; defaults to 28 (4 weeks) | [optional] [default to 28]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
 
 ### Return type
@@ -670,6 +702,7 @@ Retrieves permissions within a market that are assigned to an address.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -682,7 +715,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new MarketsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new MarketsApi(httpClient, config, httpClientHandler);
             var market = t7RorA7xQCMVYKPM1ibPE1NSswaLbpqLQb;  // string | Address of a market
             var address = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address subject to the permissions
 
@@ -747,6 +783,7 @@ Retrieves details for the tracked markets. This is a [paginated endpoint](https:
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Opdex.Client.Api;
 using Opdex.Client.Client;
 using Opdex.Client.Model;
@@ -759,11 +796,14 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://test-api.opdex.com/v1";
-            var apiInstance = new MarketsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new MarketsApi(httpClient, config, httpClientHandler);
             var marketType = Staking;  // MarketType? | Market type filter (optional) 
             var orderBy = DailyLiquidityUsdChangePercent;  // MarketOrderByType? | Property by which to sort results (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
-            var limit = 10;  // int? | Number of results per page (optional) 
+            var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
             var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
@@ -790,7 +830,7 @@ Name | Type | Description  | Notes
  **marketType** | **MarketType?**| Market type filter | [optional] 
  **orderBy** | **MarketOrderByType?**| Property by which to sort results | [optional] 
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
- **limit** | **int?**| Number of results per page | [optional] 
+ **limit** | **int?**| Number of results per page | [optional] [default to 10]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
 
 ### Return type

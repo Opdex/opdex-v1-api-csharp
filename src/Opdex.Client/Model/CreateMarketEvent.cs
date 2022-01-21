@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = Opdex.Client.Client.FileParameter;
 using OpenAPIDateConverter = Opdex.Client.Client.OpenAPIDateConverter;
 
 namespace Opdex.Client.Model
@@ -40,13 +41,13 @@ namespace Opdex.Client.Model
         /// <param name="authPoolCreators">Whether the market requires authorization to create a pool.</param>
         /// <param name="authProviders">Whether the market requires authorization to provide liquidity.</param>
         /// <param name="authTraders">Whether the market requires authorization to swap.</param>
-        /// <param name="transactionFee">Swap fee amount equivalent to the percentage fee multiplied by 10.</param>
+        /// <param name="transactionFeePercent">Swap fee percentage amount.</param>
         /// <param name="stakingToken">An address on the Cirrus network.</param>
         /// <param name="enableMarketFee">Whether the market fee is enabled.</param>
         /// <param name="eventType">eventType.</param>
         /// <param name="contract">An address on the Cirrus network.</param>
         /// <param name="sortOrder">Index to sort event order.</param>
-        public CreateMarketEvent(string market = default(string), string owner = default(string), string router = default(string), bool authPoolCreators = default(bool), bool authProviders = default(bool), bool authTraders = default(bool), int transactionFee = default(int), string stakingToken = default(string), bool enableMarketFee = default(bool), TransactionEventType eventType = default(TransactionEventType), string contract = default(string), int sortOrder = default(int))
+        public CreateMarketEvent(string market = default(string), string owner = default(string), string router = default(string), bool authPoolCreators = default(bool), bool authProviders = default(bool), bool authTraders = default(bool), decimal transactionFeePercent = default(decimal), string stakingToken = default(string), bool enableMarketFee = default(bool), TransactionEventType eventType = default(TransactionEventType), string contract = default(string), int sortOrder = default(int))
         {
             this.Market = market;
             this.Owner = owner;
@@ -54,7 +55,7 @@ namespace Opdex.Client.Model
             this.AuthPoolCreators = authPoolCreators;
             this.AuthProviders = authProviders;
             this.AuthTraders = authTraders;
-            this.TransactionFee = transactionFee;
+            this.TransactionFeePercent = transactionFeePercent;
             this.StakingToken = stakingToken;
             this.EnableMarketFee = enableMarketFee;
             this.EventType = eventType;
@@ -105,11 +106,11 @@ namespace Opdex.Client.Model
         public bool AuthTraders { get; set; }
 
         /// <summary>
-        /// Swap fee amount equivalent to the percentage fee multiplied by 10
+        /// Swap fee percentage amount
         /// </summary>
-        /// <value>Swap fee amount equivalent to the percentage fee multiplied by 10</value>
-        [DataMember(Name = "transactionFee", EmitDefaultValue = false)]
-        public int TransactionFee { get; set; }
+        /// <value>Swap fee percentage amount</value>
+        [DataMember(Name = "transactionFeePercent", EmitDefaultValue = false)]
+        public decimal TransactionFeePercent { get; set; }
 
         /// <summary>
         /// An address on the Cirrus network
@@ -159,7 +160,7 @@ namespace Opdex.Client.Model
             sb.Append("  AuthPoolCreators: ").Append(AuthPoolCreators).Append("\n");
             sb.Append("  AuthProviders: ").Append(AuthProviders).Append("\n");
             sb.Append("  AuthTraders: ").Append(AuthTraders).Append("\n");
-            sb.Append("  TransactionFee: ").Append(TransactionFee).Append("\n");
+            sb.Append("  TransactionFeePercent: ").Append(TransactionFeePercent).Append("\n");
             sb.Append("  StakingToken: ").Append(StakingToken).Append("\n");
             sb.Append("  EnableMarketFee: ").Append(EnableMarketFee).Append("\n");
             sb.Append("  EventType: ").Append(EventType).Append("\n");
@@ -228,8 +229,8 @@ namespace Opdex.Client.Model
                     this.AuthTraders.Equals(input.AuthTraders)
                 ) && 
                 (
-                    this.TransactionFee == input.TransactionFee ||
-                    this.TransactionFee.Equals(input.TransactionFee)
+                    this.TransactionFeePercent == input.TransactionFeePercent ||
+                    this.TransactionFeePercent.Equals(input.TransactionFeePercent)
                 ) && 
                 (
                     this.StakingToken == input.StakingToken ||
@@ -280,7 +281,7 @@ namespace Opdex.Client.Model
                 hashCode = (hashCode * 59) + this.AuthPoolCreators.GetHashCode();
                 hashCode = (hashCode * 59) + this.AuthProviders.GetHashCode();
                 hashCode = (hashCode * 59) + this.AuthTraders.GetHashCode();
-                hashCode = (hashCode * 59) + this.TransactionFee.GetHashCode();
+                hashCode = (hashCode * 59) + this.TransactionFeePercent.GetHashCode();
                 if (this.StakingToken != null)
                 {
                     hashCode = (hashCode * 59) + this.StakingToken.GetHashCode();
@@ -363,16 +364,16 @@ namespace Opdex.Client.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Router, must match a pattern of " + regexRouter, new [] { "Router" });
             }
 
-            // TransactionFee (int) maximum
-            if (this.TransactionFee > (int)10)
+            // TransactionFeePercent (decimal) maximum
+            if (this.TransactionFeePercent > (decimal)0.1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFee, must be a value less than or equal to 10.", new [] { "TransactionFee" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFeePercent, must be a value less than or equal to 0.1.", new [] { "TransactionFeePercent" });
             }
 
-            // TransactionFee (int) minimum
-            if (this.TransactionFee < (int)0)
+            // TransactionFeePercent (decimal) minimum
+            if (this.TransactionFeePercent < (decimal)0.0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFee, must be a value greater than or equal to 0.", new [] { "TransactionFee" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFeePercent, must be a value greater than or equal to 0.0.", new [] { "TransactionFeePercent" });
             }
 
             // StakingToken (string) maxLength

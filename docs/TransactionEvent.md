@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **AuthPoolCreators** | **bool** | Whether the market requires authorization to create a pool | [optional] 
 **AuthProviders** | **bool** | Whether the market requires authorization to provide liquidity | [optional] 
 **AuthTraders** | **bool** | Whether the market requires authorization to swap | [optional] 
-**TransactionFee** | **int** | Swap fee amount equivalent to the percentage fee multiplied by 10 | [optional] 
+**TransactionFeePercent** | **decimal** | Swap fee percentage amount | [optional] 
 **StakingToken** | **string** | An address on the Cirrus network | [optional] 
 **EnableMarketFee** | **bool** | Whether the market fee is enabled | [optional] 
 **EventType** | [**TransactionEventType**](TransactionEventType.md) |  | [optional] 
