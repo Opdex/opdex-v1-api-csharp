@@ -41,13 +41,15 @@ namespace Opdex.Client.Model
         /// Initializes a new instance of the <see cref="NotifyBroadcastRequest" /> class.
         /// </summary>
         /// <param name="transactionHash">SHA256 hash value (required).</param>
-        public NotifyBroadcastRequest(string transactionHash = default(string))
+        /// <param name="publicKey">An address on the Cirrus network.</param>
+        public NotifyBroadcastRequest(string transactionHash = default(string), string publicKey = default(string))
         {
             // to ensure "transactionHash" is required (not null)
             if (transactionHash == null) {
                 throw new ArgumentNullException("transactionHash is a required property for NotifyBroadcastRequest and cannot be null");
             }
             this.TransactionHash = transactionHash;
+            this.PublicKey = publicKey;
         }
 
         /// <summary>
@@ -58,6 +60,13 @@ namespace Opdex.Client.Model
         public string TransactionHash { get; set; }
 
         /// <summary>
+        /// An address on the Cirrus network
+        /// </summary>
+        /// <value>An address on the Cirrus network</value>
+        [DataMember(Name = "publicKey", EmitDefaultValue = false)]
+        public string PublicKey { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -66,6 +75,7 @@ namespace Opdex.Client.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class NotifyBroadcastRequest {\n");
             sb.Append("  TransactionHash: ").Append(TransactionHash).Append("\n");
+            sb.Append("  PublicKey: ").Append(PublicKey).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,6 +115,11 @@ namespace Opdex.Client.Model
                     this.TransactionHash == input.TransactionHash ||
                     (this.TransactionHash != null &&
                     this.TransactionHash.Equals(input.TransactionHash))
+                ) && 
+                (
+                    this.PublicKey == input.PublicKey ||
+                    (this.PublicKey != null &&
+                    this.PublicKey.Equals(input.PublicKey))
                 );
         }
 
@@ -120,6 +135,10 @@ namespace Opdex.Client.Model
                 if (this.TransactionHash != null)
                 {
                     hashCode = (hashCode * 59) + this.TransactionHash.GetHashCode();
+                }
+                if (this.PublicKey != null)
+                {
+                    hashCode = (hashCode * 59) + this.PublicKey.GetHashCode();
                 }
                 return hashCode;
             }
@@ -149,6 +168,25 @@ namespace Opdex.Client.Model
             if (false == regexTransactionHash.Match(this.TransactionHash).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionHash, must match a pattern of " + regexTransactionHash, new [] { "TransactionHash" });
+            }
+
+            // PublicKey (string) maxLength
+            if (this.PublicKey != null && this.PublicKey.Length > 42)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PublicKey, length must be less than 42.", new [] { "PublicKey" });
+            }
+
+            // PublicKey (string) minLength
+            if (this.PublicKey != null && this.PublicKey.Length < 30)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PublicKey, length must be greater than 30.", new [] { "PublicKey" });
+            }
+
+            // PublicKey (string) pattern
+            Regex regexPublicKey = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            if (false == regexPublicKey.Match(this.PublicKey).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PublicKey, must match a pattern of " + regexPublicKey, new [] { "PublicKey" });
             }
 
             yield break;

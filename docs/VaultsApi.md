@@ -1,6 +1,6 @@
 # Opdex.Client.Api.VaultsApi
 
-All URIs are relative to *https://test-api.opdex.com/v1*
+All URIs are relative to *https://v1-test-api.opdex.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -49,7 +49,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -134,7 +134,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -221,7 +221,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -306,7 +306,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -391,7 +391,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -476,7 +476,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -561,7 +561,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -644,7 +644,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -731,7 +731,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -818,7 +818,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -883,7 +883,7 @@ Name | Type | Description  | Notes
 
 <a name="getcertificates"></a>
 # **GetCertificates**
-> CertificatesResponse GetCertificates (string vault, string owner = null, CertificateStatus? status = null, SortDirection? direction = null, int? limit = null, string cursor = null)
+> CertificatesResponse GetCertificates (string vault, string owner = null, List<CertificateStatus> status = null, SortDirection? direction = null, int? limit = null, string cursor = null)
 
 Get Vault Certificates
 
@@ -905,14 +905,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new VaultsApi(httpClient, config, httpClientHandler);
             var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
             var owner = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address of the certificate owner (optional) 
-            var status = Vesting;  // CertificateStatus? | Status of the certificates (optional) 
+            var status = new List<CertificateStatus>(); // List<CertificateStatus> | Status of the certificates (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
             var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
             var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
@@ -940,7 +940,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **vault** | **string**| Address of the vault | 
  **owner** | **string**| Address of the certificate owner | [optional] 
- **status** | **CertificateStatus?**| Status of the certificates | [optional] 
+ **status** | [**List&lt;CertificateStatus&gt;**](CertificateStatus.md)| Status of the certificates | [optional] 
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
  **limit** | **int?**| Number of results per page | [optional] [default to 10]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
@@ -994,7 +994,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -1077,7 +1077,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -1146,7 +1146,7 @@ No authorization required
 
 <a name="getproposals"></a>
 # **GetProposals**
-> ProposalsResponse GetProposals (string vault, ProposalStatus? status = null, ProposalType? type = null, SortDirection? direction = null, int? limit = null, string cursor = null)
+> ProposalsResponse GetProposals (string vault, List<ProposalStatus> status = null, List<ProposalType> type = null, SortDirection? direction = null, int? limit = null, string cursor = null)
 
 Get Vault Proposals
 
@@ -1168,14 +1168,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new VaultsApi(httpClient, config, httpClientHandler);
             var vault = t7hy4H51KzU6PPCL4QKCdgBGPLV9Jpmf9G;  // string | Address of the vault
-            var status = Complete;  // ProposalStatus? | Status of the proposal (optional) 
-            var type = Create;  // ProposalType? | Type of proposal (optional) 
+            var status = new List<ProposalStatus>(); // List<ProposalStatus> | Status of the proposal (optional) 
+            var type = new List<ProposalType>(); // List<ProposalType> | Type of proposal (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
             var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
             var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
@@ -1202,8 +1202,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **vault** | **string**| Address of the vault | 
- **status** | **ProposalStatus?**| Status of the proposal | [optional] 
- **type** | **ProposalType?**| Type of proposal | [optional] 
+ **status** | [**List&lt;ProposalStatus&gt;**](ProposalStatus.md)| Status of the proposal | [optional] 
+ **type** | [**List&lt;ProposalType&gt;**](ProposalType.md)| Type of proposal | [optional] 
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
  **limit** | **int?**| Number of results per page | [optional] [default to 10]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
@@ -1257,7 +1257,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -1336,7 +1336,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -1417,7 +1417,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -1501,7 +1501,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -1584,7 +1584,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();

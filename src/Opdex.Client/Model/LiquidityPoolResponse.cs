@@ -38,14 +38,16 @@ namespace Opdex.Client.Model
         /// <param name="address">An address on the Cirrus network.</param>
         /// <param name="name">Name of the liquidity pool.</param>
         /// <param name="transactionFeePercent">Percentage fee for a trade.</param>
+        /// <param name="market">An address on the Cirrus network.</param>
         /// <param name="miningPool">miningPool.</param>
         /// <param name="tokens">tokens.</param>
         /// <param name="summary">summary.</param>
-        public LiquidityPoolResponse(string address = default(string), string name = default(string), decimal transactionFeePercent = default(decimal), MiningPoolResponse miningPool = default(MiningPoolResponse), LiquidityPoolTokenBreakdown tokens = default(LiquidityPoolTokenBreakdown), LiquidityPoolSummary summary = default(LiquidityPoolSummary))
+        public LiquidityPoolResponse(string address = default(string), string name = default(string), decimal transactionFeePercent = default(decimal), string market = default(string), MiningPoolResponse miningPool = default(MiningPoolResponse), LiquidityPoolTokenBreakdown tokens = default(LiquidityPoolTokenBreakdown), LiquidityPoolSummary summary = default(LiquidityPoolSummary))
         {
             this.Address = address;
             this.Name = name;
             this.TransactionFeePercent = transactionFeePercent;
+            this.Market = market;
             this.MiningPool = miningPool;
             this.Tokens = tokens;
             this.Summary = summary;
@@ -71,6 +73,13 @@ namespace Opdex.Client.Model
         /// <value>Percentage fee for a trade</value>
         [DataMember(Name = "transactionFeePercent", EmitDefaultValue = false)]
         public decimal TransactionFeePercent { get; set; }
+
+        /// <summary>
+        /// An address on the Cirrus network
+        /// </summary>
+        /// <value>An address on the Cirrus network</value>
+        [DataMember(Name = "market", EmitDefaultValue = false)]
+        public string Market { get; set; }
 
         /// <summary>
         /// Gets or Sets MiningPool
@@ -101,6 +110,7 @@ namespace Opdex.Client.Model
             sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  TransactionFeePercent: ").Append(TransactionFeePercent).Append("\n");
+            sb.Append("  Market: ").Append(Market).Append("\n");
             sb.Append("  MiningPool: ").Append(MiningPool).Append("\n");
             sb.Append("  Tokens: ").Append(Tokens).Append("\n");
             sb.Append("  Summary: ").Append(Summary).Append("\n");
@@ -154,6 +164,11 @@ namespace Opdex.Client.Model
                     this.TransactionFeePercent.Equals(input.TransactionFeePercent)
                 ) && 
                 (
+                    this.Market == input.Market ||
+                    (this.Market != null &&
+                    this.Market.Equals(input.Market))
+                ) && 
+                (
                     this.MiningPool == input.MiningPool ||
                     (this.MiningPool != null &&
                     this.MiningPool.Equals(input.MiningPool))
@@ -188,6 +203,10 @@ namespace Opdex.Client.Model
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.TransactionFeePercent.GetHashCode();
+                if (this.Market != null)
+                {
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
+                }
                 if (this.MiningPool != null)
                 {
                     hashCode = (hashCode * 59) + this.MiningPool.GetHashCode();
@@ -240,6 +259,25 @@ namespace Opdex.Client.Model
             if (this.TransactionFeePercent < (decimal)0.0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFeePercent, must be a value greater than or equal to 0.0.", new [] { "TransactionFeePercent" });
+            }
+
+            // Market (string) maxLength
+            if (this.Market != null && this.Market.Length > 42)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Market, length must be less than 42.", new [] { "Market" });
+            }
+
+            // Market (string) minLength
+            if (this.Market != null && this.Market.Length < 30)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Market, length must be greater than 30.", new [] { "Market" });
+            }
+
+            // Market (string) pattern
+            Regex regexMarket = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            if (false == regexMarket.Match(this.Market).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Market, must match a pattern of " + regexMarket, new [] { "Market" });
             }
 
             yield break;

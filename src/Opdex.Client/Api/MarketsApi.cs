@@ -249,7 +249,7 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>MarketsResponse</returns>
-        MarketsResponse GetMarkets(MarketType? marketType = default(MarketType?), MarketOrderByType? orderBy = default(MarketOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        MarketsResponse GetMarkets(MarketTypeFilter? marketType = default(MarketTypeFilter?), MarketOrderByType? orderBy = default(MarketOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
 
         /// <summary>
         /// Get Markets
@@ -264,7 +264,7 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of MarketsResponse</returns>
-        ApiResponse<MarketsResponse> GetMarketsWithHttpInfo(MarketType? marketType = default(MarketType?), MarketOrderByType? orderBy = default(MarketOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        ApiResponse<MarketsResponse> GetMarketsWithHttpInfo(MarketTypeFilter? marketType = default(MarketTypeFilter?), MarketOrderByType? orderBy = default(MarketOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
         #endregion Synchronous Operations
     }
 
@@ -515,7 +515,7 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MarketsResponse</returns>
-        System.Threading.Tasks.Task<MarketsResponse> GetMarketsAsync(MarketType? marketType = default(MarketType?), MarketOrderByType? orderBy = default(MarketOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<MarketsResponse> GetMarketsAsync(MarketTypeFilter? marketType = default(MarketTypeFilter?), MarketOrderByType? orderBy = default(MarketOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Markets
@@ -531,7 +531,7 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MarketsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MarketsResponse>> GetMarketsWithHttpInfoAsync(MarketType? marketType = default(MarketType?), MarketOrderByType? orderBy = default(MarketOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<MarketsResponse>> GetMarketsWithHttpInfoAsync(MarketTypeFilter? marketType = default(MarketTypeFilter?), MarketOrderByType? orderBy = default(MarketOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -2008,7 +2008,7 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>MarketsResponse</returns>
-        public MarketsResponse GetMarkets(MarketType? marketType = default(MarketType?), MarketOrderByType? orderBy = default(MarketOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public MarketsResponse GetMarkets(MarketTypeFilter? marketType = default(MarketTypeFilter?), MarketOrderByType? orderBy = default(MarketOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             Opdex.Client.Client.ApiResponse<MarketsResponse> localVarResponse = GetMarketsWithHttpInfo(marketType, orderBy, direction, limit, cursor);
             return localVarResponse.Data;
@@ -2024,7 +2024,7 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of MarketsResponse</returns>
-        public Opdex.Client.Client.ApiResponse<MarketsResponse> GetMarketsWithHttpInfo(MarketType? marketType = default(MarketType?), MarketOrderByType? orderBy = default(MarketOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public Opdex.Client.Client.ApiResponse<MarketsResponse> GetMarketsWithHttpInfo(MarketTypeFilter? marketType = default(MarketTypeFilter?), MarketOrderByType? orderBy = default(MarketOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -2088,7 +2088,7 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MarketsResponse</returns>
-        public async System.Threading.Tasks.Task<MarketsResponse> GetMarketsAsync(MarketType? marketType = default(MarketType?), MarketOrderByType? orderBy = default(MarketOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<MarketsResponse> GetMarketsAsync(MarketTypeFilter? marketType = default(MarketTypeFilter?), MarketOrderByType? orderBy = default(MarketOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Opdex.Client.Client.ApiResponse<MarketsResponse> localVarResponse = await GetMarketsWithHttpInfoAsync(marketType, orderBy, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2105,7 +2105,7 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MarketsResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<MarketsResponse>> GetMarketsWithHttpInfoAsync(MarketType? marketType = default(MarketType?), MarketOrderByType? orderBy = default(MarketOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<MarketsResponse>> GetMarketsWithHttpInfoAsync(MarketTypeFilter? marketType = default(MarketTypeFilter?), MarketOrderByType? orderBy = default(MarketOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();

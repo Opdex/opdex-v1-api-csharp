@@ -277,7 +277,7 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>CertificatesResponse</returns>
-        CertificatesResponse GetCertificates(string vault, string owner = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        CertificatesResponse GetCertificates(string vault, string owner = default(string), List<CertificateStatus> status = default(List<CertificateStatus>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
 
         /// <summary>
         /// Get Vault Certificates
@@ -293,7 +293,7 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of CertificatesResponse</returns>
-        ApiResponse<CertificatesResponse> GetCertificatesWithHttpInfo(string vault, string owner = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        ApiResponse<CertificatesResponse> GetCertificatesWithHttpInfo(string vault, string owner = default(string), List<CertificateStatus> status = default(List<CertificateStatus>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
         /// <summary>
         /// Get Vault Proposal Pledge Position
         /// </summary>
@@ -366,7 +366,7 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ProposalsResponse</returns>
-        ProposalsResponse GetProposals(string vault, ProposalStatus? status = default(ProposalStatus?), ProposalType? type = default(ProposalType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        ProposalsResponse GetProposals(string vault, List<ProposalStatus> status = default(List<ProposalStatus>), List<ProposalType> type = default(List<ProposalType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
 
         /// <summary>
         /// Get Vault Proposals
@@ -382,7 +382,7 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of ProposalsResponse</returns>
-        ApiResponse<ProposalsResponse> GetProposalsWithHttpInfo(string vault, ProposalStatus? status = default(ProposalStatus?), ProposalType? type = default(ProposalType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        ApiResponse<ProposalsResponse> GetProposalsWithHttpInfo(string vault, List<ProposalStatus> status = default(List<ProposalStatus>), List<ProposalType> type = default(List<ProposalType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
         /// <summary>
         /// Get Vault
         /// </summary>
@@ -792,7 +792,7 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CertificatesResponse</returns>
-        System.Threading.Tasks.Task<CertificatesResponse> GetCertificatesAsync(string vault, string owner = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CertificatesResponse> GetCertificatesAsync(string vault, string owner = default(string), List<CertificateStatus> status = default(List<CertificateStatus>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Vault Certificates
@@ -809,7 +809,7 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CertificatesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CertificatesResponse>> GetCertificatesWithHttpInfoAsync(string vault, string owner = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CertificatesResponse>> GetCertificatesWithHttpInfoAsync(string vault, string owner = default(string), List<CertificateStatus> status = default(List<CertificateStatus>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Vault Proposal Pledge Position
         /// </summary>
@@ -887,7 +887,7 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProposalsResponse</returns>
-        System.Threading.Tasks.Task<ProposalsResponse> GetProposalsAsync(string vault, ProposalStatus? status = default(ProposalStatus?), ProposalType? type = default(ProposalType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ProposalsResponse> GetProposalsAsync(string vault, List<ProposalStatus> status = default(List<ProposalStatus>), List<ProposalType> type = default(List<ProposalType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Vault Proposals
@@ -904,7 +904,7 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProposalsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProposalsResponse>> GetProposalsWithHttpInfoAsync(string vault, ProposalStatus? status = default(ProposalStatus?), ProposalType? type = default(ProposalType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ProposalsResponse>> GetProposalsWithHttpInfoAsync(string vault, List<ProposalStatus> status = default(List<ProposalStatus>), List<ProposalType> type = default(List<ProposalType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Vault
         /// </summary>
@@ -2716,7 +2716,7 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>CertificatesResponse</returns>
-        public CertificatesResponse GetCertificates(string vault, string owner = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public CertificatesResponse GetCertificates(string vault, string owner = default(string), List<CertificateStatus> status = default(List<CertificateStatus>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             Opdex.Client.Client.ApiResponse<CertificatesResponse> localVarResponse = GetCertificatesWithHttpInfo(vault, owner, status, direction, limit, cursor);
             return localVarResponse.Data;
@@ -2733,7 +2733,7 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of CertificatesResponse</returns>
-        public Opdex.Client.Client.ApiResponse<CertificatesResponse> GetCertificatesWithHttpInfo(string vault, string owner = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public Opdex.Client.Client.ApiResponse<CertificatesResponse> GetCertificatesWithHttpInfo(string vault, string owner = default(string), List<CertificateStatus> status = default(List<CertificateStatus>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
@@ -2763,7 +2763,7 @@ namespace Opdex.Client.Api
             }
             if (status != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "status", status));
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("multi", "status", status));
             }
             if (direction != null)
             {
@@ -2803,7 +2803,7 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CertificatesResponse</returns>
-        public async System.Threading.Tasks.Task<CertificatesResponse> GetCertificatesAsync(string vault, string owner = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CertificatesResponse> GetCertificatesAsync(string vault, string owner = default(string), List<CertificateStatus> status = default(List<CertificateStatus>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Opdex.Client.Client.ApiResponse<CertificatesResponse> localVarResponse = await GetCertificatesWithHttpInfoAsync(vault, owner, status, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2821,7 +2821,7 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CertificatesResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<CertificatesResponse>> GetCertificatesWithHttpInfoAsync(string vault, string owner = default(string), CertificateStatus? status = default(CertificateStatus?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<CertificatesResponse>> GetCertificatesWithHttpInfoAsync(string vault, string owner = default(string), List<CertificateStatus> status = default(List<CertificateStatus>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
@@ -2853,7 +2853,7 @@ namespace Opdex.Client.Api
             }
             if (status != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "status", status));
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("multi", "status", status));
             }
             if (direction != null)
             {
@@ -3219,7 +3219,7 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ProposalsResponse</returns>
-        public ProposalsResponse GetProposals(string vault, ProposalStatus? status = default(ProposalStatus?), ProposalType? type = default(ProposalType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public ProposalsResponse GetProposals(string vault, List<ProposalStatus> status = default(List<ProposalStatus>), List<ProposalType> type = default(List<ProposalType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             Opdex.Client.Client.ApiResponse<ProposalsResponse> localVarResponse = GetProposalsWithHttpInfo(vault, status, type, direction, limit, cursor);
             return localVarResponse.Data;
@@ -3236,7 +3236,7 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of ProposalsResponse</returns>
-        public Opdex.Client.Client.ApiResponse<ProposalsResponse> GetProposalsWithHttpInfo(string vault, ProposalStatus? status = default(ProposalStatus?), ProposalType? type = default(ProposalType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public Opdex.Client.Client.ApiResponse<ProposalsResponse> GetProposalsWithHttpInfo(string vault, List<ProposalStatus> status = default(List<ProposalStatus>), List<ProposalType> type = default(List<ProposalType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
@@ -3262,11 +3262,11 @@ namespace Opdex.Client.Api
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             if (status != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "status", status));
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("multi", "status", status));
             }
             if (type != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "type", type));
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("multi", "type", type));
             }
             if (direction != null)
             {
@@ -3306,7 +3306,7 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProposalsResponse</returns>
-        public async System.Threading.Tasks.Task<ProposalsResponse> GetProposalsAsync(string vault, ProposalStatus? status = default(ProposalStatus?), ProposalType? type = default(ProposalType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ProposalsResponse> GetProposalsAsync(string vault, List<ProposalStatus> status = default(List<ProposalStatus>), List<ProposalType> type = default(List<ProposalType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Opdex.Client.Client.ApiResponse<ProposalsResponse> localVarResponse = await GetProposalsWithHttpInfoAsync(vault, status, type, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3324,7 +3324,7 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProposalsResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<ProposalsResponse>> GetProposalsWithHttpInfoAsync(string vault, ProposalStatus? status = default(ProposalStatus?), ProposalType? type = default(ProposalType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<ProposalsResponse>> GetProposalsWithHttpInfoAsync(string vault, List<ProposalStatus> status = default(List<ProposalStatus>), List<ProposalType> type = default(List<ProposalType>), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'vault' is set
             if (vault == null)
@@ -3352,11 +3352,11 @@ namespace Opdex.Client.Api
             localVarRequestOptions.PathParameters.Add("vault", Opdex.Client.Client.ClientUtils.ParameterToString(vault)); // path parameter
             if (status != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "status", status));
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("multi", "status", status));
             }
             if (type != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "type", type));
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("multi", "type", type));
             }
             if (direction != null)
             {

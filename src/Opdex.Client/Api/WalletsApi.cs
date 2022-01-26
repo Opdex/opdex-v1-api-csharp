@@ -1836,6 +1836,12 @@ namespace Opdex.Client.Api
             localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
             localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
 
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<AddressBalanceResponse>("/wallets/{address}/balance/{token}", localVarRequestOptions, this.Configuration);
@@ -1903,6 +1909,12 @@ namespace Opdex.Client.Api
             localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
             localVarRequestOptions.PathParameters.Add("token", Opdex.Client.Client.ClientUtils.ParameterToString(token)); // path parameter
 
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
 

@@ -34,16 +34,22 @@ namespace Opdex.Client.Model
     public enum MiningActivityStatus
     {
         /// <summary>
+        /// Enum Any for value: Any
+        /// </summary>
+        [EnumMember(Value = "Any")]
+        Any = 1,
+
+        /// <summary>
         /// Enum Active for value: Active
         /// </summary>
         [EnumMember(Value = "Active")]
-        Active = 1,
+        Active = 2,
 
         /// <summary>
         /// Enum Inactive for value: Inactive
         /// </summary>
         [EnumMember(Value = "Inactive")]
-        Inactive = 2
+        Inactive = 3
 
     }
 

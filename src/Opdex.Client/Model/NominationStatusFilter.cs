@@ -27,23 +27,29 @@ using OpenAPIDateConverter = Opdex.Client.Client.OpenAPIDateConverter;
 namespace Opdex.Client.Model
 {
     /// <summary>
-    /// Staking status filter
+    /// Nomination status filter
     /// </summary>
-    /// <value>Staking status filter</value>
+    /// <value>Nomination status filter</value>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum StakingStatus
+    public enum NominationStatusFilter
     {
         /// <summary>
-        /// Enum Enabled for value: Enabled
+        /// Enum Any for value: Any
         /// </summary>
-        [EnumMember(Value = "Enabled")]
-        Enabled = 1,
+        [EnumMember(Value = "Any")]
+        Any = 1,
 
         /// <summary>
-        /// Enum Disabled for value: Disabled
+        /// Enum Nominated for value: Nominated
         /// </summary>
-        [EnumMember(Value = "Disabled")]
-        Disabled = 2
+        [EnumMember(Value = "Nominated")]
+        Nominated = 2,
+
+        /// <summary>
+        /// Enum Excluded for value: Excluded
+        /// </summary>
+        [EnumMember(Value = "Excluded")]
+        Excluded = 3
 
     }
 

@@ -1,12 +1,11 @@
-# Opdex.Client.Model.NotifyBroadcastRequest
-Request to notify that a transaction has been broadcast
+# Opdex.Client.Model.BlocksResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TransactionHash** | **string** | SHA256 hash value | 
-**PublicKey** | **string** | An address on the Cirrus network | [optional] 
+**Results** | [**List&lt;BlockResponse&gt;**](BlockResponse.md) |  | [optional] 
+**Paging** | [**PagingResponse**](PagingResponse.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

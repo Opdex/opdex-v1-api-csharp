@@ -1,6 +1,6 @@
 # Opdex.Client.Api.MarketsApi
 
-All URIs are relative to *https://test-api.opdex.com/v1*
+All URIs are relative to *https://v1-test-api.opdex.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -40,7 +40,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -123,7 +123,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -208,7 +208,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -291,7 +291,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -374,7 +374,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -459,7 +459,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -546,7 +546,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -625,7 +625,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -714,7 +714,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -773,7 +773,7 @@ No authorization required
 
 <a name="getmarkets"></a>
 # **GetMarkets**
-> MarketsResponse GetMarkets (MarketType? marketType = null, MarketOrderByType? orderBy = null, SortDirection? direction = null, int? limit = null, string cursor = null)
+> MarketsResponse GetMarkets (MarketTypeFilter? marketType = null, MarketOrderByType? orderBy = null, SortDirection? direction = null, int? limit = null, string cursor = null)
 
 Get Markets
 
@@ -795,12 +795,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MarketsApi(httpClient, config, httpClientHandler);
-            var marketType = Staking;  // MarketType? | Market type filter (optional) 
+            var marketType = Staking;  // MarketTypeFilter? | Market type filter (optional) 
             var orderBy = DailyLiquidityUsdChangePercent;  // MarketOrderByType? | Property by which to sort results (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
             var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
@@ -827,7 +827,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **marketType** | **MarketType?**| Market type filter | [optional] 
+ **marketType** | **MarketTypeFilter?**| Market type filter | [optional] 
  **orderBy** | **MarketOrderByType?**| Property by which to sort results | [optional] 
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
  **limit** | **int?**| Number of results per page | [optional] [default to 10]

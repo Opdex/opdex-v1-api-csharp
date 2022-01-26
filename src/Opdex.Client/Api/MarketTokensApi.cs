@@ -93,7 +93,7 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Address of the market</param>
-        /// <param name="tokenType">Token type filter (optional)</param>
+        /// <param name="tokenAttributes">Token attributes filter (optional)</param>
         /// <param name="tokens">Specific tokens to include (optional)</param>
         /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
@@ -101,7 +101,7 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>MarketTokensResponse</returns>
-        MarketTokensResponse GetMarketTokens(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        MarketTokensResponse GetMarketTokens(string market, List<TokenAttributeFilter> tokenAttributes = default(List<TokenAttributeFilter>), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
 
         /// <summary>
         /// Get Market Tokens
@@ -111,7 +111,7 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Address of the market</param>
-        /// <param name="tokenType">Token type filter (optional)</param>
+        /// <param name="tokenAttributes">Token attributes filter (optional)</param>
         /// <param name="tokens">Specific tokens to include (optional)</param>
         /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
@@ -119,7 +119,7 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of MarketTokensResponse</returns>
-        ApiResponse<MarketTokensResponse> GetMarketTokensWithHttpInfo(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        ApiResponse<MarketTokensResponse> GetMarketTokensWithHttpInfo(string market, List<TokenAttributeFilter> tokenAttributes = default(List<TokenAttributeFilter>), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
         /// <summary>
         /// Swap Amount In Quote
         /// </summary>
@@ -274,7 +274,7 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Address of the market</param>
-        /// <param name="tokenType">Token type filter (optional)</param>
+        /// <param name="tokenAttributes">Token attributes filter (optional)</param>
         /// <param name="tokens">Specific tokens to include (optional)</param>
         /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
@@ -283,7 +283,7 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MarketTokensResponse</returns>
-        System.Threading.Tasks.Task<MarketTokensResponse> GetMarketTokensAsync(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<MarketTokensResponse> GetMarketTokensAsync(string market, List<TokenAttributeFilter> tokenAttributes = default(List<TokenAttributeFilter>), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Market Tokens
@@ -293,7 +293,7 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Address of the market</param>
-        /// <param name="tokenType">Token type filter (optional)</param>
+        /// <param name="tokenAttributes">Token attributes filter (optional)</param>
         /// <param name="tokens">Specific tokens to include (optional)</param>
         /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
@@ -302,7 +302,7 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MarketTokensResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MarketTokensResponse>> GetMarketTokensWithHttpInfoAsync(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<MarketTokensResponse>> GetMarketTokensWithHttpInfoAsync(string market, List<TokenAttributeFilter> tokenAttributes = default(List<TokenAttributeFilter>), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Swap Amount In Quote
         /// </summary>
@@ -924,7 +924,7 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Address of the market</param>
-        /// <param name="tokenType">Token type filter (optional)</param>
+        /// <param name="tokenAttributes">Token attributes filter (optional)</param>
         /// <param name="tokens">Specific tokens to include (optional)</param>
         /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
@@ -932,9 +932,9 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>MarketTokensResponse</returns>
-        public MarketTokensResponse GetMarketTokens(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public MarketTokensResponse GetMarketTokens(string market, List<TokenAttributeFilter> tokenAttributes = default(List<TokenAttributeFilter>), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
-            Opdex.Client.Client.ApiResponse<MarketTokensResponse> localVarResponse = GetMarketTokensWithHttpInfo(market, tokenType, tokens, keyword, orderBy, direction, limit, cursor);
+            Opdex.Client.Client.ApiResponse<MarketTokensResponse> localVarResponse = GetMarketTokensWithHttpInfo(market, tokenAttributes, tokens, keyword, orderBy, direction, limit, cursor);
             return localVarResponse.Data;
         }
 
@@ -943,7 +943,7 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Address of the market</param>
-        /// <param name="tokenType">Token type filter (optional)</param>
+        /// <param name="tokenAttributes">Token attributes filter (optional)</param>
         /// <param name="tokens">Specific tokens to include (optional)</param>
         /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
@@ -951,7 +951,7 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of MarketTokensResponse</returns>
-        public Opdex.Client.Client.ApiResponse<MarketTokensResponse> GetMarketTokensWithHttpInfo(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public Opdex.Client.Client.ApiResponse<MarketTokensResponse> GetMarketTokensWithHttpInfo(string market, List<TokenAttributeFilter> tokenAttributes = default(List<TokenAttributeFilter>), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             // verify the required parameter 'market' is set
             if (market == null)
@@ -975,9 +975,9 @@ namespace Opdex.Client.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
-            if (tokenType != null)
+            if (tokenAttributes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "tokenType", tokenType));
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("multi", "tokenAttributes", tokenAttributes));
             }
             if (tokens != null)
             {
@@ -1022,7 +1022,7 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Address of the market</param>
-        /// <param name="tokenType">Token type filter (optional)</param>
+        /// <param name="tokenAttributes">Token attributes filter (optional)</param>
         /// <param name="tokens">Specific tokens to include (optional)</param>
         /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
@@ -1031,9 +1031,9 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MarketTokensResponse</returns>
-        public async System.Threading.Tasks.Task<MarketTokensResponse> GetMarketTokensAsync(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<MarketTokensResponse> GetMarketTokensAsync(string market, List<TokenAttributeFilter> tokenAttributes = default(List<TokenAttributeFilter>), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<MarketTokensResponse> localVarResponse = await GetMarketTokensWithHttpInfoAsync(market, tokenType, tokens, keyword, orderBy, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<MarketTokensResponse> localVarResponse = await GetMarketTokensWithHttpInfoAsync(market, tokenAttributes, tokens, keyword, orderBy, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1042,7 +1042,7 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Address of the market</param>
-        /// <param name="tokenType">Token type filter (optional)</param>
+        /// <param name="tokenAttributes">Token attributes filter (optional)</param>
         /// <param name="tokens">Specific tokens to include (optional)</param>
         /// <param name="keyword">Keyword search against token address, name and ticker symbol (optional)</param>
         /// <param name="orderBy">Property by which to sort results (optional)</param>
@@ -1051,7 +1051,7 @@ namespace Opdex.Client.Api
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MarketTokensResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<MarketTokensResponse>> GetMarketTokensWithHttpInfoAsync(string market, TokenType? tokenType = default(TokenType?), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<MarketTokensResponse>> GetMarketTokensWithHttpInfoAsync(string market, List<TokenAttributeFilter> tokenAttributes = default(List<TokenAttributeFilter>), List<string> tokens = default(List<string>), string keyword = default(string), TokenOrderByType? orderBy = default(TokenOrderByType?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'market' is set
             if (market == null)
@@ -1077,9 +1077,9 @@ namespace Opdex.Client.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
-            if (tokenType != null)
+            if (tokenAttributes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "tokenType", tokenType));
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("multi", "tokenAttributes", tokenAttributes));
             }
             if (tokens != null)
             {

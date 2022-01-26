@@ -10,6 +10,7 @@ public class OpdexApi : IOpdexApi
     {
         if (httpClient is null) throw new ArgumentNullException(nameof(httpClient));
         Authentication = new AuthenticationApi(httpClient);
+        Blocks = new BlocksApi(httpClient);
         Indexer = new IndexerApi(httpClient);
         LiquidityPools = new LiquidityPoolsApi(httpClient);
         Markets = new MarketsApi(httpClient);
@@ -24,6 +25,7 @@ public class OpdexApi : IOpdexApi
     }
 
     public IAuthenticationApi Authentication { get; }
+    public IBlocksApi Blocks { get; }
     public IIndexerApi Indexer { get; }
     public ILiquidityPoolsApi LiquidityPools { get; }
     public IMarketsApi Markets { get; }

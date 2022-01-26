@@ -31,27 +31,71 @@ namespace Opdex.Client.Api
         /// Stratis Signature Auth
         /// </summary>
         /// <remarks>
-        /// Responds to a request from a Stratis Signature Auth Signer. See the [specification](https://github.com/Opdex/SSAS) for futher detail. 
+        /// Responds to a request from a Stratis Signature Auth signer directly. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uid">Unique identifier for the Stratis ID</param>
+        /// <param name="exp">Unix timestamp indicating when the signature expires</param>
         /// <param name="stratisSignatureAuthRequest">The Stratis Signature Auth body</param>
-        /// <param name="exp">Unix timestamp indicating when the signature expires (optional)</param>
-        /// <returns></returns>
-        void Authenticate(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?));
+        /// <returns>string</returns>
+        string Authenticate(string uid, long exp, StratisSignatureAuthRequest stratisSignatureAuthRequest);
 
         /// <summary>
         /// Stratis Signature Auth
         /// </summary>
         /// <remarks>
-        /// Responds to a request from a Stratis Signature Auth Signer. See the [specification](https://github.com/Opdex/SSAS) for futher detail. 
+        /// Responds to a request from a Stratis Signature Auth signer directly. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uid">Unique identifier for the Stratis ID</param>
+        /// <param name="exp">Unix timestamp indicating when the signature expires</param>
         /// <param name="stratisSignatureAuthRequest">The Stratis Signature Auth body</param>
-        /// <param name="exp">Unix timestamp indicating when the signature expires (optional)</param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> AuthenticateWithHttpInfo(string uid, long exp, StratisSignatureAuthRequest stratisSignatureAuthRequest);
+        /// <summary>
+        /// Stratis Signature Auth Callback
+        /// </summary>
+        /// <remarks>
+        /// Responds to a request from a Stratis Signature Auth signer&#39;s wallet. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uid">Unique identifier for the Stratis ID</param>
+        /// <param name="exp">Unix timestamp indicating when the signature expires</param>
+        /// <param name="stratisSignatureAuthRequest">The Stratis Signature Auth body</param>
+        /// <returns></returns>
+        void AuthenticateCallback(string uid, long exp, StratisSignatureAuthRequest stratisSignatureAuthRequest);
+
+        /// <summary>
+        /// Stratis Signature Auth Callback
+        /// </summary>
+        /// <remarks>
+        /// Responds to a request from a Stratis Signature Auth signer&#39;s wallet. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uid">Unique identifier for the Stratis ID</param>
+        /// <param name="exp">Unix timestamp indicating when the signature expires</param>
+        /// <param name="stratisSignatureAuthRequest">The Stratis Signature Auth body</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> AuthenticateWithHttpInfo(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?));
+        ApiResponse<Object> AuthenticateCallbackWithHttpInfo(string uid, long exp, StratisSignatureAuthRequest stratisSignatureAuthRequest);
+        /// <summary>
+        /// Get Stratis Id
+        /// </summary>
+        /// <remarks>
+        /// Returns a new Stratis Id to sign and authenticate. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>string</returns>
+        string GetStratisId();
+
+        /// <summary>
+        /// Get Stratis Id
+        /// </summary>
+        /// <remarks>
+        /// Returns a new Stratis Id to sign and authenticate. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> GetStratisIdWithHttpInfo();
         #endregion Synchronous Operations
     }
 
@@ -65,29 +109,77 @@ namespace Opdex.Client.Api
         /// Stratis Signature Auth
         /// </summary>
         /// <remarks>
-        /// Responds to a request from a Stratis Signature Auth Signer. See the [specification](https://github.com/Opdex/SSAS) for futher detail. 
+        /// Responds to a request from a Stratis Signature Auth signer directly. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uid">Unique identifier for the Stratis ID</param>
+        /// <param name="exp">Unix timestamp indicating when the signature expires</param>
         /// <param name="stratisSignatureAuthRequest">The Stratis Signature Auth body</param>
-        /// <param name="exp">Unix timestamp indicating when the signature expires (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task AuthenticateAsync(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> AuthenticateAsync(string uid, long exp, StratisSignatureAuthRequest stratisSignatureAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Stratis Signature Auth
         /// </summary>
         /// <remarks>
-        /// Responds to a request from a Stratis Signature Auth Signer. See the [specification](https://github.com/Opdex/SSAS) for futher detail. 
+        /// Responds to a request from a Stratis Signature Auth signer directly. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uid">Unique identifier for the Stratis ID</param>
+        /// <param name="exp">Unix timestamp indicating when the signature expires</param>
         /// <param name="stratisSignatureAuthRequest">The Stratis Signature Auth body</param>
-        /// <param name="exp">Unix timestamp indicating when the signature expires (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> AuthenticateWithHttpInfoAsync(string uid, long exp, StratisSignatureAuthRequest stratisSignatureAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Stratis Signature Auth Callback
+        /// </summary>
+        /// <remarks>
+        /// Responds to a request from a Stratis Signature Auth signer&#39;s wallet. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uid">Unique identifier for the Stratis ID</param>
+        /// <param name="exp">Unix timestamp indicating when the signature expires</param>
+        /// <param name="stratisSignatureAuthRequest">The Stratis Signature Auth body</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task AuthenticateCallbackAsync(string uid, long exp, StratisSignatureAuthRequest stratisSignatureAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Stratis Signature Auth Callback
+        /// </summary>
+        /// <remarks>
+        /// Responds to a request from a Stratis Signature Auth signer&#39;s wallet. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uid">Unique identifier for the Stratis ID</param>
+        /// <param name="exp">Unix timestamp indicating when the signature expires</param>
+        /// <param name="stratisSignatureAuthRequest">The Stratis Signature Auth body</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> AuthenticateWithHttpInfoAsync(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> AuthenticateCallbackWithHttpInfoAsync(string uid, long exp, StratisSignatureAuthRequest stratisSignatureAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Get Stratis Id
+        /// </summary>
+        /// <remarks>
+        /// Returns a new Stratis Id to sign and authenticate. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> GetStratisIdAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get Stratis Id
+        /// </summary>
+        /// <remarks>
+        /// Returns a new Stratis Id to sign and authenticate. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> GetStratisIdWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -302,27 +394,28 @@ namespace Opdex.Client.Api
         }
 
         /// <summary>
-        /// Stratis Signature Auth Responds to a request from a Stratis Signature Auth Signer. See the [specification](https://github.com/Opdex/SSAS) for futher detail. 
+        /// Stratis Signature Auth Responds to a request from a Stratis Signature Auth signer directly. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uid">Unique identifier for the Stratis ID</param>
+        /// <param name="exp">Unix timestamp indicating when the signature expires</param>
         /// <param name="stratisSignatureAuthRequest">The Stratis Signature Auth body</param>
-        /// <param name="exp">Unix timestamp indicating when the signature expires (optional)</param>
-        /// <returns></returns>
-        public void Authenticate(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?))
+        /// <returns>string</returns>
+        public string Authenticate(string uid, long exp, StratisSignatureAuthRequest stratisSignatureAuthRequest)
         {
-            AuthenticateWithHttpInfo(uid, stratisSignatureAuthRequest, exp);
+            Opdex.Client.Client.ApiResponse<string> localVarResponse = AuthenticateWithHttpInfo(uid, exp, stratisSignatureAuthRequest);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Stratis Signature Auth Responds to a request from a Stratis Signature Auth Signer. See the [specification](https://github.com/Opdex/SSAS) for futher detail. 
+        /// Stratis Signature Auth Responds to a request from a Stratis Signature Auth signer directly. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uid">Unique identifier for the Stratis ID</param>
+        /// <param name="exp">Unix timestamp indicating when the signature expires</param>
         /// <param name="stratisSignatureAuthRequest">The Stratis Signature Auth body</param>
-        /// <param name="exp">Unix timestamp indicating when the signature expires (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public Opdex.Client.Client.ApiResponse<Object> AuthenticateWithHttpInfo(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?))
+        /// <returns>ApiResponse of string</returns>
+        public Opdex.Client.Client.ApiResponse<string> AuthenticateWithHttpInfo(string uid, long exp, StratisSignatureAuthRequest stratisSignatureAuthRequest)
         {
             // verify the required parameter 'uid' is set
             if (uid == null)
@@ -340,6 +433,7 @@ namespace Opdex.Client.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
+                "text/plain",
                 "application/problem+json"
             };
 
@@ -350,15 +444,12 @@ namespace Opdex.Client.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "uid", uid));
-            if (exp != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "exp", exp));
-            }
+            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "exp", exp));
             localVarRequestOptions.Data = stratisSignatureAuthRequest;
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/auth", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<string>("/auth", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -370,29 +461,30 @@ namespace Opdex.Client.Api
         }
 
         /// <summary>
-        /// Stratis Signature Auth Responds to a request from a Stratis Signature Auth Signer. See the [specification](https://github.com/Opdex/SSAS) for futher detail. 
+        /// Stratis Signature Auth Responds to a request from a Stratis Signature Auth signer directly. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uid">Unique identifier for the Stratis ID</param>
+        /// <param name="exp">Unix timestamp indicating when the signature expires</param>
         /// <param name="stratisSignatureAuthRequest">The Stratis Signature Auth body</param>
-        /// <param name="exp">Unix timestamp indicating when the signature expires (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task AuthenticateAsync(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> AuthenticateAsync(string uid, long exp, StratisSignatureAuthRequest stratisSignatureAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await AuthenticateWithHttpInfoAsync(uid, stratisSignatureAuthRequest, exp, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<string> localVarResponse = await AuthenticateWithHttpInfoAsync(uid, exp, stratisSignatureAuthRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Stratis Signature Auth Responds to a request from a Stratis Signature Auth Signer. See the [specification](https://github.com/Opdex/SSAS) for futher detail. 
+        /// Stratis Signature Auth Responds to a request from a Stratis Signature Auth signer directly. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uid">Unique identifier for the Stratis ID</param>
+        /// <param name="exp">Unix timestamp indicating when the signature expires</param>
         /// <param name="stratisSignatureAuthRequest">The Stratis Signature Auth body</param>
-        /// <param name="exp">Unix timestamp indicating when the signature expires (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<Object>> AuthenticateWithHttpInfoAsync(string uid, StratisSignatureAuthRequest stratisSignatureAuthRequest, long? exp = default(long?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<string>> AuthenticateWithHttpInfoAsync(string uid, long exp, StratisSignatureAuthRequest stratisSignatureAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'uid' is set
             if (uid == null)
@@ -401,6 +493,142 @@ namespace Opdex.Client.Api
             // verify the required parameter 'stratisSignatureAuthRequest' is set
             if (stratisSignatureAuthRequest == null)
                 throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'stratisSignatureAuthRequest' when calling AuthenticationApi->Authenticate");
+
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/problem+json"
+            };
+
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "uid", uid));
+            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "exp", exp));
+            localVarRequestOptions.Data = stratisSignatureAuthRequest;
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<string>("/auth", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("Authenticate", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Stratis Signature Auth Callback Responds to a request from a Stratis Signature Auth signer&#39;s wallet. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uid">Unique identifier for the Stratis ID</param>
+        /// <param name="exp">Unix timestamp indicating when the signature expires</param>
+        /// <param name="stratisSignatureAuthRequest">The Stratis Signature Auth body</param>
+        /// <returns></returns>
+        public void AuthenticateCallback(string uid, long exp, StratisSignatureAuthRequest stratisSignatureAuthRequest)
+        {
+            AuthenticateCallbackWithHttpInfo(uid, exp, stratisSignatureAuthRequest);
+        }
+
+        /// <summary>
+        /// Stratis Signature Auth Callback Responds to a request from a Stratis Signature Auth signer&#39;s wallet. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uid">Unique identifier for the Stratis ID</param>
+        /// <param name="exp">Unix timestamp indicating when the signature expires</param>
+        /// <param name="stratisSignatureAuthRequest">The Stratis Signature Auth body</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public Opdex.Client.Client.ApiResponse<Object> AuthenticateCallbackWithHttpInfo(string uid, long exp, StratisSignatureAuthRequest stratisSignatureAuthRequest)
+        {
+            // verify the required parameter 'uid' is set
+            if (uid == null)
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'uid' when calling AuthenticationApi->AuthenticateCallback");
+
+            // verify the required parameter 'stratisSignatureAuthRequest' is set
+            if (stratisSignatureAuthRequest == null)
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'stratisSignatureAuthRequest' when calling AuthenticationApi->AuthenticateCallback");
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "uid", uid));
+            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "exp", exp));
+            localVarRequestOptions.Data = stratisSignatureAuthRequest;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/auth/callback", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AuthenticateCallback", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Stratis Signature Auth Callback Responds to a request from a Stratis Signature Auth signer&#39;s wallet. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uid">Unique identifier for the Stratis ID</param>
+        /// <param name="exp">Unix timestamp indicating when the signature expires</param>
+        /// <param name="stratisSignatureAuthRequest">The Stratis Signature Auth body</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task AuthenticateCallbackAsync(string uid, long exp, StratisSignatureAuthRequest stratisSignatureAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await AuthenticateCallbackWithHttpInfoAsync(uid, exp, stratisSignatureAuthRequest, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Stratis Signature Auth Callback Responds to a request from a Stratis Signature Auth signer&#39;s wallet. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uid">Unique identifier for the Stratis ID</param>
+        /// <param name="exp">Unix timestamp indicating when the signature expires</param>
+        /// <param name="stratisSignatureAuthRequest">The Stratis Signature Auth body</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<Object>> AuthenticateCallbackWithHttpInfoAsync(string uid, long exp, StratisSignatureAuthRequest stratisSignatureAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'uid' is set
+            if (uid == null)
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'uid' when calling AuthenticationApi->AuthenticateCallback");
+
+            // verify the required parameter 'stratisSignatureAuthRequest' is set
+            if (stratisSignatureAuthRequest == null)
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'stratisSignatureAuthRequest' when calling AuthenticationApi->AuthenticateCallback");
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -422,20 +650,120 @@ namespace Opdex.Client.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "uid", uid));
-            if (exp != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "exp", exp));
-            }
+            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "exp", exp));
             localVarRequestOptions.Data = stratisSignatureAuthRequest;
 
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/auth", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/auth/callback", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("Authenticate", localVarResponse);
+                Exception _exception = this.ExceptionFactory("AuthenticateCallback", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Stratis Id Returns a new Stratis Id to sign and authenticate. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>string</returns>
+        public string GetStratisId()
+        {
+            Opdex.Client.Client.ApiResponse<string> localVarResponse = GetStratisIdWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Stratis Id Returns a new Stratis Id to sign and authenticate. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of string</returns>
+        public Opdex.Client.Client.ApiResponse<string> GetStratisIdWithHttpInfo()
+        {
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<string>("/auth", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetStratisId", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Stratis Id Returns a new Stratis Id to sign and authenticate. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> GetStratisIdAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Opdex.Client.Client.ApiResponse<string> localVarResponse = await GetStratisIdWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Stratis Id Returns a new Stratis Id to sign and authenticate. See the [specification](https://github.com/Opdex/SSAS) for further detail. 
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<string>> GetStratisIdWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/problem+json"
+            };
+
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/auth", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetStratisId", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

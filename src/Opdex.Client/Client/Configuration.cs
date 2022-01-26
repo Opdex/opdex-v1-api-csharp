@@ -31,7 +31,7 @@ namespace Opdex.Client.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.0.0-alpha1";
+        public const string Version = "1.0.0-alpha4";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -106,8 +106,8 @@ namespace Opdex.Client.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "OpenAPI-Generator/1.0.0-alpha1/csharp";
-            BasePath = "https://test-api.opdex.com/v1";
+            UserAgent = "OpenAPI-Generator/1.0.0-alpha4/csharp";
+            BasePath = "https://v1-test-api.opdex.com/v1";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -115,7 +115,7 @@ namespace Opdex.Client.Client
             {
                 {
                     new Dictionary<string, object> {
-                        {"url", "https://test-api.opdex.com/v1"},
+                        {"url", "https://v1-test-api.opdex.com/v1"},
                         {"description", "No description provided"},
                     }
                 }
@@ -133,7 +133,7 @@ namespace Opdex.Client.Client
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "https://test-api.opdex.com/v1") : this()
+            string basePath = "https://v1-test-api.opdex.com/v1") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");
@@ -451,7 +451,7 @@ namespace Opdex.Client.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.0.0\n";
-            report += "    SDK Package Version: 1.0.0-alpha1\n";
+            report += "    SDK Package Version: 1.0.0-alpha4\n";
 
             return report;
         }

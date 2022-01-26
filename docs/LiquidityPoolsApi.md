@@ -1,6 +1,6 @@
 # Opdex.Client.Api.LiquidityPoolsApi
 
-All URIs are relative to *https://test-api.opdex.com/v1*
+All URIs are relative to *https://v1-test-api.opdex.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -42,7 +42,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -127,7 +127,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -212,7 +212,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -294,7 +294,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -379,7 +379,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -464,7 +464,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -549,7 +549,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -634,7 +634,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -717,7 +717,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -798,7 +798,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -877,7 +877,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -946,7 +946,7 @@ No authorization required
 
 <a name="getliquiditypools"></a>
 # **GetLiquidityPools**
-> LiquidityPoolsResponse GetLiquidityPools (string keyword = null, List<string> markets = null, List<string> liquidityPools = null, List<string> tokens = null, StakingStatus? stakingStatus = null, NominationStatus? nominationStatus = null, MiningStatus? miningStatus = null, LiquidityPoolOrderByType? orderBy = null, SortDirection? direction = null, int? limit = null, string cursor = null)
+> LiquidityPoolsResponse GetLiquidityPools (string keyword = null, List<string> markets = null, List<string> liquidityPools = null, List<string> tokens = null, StakingStatusFilter? stakingStatus = null, NominationStatusFilter? nominationStatus = null, MiningStatusFilter? miningStatus = null, LiquidityPoolOrderByType? orderBy = null, SortDirection? direction = null, int? limit = null, string cursor = null)
 
 Get Liquidity Pools
 
@@ -968,7 +968,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -977,9 +977,9 @@ namespace Example
             var markets = new List<string>(); // List<string> | Addresses of markets to search within (optional) 
             var liquidityPools = new List<string>(); // List<string> | Addresses of liquidity pools to fetch (optional) 
             var tokens = new List<string>(); // List<string> | Addresses of SRC tokens paired in pools (optional) 
-            var stakingStatus = Enabled;  // StakingStatus? | Staking status filter; default is not to filter (optional) 
-            var nominationStatus = Nominated;  // NominationStatus? | Nomination status filter; default is not to filter (optional) 
-            var miningStatus = Enabled;  // MiningStatus? | Mining status filter; default is not to filter (optional) 
+            var stakingStatus = Enabled;  // StakingStatusFilter? | Staking status filter; default is not to filter (optional) 
+            var nominationStatus = Nominated;  // NominationStatusFilter? | Nomination status filter; default is not to filter (optional) 
+            var miningStatus = Enabled;  // MiningStatusFilter? | Mining status filter; default is not to filter (optional) 
             var orderBy = Volume;  // LiquidityPoolOrderByType? | Property by which to sort results (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
             var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
@@ -1010,9 +1010,9 @@ Name | Type | Description  | Notes
  **markets** | [**List&lt;string&gt;**](string.md)| Addresses of markets to search within | [optional] 
  **liquidityPools** | [**List&lt;string&gt;**](string.md)| Addresses of liquidity pools to fetch | [optional] 
  **tokens** | [**List&lt;string&gt;**](string.md)| Addresses of SRC tokens paired in pools | [optional] 
- **stakingStatus** | **StakingStatus?**| Staking status filter; default is not to filter | [optional] 
- **nominationStatus** | **NominationStatus?**| Nomination status filter; default is not to filter | [optional] 
- **miningStatus** | **MiningStatus?**| Mining status filter; default is not to filter | [optional] 
+ **stakingStatus** | **StakingStatusFilter?**| Staking status filter; default is not to filter | [optional] 
+ **nominationStatus** | **NominationStatusFilter?**| Nomination status filter; default is not to filter | [optional] 
+ **miningStatus** | **MiningStatusFilter?**| Mining status filter; default is not to filter | [optional] 
  **orderBy** | **LiquidityPoolOrderByType?**| Property by which to sort results | [optional] 
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
  **limit** | **int?**| Number of results per page | [optional] [default to 10]

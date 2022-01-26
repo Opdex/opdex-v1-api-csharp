@@ -31,19 +31,25 @@ namespace Opdex.Client.Model
     /// </summary>
     /// <value>Mining status filter</value>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum MiningStatus
+    public enum MiningStatusFilter
     {
+        /// <summary>
+        /// Enum Any for value: Any
+        /// </summary>
+        [EnumMember(Value = "Any")]
+        Any = 1,
+
         /// <summary>
         /// Enum Enabled for value: Enabled
         /// </summary>
         [EnumMember(Value = "Enabled")]
-        Enabled = 1,
+        Enabled = 2,
 
         /// <summary>
         /// Enum Disabled for value: Disabled
         /// </summary>
         [EnumMember(Value = "Disabled")]
-        Disabled = 2
+        Disabled = 3
 
     }
 

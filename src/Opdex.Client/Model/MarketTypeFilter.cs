@@ -27,23 +27,29 @@ using OpenAPIDateConverter = Opdex.Client.Client.OpenAPIDateConverter;
 namespace Opdex.Client.Model
 {
     /// <summary>
-    /// Token type filter
+    /// Market type filter
     /// </summary>
-    /// <value>Token type filter</value>
+    /// <value>Market type filter</value>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum TokenType
+    public enum MarketTypeFilter
     {
         /// <summary>
-        /// Enum Provisional for value: Provisional
+        /// Enum Any for value: Any
         /// </summary>
-        [EnumMember(Value = "Provisional")]
-        Provisional = 1,
+        [EnumMember(Value = "Any")]
+        Any = 1,
 
         /// <summary>
-        /// Enum NonProvisional for value: NonProvisional
+        /// Enum Staking for value: Staking
         /// </summary>
-        [EnumMember(Value = "NonProvisional")]
-        NonProvisional = 2
+        [EnumMember(Value = "Staking")]
+        Staking = 2,
+
+        /// <summary>
+        /// Enum Standard for value: Standard
+        /// </summary>
+        [EnumMember(Value = "Standard")]
+        Standard = 3
 
     }
 

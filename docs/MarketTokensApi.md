@@ -1,6 +1,6 @@
 # Opdex.Client.Api.MarketTokensApi
 
-All URIs are relative to *https://test-api.opdex.com/v1*
+All URIs are relative to *https://v1-test-api.opdex.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -36,7 +36,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -117,7 +117,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -188,7 +188,7 @@ No authorization required
 
 <a name="getmarkettokens"></a>
 # **GetMarketTokens**
-> MarketTokensResponse GetMarketTokens (string market, TokenType? tokenType = null, List<string> tokens = null, string keyword = null, TokenOrderByType? orderBy = null, SortDirection? direction = null, int? limit = null, string cursor = null)
+> MarketTokensResponse GetMarketTokens (string market, List<TokenAttributeFilter> tokenAttributes = null, List<string> tokens = null, string keyword = null, TokenOrderByType? orderBy = null, SortDirection? direction = null, int? limit = null, string cursor = null)
 
 Get Market Tokens
 
@@ -210,13 +210,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MarketTokensApi(httpClient, config, httpClientHandler);
             var market = t7RorA7xQCMVYKPM1ibPE1NSswaLbpqLQb;  // string | Address of the market
-            var tokenType = Provisional;  // TokenType? | Token type filter (optional) 
+            var tokenAttributes = new List<TokenAttributeFilter>(); // List<TokenAttributeFilter> | Token attributes filter (optional) 
             var tokens = new List<string>(); // List<string> | Specific tokens to include (optional) 
             var keyword = keyword_example;  // string | Keyword search against token address, name and ticker symbol (optional) 
             var orderBy = PriceUsd;  // TokenOrderByType? | Property by which to sort results (optional) 
@@ -227,7 +227,7 @@ namespace Example
             try
             {
                 // Get Market Tokens
-                MarketTokensResponse result = apiInstance.GetMarketTokens(market, tokenType, tokens, keyword, orderBy, direction, limit, cursor);
+                MarketTokensResponse result = apiInstance.GetMarketTokens(market, tokenAttributes, tokens, keyword, orderBy, direction, limit, cursor);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -246,7 +246,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **market** | **string**| Address of the market | 
- **tokenType** | **TokenType?**| Token type filter | [optional] 
+ **tokenAttributes** | [**List&lt;TokenAttributeFilter&gt;**](TokenAttributeFilter.md)| Token attributes filter | [optional] 
  **tokens** | [**List&lt;string&gt;**](string.md)| Specific tokens to include | [optional] 
  **keyword** | **string**| Keyword search against token address, name and ticker symbol | [optional] 
  **orderBy** | **TokenOrderByType?**| Property by which to sort results | [optional] 
@@ -303,7 +303,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -386,7 +386,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -469,7 +469,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://test-api.opdex.com/v1";
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
             // Configure Bearer token for authorization: opdexAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
