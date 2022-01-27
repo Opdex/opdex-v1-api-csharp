@@ -1,5 +1,4 @@
 Opdex.Client.sln
-README.md
 appveyor.yml
 docs/AddLiquidityEvent.md
 docs/AddTokenRequest.md
