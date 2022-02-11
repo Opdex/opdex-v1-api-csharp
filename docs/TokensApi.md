@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built approve allowance transaction quote |  -  |
+| **200** | Built approve allowance transaction quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Token not found |  -  |
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built distribute tokens transaction quote |  -  |
+| **200** | Built distribute tokens transaction quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Token not found |  -  |
@@ -334,7 +334,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Token details found |  -  |
+| **200** | Token details found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Token not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -425,7 +425,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Token snapshot results found |  -  |
+| **200** | Token snapshot results found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Token not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -435,7 +435,7 @@ No authorization required
 
 <a name="gettokens"></a>
 # **GetTokens**
-> TokensResponse GetTokens (List<TokenAttributeFilter> tokenAttributes = null, List<string> tokens = null, string keyword = null, TokenOrderByType? orderBy = null, SortDirection? direction = null, int? limit = null, string cursor = null)
+> TokensResponse GetTokens (List<TokenAttributeFilter> tokenAttributes = null, List<ChainFilter> nativeChains = null, List<string> tokens = null, string keyword = null, TokenOrderByType? orderBy = null, SortDirection? direction = null, int? limit = null, string cursor = null)
 
 Get Tokens
 
@@ -463,6 +463,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new TokensApi(httpClient, config, httpClientHandler);
             var tokenAttributes = new List<TokenAttributeFilter>(); // List<TokenAttributeFilter> | Token attributes filter (optional) 
+            var nativeChains = new List<ChainFilter>(); // List<ChainFilter> | Native chain filter (optional) 
             var tokens = new List<string>(); // List<string> | Specific tokens to include (optional) 
             var keyword = keyword_example;  // string | Keyword search against token address, name and ticker symbol (optional) 
             var orderBy = ;  // TokenOrderByType? | Property by which to sort results (optional) 
@@ -473,7 +474,7 @@ namespace Example
             try
             {
                 // Get Tokens
-                TokensResponse result = apiInstance.GetTokens(tokenAttributes, tokens, keyword, orderBy, direction, limit, cursor);
+                TokensResponse result = apiInstance.GetTokens(tokenAttributes, nativeChains, tokens, keyword, orderBy, direction, limit, cursor);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -492,6 +493,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tokenAttributes** | [**List&lt;TokenAttributeFilter&gt;**](TokenAttributeFilter.md)| Token attributes filter | [optional] 
+ **nativeChains** | [**List&lt;ChainFilter&gt;**](ChainFilter.md)| Native chain filter | [optional] 
  **tokens** | [**List&lt;string&gt;**](string.md)| Specific tokens to include | [optional] 
  **keyword** | **string**| Keyword search against token address, name and ticker symbol | [optional] 
  **orderBy** | **TokenOrderByType?**| Property by which to sort results | [optional] 
@@ -516,7 +518,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Token results found |  -  |
+| **200** | Token results found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |

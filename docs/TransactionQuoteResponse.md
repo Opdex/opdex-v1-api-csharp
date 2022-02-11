@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Error** | **string** | Smart contract call error details | [optional] 
 **GasUsed** | **int** | Total amount of gas consumed in the quoted smart contract call | [optional] 
 **Events** | [**List&lt;TransactionEvent&gt;**](TransactionEvent.md) |  | [optional] 
-**Request** | **string** | Encoded transaction request, which can be used to replay or broadcast the transaction | [optional] 
+**Request** | [**QuotedTransaction**](QuotedTransaction.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

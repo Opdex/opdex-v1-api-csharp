@@ -42,7 +42,9 @@ namespace Opdex.Client.Model
         /// <param name="rewardPerLpt">Decimal value with uncapped precision and size.</param>
         /// <param name="tokensMining">Decimal value with uncapped precision and size.</param>
         /// <param name="isActive">True if liquidity mining is active, otherwise false.</param>
-        public MiningPoolResponse(string address = default(string), string liquidityPool = default(string), int miningPeriodEndBlock = default(int), string rewardPerBlock = default(string), string rewardPerLpt = default(string), string tokensMining = default(string), bool isActive = default(bool))
+        /// <param name="createdBlock">Block number at which the entity was created.</param>
+        /// <param name="modifiedBlock">Block number at which the entity state was last modified.</param>
+        public MiningPoolResponse(string address = default(string), string liquidityPool = default(string), int miningPeriodEndBlock = default(int), string rewardPerBlock = default(string), string rewardPerLpt = default(string), string tokensMining = default(string), bool isActive = default(bool), int createdBlock = default(int), int modifiedBlock = default(int))
         {
             this.Address = address;
             this.LiquidityPool = liquidityPool;
@@ -51,6 +53,8 @@ namespace Opdex.Client.Model
             this.RewardPerLpt = rewardPerLpt;
             this.TokensMining = tokensMining;
             this.IsActive = isActive;
+            this.CreatedBlock = createdBlock;
+            this.ModifiedBlock = modifiedBlock;
         }
 
         /// <summary>
@@ -103,6 +107,20 @@ namespace Opdex.Client.Model
         public bool IsActive { get; set; }
 
         /// <summary>
+        /// Block number at which the entity was created
+        /// </summary>
+        /// <value>Block number at which the entity was created</value>
+        [DataMember(Name = "createdBlock", EmitDefaultValue = false)]
+        public int CreatedBlock { get; set; }
+
+        /// <summary>
+        /// Block number at which the entity state was last modified
+        /// </summary>
+        /// <value>Block number at which the entity state was last modified</value>
+        [DataMember(Name = "modifiedBlock", EmitDefaultValue = false)]
+        public int ModifiedBlock { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -117,6 +135,8 @@ namespace Opdex.Client.Model
             sb.Append("  RewardPerLpt: ").Append(RewardPerLpt).Append("\n");
             sb.Append("  TokensMining: ").Append(TokensMining).Append("\n");
             sb.Append("  IsActive: ").Append(IsActive).Append("\n");
+            sb.Append("  CreatedBlock: ").Append(CreatedBlock).Append("\n");
+            sb.Append("  ModifiedBlock: ").Append(ModifiedBlock).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -184,6 +204,14 @@ namespace Opdex.Client.Model
                 (
                     this.IsActive == input.IsActive ||
                     this.IsActive.Equals(input.IsActive)
+                ) && 
+                (
+                    this.CreatedBlock == input.CreatedBlock ||
+                    this.CreatedBlock.Equals(input.CreatedBlock)
+                ) && 
+                (
+                    this.ModifiedBlock == input.ModifiedBlock ||
+                    this.ModifiedBlock.Equals(input.ModifiedBlock)
                 );
         }
 
@@ -218,6 +246,8 @@ namespace Opdex.Client.Model
                     hashCode = (hashCode * 59) + this.TokensMining.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.IsActive.GetHashCode();
+                hashCode = (hashCode * 59) + this.CreatedBlock.GetHashCode();
+                hashCode = (hashCode * 59) + this.ModifiedBlock.GetHashCode();
                 return hashCode;
             }
         }
@@ -292,6 +322,18 @@ namespace Opdex.Client.Model
             if (false == regexTokensMining.Match(this.TokensMining).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TokensMining, must match a pattern of " + regexTokensMining, new [] { "TokensMining" });
+            }
+
+            // CreatedBlock (int) minimum
+            if (this.CreatedBlock < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CreatedBlock, must be a value greater than or equal to 1.", new [] { "CreatedBlock" });
+            }
+
+            // ModifiedBlock (int) minimum
+            if (this.ModifiedBlock < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ModifiedBlock, must be a value greater than or equal to 1.", new [] { "ModifiedBlock" });
             }
 
             yield break;

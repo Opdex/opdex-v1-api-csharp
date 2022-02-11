@@ -50,7 +50,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
-            var pool = tMdZ2UfwJorAyErDvqNdVU8kmiLaykuE5L;  // string | Address of a liquidity pool
+            var pool = tVFhXcS3gVb49MSTsaDFoqkxLrAUiNEN7n;  // string | Address of a liquidity pool
             var quoteAddLiquidityRequest = new QuoteAddLiquidityRequest(); // QuoteAddLiquidityRequest | 
 
             try
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built add liquidity quote |  -  |
+| **200** | Built add liquidity quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Liquidity pool not found |  -  |
@@ -135,7 +135,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
-            var pool = tMdZ2UfwJorAyErDvqNdVU8kmiLaykuE5L;  // string | Address of a liquidity pool
+            var pool = tVFhXcS3gVb49MSTsaDFoqkxLrAUiNEN7n;  // string | Address of a liquidity pool
             var quoteCollectStakingRewardsRequest = new QuoteCollectStakingRewardsRequest(); // QuoteCollectStakingRewardsRequest | 
 
             try
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built collect staking rewards quote |  -  |
+| **200** | Built collect staking rewards quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Liquidity pool not found |  -  |
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built create liquidity pool quote |  -  |
+| **200** | Built create liquidity pool quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -302,7 +302,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
-            var pool = tMdZ2UfwJorAyErDvqNdVU8kmiLaykuE5L;  // string | Address of a liquidity pool
+            var pool = tVFhXcS3gVb49MSTsaDFoqkxLrAUiNEN7n;  // string | Address of a liquidity pool
             var quoteRemoveLiquidityRequest = new QuoteRemoveLiquidityRequest(); // QuoteRemoveLiquidityRequest | 
 
             try
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built remove liquidity quote |  -  |
+| **200** | Built remove liquidity quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Liquidity pool not found |  -  |
@@ -387,7 +387,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
-            var pool = tMdZ2UfwJorAyErDvqNdVU8kmiLaykuE5L;  // string | Address of a liquidity pool
+            var pool = tVFhXcS3gVb49MSTsaDFoqkxLrAUiNEN7n;  // string | Address of a liquidity pool
             var quoteSkimRequest = new QuoteSkimRequest(); // QuoteSkimRequest | 
 
             try
@@ -431,7 +431,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built skim quote |  -  |
+| **200** | Built skim quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Liquidity pool not found |  -  |
@@ -472,7 +472,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
-            var pool = tMdZ2UfwJorAyErDvqNdVU8kmiLaykuE5L;  // string | Address of a liquidity pool
+            var pool = tVFhXcS3gVb49MSTsaDFoqkxLrAUiNEN7n;  // string | Address of a liquidity pool
             var quoteStartStakingRequest = new QuoteStartStakingRequest(); // QuoteStartStakingRequest | 
 
             try
@@ -516,7 +516,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built start staking quote |  -  |
+| **200** | Built start staking quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Liquidity pool not found |  -  |
@@ -557,7 +557,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
-            var pool = tMdZ2UfwJorAyErDvqNdVU8kmiLaykuE5L;  // string | Address of a liquidity pool
+            var pool = tVFhXcS3gVb49MSTsaDFoqkxLrAUiNEN7n;  // string | Address of a liquidity pool
             var quoteStopStakingRequest = new QuoteStopStakingRequest(); // QuoteStopStakingRequest | 
 
             try
@@ -601,7 +601,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built stop staking quote |  -  |
+| **200** | Built stop staking quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Liquidity pool not found |  -  |
@@ -642,7 +642,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
-            var pool = tMdZ2UfwJorAyErDvqNdVU8kmiLaykuE5L;  // string | Address of a liquidity pool
+            var pool = tVFhXcS3gVb49MSTsaDFoqkxLrAUiNEN7n;  // string | Address of a liquidity pool
 
             try
             {
@@ -684,7 +684,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built sync quote |  -  |
+| **200** | Built sync quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Liquidity pool not found |  -  |
@@ -722,7 +722,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
-            var pool = tMdZ2UfwJorAyErDvqNdVU8kmiLaykuE5L;  // string | Address of a liquidity pool
+            var pool = tVFhXcS3gVb49MSTsaDFoqkxLrAUiNEN7n;  // string | Address of a liquidity pool
             var liquidityAmountInQuoteRequest = new LiquidityAmountInQuoteRequest(); // LiquidityAmountInQuoteRequest | 
 
             try
@@ -766,7 +766,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Add liquidity amount in quote retrieved |  -  |
+| **200** | Add liquidity amount in quote retrieved |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Liquidity pool not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -803,7 +803,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
-            var pool = tMdZ2UfwJorAyErDvqNdVU8kmiLaykuE5L;  // string | Address of a liquidity pool
+            var pool = tVFhXcS3gVb49MSTsaDFoqkxLrAUiNEN7n;  // string | Address of a liquidity pool
 
             try
             {
@@ -845,7 +845,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Liquidity pool found |  -  |
+| **200** | Liquidity pool found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Liquidity pool not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -882,7 +882,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
-            var pool = tMdZ2UfwJorAyErDvqNdVU8kmiLaykuE5L;  // string | Address of a liquidity pool
+            var pool = tVFhXcS3gVb49MSTsaDFoqkxLrAUiNEN7n;  // string | Address of a liquidity pool
             var startDateTime = 2022-01-01T00:00:00Z;  // DateTime | Start time for which to retrieve snapshots
             var endDateTime = 2022-12-31T23:59:59;  // DateTime | End time for which to retrieve snapshots
             var interval = 1D;  // Interval? | Time range between each snapshot (optional) 
@@ -936,7 +936,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Liquidity pool snapshots found |  -  |
+| **200** | Liquidity pool snapshots found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Liquidity pool not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -1035,7 +1035,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Liqudidity pool results found |  -  |
+| **200** | Liqudidity pool results found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |

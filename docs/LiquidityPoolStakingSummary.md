@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Token** | [**MarketTokenResponse**](MarketTokenResponse.md) |  | [optional] 
 **Weight** | **string** | Decimal value with uncapped precision and size | [optional] 
 **Usd** | **decimal** | USD value of tokens staking | [optional] 
 **DailyWeightChangePercent** | **decimal** | Percentage change of tokens staking from the previous day | [optional] 

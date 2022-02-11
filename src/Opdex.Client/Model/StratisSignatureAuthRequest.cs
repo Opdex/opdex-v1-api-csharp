@@ -42,7 +42,7 @@ namespace Opdex.Client.Model
         /// </summary>
         /// <param name="signature">Signed Stratis ID (required).</param>
         /// <param name="publicKey">An address on the Cirrus network (required).</param>
-        public StratisSignatureAuthRequest(byte[] signature = default(byte[]), string publicKey = default(string))
+        public StratisSignatureAuthRequest(string signature = default(string), string publicKey = default(string))
         {
             // to ensure "signature" is required (not null)
             if (signature == null) {
@@ -61,7 +61,7 @@ namespace Opdex.Client.Model
         /// </summary>
         /// <value>Signed Stratis ID</value>
         [DataMember(Name = "signature", IsRequired = true, EmitDefaultValue = false)]
-        public byte[] Signature { get; set; }
+        public string Signature { get; set; }
 
         /// <summary>
         /// An address on the Cirrus network

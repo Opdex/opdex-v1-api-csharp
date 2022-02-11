@@ -39,8 +39,8 @@ namespace Opdex.Client.Model
         /// <param name="error">Smart contract call error details.</param>
         /// <param name="gasUsed">Total amount of gas consumed in the quoted smart contract call.</param>
         /// <param name="events">events.</param>
-        /// <param name="request">Encoded transaction request, which can be used to replay or broadcast the transaction.</param>
-        public TransactionQuoteResponse(Object result = default(Object), string error = default(string), int gasUsed = default(int), List<TransactionEvent> events = default(List<TransactionEvent>), string request = default(string))
+        /// <param name="request">request.</param>
+        public TransactionQuoteResponse(Object result = default(Object), string error = default(string), int gasUsed = default(int), List<TransactionEvent> events = default(List<TransactionEvent>), QuotedTransaction request = default(QuotedTransaction))
         {
             this.Result = result;
             this.Error = error;
@@ -77,11 +77,10 @@ namespace Opdex.Client.Model
         public List<TransactionEvent> Events { get; set; }
 
         /// <summary>
-        /// Encoded transaction request, which can be used to replay or broadcast the transaction
+        /// Gets or Sets Request
         /// </summary>
-        /// <value>Encoded transaction request, which can be used to replay or broadcast the transaction</value>
         [DataMember(Name = "request", EmitDefaultValue = false)]
-        public string Request { get; set; }
+        public QuotedTransaction Request { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

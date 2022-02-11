@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built claim market ownership quote |  -  |
+| **200** | Built claim market ownership quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Market not found |  -  |
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built collect market fees quote |  -  |
+| **200** | Built collect market fees quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Market not found |  -  |
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built create staking market quote |  -  |
+| **200** | Built create staking market quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Market not found |  -  |
@@ -341,7 +341,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built create staking market quote |  -  |
+| **200** | Built create staking market quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Market not found |  -  |
@@ -426,7 +426,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built set market ownership quote |  -  |
+| **200** | Built set market ownership quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Market not found |  -  |
@@ -513,7 +513,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built set market permissions quote |  -  |
+| **200** | Built set market permissions quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Market not found |  -  |
@@ -593,7 +593,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Market details found |  -  |
+| **200** | Market details found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Market not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -682,7 +682,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Market details found |  -  |
+| **200** | Market details found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Market not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -763,7 +763,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Retrieved assigned market permissions |  -  |
+| **200** | Retrieved assigned market permissions |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Market not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -850,7 +850,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Market results found |  -  |
+| **200** | Market results found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |

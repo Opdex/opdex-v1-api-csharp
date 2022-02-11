@@ -229,6 +229,18 @@ namespace Opdex.Client.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="ReservesChangeEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of ReservesChangeEvent.</param>
+        public TransactionEvent(ReservesChangeEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
         /// with the <see cref="RevokeVaultCertificateEvent" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of RevokeVaultCertificateEvent.</param>
@@ -245,6 +257,18 @@ namespace Opdex.Client.Model
         /// </summary>
         /// <param name="actualInstance">An instance of RewardMiningPoolEvent.</param>
         public TransactionEvent(RewardMiningPoolEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="SetInterfluxCustodianEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of SetInterfluxCustodianEvent.</param>
+        public TransactionEvent(SetInterfluxCustodianEvent actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -317,6 +341,18 @@ namespace Opdex.Client.Model
         /// </summary>
         /// <param name="actualInstance">An instance of StopStakingEvent.</param>
         public TransactionEvent(StopStakingEvent actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionEvent" /> class
+        /// with the <see cref="SupplyChangeEvent" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of SupplyChangeEvent.</param>
+        public TransactionEvent(SupplyChangeEvent actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -473,11 +509,19 @@ namespace Opdex.Client.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(ReservesChangeEvent))
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(RevokeVaultCertificateEvent))
                 {
                     this._actualInstance = value;
                 }
                 else if (value.GetType() == typeof(RewardMiningPoolEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(SetInterfluxCustodianEvent))
                 {
                     this._actualInstance = value;
                 }
@@ -502,6 +546,10 @@ namespace Opdex.Client.Model
                     this._actualInstance = value;
                 }
                 else if (value.GetType() == typeof(StopStakingEvent))
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(SupplyChangeEvent))
                 {
                     this._actualInstance = value;
                 }
@@ -531,7 +579,7 @@ namespace Opdex.Client.Model
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: AddLiquidityEvent, ApprovalEvent, ChangeMarketPermissionEvent, ClaimPendingDeployerOwnershipEvent, ClaimPendingMarketOwnershipEvent, CollectMiningRewardsEvent, CollectStakingRewardsEvent, CompleteVaultProposalEvent, CreateLiquidityPoolEvent, CreateMarketEvent, CreateVaultCertificateEvent, CreateVaultProposalEvent, DistributionEvent, EnableMiningEvent, NominationEvent, RemoveLiquidityEvent, RevokeVaultCertificateEvent, RewardMiningPoolEvent, SetPendingDeployerOwnershipEvent, SetPendingMarketOwnershipEvent, StartMiningEvent, StartStakingEvent, StopMiningEvent, StopStakingEvent, SwapEvent, TransferEvent, VaultProposalPledgeEvent, VaultProposalVoteEvent, VaultProposalWithdrawPledgeEvent, VaultProposalWithdrawVoteEvent");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: AddLiquidityEvent, ApprovalEvent, ChangeMarketPermissionEvent, ClaimPendingDeployerOwnershipEvent, ClaimPendingMarketOwnershipEvent, CollectMiningRewardsEvent, CollectStakingRewardsEvent, CompleteVaultProposalEvent, CreateLiquidityPoolEvent, CreateMarketEvent, CreateVaultCertificateEvent, CreateVaultProposalEvent, DistributionEvent, EnableMiningEvent, NominationEvent, RemoveLiquidityEvent, ReservesChangeEvent, RevokeVaultCertificateEvent, RewardMiningPoolEvent, SetInterfluxCustodianEvent, SetPendingDeployerOwnershipEvent, SetPendingMarketOwnershipEvent, StartMiningEvent, StartStakingEvent, StopMiningEvent, StopStakingEvent, SupplyChangeEvent, SwapEvent, TransferEvent, VaultProposalPledgeEvent, VaultProposalVoteEvent, VaultProposalWithdrawPledgeEvent, VaultProposalWithdrawVoteEvent");
                 }
             }
         }
@@ -697,6 +745,16 @@ namespace Opdex.Client.Model
         }
 
         /// <summary>
+        /// Get the actual instance of `ReservesChangeEvent`. If the actual instance is not `ReservesChangeEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of ReservesChangeEvent</returns>
+        public ReservesChangeEvent GetReservesChangeEvent()
+        {
+            return (ReservesChangeEvent)this.ActualInstance;
+        }
+
+        /// <summary>
         /// Get the actual instance of `RevokeVaultCertificateEvent`. If the actual instance is not `RevokeVaultCertificateEvent`,
         /// the InvalidClassException will be thrown
         /// </summary>
@@ -714,6 +772,16 @@ namespace Opdex.Client.Model
         public RewardMiningPoolEvent GetRewardMiningPoolEvent()
         {
             return (RewardMiningPoolEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `SetInterfluxCustodianEvent`. If the actual instance is not `SetInterfluxCustodianEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of SetInterfluxCustodianEvent</returns>
+        public SetInterfluxCustodianEvent GetSetInterfluxCustodianEvent()
+        {
+            return (SetInterfluxCustodianEvent)this.ActualInstance;
         }
 
         /// <summary>
@@ -774,6 +842,16 @@ namespace Opdex.Client.Model
         public StopStakingEvent GetStopStakingEvent()
         {
             return (StopStakingEvent)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `SupplyChangeEvent`. If the actual instance is not `SupplyChangeEvent`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of SupplyChangeEvent</returns>
+        public SupplyChangeEvent GetSupplyChangeEvent()
+        {
+            return (SupplyChangeEvent)this.ActualInstance;
         }
 
         /// <summary>
@@ -1197,6 +1275,26 @@ namespace Opdex.Client.Model
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(ReservesChangeEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<ReservesChangeEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<ReservesChangeEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("ReservesChangeEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ReservesChangeEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(RevokeVaultCertificateEvent).GetProperty("AdditionalProperties") == null)
                 {
                     newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<RevokeVaultCertificateEvent>(jsonString, TransactionEvent.SerializerSettings));
@@ -1232,6 +1330,26 @@ namespace Opdex.Client.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into RewardMiningPoolEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(SetInterfluxCustodianEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<SetInterfluxCustodianEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<SetInterfluxCustodianEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("SetInterfluxCustodianEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into SetInterfluxCustodianEvent: {1}", jsonString, exception.ToString()));
             }
 
             try
@@ -1352,6 +1470,26 @@ namespace Opdex.Client.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into StopStakingEvent: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(SupplyChangeEvent).GetProperty("AdditionalProperties") == null)
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<SupplyChangeEvent>(jsonString, TransactionEvent.SerializerSettings));
+                }
+                else
+                {
+                    newTransactionEvent = new TransactionEvent(JsonConvert.DeserializeObject<SupplyChangeEvent>(jsonString, TransactionEvent.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("SupplyChangeEvent");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into SupplyChangeEvent: {1}", jsonString, exception.ToString()));
             }
 
             try

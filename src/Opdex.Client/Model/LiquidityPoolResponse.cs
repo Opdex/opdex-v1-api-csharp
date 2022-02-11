@@ -41,8 +41,10 @@ namespace Opdex.Client.Model
         /// <param name="market">An address on the Cirrus network.</param>
         /// <param name="miningPool">miningPool.</param>
         /// <param name="tokens">tokens.</param>
+        /// <param name="createdBlock">Block number at which the entity was created.</param>
+        /// <param name="modifiedBlock">Block number at which the entity state was last modified.</param>
         /// <param name="summary">summary.</param>
-        public LiquidityPoolResponse(string address = default(string), string name = default(string), decimal transactionFeePercent = default(decimal), string market = default(string), MiningPoolResponse miningPool = default(MiningPoolResponse), LiquidityPoolTokenBreakdown tokens = default(LiquidityPoolTokenBreakdown), LiquidityPoolSummary summary = default(LiquidityPoolSummary))
+        public LiquidityPoolResponse(string address = default(string), string name = default(string), decimal transactionFeePercent = default(decimal), string market = default(string), MiningPoolResponse miningPool = default(MiningPoolResponse), LiquidityPoolTokenBreakdown tokens = default(LiquidityPoolTokenBreakdown), int createdBlock = default(int), int modifiedBlock = default(int), LiquidityPoolSummary summary = default(LiquidityPoolSummary))
         {
             this.Address = address;
             this.Name = name;
@@ -50,6 +52,8 @@ namespace Opdex.Client.Model
             this.Market = market;
             this.MiningPool = miningPool;
             this.Tokens = tokens;
+            this.CreatedBlock = createdBlock;
+            this.ModifiedBlock = modifiedBlock;
             this.Summary = summary;
         }
 
@@ -94,6 +98,20 @@ namespace Opdex.Client.Model
         public LiquidityPoolTokenBreakdown Tokens { get; set; }
 
         /// <summary>
+        /// Block number at which the entity was created
+        /// </summary>
+        /// <value>Block number at which the entity was created</value>
+        [DataMember(Name = "createdBlock", EmitDefaultValue = false)]
+        public int CreatedBlock { get; set; }
+
+        /// <summary>
+        /// Block number at which the entity state was last modified
+        /// </summary>
+        /// <value>Block number at which the entity state was last modified</value>
+        [DataMember(Name = "modifiedBlock", EmitDefaultValue = false)]
+        public int ModifiedBlock { get; set; }
+
+        /// <summary>
         /// Gets or Sets Summary
         /// </summary>
         [DataMember(Name = "summary", EmitDefaultValue = false)]
@@ -113,6 +131,8 @@ namespace Opdex.Client.Model
             sb.Append("  Market: ").Append(Market).Append("\n");
             sb.Append("  MiningPool: ").Append(MiningPool).Append("\n");
             sb.Append("  Tokens: ").Append(Tokens).Append("\n");
+            sb.Append("  CreatedBlock: ").Append(CreatedBlock).Append("\n");
+            sb.Append("  ModifiedBlock: ").Append(ModifiedBlock).Append("\n");
             sb.Append("  Summary: ").Append(Summary).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -179,6 +199,14 @@ namespace Opdex.Client.Model
                     this.Tokens.Equals(input.Tokens))
                 ) && 
                 (
+                    this.CreatedBlock == input.CreatedBlock ||
+                    this.CreatedBlock.Equals(input.CreatedBlock)
+                ) && 
+                (
+                    this.ModifiedBlock == input.ModifiedBlock ||
+                    this.ModifiedBlock.Equals(input.ModifiedBlock)
+                ) && 
+                (
                     this.Summary == input.Summary ||
                     (this.Summary != null &&
                     this.Summary.Equals(input.Summary))
@@ -215,6 +243,8 @@ namespace Opdex.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.Tokens.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.CreatedBlock.GetHashCode();
+                hashCode = (hashCode * 59) + this.ModifiedBlock.GetHashCode();
                 if (this.Summary != null)
                 {
                     hashCode = (hashCode * 59) + this.Summary.GetHashCode();
@@ -278,6 +308,18 @@ namespace Opdex.Client.Model
             if (false == regexMarket.Match(this.Market).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Market, must match a pattern of " + regexMarket, new [] { "Market" });
+            }
+
+            // CreatedBlock (int) minimum
+            if (this.CreatedBlock < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CreatedBlock, must be a value greater than or equal to 1.", new [] { "CreatedBlock" });
+            }
+
+            // ModifiedBlock (int) minimum
+            if (this.ModifiedBlock < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ModifiedBlock, must be a value greater than or equal to 1.", new [] { "ModifiedBlock" });
             }
 
             yield break;

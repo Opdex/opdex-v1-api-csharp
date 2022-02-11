@@ -35,25 +35,17 @@ namespace Opdex.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LiquidityPoolStakingSummary" /> class.
         /// </summary>
-        /// <param name="token">token.</param>
         /// <param name="weight">Decimal value with uncapped precision and size.</param>
         /// <param name="usd">USD value of tokens staking.</param>
         /// <param name="dailyWeightChangePercent">Percentage change of tokens staking from the previous day.</param>
         /// <param name="nominated">True if the pool is nominated for mining, otherwise false.</param>
-        public LiquidityPoolStakingSummary(MarketTokenResponse token = default(MarketTokenResponse), string weight = default(string), decimal usd = default(decimal), decimal dailyWeightChangePercent = default(decimal), bool nominated = default(bool))
+        public LiquidityPoolStakingSummary(string weight = default(string), decimal usd = default(decimal), decimal dailyWeightChangePercent = default(decimal), bool nominated = default(bool))
         {
-            this.Token = token;
             this.Weight = weight;
             this.Usd = usd;
             this.DailyWeightChangePercent = dailyWeightChangePercent;
             this.Nominated = nominated;
         }
-
-        /// <summary>
-        /// Gets or Sets Token
-        /// </summary>
-        [DataMember(Name = "token", EmitDefaultValue = false)]
-        public MarketTokenResponse Token { get; set; }
 
         /// <summary>
         /// Decimal value with uncapped precision and size
@@ -91,7 +83,6 @@ namespace Opdex.Client.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class LiquidityPoolStakingSummary {\n");
-            sb.Append("  Token: ").Append(Token).Append("\n");
             sb.Append("  Weight: ").Append(Weight).Append("\n");
             sb.Append("  Usd: ").Append(Usd).Append("\n");
             sb.Append("  DailyWeightChangePercent: ").Append(DailyWeightChangePercent).Append("\n");
@@ -132,11 +123,6 @@ namespace Opdex.Client.Model
             }
             return 
                 (
-                    this.Token == input.Token ||
-                    (this.Token != null &&
-                    this.Token.Equals(input.Token))
-                ) && 
-                (
                     this.Weight == input.Weight ||
                     (this.Weight != null &&
                     this.Weight.Equals(input.Weight))
@@ -164,10 +150,6 @@ namespace Opdex.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Token != null)
-                {
-                    hashCode = (hashCode * 59) + this.Token.GetHashCode();
-                }
                 if (this.Weight != null)
                 {
                     hashCode = (hashCode * 59) + this.Weight.GetHashCode();

@@ -4,10 +4,10 @@ All URIs are relative to *https://v1-test-api.opdex.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetTransaction**](TransactionsApi.md#gettransaction) | **GET** /transaction/{hash} | Get Transaction
+[**GetTransaction**](TransactionsApi.md#gettransaction) | **GET** /transactions/{hash} | Get Transaction
 [**GetTransactions**](TransactionsApi.md#gettransactions) | **GET** /transactions | Get Transactions
 [**NotifyTransactionBroadcast**](TransactionsApi.md#notifytransactionbroadcast) | **POST** /transactions | Notify Broadcast
-[**ReplayQuote**](TransactionsApi.md#replayquote) | **POST** /transaction/replay-quote | Replay Transaction Quote
+[**ReplayQuote**](TransactionsApi.md#replayquote) | **POST** /transactions/replay-quote | Replay Transaction Quote
 
 
 <a name="gettransaction"></a>
@@ -81,7 +81,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Transaction found |  -  |
+| **200** | Transaction found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Transaction not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -170,7 +170,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Transaction results found |  -  |
+| **200** | Transaction results found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
@@ -257,7 +257,7 @@ No authorization required
 
 <a name="replayquote"></a>
 # **ReplayQuote**
-> TransactionQuoteResponse ReplayQuote (ReplayQuoteRequest replayQuoteRequest)
+> TransactionQuoteResponse ReplayQuote (QuotedTransaction quotedTransaction)
 
 Replay Transaction Quote
 
@@ -287,12 +287,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new TransactionsApi(httpClient, config, httpClientHandler);
-            var replayQuoteRequest = new ReplayQuoteRequest(); // ReplayQuoteRequest | 
+            var quotedTransaction = new QuotedTransaction(); // QuotedTransaction | Contents of the `request` property from a previously quoted transaction.
 
             try
             {
                 // Replay Transaction Quote
-                TransactionQuoteResponse result = apiInstance.ReplayQuote(replayQuoteRequest);
+                TransactionQuoteResponse result = apiInstance.ReplayQuote(quotedTransaction);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -310,7 +310,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **replayQuoteRequest** | [**ReplayQuoteRequest**](ReplayQuoteRequest.md)|  | 
+ **quotedTransaction** | [**QuotedTransaction**](QuotedTransaction.md)| Contents of the &#x60;request&#x60; property from a previously quoted transaction. | 
 
 ### Return type
 
@@ -329,9 +329,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Transaction quote replayed |  -  |
+| **200** | Transaction quote replayed |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
 

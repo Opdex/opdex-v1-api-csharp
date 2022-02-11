@@ -79,7 +79,7 @@ namespace Opdex.Client.Api
         /// Build Propose Change Minimum Pledge Transaction Quote
         /// </summary>
         /// <remarks>
-        /// Builds a quote for a transaction to create a proposal for changing the minimum pledge amount. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Builds a quote for a transaction to create a proposal for changing the minimum pledge amount. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -91,7 +91,7 @@ namespace Opdex.Client.Api
         /// Build Propose Change Minimum Pledge Transaction Quote
         /// </summary>
         /// <remarks>
-        /// Builds a quote for a transaction to create a proposal for changing the minimum pledge amount. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Builds a quote for a transaction to create a proposal for changing the minimum pledge amount. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -102,7 +102,7 @@ namespace Opdex.Client.Api
         /// Build Propose Change Minimum Vote Transaction Quote
         /// </summary>
         /// <remarks>
-        /// Builds a quote for a transaction to create a proposal for changing the minimum vote threshold. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Builds a quote for a transaction to create a proposal for changing the minimum vote threshold. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -114,7 +114,7 @@ namespace Opdex.Client.Api
         /// Build Propose Change Minimum Vote Transaction Quote
         /// </summary>
         /// <remarks>
-        /// Builds a quote for a transaction to create a proposal for changing the minimum vote threshold. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Builds a quote for a transaction to create a proposal for changing the minimum vote threshold. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -125,7 +125,7 @@ namespace Opdex.Client.Api
         /// Build Propose Create Certificate Transaction Quote
         /// </summary>
         /// <remarks>
-        /// Builds a quote for a transaction to create a proposal for creating a vault certificate. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Builds a quote for a transaction to create a proposal for creating a vault certificate. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -137,7 +137,7 @@ namespace Opdex.Client.Api
         /// Build Propose Create Certificate Transaction Quote
         /// </summary>
         /// <remarks>
-        /// Builds a quote for a transaction to create a proposal for creating a vault certificate. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Builds a quote for a transaction to create a proposal for creating a vault certificate. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -148,7 +148,7 @@ namespace Opdex.Client.Api
         /// Build Propose Revoke Certificate Transaction Quote
         /// </summary>
         /// <remarks>
-        /// Builds a quote for a transaction to create a proposal for revoking a vault certificate. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Builds a quote for a transaction to create a proposal for revoking a vault certificate. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -160,7 +160,7 @@ namespace Opdex.Client.Api
         /// Build Propose Revoke Certificate Transaction Quote
         /// </summary>
         /// <remarks>
-        /// Builds a quote for a transaction to create a proposal for revoking a vault certificate. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Builds a quote for a transaction to create a proposal for revoking a vault certificate. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -577,7 +577,7 @@ namespace Opdex.Client.Api
         /// Build Propose Change Minimum Pledge Transaction Quote
         /// </summary>
         /// <remarks>
-        /// Builds a quote for a transaction to create a proposal for changing the minimum pledge amount. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Builds a quote for a transaction to create a proposal for changing the minimum pledge amount. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -590,7 +590,7 @@ namespace Opdex.Client.Api
         /// Build Propose Change Minimum Pledge Transaction Quote
         /// </summary>
         /// <remarks>
-        /// Builds a quote for a transaction to create a proposal for changing the minimum pledge amount. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Builds a quote for a transaction to create a proposal for changing the minimum pledge amount. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -602,7 +602,7 @@ namespace Opdex.Client.Api
         /// Build Propose Change Minimum Vote Transaction Quote
         /// </summary>
         /// <remarks>
-        /// Builds a quote for a transaction to create a proposal for changing the minimum vote threshold. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Builds a quote for a transaction to create a proposal for changing the minimum vote threshold. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -615,7 +615,7 @@ namespace Opdex.Client.Api
         /// Build Propose Change Minimum Vote Transaction Quote
         /// </summary>
         /// <remarks>
-        /// Builds a quote for a transaction to create a proposal for changing the minimum vote threshold. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Builds a quote for a transaction to create a proposal for changing the minimum vote threshold. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -627,7 +627,7 @@ namespace Opdex.Client.Api
         /// Build Propose Create Certificate Transaction Quote
         /// </summary>
         /// <remarks>
-        /// Builds a quote for a transaction to create a proposal for creating a vault certificate. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Builds a quote for a transaction to create a proposal for creating a vault certificate. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -640,7 +640,7 @@ namespace Opdex.Client.Api
         /// Build Propose Create Certificate Transaction Quote
         /// </summary>
         /// <remarks>
-        /// Builds a quote for a transaction to create a proposal for creating a vault certificate. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Builds a quote for a transaction to create a proposal for creating a vault certificate. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -652,7 +652,7 @@ namespace Opdex.Client.Api
         /// Build Propose Revoke Certificate Transaction Quote
         /// </summary>
         /// <remarks>
-        /// Builds a quote for a transaction to create a proposal for revoking a vault certificate. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Builds a quote for a transaction to create a proposal for revoking a vault certificate. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -665,7 +665,7 @@ namespace Opdex.Client.Api
         /// Build Propose Revoke Certificate Transaction Quote
         /// </summary>
         /// <remarks>
-        /// Builds a quote for a transaction to create a proposal for revoking a vault certificate. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Builds a quote for a transaction to create a proposal for revoking a vault certificate. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -1544,7 +1544,7 @@ namespace Opdex.Client.Api
         }
 
         /// <summary>
-        /// Build Propose Change Minimum Pledge Transaction Quote Builds a quote for a transaction to create a proposal for changing the minimum pledge amount. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Build Propose Change Minimum Pledge Transaction Quote Builds a quote for a transaction to create a proposal for changing the minimum pledge amount. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -1557,7 +1557,7 @@ namespace Opdex.Client.Api
         }
 
         /// <summary>
-        /// Build Propose Change Minimum Pledge Transaction Quote Builds a quote for a transaction to create a proposal for changing the minimum pledge amount. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Build Propose Change Minimum Pledge Transaction Quote Builds a quote for a transaction to create a proposal for changing the minimum pledge amount. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -1614,7 +1614,7 @@ namespace Opdex.Client.Api
         }
 
         /// <summary>
-        /// Build Propose Change Minimum Pledge Transaction Quote Builds a quote for a transaction to create a proposal for changing the minimum pledge amount. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Build Propose Change Minimum Pledge Transaction Quote Builds a quote for a transaction to create a proposal for changing the minimum pledge amount. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -1628,7 +1628,7 @@ namespace Opdex.Client.Api
         }
 
         /// <summary>
-        /// Build Propose Change Minimum Pledge Transaction Quote Builds a quote for a transaction to create a proposal for changing the minimum pledge amount. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Build Propose Change Minimum Pledge Transaction Quote Builds a quote for a transaction to create a proposal for changing the minimum pledge amount. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -1689,7 +1689,7 @@ namespace Opdex.Client.Api
         }
 
         /// <summary>
-        /// Build Propose Change Minimum Vote Transaction Quote Builds a quote for a transaction to create a proposal for changing the minimum vote threshold. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Build Propose Change Minimum Vote Transaction Quote Builds a quote for a transaction to create a proposal for changing the minimum vote threshold. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -1702,7 +1702,7 @@ namespace Opdex.Client.Api
         }
 
         /// <summary>
-        /// Build Propose Change Minimum Vote Transaction Quote Builds a quote for a transaction to create a proposal for changing the minimum vote threshold. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Build Propose Change Minimum Vote Transaction Quote Builds a quote for a transaction to create a proposal for changing the minimum vote threshold. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -1759,7 +1759,7 @@ namespace Opdex.Client.Api
         }
 
         /// <summary>
-        /// Build Propose Change Minimum Vote Transaction Quote Builds a quote for a transaction to create a proposal for changing the minimum vote threshold. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Build Propose Change Minimum Vote Transaction Quote Builds a quote for a transaction to create a proposal for changing the minimum vote threshold. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -1773,7 +1773,7 @@ namespace Opdex.Client.Api
         }
 
         /// <summary>
-        /// Build Propose Change Minimum Vote Transaction Quote Builds a quote for a transaction to create a proposal for changing the minimum vote threshold. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Build Propose Change Minimum Vote Transaction Quote Builds a quote for a transaction to create a proposal for changing the minimum vote threshold. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -1834,7 +1834,7 @@ namespace Opdex.Client.Api
         }
 
         /// <summary>
-        /// Build Propose Create Certificate Transaction Quote Builds a quote for a transaction to create a proposal for creating a vault certificate. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Build Propose Create Certificate Transaction Quote Builds a quote for a transaction to create a proposal for creating a vault certificate. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -1847,7 +1847,7 @@ namespace Opdex.Client.Api
         }
 
         /// <summary>
-        /// Build Propose Create Certificate Transaction Quote Builds a quote for a transaction to create a proposal for creating a vault certificate. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Build Propose Create Certificate Transaction Quote Builds a quote for a transaction to create a proposal for creating a vault certificate. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -1904,7 +1904,7 @@ namespace Opdex.Client.Api
         }
 
         /// <summary>
-        /// Build Propose Create Certificate Transaction Quote Builds a quote for a transaction to create a proposal for creating a vault certificate. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Build Propose Create Certificate Transaction Quote Builds a quote for a transaction to create a proposal for creating a vault certificate. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -1918,7 +1918,7 @@ namespace Opdex.Client.Api
         }
 
         /// <summary>
-        /// Build Propose Create Certificate Transaction Quote Builds a quote for a transaction to create a proposal for creating a vault certificate. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Build Propose Create Certificate Transaction Quote Builds a quote for a transaction to create a proposal for creating a vault certificate. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -1979,7 +1979,7 @@ namespace Opdex.Client.Api
         }
 
         /// <summary>
-        /// Build Propose Revoke Certificate Transaction Quote Builds a quote for a transaction to create a proposal for revoking a vault certificate. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Build Propose Revoke Certificate Transaction Quote Builds a quote for a transaction to create a proposal for revoking a vault certificate. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -1992,7 +1992,7 @@ namespace Opdex.Client.Api
         }
 
         /// <summary>
-        /// Build Propose Revoke Certificate Transaction Quote Builds a quote for a transaction to create a proposal for revoking a vault certificate. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Build Propose Revoke Certificate Transaction Quote Builds a quote for a transaction to create a proposal for revoking a vault certificate. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -2049,7 +2049,7 @@ namespace Opdex.Client.Api
         }
 
         /// <summary>
-        /// Build Propose Revoke Certificate Transaction Quote Builds a quote for a transaction to create a proposal for revoking a vault certificate. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Build Propose Revoke Certificate Transaction Quote Builds a quote for a transaction to create a proposal for revoking a vault certificate. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>
@@ -2063,7 +2063,7 @@ namespace Opdex.Client.Api
         }
 
         /// <summary>
-        /// Build Propose Revoke Certificate Transaction Quote Builds a quote for a transaction to create a proposal for revoking a vault certificate. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+        /// Build Propose Revoke Certificate Transaction Quote Builds a quote for a transaction to create a proposal for revoking a vault certificate. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vault">Address of the vault</param>

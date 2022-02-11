@@ -30,6 +30,8 @@ Name | Type | Description | Notes
 **TokenSrc** | **string** | An address on the Cirrus network | [optional] 
 **TokenLp** | **string** | An address on the Cirrus network | [optional] 
 **TokenLpTotalSupply** | **string** | Decimal value with uncapped precision and size | [optional] 
+**Crs** | **string** | Decimal value with uncapped precision and size | [optional] 
+**Src** | **string** | Decimal value with uncapped precision and size | [optional] 
 **Sender** | **string** | An address on the Cirrus network | [optional] 
 **AmountCrsIn** | **string** | Decimal value with uncapped precision and size | [optional] 
 **AmountSrcIn** | **string** | Decimal value with uncapped precision and size | [optional] 

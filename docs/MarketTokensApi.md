@@ -85,7 +85,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Market token found |  -  |
+| **200** | Market token found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Market or token not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -178,7 +178,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Market token snapshot results found |  -  |
+| **200** | Market token snapshot results found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Market or token not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -188,7 +188,7 @@ No authorization required
 
 <a name="getmarkettokens"></a>
 # **GetMarketTokens**
-> MarketTokensResponse GetMarketTokens (string market, List<TokenAttributeFilter> tokenAttributes = null, List<string> tokens = null, string keyword = null, TokenOrderByType? orderBy = null, SortDirection? direction = null, int? limit = null, string cursor = null)
+> MarketTokensResponse GetMarketTokens (string market, List<TokenAttributeFilter> tokenAttributes = null, List<ChainFilter> nativeChains = null, List<string> tokens = null, string keyword = null, TokenOrderByType? orderBy = null, SortDirection? direction = null, int? limit = null, string cursor = null)
 
 Get Market Tokens
 
@@ -217,6 +217,7 @@ namespace Example
             var apiInstance = new MarketTokensApi(httpClient, config, httpClientHandler);
             var market = t7RorA7xQCMVYKPM1ibPE1NSswaLbpqLQb;  // string | Address of the market
             var tokenAttributes = new List<TokenAttributeFilter>(); // List<TokenAttributeFilter> | Token attributes filter (optional) 
+            var nativeChains = new List<ChainFilter>(); // List<ChainFilter> | Native chain filter (optional) 
             var tokens = new List<string>(); // List<string> | Specific tokens to include (optional) 
             var keyword = keyword_example;  // string | Keyword search against token address, name and ticker symbol (optional) 
             var orderBy = PriceUsd;  // TokenOrderByType? | Property by which to sort results (optional) 
@@ -227,7 +228,7 @@ namespace Example
             try
             {
                 // Get Market Tokens
-                MarketTokensResponse result = apiInstance.GetMarketTokens(market, tokenAttributes, tokens, keyword, orderBy, direction, limit, cursor);
+                MarketTokensResponse result = apiInstance.GetMarketTokens(market, tokenAttributes, nativeChains, tokens, keyword, orderBy, direction, limit, cursor);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -247,6 +248,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **market** | **string**| Address of the market | 
  **tokenAttributes** | [**List&lt;TokenAttributeFilter&gt;**](TokenAttributeFilter.md)| Token attributes filter | [optional] 
+ **nativeChains** | [**List&lt;ChainFilter&gt;**](ChainFilter.md)| Native chain filter | [optional] 
  **tokens** | [**List&lt;string&gt;**](string.md)| Specific tokens to include | [optional] 
  **keyword** | **string**| Keyword search against token address, name and ticker symbol | [optional] 
  **orderBy** | **TokenOrderByType?**| Property by which to sort results | [optional] 
@@ -271,7 +273,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Market token results found |  -  |
+| **200** | Market token results found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Market not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -354,7 +356,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Swap amount in quote retrieved |  -  |
+| **200** | Swap amount in quote retrieved |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Market or token not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -437,7 +439,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Swap amount out quote retrieved |  -  |
+| **200** | Swap amount out quote retrieved |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Market or token not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -523,7 +525,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built swap transaction quote |  -  |
+| **200** | Built swap transaction quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Market or token not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |

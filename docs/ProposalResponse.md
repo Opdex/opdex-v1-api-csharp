@@ -18,7 +18,8 @@ Name | Type | Description | Notes
 **NoAmount** | **string** | Decimal value with uncapped precision and size | [optional] 
 **PledgeAmount** | **string** | Decimal value with uncapped precision and size | [optional] 
 **Approved** | **bool** | Whether the proposal has been approved | [optional] 
-**Certificate** | [**CertificateResponse**](CertificateResponse.md) |  | [optional] 
+**CreatedBlock** | **int** | Block number at which the entity was created | [optional] 
+**ModifiedBlock** | **int** | Block number at which the entity state was last modified | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

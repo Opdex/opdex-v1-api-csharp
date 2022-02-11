@@ -41,15 +41,15 @@ namespace Opdex.Client.Model
         /// Initializes a new instance of the <see cref="NotifyBroadcastRequest" /> class.
         /// </summary>
         /// <param name="transactionHash">SHA256 hash value (required).</param>
-        /// <param name="publicKey">An address on the Cirrus network.</param>
-        public NotifyBroadcastRequest(string transactionHash = default(string), string publicKey = default(string))
+        /// <param name="walletAddress">An address on the Cirrus network.</param>
+        public NotifyBroadcastRequest(string transactionHash = default(string), string walletAddress = default(string))
         {
             // to ensure "transactionHash" is required (not null)
             if (transactionHash == null) {
                 throw new ArgumentNullException("transactionHash is a required property for NotifyBroadcastRequest and cannot be null");
             }
             this.TransactionHash = transactionHash;
-            this.PublicKey = publicKey;
+            this.WalletAddress = walletAddress;
         }
 
         /// <summary>
@@ -63,8 +63,8 @@ namespace Opdex.Client.Model
         /// An address on the Cirrus network
         /// </summary>
         /// <value>An address on the Cirrus network</value>
-        [DataMember(Name = "publicKey", EmitDefaultValue = false)]
-        public string PublicKey { get; set; }
+        [DataMember(Name = "walletAddress", EmitDefaultValue = false)]
+        public string WalletAddress { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,7 +75,7 @@ namespace Opdex.Client.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class NotifyBroadcastRequest {\n");
             sb.Append("  TransactionHash: ").Append(TransactionHash).Append("\n");
-            sb.Append("  PublicKey: ").Append(PublicKey).Append("\n");
+            sb.Append("  WalletAddress: ").Append(WalletAddress).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -117,9 +117,9 @@ namespace Opdex.Client.Model
                     this.TransactionHash.Equals(input.TransactionHash))
                 ) && 
                 (
-                    this.PublicKey == input.PublicKey ||
-                    (this.PublicKey != null &&
-                    this.PublicKey.Equals(input.PublicKey))
+                    this.WalletAddress == input.WalletAddress ||
+                    (this.WalletAddress != null &&
+                    this.WalletAddress.Equals(input.WalletAddress))
                 );
         }
 
@@ -136,9 +136,9 @@ namespace Opdex.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.TransactionHash.GetHashCode();
                 }
-                if (this.PublicKey != null)
+                if (this.WalletAddress != null)
                 {
-                    hashCode = (hashCode * 59) + this.PublicKey.GetHashCode();
+                    hashCode = (hashCode * 59) + this.WalletAddress.GetHashCode();
                 }
                 return hashCode;
             }
@@ -170,23 +170,23 @@ namespace Opdex.Client.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionHash, must match a pattern of " + regexTransactionHash, new [] { "TransactionHash" });
             }
 
-            // PublicKey (string) maxLength
-            if (this.PublicKey != null && this.PublicKey.Length > 42)
+            // WalletAddress (string) maxLength
+            if (this.WalletAddress != null && this.WalletAddress.Length > 42)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PublicKey, length must be less than 42.", new [] { "PublicKey" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WalletAddress, length must be less than 42.", new [] { "WalletAddress" });
             }
 
-            // PublicKey (string) minLength
-            if (this.PublicKey != null && this.PublicKey.Length < 30)
+            // WalletAddress (string) minLength
+            if (this.WalletAddress != null && this.WalletAddress.Length < 30)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PublicKey, length must be greater than 30.", new [] { "PublicKey" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WalletAddress, length must be greater than 30.", new [] { "WalletAddress" });
             }
 
-            // PublicKey (string) pattern
-            Regex regexPublicKey = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
-            if (false == regexPublicKey.Match(this.PublicKey).Success)
+            // WalletAddress (string) pattern
+            Regex regexWalletAddress = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            if (false == regexWalletAddress.Match(this.WalletAddress).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PublicKey, must match a pattern of " + regexPublicKey, new [] { "PublicKey" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WalletAddress, must match a pattern of " + regexWalletAddress, new [] { "WalletAddress" });
             }
 
             yield break;

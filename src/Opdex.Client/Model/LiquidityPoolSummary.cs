@@ -40,13 +40,17 @@ namespace Opdex.Client.Model
         /// <param name="volume">volume.</param>
         /// <param name="cost">cost.</param>
         /// <param name="staking">staking.</param>
-        public LiquidityPoolSummary(ReservesSummary reserves = default(ReservesSummary), RewardSummary rewards = default(RewardSummary), VolumeSummary volume = default(VolumeSummary), CostSummary cost = default(CostSummary), LiquidityPoolStakingSummary staking = default(LiquidityPoolStakingSummary))
+        /// <param name="createdBlock">Block number at which the entity state was created.</param>
+        /// <param name="modifiedBlock">Block number at which the entity state was last modified.</param>
+        public LiquidityPoolSummary(ReservesSummary reserves = default(ReservesSummary), RewardSummary rewards = default(RewardSummary), VolumeSummary volume = default(VolumeSummary), CostSummary cost = default(CostSummary), LiquidityPoolStakingSummary staking = default(LiquidityPoolStakingSummary), int createdBlock = default(int), int modifiedBlock = default(int))
         {
             this.Reserves = reserves;
             this.Rewards = rewards;
             this.Volume = volume;
             this.Cost = cost;
             this.Staking = staking;
+            this.CreatedBlock = createdBlock;
+            this.ModifiedBlock = modifiedBlock;
         }
 
         /// <summary>
@@ -80,6 +84,20 @@ namespace Opdex.Client.Model
         public LiquidityPoolStakingSummary Staking { get; set; }
 
         /// <summary>
+        /// Block number at which the entity state was created
+        /// </summary>
+        /// <value>Block number at which the entity state was created</value>
+        [DataMember(Name = "createdBlock", EmitDefaultValue = false)]
+        public int CreatedBlock { get; set; }
+
+        /// <summary>
+        /// Block number at which the entity state was last modified
+        /// </summary>
+        /// <value>Block number at which the entity state was last modified</value>
+        [DataMember(Name = "modifiedBlock", EmitDefaultValue = false)]
+        public int ModifiedBlock { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -92,6 +110,8 @@ namespace Opdex.Client.Model
             sb.Append("  Volume: ").Append(Volume).Append("\n");
             sb.Append("  Cost: ").Append(Cost).Append("\n");
             sb.Append("  Staking: ").Append(Staking).Append("\n");
+            sb.Append("  CreatedBlock: ").Append(CreatedBlock).Append("\n");
+            sb.Append("  ModifiedBlock: ").Append(ModifiedBlock).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -151,6 +171,14 @@ namespace Opdex.Client.Model
                     this.Staking == input.Staking ||
                     (this.Staking != null &&
                     this.Staking.Equals(input.Staking))
+                ) && 
+                (
+                    this.CreatedBlock == input.CreatedBlock ||
+                    this.CreatedBlock.Equals(input.CreatedBlock)
+                ) && 
+                (
+                    this.ModifiedBlock == input.ModifiedBlock ||
+                    this.ModifiedBlock.Equals(input.ModifiedBlock)
                 );
         }
 
@@ -183,6 +211,8 @@ namespace Opdex.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.Staking.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.CreatedBlock.GetHashCode();
+                hashCode = (hashCode * 59) + this.ModifiedBlock.GetHashCode();
                 return hashCode;
             }
         }
@@ -194,6 +224,18 @@ namespace Opdex.Client.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
+            // CreatedBlock (int) minimum
+            if (this.CreatedBlock < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CreatedBlock, must be a value greater than or equal to 1.", new [] { "CreatedBlock" });
+            }
+
+            // ModifiedBlock (int) minimum
+            if (this.ModifiedBlock < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ModifiedBlock, must be a value greater than or equal to 1.", new [] { "ModifiedBlock" });
+            }
+
             yield break;
         }
     }

@@ -42,8 +42,12 @@ namespace Opdex.Client.Model
         /// <param name="sats">Number of parts which make up one whole token.</param>
         /// <param name="totalSupply">Decimal value with uncapped precision and size.</param>
         /// <param name="attributes">Attributes applied to the token.</param>
+        /// <param name="wrappedToken">wrappedToken.</param>
+        /// <param name="distribution">distribution.</param>
+        /// <param name="createdBlock">Block number at which the entity was created.</param>
+        /// <param name="modifiedBlock">Block number at which the entity state was last modified.</param>
         /// <param name="summary">summary.</param>
-        public TokenResponse(string address = default(string), string name = default(string), string symbol = default(string), int decimals = default(int), int sats = default(int), string totalSupply = default(string), List<TokenAttribute> attributes = default(List<TokenAttribute>), TokenSummaryResponse summary = default(TokenSummaryResponse))
+        public TokenResponse(string address = default(string), string name = default(string), string symbol = default(string), int decimals = default(int), int sats = default(int), string totalSupply = default(string), List<TokenAttribute> attributes = default(List<TokenAttribute>), WrappedTokenDetails wrappedToken = default(WrappedTokenDetails), MinedTokenDistributionDetails distribution = default(MinedTokenDistributionDetails), int createdBlock = default(int), int modifiedBlock = default(int), TokenSummary summary = default(TokenSummary))
         {
             this.Address = address;
             this.Name = name;
@@ -52,6 +56,10 @@ namespace Opdex.Client.Model
             this.Sats = sats;
             this.TotalSupply = totalSupply;
             this.Attributes = attributes;
+            this.WrappedToken = wrappedToken;
+            this.Distribution = distribution;
+            this.CreatedBlock = createdBlock;
+            this.ModifiedBlock = modifiedBlock;
             this.Summary = summary;
         }
 
@@ -105,10 +113,36 @@ namespace Opdex.Client.Model
         public List<TokenAttribute> Attributes { get; set; }
 
         /// <summary>
+        /// Gets or Sets WrappedToken
+        /// </summary>
+        [DataMember(Name = "wrappedToken", EmitDefaultValue = false)]
+        public WrappedTokenDetails WrappedToken { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Distribution
+        /// </summary>
+        [DataMember(Name = "distribution", EmitDefaultValue = false)]
+        public MinedTokenDistributionDetails Distribution { get; set; }
+
+        /// <summary>
+        /// Block number at which the entity was created
+        /// </summary>
+        /// <value>Block number at which the entity was created</value>
+        [DataMember(Name = "createdBlock", EmitDefaultValue = false)]
+        public int CreatedBlock { get; set; }
+
+        /// <summary>
+        /// Block number at which the entity state was last modified
+        /// </summary>
+        /// <value>Block number at which the entity state was last modified</value>
+        [DataMember(Name = "modifiedBlock", EmitDefaultValue = false)]
+        public int ModifiedBlock { get; set; }
+
+        /// <summary>
         /// Gets or Sets Summary
         /// </summary>
         [DataMember(Name = "summary", EmitDefaultValue = false)]
-        public TokenSummaryResponse Summary { get; set; }
+        public TokenSummary Summary { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -125,6 +159,10 @@ namespace Opdex.Client.Model
             sb.Append("  Sats: ").Append(Sats).Append("\n");
             sb.Append("  TotalSupply: ").Append(TotalSupply).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
+            sb.Append("  WrappedToken: ").Append(WrappedToken).Append("\n");
+            sb.Append("  Distribution: ").Append(Distribution).Append("\n");
+            sb.Append("  CreatedBlock: ").Append(CreatedBlock).Append("\n");
+            sb.Append("  ModifiedBlock: ").Append(ModifiedBlock).Append("\n");
             sb.Append("  Summary: ").Append(Summary).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -196,6 +234,24 @@ namespace Opdex.Client.Model
                     this.Attributes.SequenceEqual(input.Attributes)
                 ) && 
                 (
+                    this.WrappedToken == input.WrappedToken ||
+                    (this.WrappedToken != null &&
+                    this.WrappedToken.Equals(input.WrappedToken))
+                ) && 
+                (
+                    this.Distribution == input.Distribution ||
+                    (this.Distribution != null &&
+                    this.Distribution.Equals(input.Distribution))
+                ) && 
+                (
+                    this.CreatedBlock == input.CreatedBlock ||
+                    this.CreatedBlock.Equals(input.CreatedBlock)
+                ) && 
+                (
+                    this.ModifiedBlock == input.ModifiedBlock ||
+                    this.ModifiedBlock.Equals(input.ModifiedBlock)
+                ) && 
+                (
                     this.Summary == input.Summary ||
                     (this.Summary != null &&
                     this.Summary.Equals(input.Summary))
@@ -233,6 +289,16 @@ namespace Opdex.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.Attributes.GetHashCode();
                 }
+                if (this.WrappedToken != null)
+                {
+                    hashCode = (hashCode * 59) + this.WrappedToken.GetHashCode();
+                }
+                if (this.Distribution != null)
+                {
+                    hashCode = (hashCode * 59) + this.Distribution.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CreatedBlock.GetHashCode();
+                hashCode = (hashCode * 59) + this.ModifiedBlock.GetHashCode();
                 if (this.Summary != null)
                 {
                     hashCode = (hashCode * 59) + this.Summary.GetHashCode();
@@ -284,6 +350,18 @@ namespace Opdex.Client.Model
             if (false == regexTotalSupply.Match(this.TotalSupply).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalSupply, must match a pattern of " + regexTotalSupply, new [] { "TotalSupply" });
+            }
+
+            // CreatedBlock (int) minimum
+            if (this.CreatedBlock < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CreatedBlock, must be a value greater than or equal to 1.", new [] { "CreatedBlock" });
+            }
+
+            // ModifiedBlock (int) minimum
+            if (this.ModifiedBlock < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ModifiedBlock, must be a value greater than or equal to 1.", new [] { "ModifiedBlock" });
             }
 
             yield break;

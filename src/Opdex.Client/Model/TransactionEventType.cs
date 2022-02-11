@@ -88,148 +88,166 @@ namespace Opdex.Client.Model
         RemoveLiquidityEvent = 9,
 
         /// <summary>
+        /// Enum ReservesChangeEvent for value: ReservesChangeEvent
+        /// </summary>
+        [EnumMember(Value = "ReservesChangeEvent")]
+        ReservesChangeEvent = 10,
+
+        /// <summary>
         /// Enum SwapEvent for value: SwapEvent
         /// </summary>
         [EnumMember(Value = "SwapEvent")]
-        SwapEvent = 10,
+        SwapEvent = 11,
 
         /// <summary>
         /// Enum StartStakingEvent for value: StartStakingEvent
         /// </summary>
         [EnumMember(Value = "StartStakingEvent")]
-        StartStakingEvent = 11,
+        StartStakingEvent = 12,
 
         /// <summary>
         /// Enum StopStakingEvent for value: StopStakingEvent
         /// </summary>
         [EnumMember(Value = "StopStakingEvent")]
-        StopStakingEvent = 12,
+        StopStakingEvent = 13,
 
         /// <summary>
         /// Enum CollectStakingRewardsEvent for value: CollectStakingRewardsEvent
         /// </summary>
         [EnumMember(Value = "CollectStakingRewardsEvent")]
-        CollectStakingRewardsEvent = 13,
+        CollectStakingRewardsEvent = 14,
 
         /// <summary>
         /// Enum StartMiningEvent for value: StartMiningEvent
         /// </summary>
         [EnumMember(Value = "StartMiningEvent")]
-        StartMiningEvent = 14,
+        StartMiningEvent = 15,
 
         /// <summary>
         /// Enum StopMiningEvent for value: StopMiningEvent
         /// </summary>
         [EnumMember(Value = "StopMiningEvent")]
-        StopMiningEvent = 15,
+        StopMiningEvent = 16,
 
         /// <summary>
         /// Enum CollectMiningRewardsEvent for value: CollectMiningRewardsEvent
         /// </summary>
         [EnumMember(Value = "CollectMiningRewardsEvent")]
-        CollectMiningRewardsEvent = 16,
+        CollectMiningRewardsEvent = 17,
 
         /// <summary>
         /// Enum EnableMiningEvent for value: EnableMiningEvent
         /// </summary>
         [EnumMember(Value = "EnableMiningEvent")]
-        EnableMiningEvent = 17,
+        EnableMiningEvent = 18,
 
         /// <summary>
         /// Enum ApprovalEvent for value: ApprovalEvent
         /// </summary>
         [EnumMember(Value = "ApprovalEvent")]
-        ApprovalEvent = 18,
+        ApprovalEvent = 19,
 
         /// <summary>
         /// Enum TransferEvent for value: TransferEvent
         /// </summary>
         [EnumMember(Value = "TransferEvent")]
-        TransferEvent = 19,
+        TransferEvent = 20,
 
         /// <summary>
         /// Enum DistributionEvent for value: DistributionEvent
         /// </summary>
         [EnumMember(Value = "DistributionEvent")]
-        DistributionEvent = 20,
+        DistributionEvent = 21,
 
         /// <summary>
         /// Enum RewardMiningPoolEvent for value: RewardMiningPoolEvent
         /// </summary>
         [EnumMember(Value = "RewardMiningPoolEvent")]
-        RewardMiningPoolEvent = 21,
+        RewardMiningPoolEvent = 22,
 
         /// <summary>
         /// Enum NominationEvent for value: NominationEvent
         /// </summary>
         [EnumMember(Value = "NominationEvent")]
-        NominationEvent = 22,
+        NominationEvent = 23,
 
         /// <summary>
         /// Enum CreateVaultCertificateEvent for value: CreateVaultCertificateEvent
         /// </summary>
         [EnumMember(Value = "CreateVaultCertificateEvent")]
-        CreateVaultCertificateEvent = 23,
+        CreateVaultCertificateEvent = 24,
 
         /// <summary>
         /// Enum RevokeVaultCertificateEvent for value: RevokeVaultCertificateEvent
         /// </summary>
         [EnumMember(Value = "RevokeVaultCertificateEvent")]
-        RevokeVaultCertificateEvent = 24,
+        RevokeVaultCertificateEvent = 25,
 
         /// <summary>
         /// Enum RedeemVaultCertificateEvent for value: RedeemVaultCertificateEvent
         /// </summary>
         [EnumMember(Value = "RedeemVaultCertificateEvent")]
-        RedeemVaultCertificateEvent = 25,
+        RedeemVaultCertificateEvent = 26,
 
         /// <summary>
         /// Enum SetPendingVaultOwnershipEvent for value: SetPendingVaultOwnershipEvent
         /// </summary>
         [EnumMember(Value = "SetPendingVaultOwnershipEvent")]
-        SetPendingVaultOwnershipEvent = 26,
+        SetPendingVaultOwnershipEvent = 27,
 
         /// <summary>
         /// Enum ClaimPendingVaultOwnershipEvent for value: ClaimPendingVaultOwnershipEvent
         /// </summary>
         [EnumMember(Value = "ClaimPendingVaultOwnershipEvent")]
-        ClaimPendingVaultOwnershipEvent = 27,
+        ClaimPendingVaultOwnershipEvent = 28,
 
         /// <summary>
         /// Enum CreateVaultProposalEvent for value: CreateVaultProposalEvent
         /// </summary>
         [EnumMember(Value = "CreateVaultProposalEvent")]
-        CreateVaultProposalEvent = 28,
+        CreateVaultProposalEvent = 29,
 
         /// <summary>
         /// Enum CompleteVaultProposalEvent for value: CompleteVaultProposalEvent
         /// </summary>
         [EnumMember(Value = "CompleteVaultProposalEvent")]
-        CompleteVaultProposalEvent = 29,
+        CompleteVaultProposalEvent = 30,
 
         /// <summary>
         /// Enum VaultProposalPledgeEvent for value: VaultProposalPledgeEvent
         /// </summary>
         [EnumMember(Value = "VaultProposalPledgeEvent")]
-        VaultProposalPledgeEvent = 30,
+        VaultProposalPledgeEvent = 31,
 
         /// <summary>
         /// Enum VaultProposalWithdrawPledgeEvent for value: VaultProposalWithdrawPledgeEvent
         /// </summary>
         [EnumMember(Value = "VaultProposalWithdrawPledgeEvent")]
-        VaultProposalWithdrawPledgeEvent = 31,
+        VaultProposalWithdrawPledgeEvent = 32,
 
         /// <summary>
         /// Enum VaultProposalVoteEvent for value: VaultProposalVoteEvent
         /// </summary>
         [EnumMember(Value = "VaultProposalVoteEvent")]
-        VaultProposalVoteEvent = 32,
+        VaultProposalVoteEvent = 33,
 
         /// <summary>
         /// Enum VaultProposalWithdrawVoteEvent for value: VaultProposalWithdrawVoteEvent
         /// </summary>
         [EnumMember(Value = "VaultProposalWithdrawVoteEvent")]
-        VaultProposalWithdrawVoteEvent = 33
+        VaultProposalWithdrawVoteEvent = 34,
+
+        /// <summary>
+        /// Enum SetInterfluxCustodianEvent for value: SetInterfluxCustodianEvent
+        /// </summary>
+        [EnumMember(Value = "SetInterfluxCustodianEvent")]
+        SetInterfluxCustodianEvent = 35,
+
+        /// <summary>
+        /// Enum SupplyChangeEvent for value: SupplyChangeEvent
+        /// </summary>
+        [EnumMember(Value = "SupplyChangeEvent")]
+        SupplyChangeEvent = 36
 
     }
 

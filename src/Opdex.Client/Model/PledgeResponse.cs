@@ -40,13 +40,17 @@ namespace Opdex.Client.Model
         /// <param name="pledger">An address on the Cirrus network.</param>
         /// <param name="pledge">Decimal value with uncapped precision and size.</param>
         /// <param name="balance">Decimal value with uncapped precision and size.</param>
-        public PledgeResponse(string vault = default(string), int proposalId = default(int), string pledger = default(string), string pledge = default(string), string balance = default(string))
+        /// <param name="createdBlock">Block number at which the entity was created.</param>
+        /// <param name="modifiedBlock">Block number at which the entity state was last modified.</param>
+        public PledgeResponse(string vault = default(string), int proposalId = default(int), string pledger = default(string), string pledge = default(string), string balance = default(string), int createdBlock = default(int), int modifiedBlock = default(int))
         {
             this.Vault = vault;
             this.ProposalId = proposalId;
             this.Pledger = pledger;
             this.Pledge = pledge;
             this.Balance = balance;
+            this.CreatedBlock = createdBlock;
+            this.ModifiedBlock = modifiedBlock;
         }
 
         /// <summary>
@@ -85,6 +89,20 @@ namespace Opdex.Client.Model
         public string Balance { get; set; }
 
         /// <summary>
+        /// Block number at which the entity was created
+        /// </summary>
+        /// <value>Block number at which the entity was created</value>
+        [DataMember(Name = "createdBlock", EmitDefaultValue = false)]
+        public int CreatedBlock { get; set; }
+
+        /// <summary>
+        /// Block number at which the entity state was last modified
+        /// </summary>
+        /// <value>Block number at which the entity state was last modified</value>
+        [DataMember(Name = "modifiedBlock", EmitDefaultValue = false)]
+        public int ModifiedBlock { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -97,6 +115,8 @@ namespace Opdex.Client.Model
             sb.Append("  Pledger: ").Append(Pledger).Append("\n");
             sb.Append("  Pledge: ").Append(Pledge).Append("\n");
             sb.Append("  Balance: ").Append(Balance).Append("\n");
+            sb.Append("  CreatedBlock: ").Append(CreatedBlock).Append("\n");
+            sb.Append("  ModifiedBlock: ").Append(ModifiedBlock).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,6 +175,14 @@ namespace Opdex.Client.Model
                     this.Balance == input.Balance ||
                     (this.Balance != null &&
                     this.Balance.Equals(input.Balance))
+                ) && 
+                (
+                    this.CreatedBlock == input.CreatedBlock ||
+                    this.CreatedBlock.Equals(input.CreatedBlock)
+                ) && 
+                (
+                    this.ModifiedBlock == input.ModifiedBlock ||
+                    this.ModifiedBlock.Equals(input.ModifiedBlock)
                 );
         }
 
@@ -184,6 +212,8 @@ namespace Opdex.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.Balance.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.CreatedBlock.GetHashCode();
+                hashCode = (hashCode * 59) + this.ModifiedBlock.GetHashCode();
                 return hashCode;
             }
         }
@@ -251,6 +281,18 @@ namespace Opdex.Client.Model
             if (false == regexBalance.Match(this.Balance).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Balance, must match a pattern of " + regexBalance, new [] { "Balance" });
+            }
+
+            // CreatedBlock (int) minimum
+            if (this.CreatedBlock < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CreatedBlock, must be a value greater than or equal to 1.", new [] { "CreatedBlock" });
+            }
+
+            // ModifiedBlock (int) minimum
+            if (this.ModifiedBlock < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ModifiedBlock, must be a value greater than or equal to 1.", new [] { "ModifiedBlock" });
             }
 
             yield break;

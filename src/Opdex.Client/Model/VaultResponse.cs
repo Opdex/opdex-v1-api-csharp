@@ -43,7 +43,9 @@ namespace Opdex.Client.Model
         /// <param name="totalPledgeMinimum">Decimal value with uncapped precision and size.</param>
         /// <param name="totalVoteMinimum">Decimal value with uncapped precision and size.</param>
         /// <param name="vestingDuration">Number of blocks that a certificate is vested for, before it can be redeemed.</param>
-        public VaultResponse(string vault = default(string), string token = default(string), string tokensUnassigned = default(string), string tokensProposed = default(string), string tokensLocked = default(string), string totalPledgeMinimum = default(string), string totalVoteMinimum = default(string), int vestingDuration = default(int))
+        /// <param name="createdBlock">Block number at which the entity was created.</param>
+        /// <param name="modifiedBlock">Block number at which the entity state was last modified.</param>
+        public VaultResponse(string vault = default(string), string token = default(string), string tokensUnassigned = default(string), string tokensProposed = default(string), string tokensLocked = default(string), string totalPledgeMinimum = default(string), string totalVoteMinimum = default(string), int vestingDuration = default(int), int createdBlock = default(int), int modifiedBlock = default(int))
         {
             this.Vault = vault;
             this.Token = token;
@@ -53,6 +55,8 @@ namespace Opdex.Client.Model
             this.TotalPledgeMinimum = totalPledgeMinimum;
             this.TotalVoteMinimum = totalVoteMinimum;
             this.VestingDuration = vestingDuration;
+            this.CreatedBlock = createdBlock;
+            this.ModifiedBlock = modifiedBlock;
         }
 
         /// <summary>
@@ -112,6 +116,20 @@ namespace Opdex.Client.Model
         public int VestingDuration { get; set; }
 
         /// <summary>
+        /// Block number at which the entity was created
+        /// </summary>
+        /// <value>Block number at which the entity was created</value>
+        [DataMember(Name = "createdBlock", EmitDefaultValue = false)]
+        public int CreatedBlock { get; set; }
+
+        /// <summary>
+        /// Block number at which the entity state was last modified
+        /// </summary>
+        /// <value>Block number at which the entity state was last modified</value>
+        [DataMember(Name = "modifiedBlock", EmitDefaultValue = false)]
+        public int ModifiedBlock { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -127,6 +145,8 @@ namespace Opdex.Client.Model
             sb.Append("  TotalPledgeMinimum: ").Append(TotalPledgeMinimum).Append("\n");
             sb.Append("  TotalVoteMinimum: ").Append(TotalVoteMinimum).Append("\n");
             sb.Append("  VestingDuration: ").Append(VestingDuration).Append("\n");
+            sb.Append("  CreatedBlock: ").Append(CreatedBlock).Append("\n");
+            sb.Append("  ModifiedBlock: ").Append(ModifiedBlock).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -200,6 +220,14 @@ namespace Opdex.Client.Model
                 (
                     this.VestingDuration == input.VestingDuration ||
                     this.VestingDuration.Equals(input.VestingDuration)
+                ) && 
+                (
+                    this.CreatedBlock == input.CreatedBlock ||
+                    this.CreatedBlock.Equals(input.CreatedBlock)
+                ) && 
+                (
+                    this.ModifiedBlock == input.ModifiedBlock ||
+                    this.ModifiedBlock.Equals(input.ModifiedBlock)
                 );
         }
 
@@ -241,6 +269,8 @@ namespace Opdex.Client.Model
                     hashCode = (hashCode * 59) + this.TotalVoteMinimum.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.VestingDuration.GetHashCode();
+                hashCode = (hashCode * 59) + this.CreatedBlock.GetHashCode();
+                hashCode = (hashCode * 59) + this.ModifiedBlock.GetHashCode();
                 return hashCode;
             }
         }
@@ -329,6 +359,18 @@ namespace Opdex.Client.Model
             if (this.VestingDuration < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VestingDuration, must be a value greater than or equal to 0.", new [] { "VestingDuration" });
+            }
+
+            // CreatedBlock (int) minimum
+            if (this.CreatedBlock < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CreatedBlock, must be a value greater than or equal to 1.", new [] { "CreatedBlock" });
+            }
+
+            // ModifiedBlock (int) minimum
+            if (this.ModifiedBlock < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ModifiedBlock, must be a value greater than or equal to 1.", new [] { "ModifiedBlock" });
             }
 
             yield break;

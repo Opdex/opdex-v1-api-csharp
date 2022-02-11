@@ -41,7 +41,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MiningGovernancesApi(httpClient, config, httpClientHandler);
-            var governance = tVfGTqrToiTU9bfnvD5UDC5ZQVY4oj4jrc;  // string | Address of the mining governance contract
+            var governance = tKFkNiL5KJ3Q4br929i6hHbB4X4mt1MigF;  // string | Address of the mining governance contract
             var quoteRewardMiningPoolsRequest = new QuoteRewardMiningPoolsRequest(); // QuoteRewardMiningPoolsRequest | 
 
             try
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built reward mining pools quote |  -  |
+| **200** | Built reward mining pools quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Mining governance not found |  -  |
@@ -123,7 +123,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MiningGovernancesApi(httpClient, config, httpClientHandler);
-            var governance = tVfGTqrToiTU9bfnvD5UDC5ZQVY4oj4jrc;  // string | Address of the mining governance contract
+            var governance = tKFkNiL5KJ3Q4br929i6hHbB4X4mt1MigF;  // string | Address of the mining governance contract
 
             try
             {
@@ -165,7 +165,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Mining governance details found |  -  |
+| **200** | Mining governance details found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Mining governance not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -250,7 +250,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Mining governance results found |  -  |
+| **200** | Mining governance results found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |

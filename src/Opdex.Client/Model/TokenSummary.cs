@@ -29,19 +29,21 @@ namespace Opdex.Client.Model
     /// <summary>
     /// Point in time pricing summary for a token
     /// </summary>
-    [DataContract(Name = "tokenSummaryResponse")]
-    public partial class TokenSummaryResponse : IEquatable<TokenSummaryResponse>, IValidatableObject
+    [DataContract(Name = "tokenSummary")]
+    public partial class TokenSummary : IEquatable<TokenSummary>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TokenSummaryResponse" /> class.
+        /// Initializes a new instance of the <see cref="TokenSummary" /> class.
         /// </summary>
         /// <param name="priceUsd">USD token price.</param>
         /// <param name="dailyPriceChangePercent">Price change percentage for the current day, reset at 00:00 UTC.</param>
+        /// <param name="createdBlock">Block number at which price was created.</param>
         /// <param name="modifiedBlock">Block number at which price was last updated.</param>
-        public TokenSummaryResponse(decimal priceUsd = default(decimal), decimal dailyPriceChangePercent = default(decimal), int modifiedBlock = default(int))
+        public TokenSummary(decimal priceUsd = default(decimal), decimal dailyPriceChangePercent = default(decimal), int createdBlock = default(int), int modifiedBlock = default(int))
         {
             this.PriceUsd = priceUsd;
             this.DailyPriceChangePercent = dailyPriceChangePercent;
+            this.CreatedBlock = createdBlock;
             this.ModifiedBlock = modifiedBlock;
         }
 
@@ -60,6 +62,13 @@ namespace Opdex.Client.Model
         public decimal DailyPriceChangePercent { get; set; }
 
         /// <summary>
+        /// Block number at which price was created
+        /// </summary>
+        /// <value>Block number at which price was created</value>
+        [DataMember(Name = "createdBlock", EmitDefaultValue = false)]
+        public int CreatedBlock { get; set; }
+
+        /// <summary>
         /// Block number at which price was last updated
         /// </summary>
         /// <value>Block number at which price was last updated</value>
@@ -73,9 +82,10 @@ namespace Opdex.Client.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TokenSummaryResponse {\n");
+            sb.Append("class TokenSummary {\n");
             sb.Append("  PriceUsd: ").Append(PriceUsd).Append("\n");
             sb.Append("  DailyPriceChangePercent: ").Append(DailyPriceChangePercent).Append("\n");
+            sb.Append("  CreatedBlock: ").Append(CreatedBlock).Append("\n");
             sb.Append("  ModifiedBlock: ").Append(ModifiedBlock).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -97,15 +107,15 @@ namespace Opdex.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TokenSummaryResponse);
+            return this.Equals(input as TokenSummary);
         }
 
         /// <summary>
-        /// Returns true if TokenSummaryResponse instances are equal
+        /// Returns true if TokenSummary instances are equal
         /// </summary>
-        /// <param name="input">Instance of TokenSummaryResponse to be compared</param>
+        /// <param name="input">Instance of TokenSummary to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TokenSummaryResponse input)
+        public bool Equals(TokenSummary input)
         {
             if (input == null)
             {
@@ -119,6 +129,10 @@ namespace Opdex.Client.Model
                 (
                     this.DailyPriceChangePercent == input.DailyPriceChangePercent ||
                     this.DailyPriceChangePercent.Equals(input.DailyPriceChangePercent)
+                ) && 
+                (
+                    this.CreatedBlock == input.CreatedBlock ||
+                    this.CreatedBlock.Equals(input.CreatedBlock)
                 ) && 
                 (
                     this.ModifiedBlock == input.ModifiedBlock ||
@@ -137,6 +151,7 @@ namespace Opdex.Client.Model
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.PriceUsd.GetHashCode();
                 hashCode = (hashCode * 59) + this.DailyPriceChangePercent.GetHashCode();
+                hashCode = (hashCode * 59) + this.CreatedBlock.GetHashCode();
                 hashCode = (hashCode * 59) + this.ModifiedBlock.GetHashCode();
                 return hashCode;
             }
@@ -159,6 +174,12 @@ namespace Opdex.Client.Model
             if (this.DailyPriceChangePercent < (decimal)-100.0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DailyPriceChangePercent, must be a value greater than or equal to -100.0.", new [] { "DailyPriceChangePercent" });
+            }
+
+            // CreatedBlock (int) minimum
+            if (this.CreatedBlock < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CreatedBlock, must be a value greater than or equal to 1.", new [] { "CreatedBlock" });
             }
 
             // ModifiedBlock (int) minimum

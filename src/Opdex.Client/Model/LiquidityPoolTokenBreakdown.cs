@@ -38,11 +38,13 @@ namespace Opdex.Client.Model
         /// <param name="crs">crs.</param>
         /// <param name="src">src.</param>
         /// <param name="lp">lp.</param>
-        public LiquidityPoolTokenBreakdown(TokenResponse crs = default(TokenResponse), TokenResponse src = default(TokenResponse), TokenResponse lp = default(TokenResponse))
+        /// <param name="staking">staking.</param>
+        public LiquidityPoolTokenBreakdown(TokenResponse crs = default(TokenResponse), TokenResponse src = default(TokenResponse), TokenResponse lp = default(TokenResponse), TokenResponse staking = default(TokenResponse))
         {
             this.Crs = crs;
             this.Src = src;
             this.Lp = lp;
+            this.Staking = staking;
         }
 
         /// <summary>
@@ -64,6 +66,12 @@ namespace Opdex.Client.Model
         public TokenResponse Lp { get; set; }
 
         /// <summary>
+        /// Gets or Sets Staking
+        /// </summary>
+        [DataMember(Name = "staking", EmitDefaultValue = false)]
+        public TokenResponse Staking { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -74,6 +82,7 @@ namespace Opdex.Client.Model
             sb.Append("  Crs: ").Append(Crs).Append("\n");
             sb.Append("  Src: ").Append(Src).Append("\n");
             sb.Append("  Lp: ").Append(Lp).Append("\n");
+            sb.Append("  Staking: ").Append(Staking).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,6 +132,11 @@ namespace Opdex.Client.Model
                     this.Lp == input.Lp ||
                     (this.Lp != null &&
                     this.Lp.Equals(input.Lp))
+                ) && 
+                (
+                    this.Staking == input.Staking ||
+                    (this.Staking != null &&
+                    this.Staking.Equals(input.Staking))
                 );
         }
 
@@ -146,6 +160,10 @@ namespace Opdex.Client.Model
                 if (this.Lp != null)
                 {
                     hashCode = (hashCode * 59) + this.Lp.GetHashCode();
+                }
+                if (this.Staking != null)
+                {
+                    hashCode = (hashCode * 59) + this.Staking.GetHashCode();
                 }
                 return hashCode;
             }

@@ -38,26 +38,28 @@ namespace Opdex.Client.Model
         /// <param name="address">An address on the Cirrus network.</param>
         /// <param name="pendingOwner">An address on the Cirrus network.</param>
         /// <param name="owner">An address on the Cirrus network.</param>
-        /// <param name="crsToken">crsToken.</param>
-        /// <param name="stakingToken">stakingToken.</param>
+        /// <param name="tokens">tokens.</param>
         /// <param name="authPoolCreators">Whether the market owner authorizes liquidity pool creators.</param>
         /// <param name="authTraders">Whether the market owner authorizes traders.</param>
         /// <param name="authProviders">Whether the market owner authorizes liquidity providers.</param>
         /// <param name="marketFeeEnabled">Whether the market fee is enabled.</param>
         /// <param name="transactionFeePercent">Percentage fee for a trade.</param>
+        /// <param name="createdBlock">Block number at which the entity was created.</param>
+        /// <param name="modifiedBlock">Block number at which the entity state was last modified.</param>
         /// <param name="summary">summary.</param>
-        public MarketResponse(string address = default(string), string pendingOwner = default(string), string owner = default(string), TokenResponse crsToken = default(TokenResponse), TokenResponse stakingToken = default(TokenResponse), bool authPoolCreators = default(bool), bool authTraders = default(bool), bool authProviders = default(bool), bool marketFeeEnabled = default(bool), decimal transactionFeePercent = default(decimal), MarketSummary summary = default(MarketSummary))
+        public MarketResponse(string address = default(string), string pendingOwner = default(string), string owner = default(string), MarketTokenBreakdown tokens = default(MarketTokenBreakdown), bool authPoolCreators = default(bool), bool authTraders = default(bool), bool authProviders = default(bool), bool marketFeeEnabled = default(bool), decimal transactionFeePercent = default(decimal), int createdBlock = default(int), int modifiedBlock = default(int), MarketSummary summary = default(MarketSummary))
         {
             this.Address = address;
             this.PendingOwner = pendingOwner;
             this.Owner = owner;
-            this.CrsToken = crsToken;
-            this.StakingToken = stakingToken;
+            this.Tokens = tokens;
             this.AuthPoolCreators = authPoolCreators;
             this.AuthTraders = authTraders;
             this.AuthProviders = authProviders;
             this.MarketFeeEnabled = marketFeeEnabled;
             this.TransactionFeePercent = transactionFeePercent;
+            this.CreatedBlock = createdBlock;
+            this.ModifiedBlock = modifiedBlock;
             this.Summary = summary;
         }
 
@@ -83,16 +85,10 @@ namespace Opdex.Client.Model
         public string Owner { get; set; }
 
         /// <summary>
-        /// Gets or Sets CrsToken
+        /// Gets or Sets Tokens
         /// </summary>
-        [DataMember(Name = "crsToken", EmitDefaultValue = false)]
-        public TokenResponse CrsToken { get; set; }
-
-        /// <summary>
-        /// Gets or Sets StakingToken
-        /// </summary>
-        [DataMember(Name = "stakingToken", EmitDefaultValue = false)]
-        public TokenResponse StakingToken { get; set; }
+        [DataMember(Name = "tokens", EmitDefaultValue = false)]
+        public MarketTokenBreakdown Tokens { get; set; }
 
         /// <summary>
         /// Whether the market owner authorizes liquidity pool creators
@@ -130,6 +126,20 @@ namespace Opdex.Client.Model
         public decimal TransactionFeePercent { get; set; }
 
         /// <summary>
+        /// Block number at which the entity was created
+        /// </summary>
+        /// <value>Block number at which the entity was created</value>
+        [DataMember(Name = "createdBlock", EmitDefaultValue = false)]
+        public int CreatedBlock { get; set; }
+
+        /// <summary>
+        /// Block number at which the entity state was last modified
+        /// </summary>
+        /// <value>Block number at which the entity state was last modified</value>
+        [DataMember(Name = "modifiedBlock", EmitDefaultValue = false)]
+        public int ModifiedBlock { get; set; }
+
+        /// <summary>
         /// Gets or Sets Summary
         /// </summary>
         [DataMember(Name = "summary", EmitDefaultValue = false)]
@@ -146,13 +156,14 @@ namespace Opdex.Client.Model
             sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("  PendingOwner: ").Append(PendingOwner).Append("\n");
             sb.Append("  Owner: ").Append(Owner).Append("\n");
-            sb.Append("  CrsToken: ").Append(CrsToken).Append("\n");
-            sb.Append("  StakingToken: ").Append(StakingToken).Append("\n");
+            sb.Append("  Tokens: ").Append(Tokens).Append("\n");
             sb.Append("  AuthPoolCreators: ").Append(AuthPoolCreators).Append("\n");
             sb.Append("  AuthTraders: ").Append(AuthTraders).Append("\n");
             sb.Append("  AuthProviders: ").Append(AuthProviders).Append("\n");
             sb.Append("  MarketFeeEnabled: ").Append(MarketFeeEnabled).Append("\n");
             sb.Append("  TransactionFeePercent: ").Append(TransactionFeePercent).Append("\n");
+            sb.Append("  CreatedBlock: ").Append(CreatedBlock).Append("\n");
+            sb.Append("  ModifiedBlock: ").Append(ModifiedBlock).Append("\n");
             sb.Append("  Summary: ").Append(Summary).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -205,14 +216,9 @@ namespace Opdex.Client.Model
                     this.Owner.Equals(input.Owner))
                 ) && 
                 (
-                    this.CrsToken == input.CrsToken ||
-                    (this.CrsToken != null &&
-                    this.CrsToken.Equals(input.CrsToken))
-                ) && 
-                (
-                    this.StakingToken == input.StakingToken ||
-                    (this.StakingToken != null &&
-                    this.StakingToken.Equals(input.StakingToken))
+                    this.Tokens == input.Tokens ||
+                    (this.Tokens != null &&
+                    this.Tokens.Equals(input.Tokens))
                 ) && 
                 (
                     this.AuthPoolCreators == input.AuthPoolCreators ||
@@ -233,6 +239,14 @@ namespace Opdex.Client.Model
                 (
                     this.TransactionFeePercent == input.TransactionFeePercent ||
                     this.TransactionFeePercent.Equals(input.TransactionFeePercent)
+                ) && 
+                (
+                    this.CreatedBlock == input.CreatedBlock ||
+                    this.CreatedBlock.Equals(input.CreatedBlock)
+                ) && 
+                (
+                    this.ModifiedBlock == input.ModifiedBlock ||
+                    this.ModifiedBlock.Equals(input.ModifiedBlock)
                 ) && 
                 (
                     this.Summary == input.Summary ||
@@ -262,19 +276,17 @@ namespace Opdex.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.Owner.GetHashCode();
                 }
-                if (this.CrsToken != null)
+                if (this.Tokens != null)
                 {
-                    hashCode = (hashCode * 59) + this.CrsToken.GetHashCode();
-                }
-                if (this.StakingToken != null)
-                {
-                    hashCode = (hashCode * 59) + this.StakingToken.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Tokens.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.AuthPoolCreators.GetHashCode();
                 hashCode = (hashCode * 59) + this.AuthTraders.GetHashCode();
                 hashCode = (hashCode * 59) + this.AuthProviders.GetHashCode();
                 hashCode = (hashCode * 59) + this.MarketFeeEnabled.GetHashCode();
                 hashCode = (hashCode * 59) + this.TransactionFeePercent.GetHashCode();
+                hashCode = (hashCode * 59) + this.CreatedBlock.GetHashCode();
+                hashCode = (hashCode * 59) + this.ModifiedBlock.GetHashCode();
                 if (this.Summary != null)
                 {
                     hashCode = (hashCode * 59) + this.Summary.GetHashCode();
@@ -357,6 +369,18 @@ namespace Opdex.Client.Model
             if (this.TransactionFeePercent < (decimal)0.0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFeePercent, must be a value greater than or equal to 0.0.", new [] { "TransactionFeePercent" });
+            }
+
+            // CreatedBlock (int) minimum
+            if (this.CreatedBlock < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CreatedBlock, must be a value greater than or equal to 1.", new [] { "CreatedBlock" });
+            }
+
+            // ModifiedBlock (int) minimum
+            if (this.ModifiedBlock < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ModifiedBlock, must be a value greater than or equal to 1.", new [] { "ModifiedBlock" });
             }
 
             yield break;

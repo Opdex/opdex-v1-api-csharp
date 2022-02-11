@@ -42,7 +42,9 @@ namespace Opdex.Client.Model
         /// <param name="redeemed">Whether the certificate has been redeemed by the certificate owner.</param>
         /// <param name="revoked">Whether the certificate was revoked by the vault owner.</param>
         /// <param name="proposals">Create and revoke proposal ids relating to the certificate.</param>
-        public CertificateResponse(string owner = default(string), string amount = default(string), int vestingStartBlock = default(int), int vestingEndBlock = default(int), bool redeemed = default(bool), bool revoked = default(bool), List<int> proposals = default(List<int>))
+        /// <param name="createdBlock">Block number at which the entity was created.</param>
+        /// <param name="modifiedBlock">Block number at which the entity state was last modified.</param>
+        public CertificateResponse(string owner = default(string), string amount = default(string), int vestingStartBlock = default(int), int vestingEndBlock = default(int), bool redeemed = default(bool), bool revoked = default(bool), List<int> proposals = default(List<int>), int createdBlock = default(int), int modifiedBlock = default(int))
         {
             this.Owner = owner;
             this.Amount = amount;
@@ -51,6 +53,8 @@ namespace Opdex.Client.Model
             this.Redeemed = redeemed;
             this.Revoked = revoked;
             this.Proposals = proposals;
+            this.CreatedBlock = createdBlock;
+            this.ModifiedBlock = modifiedBlock;
         }
 
         /// <summary>
@@ -103,6 +107,20 @@ namespace Opdex.Client.Model
         public List<int> Proposals { get; set; }
 
         /// <summary>
+        /// Block number at which the entity was created
+        /// </summary>
+        /// <value>Block number at which the entity was created</value>
+        [DataMember(Name = "createdBlock", EmitDefaultValue = false)]
+        public int CreatedBlock { get; set; }
+
+        /// <summary>
+        /// Block number at which the entity state was last modified
+        /// </summary>
+        /// <value>Block number at which the entity state was last modified</value>
+        [DataMember(Name = "modifiedBlock", EmitDefaultValue = false)]
+        public int ModifiedBlock { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -117,6 +135,8 @@ namespace Opdex.Client.Model
             sb.Append("  Redeemed: ").Append(Redeemed).Append("\n");
             sb.Append("  Revoked: ").Append(Revoked).Append("\n");
             sb.Append("  Proposals: ").Append(Proposals).Append("\n");
+            sb.Append("  CreatedBlock: ").Append(CreatedBlock).Append("\n");
+            sb.Append("  ModifiedBlock: ").Append(ModifiedBlock).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -183,6 +203,14 @@ namespace Opdex.Client.Model
                     this.Proposals != null &&
                     input.Proposals != null &&
                     this.Proposals.SequenceEqual(input.Proposals)
+                ) && 
+                (
+                    this.CreatedBlock == input.CreatedBlock ||
+                    this.CreatedBlock.Equals(input.CreatedBlock)
+                ) && 
+                (
+                    this.ModifiedBlock == input.ModifiedBlock ||
+                    this.ModifiedBlock.Equals(input.ModifiedBlock)
                 );
         }
 
@@ -211,6 +239,8 @@ namespace Opdex.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.Proposals.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.CreatedBlock.GetHashCode();
+                hashCode = (hashCode * 59) + this.ModifiedBlock.GetHashCode();
                 return hashCode;
             }
         }
@@ -258,6 +288,18 @@ namespace Opdex.Client.Model
             if (this.VestingEndBlock < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VestingEndBlock, must be a value greater than or equal to 1.", new [] { "VestingEndBlock" });
+            }
+
+            // CreatedBlock (int) minimum
+            if (this.CreatedBlock < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CreatedBlock, must be a value greater than or equal to 1.", new [] { "CreatedBlock" });
+            }
+
+            // ModifiedBlock (int) minimum
+            if (this.ModifiedBlock < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ModifiedBlock, must be a value greater than or equal to 1.", new [] { "ModifiedBlock" });
             }
 
             yield break;

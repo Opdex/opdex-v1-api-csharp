@@ -55,7 +55,13 @@ namespace Opdex.Client.Model
         /// Enum Security for value: Security
         /// </summary>
         [EnumMember(Value = "Security")]
-        Security = 4
+        Security = 4,
+
+        /// <summary>
+        /// Enum Interflux for value: Interflux
+        /// </summary>
+        [EnumMember(Value = "Interflux")]
+        Interflux = 5
 
     }
 

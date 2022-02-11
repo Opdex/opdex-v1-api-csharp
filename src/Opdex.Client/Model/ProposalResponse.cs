@@ -49,8 +49,9 @@ namespace Opdex.Client.Model
         /// <param name="noAmount">Decimal value with uncapped precision and size.</param>
         /// <param name="pledgeAmount">Decimal value with uncapped precision and size.</param>
         /// <param name="approved">Whether the proposal has been approved.</param>
-        /// <param name="certificate">certificate.</param>
-        public ProposalResponse(string vault = default(string), string token = default(string), int proposalId = default(int), string creator = default(string), string wallet = default(string), string amount = default(string), string description = default(string), ProposalType type = default(ProposalType), ProposalStatus status = default(ProposalStatus), int expiration = default(int), string yesAmount = default(string), string noAmount = default(string), string pledgeAmount = default(string), bool approved = default(bool), CertificateResponse certificate = default(CertificateResponse))
+        /// <param name="createdBlock">Block number at which the entity was created.</param>
+        /// <param name="modifiedBlock">Block number at which the entity state was last modified.</param>
+        public ProposalResponse(string vault = default(string), string token = default(string), int proposalId = default(int), string creator = default(string), string wallet = default(string), string amount = default(string), string description = default(string), ProposalType type = default(ProposalType), ProposalStatus status = default(ProposalStatus), int expiration = default(int), string yesAmount = default(string), string noAmount = default(string), string pledgeAmount = default(string), bool approved = default(bool), int createdBlock = default(int), int modifiedBlock = default(int))
         {
             this.Vault = vault;
             this.Token = token;
@@ -66,7 +67,8 @@ namespace Opdex.Client.Model
             this.NoAmount = noAmount;
             this.PledgeAmount = pledgeAmount;
             this.Approved = approved;
-            this.Certificate = certificate;
+            this.CreatedBlock = createdBlock;
+            this.ModifiedBlock = modifiedBlock;
         }
 
         /// <summary>
@@ -166,10 +168,18 @@ namespace Opdex.Client.Model
         public bool Approved { get; set; }
 
         /// <summary>
-        /// Gets or Sets Certificate
+        /// Block number at which the entity was created
         /// </summary>
-        [DataMember(Name = "certificate", EmitDefaultValue = false)]
-        public CertificateResponse Certificate { get; set; }
+        /// <value>Block number at which the entity was created</value>
+        [DataMember(Name = "createdBlock", EmitDefaultValue = false)]
+        public int CreatedBlock { get; set; }
+
+        /// <summary>
+        /// Block number at which the entity state was last modified
+        /// </summary>
+        /// <value>Block number at which the entity state was last modified</value>
+        [DataMember(Name = "modifiedBlock", EmitDefaultValue = false)]
+        public int ModifiedBlock { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -193,7 +203,8 @@ namespace Opdex.Client.Model
             sb.Append("  NoAmount: ").Append(NoAmount).Append("\n");
             sb.Append("  PledgeAmount: ").Append(PledgeAmount).Append("\n");
             sb.Append("  Approved: ").Append(Approved).Append("\n");
-            sb.Append("  Certificate: ").Append(Certificate).Append("\n");
+            sb.Append("  CreatedBlock: ").Append(CreatedBlock).Append("\n");
+            sb.Append("  ModifiedBlock: ").Append(ModifiedBlock).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -297,9 +308,12 @@ namespace Opdex.Client.Model
                     this.Approved.Equals(input.Approved)
                 ) && 
                 (
-                    this.Certificate == input.Certificate ||
-                    (this.Certificate != null &&
-                    this.Certificate.Equals(input.Certificate))
+                    this.CreatedBlock == input.CreatedBlock ||
+                    this.CreatedBlock.Equals(input.CreatedBlock)
+                ) && 
+                (
+                    this.ModifiedBlock == input.ModifiedBlock ||
+                    this.ModifiedBlock.Equals(input.ModifiedBlock)
                 );
         }
 
@@ -359,10 +373,8 @@ namespace Opdex.Client.Model
                     hashCode = (hashCode * 59) + this.PledgeAmount.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Approved.GetHashCode();
-                if (this.Certificate != null)
-                {
-                    hashCode = (hashCode * 59) + this.Certificate.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.CreatedBlock.GetHashCode();
+                hashCode = (hashCode * 59) + this.ModifiedBlock.GetHashCode();
                 return hashCode;
             }
         }
@@ -494,6 +506,18 @@ namespace Opdex.Client.Model
             if (false == regexPledgeAmount.Match(this.PledgeAmount).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PledgeAmount, must match a pattern of " + regexPledgeAmount, new [] { "PledgeAmount" });
+            }
+
+            // CreatedBlock (int) minimum
+            if (this.CreatedBlock < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CreatedBlock, must be a value greater than or equal to 1.", new [] { "CreatedBlock" });
+            }
+
+            // ModifiedBlock (int) minimum
+            if (this.ModifiedBlock < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ModifiedBlock, must be a value greater than or equal to 1.", new [] { "ModifiedBlock" });
             }
 
             yield break;

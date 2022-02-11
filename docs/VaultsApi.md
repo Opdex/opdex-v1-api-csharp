@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built complete proposal transaction quote |  -  |
+| **200** | Built complete proposal transaction quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Vault or proposal not found |  -  |
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built pledge transaction quote |  -  |
+| **200** | Built pledge transaction quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Vault or proposal not found |  -  |
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 Build Propose Change Minimum Pledge Transaction Quote
 
-Builds a quote for a transaction to create a proposal for changing the minimum pledge amount. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+Builds a quote for a transaction to create a proposal for changing the minimum pledge amount. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
 
 ### Example
 ```csharp
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built propose change minimum pledge transaction quote |  -  |
+| **200** | Built propose change minimum pledge transaction quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Vault not found |  -  |
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 
 Build Propose Change Minimum Vote Transaction Quote
 
-Builds a quote for a transaction to create a proposal for changing the minimum vote threshold. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+Builds a quote for a transaction to create a proposal for changing the minimum vote threshold. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
 
 ### Example
 ```csharp
@@ -358,7 +358,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built propose change minimum vote transaction quote |  -  |
+| **200** | Built propose change minimum vote transaction quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Vault not found |  -  |
@@ -373,7 +373,7 @@ Name | Type | Description  | Notes
 
 Build Propose Create Certificate Transaction Quote
 
-Builds a quote for a transaction to create a proposal for creating a vault certificate. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+Builds a quote for a transaction to create a proposal for creating a vault certificate. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
 
 ### Example
 ```csharp
@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built propose create certificate transaction quote |  -  |
+| **200** | Built propose create certificate transaction quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Vault not found |  -  |
@@ -458,7 +458,7 @@ Name | Type | Description  | Notes
 
 Build Propose Revoke Certificate Transaction Quote
 
-Builds a quote for a transaction to create a proposal for revoking a vault certificate. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
+Builds a quote for a transaction to create a proposal for revoking a vault certificate. Creating a proposal requires a deposit of 500 CRS, which is returned upon completion of the proposal. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
 
 ### Example
 ```csharp
@@ -528,7 +528,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built propose revoke certificate transaction quote |  -  |
+| **200** | Built propose revoke certificate transaction quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Vault not found |  -  |
@@ -611,7 +611,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built redeem certificate transaction quote |  -  |
+| **200** | Built redeem certificate transaction quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Vault not found |  -  |
@@ -698,7 +698,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built vote transaction quote |  -  |
+| **200** | Built vote transaction quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Vault or proposal not found |  -  |
@@ -785,7 +785,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built withdraw pledge transaction quote |  -  |
+| **200** | Built withdraw pledge transaction quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Vault or proposal not found |  -  |
@@ -872,7 +872,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Built withdraw vote transaction quote |  -  |
+| **200** | Built withdraw vote transaction quote |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Vault or proposal not found |  -  |
@@ -962,7 +962,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Certificate results found |  -  |
+| **200** | Certificate results found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Vault not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -1045,7 +1045,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Pledge position found |  -  |
+| **200** | Pledge position found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Vault, proposal or pledger not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -1136,7 +1136,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Pledge results found |  -  |
+| **200** | Pledge results found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Vault not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -1225,7 +1225,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Proposal results found |  -  |
+| **200** | Proposal results found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Vault not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -1304,7 +1304,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Vault found |  -  |
+| **200** | Vault found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Vault not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -1385,7 +1385,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Proposal found |  -  |
+| **200** | Proposal found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Vault or proposal not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -1470,7 +1470,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Vault results found |  -  |
+| **200** | Vault results found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
@@ -1552,7 +1552,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Vote position found |  -  |
+| **200** | Vote position found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Vault, proposal or voter not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
@@ -1643,7 +1643,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Vote results found |  -  |
+| **200** | Vote results found |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
 | **404** | Vault not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |

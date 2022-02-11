@@ -107,9 +107,9 @@ namespace Opdex.Client.Api
         /// Replays a previous transaction quote at the current point in time. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="replayQuoteRequest"></param>
+        /// <param name="quotedTransaction">Contents of the &#x60;request&#x60; property from a previously quoted transaction.</param>
         /// <returns>TransactionQuoteResponse</returns>
-        TransactionQuoteResponse ReplayQuote(ReplayQuoteRequest replayQuoteRequest);
+        TransactionQuoteResponse ReplayQuote(QuotedTransaction quotedTransaction);
 
         /// <summary>
         /// Replay Transaction Quote
@@ -118,9 +118,9 @@ namespace Opdex.Client.Api
         /// Replays a previous transaction quote at the current point in time. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="replayQuoteRequest"></param>
+        /// <param name="quotedTransaction">Contents of the &#x60;request&#x60; property from a previously quoted transaction.</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        ApiResponse<TransactionQuoteResponse> ReplayQuoteWithHttpInfo(ReplayQuoteRequest replayQuoteRequest);
+        ApiResponse<TransactionQuoteResponse> ReplayQuoteWithHttpInfo(QuotedTransaction quotedTransaction);
         #endregion Synchronous Operations
     }
 
@@ -216,10 +216,10 @@ namespace Opdex.Client.Api
         /// Replays a previous transaction quote at the current point in time. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="replayQuoteRequest"></param>
+        /// <param name="quotedTransaction">Contents of the &#x60;request&#x60; property from a previously quoted transaction.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        System.Threading.Tasks.Task<TransactionQuoteResponse> ReplayQuoteAsync(ReplayQuoteRequest replayQuoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionQuoteResponse> ReplayQuoteAsync(QuotedTransaction quotedTransaction, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Replay Transaction Quote
@@ -228,10 +228,10 @@ namespace Opdex.Client.Api
         /// Replays a previous transaction quote at the current point in time. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="replayQuoteRequest"></param>
+        /// <param name="quotedTransaction">Contents of the &#x60;request&#x60; property from a previously quoted transaction.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> ReplayQuoteWithHttpInfoAsync(ReplayQuoteRequest replayQuoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionQuoteResponse>> ReplayQuoteWithHttpInfoAsync(QuotedTransaction quotedTransaction, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -490,7 +490,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<TransactionResponse>("/transaction/{hash}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<TransactionResponse>("/transactions/{hash}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -551,7 +551,7 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<TransactionResponse>("/transaction/{hash}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TransactionResponse>("/transactions/{hash}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -856,11 +856,11 @@ namespace Opdex.Client.Api
         /// Replay Transaction Quote Replays a previous transaction quote at the current point in time. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="replayQuoteRequest"></param>
+        /// <param name="quotedTransaction">Contents of the &#x60;request&#x60; property from a previously quoted transaction.</param>
         /// <returns>TransactionQuoteResponse</returns>
-        public TransactionQuoteResponse ReplayQuote(ReplayQuoteRequest replayQuoteRequest)
+        public TransactionQuoteResponse ReplayQuote(QuotedTransaction quotedTransaction)
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = ReplayQuoteWithHttpInfo(replayQuoteRequest);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = ReplayQuoteWithHttpInfo(quotedTransaction);
             return localVarResponse.Data;
         }
 
@@ -868,13 +868,13 @@ namespace Opdex.Client.Api
         /// Replay Transaction Quote Replays a previous transaction quote at the current point in time. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="replayQuoteRequest"></param>
+        /// <param name="quotedTransaction">Contents of the &#x60;request&#x60; property from a previously quoted transaction.</param>
         /// <returns>ApiResponse of TransactionQuoteResponse</returns>
-        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> ReplayQuoteWithHttpInfo(ReplayQuoteRequest replayQuoteRequest)
+        public Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> ReplayQuoteWithHttpInfo(QuotedTransaction quotedTransaction)
         {
-            // verify the required parameter 'replayQuoteRequest' is set
-            if (replayQuoteRequest == null)
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'replayQuoteRequest' when calling TransactionsApi->ReplayQuote");
+            // verify the required parameter 'quotedTransaction' is set
+            if (quotedTransaction == null)
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quotedTransaction' when calling TransactionsApi->ReplayQuote");
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
 
@@ -894,7 +894,7 @@ namespace Opdex.Client.Api
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = replayQuoteRequest;
+            localVarRequestOptions.Data = quotedTransaction;
 
             // authentication (opdexAuth) required
             // bearer authentication required
@@ -904,7 +904,7 @@ namespace Opdex.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/transaction/replay-quote", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<TransactionQuoteResponse>("/transactions/replay-quote", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -919,12 +919,12 @@ namespace Opdex.Client.Api
         /// Replay Transaction Quote Replays a previous transaction quote at the current point in time. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="replayQuoteRequest"></param>
+        /// <param name="quotedTransaction">Contents of the &#x60;request&#x60; property from a previously quoted transaction.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionQuoteResponse</returns>
-        public async System.Threading.Tasks.Task<TransactionQuoteResponse> ReplayQuoteAsync(ReplayQuoteRequest replayQuoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionQuoteResponse> ReplayQuoteAsync(QuotedTransaction quotedTransaction, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await ReplayQuoteWithHttpInfoAsync(replayQuoteRequest, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<TransactionQuoteResponse> localVarResponse = await ReplayQuoteWithHttpInfoAsync(quotedTransaction, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -932,14 +932,14 @@ namespace Opdex.Client.Api
         /// Replay Transaction Quote Replays a previous transaction quote at the current point in time. The quote can be broadcast by a Stratis Transaction Handoff Broadcastor. See the [specification](https://github.com/Opdex/STHS) for further details.
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="replayQuoteRequest"></param>
+        /// <param name="quotedTransaction">Contents of the &#x60;request&#x60; property from a previously quoted transaction.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionQuoteResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> ReplayQuoteWithHttpInfoAsync(ReplayQuoteRequest replayQuoteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<TransactionQuoteResponse>> ReplayQuoteWithHttpInfoAsync(QuotedTransaction quotedTransaction, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'replayQuoteRequest' is set
-            if (replayQuoteRequest == null)
-                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'replayQuoteRequest' when calling TransactionsApi->ReplayQuote");
+            // verify the required parameter 'quotedTransaction' is set
+            if (quotedTransaction == null)
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'quotedTransaction' when calling TransactionsApi->ReplayQuote");
 
 
             Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
@@ -961,7 +961,7 @@ namespace Opdex.Client.Api
             var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = replayQuoteRequest;
+            localVarRequestOptions.Data = quotedTransaction;
 
             // authentication (opdexAuth) required
             // bearer authentication required
@@ -972,7 +972,7 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/transaction/replay-quote", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionQuoteResponse>("/transactions/replay-quote", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

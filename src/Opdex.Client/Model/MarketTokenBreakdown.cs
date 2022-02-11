@@ -27,35 +27,33 @@ using OpenAPIDateConverter = Opdex.Client.Client.OpenAPIDateConverter;
 namespace Opdex.Client.Model
 {
     /// <summary>
-    /// Request to replay a previous quote at the current point in time
+    /// Details of tokens that are tied to a market
     /// </summary>
-    [DataContract(Name = "replayQuoteRequest")]
-    public partial class ReplayQuoteRequest : IEquatable<ReplayQuoteRequest>, IValidatableObject
+    [DataContract(Name = "marketTokenBreakdown")]
+    public partial class MarketTokenBreakdown : IEquatable<MarketTokenBreakdown>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReplayQuoteRequest" /> class.
+        /// Initializes a new instance of the <see cref="MarketTokenBreakdown" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ReplayQuoteRequest() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ReplayQuoteRequest" /> class.
-        /// </summary>
-        /// <param name="quote">Previously received encoded transaction quote (required).</param>
-        public ReplayQuoteRequest(string quote = default(string))
+        /// <param name="crs">crs.</param>
+        /// <param name="staking">staking.</param>
+        public MarketTokenBreakdown(TokenResponse crs = default(TokenResponse), TokenResponse staking = default(TokenResponse))
         {
-            // to ensure "quote" is required (not null)
-            if (quote == null) {
-                throw new ArgumentNullException("quote is a required property for ReplayQuoteRequest and cannot be null");
-            }
-            this.Quote = quote;
+            this.Crs = crs;
+            this.Staking = staking;
         }
 
         /// <summary>
-        /// Previously received encoded transaction quote
+        /// Gets or Sets Crs
         /// </summary>
-        /// <value>Previously received encoded transaction quote</value>
-        [DataMember(Name = "quote", IsRequired = true, EmitDefaultValue = false)]
-        public string Quote { get; set; }
+        [DataMember(Name = "crs", EmitDefaultValue = false)]
+        public TokenResponse Crs { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Staking
+        /// </summary>
+        [DataMember(Name = "staking", EmitDefaultValue = false)]
+        public TokenResponse Staking { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,8 +62,9 @@ namespace Opdex.Client.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ReplayQuoteRequest {\n");
-            sb.Append("  Quote: ").Append(Quote).Append("\n");
+            sb.Append("class MarketTokenBreakdown {\n");
+            sb.Append("  Crs: ").Append(Crs).Append("\n");
+            sb.Append("  Staking: ").Append(Staking).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,15 +85,15 @@ namespace Opdex.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ReplayQuoteRequest);
+            return this.Equals(input as MarketTokenBreakdown);
         }
 
         /// <summary>
-        /// Returns true if ReplayQuoteRequest instances are equal
+        /// Returns true if MarketTokenBreakdown instances are equal
         /// </summary>
-        /// <param name="input">Instance of ReplayQuoteRequest to be compared</param>
+        /// <param name="input">Instance of MarketTokenBreakdown to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ReplayQuoteRequest input)
+        public bool Equals(MarketTokenBreakdown input)
         {
             if (input == null)
             {
@@ -102,9 +101,14 @@ namespace Opdex.Client.Model
             }
             return 
                 (
-                    this.Quote == input.Quote ||
-                    (this.Quote != null &&
-                    this.Quote.Equals(input.Quote))
+                    this.Crs == input.Crs ||
+                    (this.Crs != null &&
+                    this.Crs.Equals(input.Crs))
+                ) && 
+                (
+                    this.Staking == input.Staking ||
+                    (this.Staking != null &&
+                    this.Staking.Equals(input.Staking))
                 );
         }
 
@@ -117,9 +121,13 @@ namespace Opdex.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Quote != null)
+                if (this.Crs != null)
                 {
-                    hashCode = (hashCode * 59) + this.Quote.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Crs.GetHashCode();
+                }
+                if (this.Staking != null)
+                {
+                    hashCode = (hashCode * 59) + this.Staking.GetHashCode();
                 }
                 return hashCode;
             }
