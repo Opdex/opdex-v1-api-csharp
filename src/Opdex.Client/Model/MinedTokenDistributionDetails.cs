@@ -38,13 +38,13 @@ namespace Opdex.Client.Model
         /// <param name="vault">An address on the Cirrus network.</param>
         /// <param name="miningGovernance">An address on the Cirrus network.</param>
         /// <param name="nextDistributionBlock">Block number at which the next distribution is available.</param>
-        /// <param name="previous">previous.</param>
-        public MinedTokenDistributionDetails(string vault = default(string), string miningGovernance = default(string), int nextDistributionBlock = default(int), MinedTokenDistribution previous = default(MinedTokenDistribution))
+        /// <param name="history">Details for the historical mined token distributions.</param>
+        public MinedTokenDistributionDetails(string vault = default(string), string miningGovernance = default(string), int nextDistributionBlock = default(int), List<MinedTokenDistribution> history = default(List<MinedTokenDistribution>))
         {
             this.Vault = vault;
             this.MiningGovernance = miningGovernance;
             this.NextDistributionBlock = nextDistributionBlock;
-            this.Previous = previous;
+            this.History = history;
         }
 
         /// <summary>
@@ -69,10 +69,11 @@ namespace Opdex.Client.Model
         public int NextDistributionBlock { get; set; }
 
         /// <summary>
-        /// Gets or Sets Previous
+        /// Details for the historical mined token distributions
         /// </summary>
-        [DataMember(Name = "previous", EmitDefaultValue = false)]
-        public MinedTokenDistribution Previous { get; set; }
+        /// <value>Details for the historical mined token distributions</value>
+        [DataMember(Name = "history", EmitDefaultValue = false)]
+        public List<MinedTokenDistribution> History { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -85,7 +86,7 @@ namespace Opdex.Client.Model
             sb.Append("  Vault: ").Append(Vault).Append("\n");
             sb.Append("  MiningGovernance: ").Append(MiningGovernance).Append("\n");
             sb.Append("  NextDistributionBlock: ").Append(NextDistributionBlock).Append("\n");
-            sb.Append("  Previous: ").Append(Previous).Append("\n");
+            sb.Append("  History: ").Append(History).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,9 +137,10 @@ namespace Opdex.Client.Model
                     this.NextDistributionBlock.Equals(input.NextDistributionBlock)
                 ) && 
                 (
-                    this.Previous == input.Previous ||
-                    (this.Previous != null &&
-                    this.Previous.Equals(input.Previous))
+                    this.History == input.History ||
+                    this.History != null &&
+                    input.History != null &&
+                    this.History.SequenceEqual(input.History)
                 );
         }
 
@@ -160,9 +162,9 @@ namespace Opdex.Client.Model
                     hashCode = (hashCode * 59) + this.MiningGovernance.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.NextDistributionBlock.GetHashCode();
-                if (this.Previous != null)
+                if (this.History != null)
                 {
-                    hashCode = (hashCode * 59) + this.Previous.GetHashCode();
+                    hashCode = (hashCode * 59) + this.History.GetHashCode();
                 }
                 return hashCode;
             }

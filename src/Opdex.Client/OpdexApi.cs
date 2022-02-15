@@ -42,6 +42,7 @@ public class OpdexApi : IOpdexApi
 public interface IOpdexApi
 {
     IAuthenticationApi Authentication { get; }
+    IBlocksApi Blocks { get; }
     IIndexerApi Indexer { get; }
     ILiquidityPoolsApi LiquidityPools { get; }
     IMarketsApi Markets { get; }
