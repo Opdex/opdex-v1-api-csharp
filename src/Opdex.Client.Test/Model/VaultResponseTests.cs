@@ -120,6 +120,22 @@ namespace Opdex.Client.Test.Model
         {
             // TODO unit test for the property 'VestingDuration'
         }
+        /// <summary>
+        /// Test the property 'CreatedBlock'
+        /// </summary>
+        [Fact]
+        public void CreatedBlockTest()
+        {
+            // TODO unit test for the property 'CreatedBlock'
+        }
+        /// <summary>
+        /// Test the property 'ModifiedBlock'
+        /// </summary>
+        [Fact]
+        public void ModifiedBlockTest()
+        {
+            // TODO unit test for the property 'ModifiedBlock'
+        }
 
     }
 

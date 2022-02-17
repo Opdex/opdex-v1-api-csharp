@@ -57,14 +57,6 @@ namespace Opdex.Client.Test.Model
 
 
         /// <summary>
-        /// Test the property 'Token'
-        /// </summary>
-        [Fact]
-        public void TokenTest()
-        {
-            // TODO unit test for the property 'Token'
-        }
-        /// <summary>
         /// Test the property 'Weight'
         /// </summary>
         [Fact]

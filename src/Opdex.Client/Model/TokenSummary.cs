@@ -35,11 +35,11 @@ namespace Opdex.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TokenSummary" /> class.
         /// </summary>
-        /// <param name="priceUsd">USD token price.</param>
-        /// <param name="dailyPriceChangePercent">Price change percentage for the current day, reset at 00:00 UTC.</param>
+        /// <param name="priceUsd">Decimal value with uncapped precision and size.</param>
+        /// <param name="dailyPriceChangePercent">Decimal value with uncapped precision and size.</param>
         /// <param name="createdBlock">Block number at which price was created.</param>
         /// <param name="modifiedBlock">Block number at which price was last updated.</param>
-        public TokenSummary(decimal priceUsd = default(decimal), decimal dailyPriceChangePercent = default(decimal), int createdBlock = default(int), int modifiedBlock = default(int))
+        public TokenSummary(string priceUsd = default(string), string dailyPriceChangePercent = default(string), int createdBlock = default(int), int modifiedBlock = default(int))
         {
             this.PriceUsd = priceUsd;
             this.DailyPriceChangePercent = dailyPriceChangePercent;
@@ -48,18 +48,18 @@ namespace Opdex.Client.Model
         }
 
         /// <summary>
-        /// USD token price
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>USD token price</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "priceUsd", EmitDefaultValue = false)]
-        public decimal PriceUsd { get; set; }
+        public string PriceUsd { get; set; }
 
         /// <summary>
-        /// Price change percentage for the current day, reset at 00:00 UTC
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>Price change percentage for the current day, reset at 00:00 UTC</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "dailyPriceChangePercent", EmitDefaultValue = false)]
-        public decimal DailyPriceChangePercent { get; set; }
+        public string DailyPriceChangePercent { get; set; }
 
         /// <summary>
         /// Block number at which price was created
@@ -124,11 +124,13 @@ namespace Opdex.Client.Model
             return 
                 (
                     this.PriceUsd == input.PriceUsd ||
-                    this.PriceUsd.Equals(input.PriceUsd)
+                    (this.PriceUsd != null &&
+                    this.PriceUsd.Equals(input.PriceUsd))
                 ) && 
                 (
                     this.DailyPriceChangePercent == input.DailyPriceChangePercent ||
-                    this.DailyPriceChangePercent.Equals(input.DailyPriceChangePercent)
+                    (this.DailyPriceChangePercent != null &&
+                    this.DailyPriceChangePercent.Equals(input.DailyPriceChangePercent))
                 ) && 
                 (
                     this.CreatedBlock == input.CreatedBlock ||
@@ -149,8 +151,14 @@ namespace Opdex.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.PriceUsd.GetHashCode();
-                hashCode = (hashCode * 59) + this.DailyPriceChangePercent.GetHashCode();
+                if (this.PriceUsd != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriceUsd.GetHashCode();
+                }
+                if (this.DailyPriceChangePercent != null)
+                {
+                    hashCode = (hashCode * 59) + this.DailyPriceChangePercent.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.CreatedBlock.GetHashCode();
                 hashCode = (hashCode * 59) + this.ModifiedBlock.GetHashCode();
                 return hashCode;
@@ -164,16 +172,18 @@ namespace Opdex.Client.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
-            // PriceUsd (decimal) minimum
-            if (this.PriceUsd < (decimal)0.0)
+            // PriceUsd (string) pattern
+            Regex regexPriceUsd = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexPriceUsd.Match(this.PriceUsd).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PriceUsd, must be a value greater than or equal to 0.0.", new [] { "PriceUsd" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PriceUsd, must match a pattern of " + regexPriceUsd, new [] { "PriceUsd" });
             }
 
-            // DailyPriceChangePercent (decimal) minimum
-            if (this.DailyPriceChangePercent < (decimal)-100.0)
+            // DailyPriceChangePercent (string) pattern
+            Regex regexDailyPriceChangePercent = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexDailyPriceChangePercent.Match(this.DailyPriceChangePercent).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DailyPriceChangePercent, must be a value greater than or equal to -100.0.", new [] { "DailyPriceChangePercent" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DailyPriceChangePercent, must match a pattern of " + regexDailyPriceChangePercent, new [] { "DailyPriceChangePercent" });
             }
 
             // CreatedBlock (int) minimum

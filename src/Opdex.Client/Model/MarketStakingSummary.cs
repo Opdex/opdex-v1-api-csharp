@@ -36,10 +36,10 @@ namespace Opdex.Client.Model
         /// Initializes a new instance of the <see cref="MarketStakingSummary" /> class.
         /// </summary>
         /// <param name="stakingWeight">Decimal value with uncapped precision and size.</param>
-        /// <param name="dailyStakingWeightChangePercent">Percentage change of the staking weight amount from the previous day.</param>
-        /// <param name="stakingUsd">Total staking weight USD amount.</param>
-        /// <param name="dailyStakingUsdChangePercent">Percentage change of the staking USD amount from the previous day.</param>
-        public MarketStakingSummary(string stakingWeight = default(string), decimal dailyStakingWeightChangePercent = default(decimal), decimal stakingUsd = default(decimal), decimal dailyStakingUsdChangePercent = default(decimal))
+        /// <param name="dailyStakingWeightChangePercent">Decimal value with uncapped precision and size.</param>
+        /// <param name="stakingUsd">Decimal value with uncapped precision and size.</param>
+        /// <param name="dailyStakingUsdChangePercent">Decimal value with uncapped precision and size.</param>
+        public MarketStakingSummary(string stakingWeight = default(string), string dailyStakingWeightChangePercent = default(string), string stakingUsd = default(string), string dailyStakingUsdChangePercent = default(string))
         {
             this.StakingWeight = stakingWeight;
             this.DailyStakingWeightChangePercent = dailyStakingWeightChangePercent;
@@ -55,25 +55,25 @@ namespace Opdex.Client.Model
         public string StakingWeight { get; set; }
 
         /// <summary>
-        /// Percentage change of the staking weight amount from the previous day
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>Percentage change of the staking weight amount from the previous day</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "dailyStakingWeightChangePercent", EmitDefaultValue = false)]
-        public decimal DailyStakingWeightChangePercent { get; set; }
+        public string DailyStakingWeightChangePercent { get; set; }
 
         /// <summary>
-        /// Total staking weight USD amount
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>Total staking weight USD amount</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "stakingUsd", EmitDefaultValue = false)]
-        public decimal StakingUsd { get; set; }
+        public string StakingUsd { get; set; }
 
         /// <summary>
-        /// Percentage change of the staking USD amount from the previous day
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>Percentage change of the staking USD amount from the previous day</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "dailyStakingUsdChangePercent", EmitDefaultValue = false)]
-        public decimal DailyStakingUsdChangePercent { get; set; }
+        public string DailyStakingUsdChangePercent { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -129,15 +129,18 @@ namespace Opdex.Client.Model
                 ) && 
                 (
                     this.DailyStakingWeightChangePercent == input.DailyStakingWeightChangePercent ||
-                    this.DailyStakingWeightChangePercent.Equals(input.DailyStakingWeightChangePercent)
+                    (this.DailyStakingWeightChangePercent != null &&
+                    this.DailyStakingWeightChangePercent.Equals(input.DailyStakingWeightChangePercent))
                 ) && 
                 (
                     this.StakingUsd == input.StakingUsd ||
-                    this.StakingUsd.Equals(input.StakingUsd)
+                    (this.StakingUsd != null &&
+                    this.StakingUsd.Equals(input.StakingUsd))
                 ) && 
                 (
                     this.DailyStakingUsdChangePercent == input.DailyStakingUsdChangePercent ||
-                    this.DailyStakingUsdChangePercent.Equals(input.DailyStakingUsdChangePercent)
+                    (this.DailyStakingUsdChangePercent != null &&
+                    this.DailyStakingUsdChangePercent.Equals(input.DailyStakingUsdChangePercent))
                 );
         }
 
@@ -154,9 +157,18 @@ namespace Opdex.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.StakingWeight.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.DailyStakingWeightChangePercent.GetHashCode();
-                hashCode = (hashCode * 59) + this.StakingUsd.GetHashCode();
-                hashCode = (hashCode * 59) + this.DailyStakingUsdChangePercent.GetHashCode();
+                if (this.DailyStakingWeightChangePercent != null)
+                {
+                    hashCode = (hashCode * 59) + this.DailyStakingWeightChangePercent.GetHashCode();
+                }
+                if (this.StakingUsd != null)
+                {
+                    hashCode = (hashCode * 59) + this.StakingUsd.GetHashCode();
+                }
+                if (this.DailyStakingUsdChangePercent != null)
+                {
+                    hashCode = (hashCode * 59) + this.DailyStakingUsdChangePercent.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -175,22 +187,25 @@ namespace Opdex.Client.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StakingWeight, must match a pattern of " + regexStakingWeight, new [] { "StakingWeight" });
             }
 
-            // DailyStakingWeightChangePercent (decimal) minimum
-            if (this.DailyStakingWeightChangePercent < (decimal)0.0)
+            // DailyStakingWeightChangePercent (string) pattern
+            Regex regexDailyStakingWeightChangePercent = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexDailyStakingWeightChangePercent.Match(this.DailyStakingWeightChangePercent).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DailyStakingWeightChangePercent, must be a value greater than or equal to 0.0.", new [] { "DailyStakingWeightChangePercent" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DailyStakingWeightChangePercent, must match a pattern of " + regexDailyStakingWeightChangePercent, new [] { "DailyStakingWeightChangePercent" });
             }
 
-            // StakingUsd (decimal) minimum
-            if (this.StakingUsd < (decimal)0.0)
+            // StakingUsd (string) pattern
+            Regex regexStakingUsd = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexStakingUsd.Match(this.StakingUsd).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StakingUsd, must be a value greater than or equal to 0.0.", new [] { "StakingUsd" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StakingUsd, must match a pattern of " + regexStakingUsd, new [] { "StakingUsd" });
             }
 
-            // DailyStakingUsdChangePercent (decimal) minimum
-            if (this.DailyStakingUsdChangePercent < (decimal)0.0)
+            // DailyStakingUsdChangePercent (string) pattern
+            Regex regexDailyStakingUsdChangePercent = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexDailyStakingUsdChangePercent.Match(this.DailyStakingUsdChangePercent).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DailyStakingUsdChangePercent, must be a value greater than or equal to 0.0.", new [] { "DailyStakingUsdChangePercent" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DailyStakingUsdChangePercent, must match a pattern of " + regexDailyStakingUsdChangePercent, new [] { "DailyStakingUsdChangePercent" });
             }
 
             yield break;

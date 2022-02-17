@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LiquidityUsd** | **decimal** | Total liquidity USD amount | [optional] 
-**DailyLiquidityUsdChangePercent** | **decimal** | Percentage change of the liquidity USD amount from the previous day | [optional] 
-**VolumeUsd** | **decimal** | Total volume USD amount | [optional] 
+**LiquidityUsd** | **string** | Decimal value with uncapped precision and size | [optional] 
+**DailyLiquidityUsdChangePercent** | **string** | Decimal value with uncapped precision and size | [optional] 
+**VolumeUsd** | **string** | Decimal value with uncapped precision and size | [optional] 
 **Staking** | [**MarketStakingSummary**](MarketStakingSummary.md) |  | [optional] 
 **Rewards** | [**RewardSummary**](RewardSummary.md) |  | [optional] 
 **CreatedBlock** | **int** | Block number at which the entity state was created | [optional] 

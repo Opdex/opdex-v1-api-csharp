@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Weight** | **string** | Decimal value with uncapped precision and size | [optional] 
-**Usd** | **decimal** | USD value of tokens staking | [optional] 
-**DailyWeightChangePercent** | **decimal** | Percentage change of tokens staking from the previous day | [optional] 
+**Usd** | **string** | Decimal value with uncapped precision and size | [optional] 
+**DailyWeightChangePercent** | **string** | Decimal value with uncapped precision and size | [optional] 
 **Nominated** | **bool** | True if the pool is nominated for mining, otherwise false | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

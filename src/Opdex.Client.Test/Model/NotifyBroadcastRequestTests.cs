@@ -64,6 +64,14 @@ namespace Opdex.Client.Test.Model
         {
             // TODO unit test for the property 'TransactionHash'
         }
+        /// <summary>
+        /// Test the property 'WalletAddress'
+        /// </summary>
+        [Fact]
+        public void WalletAddressTest()
+        {
+            // TODO unit test for the property 'WalletAddress'
+        }
 
     }
 

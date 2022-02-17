@@ -36,10 +36,10 @@ namespace Opdex.Client.Model
         /// Initializes a new instance of the <see cref="LiquidityPoolStakingSummary" /> class.
         /// </summary>
         /// <param name="weight">Decimal value with uncapped precision and size.</param>
-        /// <param name="usd">USD value of tokens staking.</param>
-        /// <param name="dailyWeightChangePercent">Percentage change of tokens staking from the previous day.</param>
+        /// <param name="usd">Decimal value with uncapped precision and size.</param>
+        /// <param name="dailyWeightChangePercent">Decimal value with uncapped precision and size.</param>
         /// <param name="nominated">True if the pool is nominated for mining, otherwise false.</param>
-        public LiquidityPoolStakingSummary(string weight = default(string), decimal usd = default(decimal), decimal dailyWeightChangePercent = default(decimal), bool nominated = default(bool))
+        public LiquidityPoolStakingSummary(string weight = default(string), string usd = default(string), string dailyWeightChangePercent = default(string), bool nominated = default(bool))
         {
             this.Weight = weight;
             this.Usd = usd;
@@ -55,18 +55,18 @@ namespace Opdex.Client.Model
         public string Weight { get; set; }
 
         /// <summary>
-        /// USD value of tokens staking
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>USD value of tokens staking</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "usd", EmitDefaultValue = false)]
-        public decimal Usd { get; set; }
+        public string Usd { get; set; }
 
         /// <summary>
-        /// Percentage change of tokens staking from the previous day
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>Percentage change of tokens staking from the previous day</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "dailyWeightChangePercent", EmitDefaultValue = false)]
-        public decimal DailyWeightChangePercent { get; set; }
+        public string DailyWeightChangePercent { get; set; }
 
         /// <summary>
         /// True if the pool is nominated for mining, otherwise false
@@ -129,11 +129,13 @@ namespace Opdex.Client.Model
                 ) && 
                 (
                     this.Usd == input.Usd ||
-                    this.Usd.Equals(input.Usd)
+                    (this.Usd != null &&
+                    this.Usd.Equals(input.Usd))
                 ) && 
                 (
                     this.DailyWeightChangePercent == input.DailyWeightChangePercent ||
-                    this.DailyWeightChangePercent.Equals(input.DailyWeightChangePercent)
+                    (this.DailyWeightChangePercent != null &&
+                    this.DailyWeightChangePercent.Equals(input.DailyWeightChangePercent))
                 ) && 
                 (
                     this.Nominated == input.Nominated ||
@@ -154,8 +156,14 @@ namespace Opdex.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.Weight.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Usd.GetHashCode();
-                hashCode = (hashCode * 59) + this.DailyWeightChangePercent.GetHashCode();
+                if (this.Usd != null)
+                {
+                    hashCode = (hashCode * 59) + this.Usd.GetHashCode();
+                }
+                if (this.DailyWeightChangePercent != null)
+                {
+                    hashCode = (hashCode * 59) + this.DailyWeightChangePercent.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.Nominated.GetHashCode();
                 return hashCode;
             }
@@ -175,16 +183,18 @@ namespace Opdex.Client.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Weight, must match a pattern of " + regexWeight, new [] { "Weight" });
             }
 
-            // Usd (decimal) minimum
-            if (this.Usd < (decimal)0.0)
+            // Usd (string) pattern
+            Regex regexUsd = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexUsd.Match(this.Usd).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Usd, must be a value greater than or equal to 0.0.", new [] { "Usd" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Usd, must match a pattern of " + regexUsd, new [] { "Usd" });
             }
 
-            // DailyWeightChangePercent (decimal) minimum
-            if (this.DailyWeightChangePercent < (decimal)-100.0)
+            // DailyWeightChangePercent (string) pattern
+            Regex regexDailyWeightChangePercent = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexDailyWeightChangePercent.Match(this.DailyWeightChangePercent).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DailyWeightChangePercent, must be a value greater than or equal to -100.0.", new [] { "DailyWeightChangePercent" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DailyWeightChangePercent, must match a pattern of " + regexDailyWeightChangePercent, new [] { "DailyWeightChangePercent" });
             }
 
             yield break;

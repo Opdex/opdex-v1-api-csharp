@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProviderDailyUsd** | **decimal** | USD value of rewards distributed to liquidity providers for the day | [optional] 
-**MarketDailyUsd** | **decimal** | USD value of rewards distributed to the market for the day | [optional] 
-**TotalDailyUsd** | **decimal** | Total USD value of rewards distributed for the day | [optional] 
+**ProviderDailyUsd** | **string** | Decimal value with uncapped precision and size | [optional] 
+**MarketDailyUsd** | **string** | Decimal value with uncapped precision and size | [optional] 
+**TotalDailyUsd** | **string** | Decimal value with uncapped precision and size | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

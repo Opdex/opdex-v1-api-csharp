@@ -12,7 +12,7 @@
     <Description>API Client for the V1 Opdex API</Description>
     <Copyright>No Copyright</Copyright>
     <RootNamespace>Opdex.Client</RootNamespace>
-    <Version>1.0.0-alpha7</Version>
+    <Version>1.0.0-alpha8</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Opdex.Client.xml</DocumentationFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/Opdex/opdex-v1-sdk-csharp.git</RepositoryUrl>

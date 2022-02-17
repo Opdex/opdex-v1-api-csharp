@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Name** | **string** | Name of the token | [optional] 
 **Symbol** | **string** | Token ticker symbol | [optional] 
 **Decimals** | **int** | Number of decimals of precision for token values | [optional] 
-**Sats** | **int** | Number of parts which make up one whole token | [optional] 
+**Sats** | **string** | Number of parts which make up one whole token | [optional] 
 **TotalSupply** | **string** | Decimal value with uncapped precision and size | [optional] 
 **Attributes** | [**List&lt;TokenAttribute&gt;**](TokenAttribute.md) | Attributes applied to the token | [optional] 
 **WrappedToken** | [**WrappedTokenDetails**](WrappedTokenDetails.md) |  | [optional] 

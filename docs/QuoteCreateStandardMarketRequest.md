@@ -6,7 +6,7 @@ Request to retrieve a create standard market call quote
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Owner** | **string** | An address on the Cirrus network | 
-**TransactionFeePercent** | **decimal** | Swap fee percentage amount | 
+**TransactionFeePercent** | **string** | Decimal value with uncapped precision and size | 
 **AuthPoolCreators** | **bool** | If true, requires permissions to be assigned to create liquidity pools; or if false anyone can create a liquidity pool | 
 **AuthLiquidityProviders** | **bool** | If true, requires permissions to be assigned to provide liquidity; or if false anyone can provide liquidity | 
 **AuthTraders** | **bool** | If true, requires permissions to be assigned to swap; or if false anyone can swap | 

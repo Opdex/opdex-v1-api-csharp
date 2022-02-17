@@ -113,6 +113,38 @@ namespace Opdex.Client.Test.Model
             // TODO unit test for the property 'Attributes'
         }
         /// <summary>
+        /// Test the property 'WrappedToken'
+        /// </summary>
+        [Fact]
+        public void WrappedTokenTest()
+        {
+            // TODO unit test for the property 'WrappedToken'
+        }
+        /// <summary>
+        /// Test the property 'Distribution'
+        /// </summary>
+        [Fact]
+        public void DistributionTest()
+        {
+            // TODO unit test for the property 'Distribution'
+        }
+        /// <summary>
+        /// Test the property 'CreatedBlock'
+        /// </summary>
+        [Fact]
+        public void CreatedBlockTest()
+        {
+            // TODO unit test for the property 'CreatedBlock'
+        }
+        /// <summary>
+        /// Test the property 'ModifiedBlock'
+        /// </summary>
+        [Fact]
+        public void ModifiedBlockTest()
+        {
+            // TODO unit test for the property 'ModifiedBlock'
+        }
+        /// <summary>
         /// Test the property 'Summary'
         /// </summary>
         [Fact]

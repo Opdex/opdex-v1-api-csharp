@@ -80,6 +80,14 @@ namespace Opdex.Client.Test.Model
         {
             // TODO unit test for the property 'Lp'
         }
+        /// <summary>
+        /// Test the property 'Staking'
+        /// </summary>
+        [Fact]
+        public void StakingTest()
+        {
+            // TODO unit test for the property 'Staking'
+        }
 
     }
 

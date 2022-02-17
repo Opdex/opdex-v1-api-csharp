@@ -47,7 +47,7 @@ namespace Opdex.Client.Model
         /// <param name="createdBlock">Block number at which the entity was created.</param>
         /// <param name="modifiedBlock">Block number at which the entity state was last modified.</param>
         /// <param name="summary">summary.</param>
-        public TokenResponse(string address = default(string), string name = default(string), string symbol = default(string), int decimals = default(int), int sats = default(int), string totalSupply = default(string), List<TokenAttribute> attributes = default(List<TokenAttribute>), WrappedTokenDetails wrappedToken = default(WrappedTokenDetails), MinedTokenDistributionDetails distribution = default(MinedTokenDistributionDetails), int createdBlock = default(int), int modifiedBlock = default(int), TokenSummary summary = default(TokenSummary))
+        public TokenResponse(string address = default(string), string name = default(string), string symbol = default(string), int decimals = default(int), string sats = default(string), string totalSupply = default(string), List<TokenAttribute> attributes = default(List<TokenAttribute>), WrappedTokenDetails wrappedToken = default(WrappedTokenDetails), MinedTokenDistributionDetails distribution = default(MinedTokenDistributionDetails), int createdBlock = default(int), int modifiedBlock = default(int), TokenSummary summary = default(TokenSummary))
         {
             this.Address = address;
             this.Name = name;
@@ -96,7 +96,7 @@ namespace Opdex.Client.Model
         /// </summary>
         /// <value>Number of parts which make up one whole token</value>
         [DataMember(Name = "sats", EmitDefaultValue = false)]
-        public int Sats { get; set; }
+        public string Sats { get; set; }
 
         /// <summary>
         /// Decimal value with uncapped precision and size
@@ -220,7 +220,8 @@ namespace Opdex.Client.Model
                 ) && 
                 (
                     this.Sats == input.Sats ||
-                    this.Sats.Equals(input.Sats)
+                    (this.Sats != null &&
+                    this.Sats.Equals(input.Sats))
                 ) && 
                 (
                     this.TotalSupply == input.TotalSupply ||
@@ -280,7 +281,10 @@ namespace Opdex.Client.Model
                     hashCode = (hashCode * 59) + this.Symbol.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Decimals.GetHashCode();
-                hashCode = (hashCode * 59) + this.Sats.GetHashCode();
+                if (this.Sats != null)
+                {
+                    hashCode = (hashCode * 59) + this.Sats.GetHashCode();
+                }
                 if (this.TotalSupply != null)
                 {
                     hashCode = (hashCode * 59) + this.TotalSupply.GetHashCode();
@@ -339,10 +343,11 @@ namespace Opdex.Client.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Decimals, must be a value greater than or equal to 0.", new [] { "Decimals" });
             }
 
-            // Sats (int) minimum
-            if (this.Sats < (int)1)
+            // Sats (string) pattern
+            Regex regexSats = new Regex(@"^[0-9]+$", RegexOptions.CultureInvariant);
+            if (false == regexSats.Match(this.Sats).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sats, must be a value greater than or equal to 1.", new [] { "Sats" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sats, must match a pattern of " + regexSats, new [] { "Sats" });
             }
 
             // TotalSupply (string) pattern

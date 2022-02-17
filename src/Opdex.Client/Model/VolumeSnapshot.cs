@@ -37,8 +37,8 @@ namespace Opdex.Client.Model
         /// </summary>
         /// <param name="crs">Decimal value with uncapped precision and size.</param>
         /// <param name="src">Decimal value with uncapped precision and size.</param>
-        /// <param name="usd">USD value of all token volume.</param>
-        public VolumeSnapshot(string crs = default(string), string src = default(string), decimal usd = default(decimal))
+        /// <param name="usd">Decimal value with uncapped precision and size.</param>
+        public VolumeSnapshot(string crs = default(string), string src = default(string), string usd = default(string))
         {
             this.Crs = crs;
             this.Src = src;
@@ -60,11 +60,11 @@ namespace Opdex.Client.Model
         public string Src { get; set; }
 
         /// <summary>
-        /// USD value of all token volume
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>USD value of all token volume</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "usd", EmitDefaultValue = false)]
-        public decimal Usd { get; set; }
+        public string Usd { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -124,7 +124,8 @@ namespace Opdex.Client.Model
                 ) && 
                 (
                     this.Usd == input.Usd ||
-                    this.Usd.Equals(input.Usd)
+                    (this.Usd != null &&
+                    this.Usd.Equals(input.Usd))
                 );
         }
 
@@ -145,7 +146,10 @@ namespace Opdex.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.Src.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Usd.GetHashCode();
+                if (this.Usd != null)
+                {
+                    hashCode = (hashCode * 59) + this.Usd.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -171,10 +175,11 @@ namespace Opdex.Client.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Src, must match a pattern of " + regexSrc, new [] { "Src" });
             }
 
-            // Usd (decimal) minimum
-            if (this.Usd < (decimal)0.0)
+            // Usd (string) pattern
+            Regex regexUsd = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexUsd.Match(this.Usd).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Usd, must be a value greater than or equal to 0.0.", new [] { "Usd" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Usd, must match a pattern of " + regexUsd, new [] { "Usd" });
             }
 
             yield break;

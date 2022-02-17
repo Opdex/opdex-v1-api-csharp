@@ -35,18 +35,18 @@ namespace Opdex.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VolumeSummary" /> class.
         /// </summary>
-        /// <param name="dailyUsd">USD value of total daily volume.</param>
-        public VolumeSummary(decimal dailyUsd = default(decimal))
+        /// <param name="dailyUsd">Decimal value with uncapped precision and size.</param>
+        public VolumeSummary(string dailyUsd = default(string))
         {
             this.DailyUsd = dailyUsd;
         }
 
         /// <summary>
-        /// USD value of total daily volume
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>USD value of total daily volume</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "dailyUsd", EmitDefaultValue = false)]
-        public decimal DailyUsd { get; set; }
+        public string DailyUsd { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -94,7 +94,8 @@ namespace Opdex.Client.Model
             return 
                 (
                     this.DailyUsd == input.DailyUsd ||
-                    this.DailyUsd.Equals(input.DailyUsd)
+                    (this.DailyUsd != null &&
+                    this.DailyUsd.Equals(input.DailyUsd))
                 );
         }
 
@@ -107,7 +108,10 @@ namespace Opdex.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.DailyUsd.GetHashCode();
+                if (this.DailyUsd != null)
+                {
+                    hashCode = (hashCode * 59) + this.DailyUsd.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -119,10 +123,11 @@ namespace Opdex.Client.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
-            // DailyUsd (decimal) minimum
-            if (this.DailyUsd < (decimal)0.0)
+            // DailyUsd (string) pattern
+            Regex regexDailyUsd = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexDailyUsd.Match(this.DailyUsd).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DailyUsd, must be a value greater than or equal to 0.0.", new [] { "DailyUsd" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DailyUsd, must match a pattern of " + regexDailyUsd, new [] { "DailyUsd" });
             }
 
             yield break;

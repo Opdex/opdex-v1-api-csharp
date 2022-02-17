@@ -35,10 +35,10 @@ namespace Opdex.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MarketRewardsSnapshot" /> class.
         /// </summary>
-        /// <param name="providerUsd">USD value of rewards to providers.</param>
-        /// <param name="marketUsd">USD value of rewards to the market; either the owner of a standard market or stakers in a staking market.</param>
-        /// <param name="totalUsd">USD value of all rewards from token swaps.</param>
-        public MarketRewardsSnapshot(decimal providerUsd = default(decimal), decimal marketUsd = default(decimal), decimal totalUsd = default(decimal))
+        /// <param name="providerUsd">Decimal value with uncapped precision and size.</param>
+        /// <param name="marketUsd">Decimal value with uncapped precision and size.</param>
+        /// <param name="totalUsd">Decimal value with uncapped precision and size.</param>
+        public MarketRewardsSnapshot(string providerUsd = default(string), string marketUsd = default(string), string totalUsd = default(string))
         {
             this.ProviderUsd = providerUsd;
             this.MarketUsd = marketUsd;
@@ -46,25 +46,25 @@ namespace Opdex.Client.Model
         }
 
         /// <summary>
-        /// USD value of rewards to providers
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>USD value of rewards to providers</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "providerUsd", EmitDefaultValue = false)]
-        public decimal ProviderUsd { get; set; }
+        public string ProviderUsd { get; set; }
 
         /// <summary>
-        /// USD value of rewards to the market; either the owner of a standard market or stakers in a staking market
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>USD value of rewards to the market; either the owner of a standard market or stakers in a staking market</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "marketUsd", EmitDefaultValue = false)]
-        public decimal MarketUsd { get; set; }
+        public string MarketUsd { get; set; }
 
         /// <summary>
-        /// USD value of all rewards from token swaps
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>USD value of all rewards from token swaps</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "totalUsd", EmitDefaultValue = false)]
-        public decimal TotalUsd { get; set; }
+        public string TotalUsd { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -114,15 +114,18 @@ namespace Opdex.Client.Model
             return 
                 (
                     this.ProviderUsd == input.ProviderUsd ||
-                    this.ProviderUsd.Equals(input.ProviderUsd)
+                    (this.ProviderUsd != null &&
+                    this.ProviderUsd.Equals(input.ProviderUsd))
                 ) && 
                 (
                     this.MarketUsd == input.MarketUsd ||
-                    this.MarketUsd.Equals(input.MarketUsd)
+                    (this.MarketUsd != null &&
+                    this.MarketUsd.Equals(input.MarketUsd))
                 ) && 
                 (
                     this.TotalUsd == input.TotalUsd ||
-                    this.TotalUsd.Equals(input.TotalUsd)
+                    (this.TotalUsd != null &&
+                    this.TotalUsd.Equals(input.TotalUsd))
                 );
         }
 
@@ -135,9 +138,18 @@ namespace Opdex.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.ProviderUsd.GetHashCode();
-                hashCode = (hashCode * 59) + this.MarketUsd.GetHashCode();
-                hashCode = (hashCode * 59) + this.TotalUsd.GetHashCode();
+                if (this.ProviderUsd != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProviderUsd.GetHashCode();
+                }
+                if (this.MarketUsd != null)
+                {
+                    hashCode = (hashCode * 59) + this.MarketUsd.GetHashCode();
+                }
+                if (this.TotalUsd != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalUsd.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -149,6 +161,27 @@ namespace Opdex.Client.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
+            // ProviderUsd (string) pattern
+            Regex regexProviderUsd = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexProviderUsd.Match(this.ProviderUsd).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProviderUsd, must match a pattern of " + regexProviderUsd, new [] { "ProviderUsd" });
+            }
+
+            // MarketUsd (string) pattern
+            Regex regexMarketUsd = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexMarketUsd.Match(this.MarketUsd).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MarketUsd, must match a pattern of " + regexMarketUsd, new [] { "MarketUsd" });
+            }
+
+            // TotalUsd (string) pattern
+            Regex regexTotalUsd = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexTotalUsd.Match(this.TotalUsd).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalUsd, must match a pattern of " + regexTotalUsd, new [] { "TotalUsd" });
+            }
+
             yield break;
         }
     }

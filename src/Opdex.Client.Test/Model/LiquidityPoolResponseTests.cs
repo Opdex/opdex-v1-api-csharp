@@ -81,6 +81,14 @@ namespace Opdex.Client.Test.Model
             // TODO unit test for the property 'TransactionFeePercent'
         }
         /// <summary>
+        /// Test the property 'Market'
+        /// </summary>
+        [Fact]
+        public void MarketTest()
+        {
+            // TODO unit test for the property 'Market'
+        }
+        /// <summary>
         /// Test the property 'MiningPool'
         /// </summary>
         [Fact]
@@ -95,6 +103,22 @@ namespace Opdex.Client.Test.Model
         public void TokensTest()
         {
             // TODO unit test for the property 'Tokens'
+        }
+        /// <summary>
+        /// Test the property 'CreatedBlock'
+        /// </summary>
+        [Fact]
+        public void CreatedBlockTest()
+        {
+            // TODO unit test for the property 'CreatedBlock'
+        }
+        /// <summary>
+        /// Test the property 'ModifiedBlock'
+        /// </summary>
+        [Fact]
+        public void ModifiedBlockTest()
+        {
+            // TODO unit test for the property 'ModifiedBlock'
         }
         /// <summary>
         /// Test the property 'Summary'

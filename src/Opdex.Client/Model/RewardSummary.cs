@@ -35,10 +35,10 @@ namespace Opdex.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RewardSummary" /> class.
         /// </summary>
-        /// <param name="providerDailyUsd">USD value of rewards distributed to liquidity providers for the day.</param>
-        /// <param name="marketDailyUsd">USD value of rewards distributed to the market for the day.</param>
-        /// <param name="totalDailyUsd">Total USD value of rewards distributed for the day.</param>
-        public RewardSummary(decimal providerDailyUsd = default(decimal), decimal marketDailyUsd = default(decimal), decimal totalDailyUsd = default(decimal))
+        /// <param name="providerDailyUsd">Decimal value with uncapped precision and size.</param>
+        /// <param name="marketDailyUsd">Decimal value with uncapped precision and size.</param>
+        /// <param name="totalDailyUsd">Decimal value with uncapped precision and size.</param>
+        public RewardSummary(string providerDailyUsd = default(string), string marketDailyUsd = default(string), string totalDailyUsd = default(string))
         {
             this.ProviderDailyUsd = providerDailyUsd;
             this.MarketDailyUsd = marketDailyUsd;
@@ -46,25 +46,25 @@ namespace Opdex.Client.Model
         }
 
         /// <summary>
-        /// USD value of rewards distributed to liquidity providers for the day
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>USD value of rewards distributed to liquidity providers for the day</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "providerDailyUsd", EmitDefaultValue = false)]
-        public decimal ProviderDailyUsd { get; set; }
+        public string ProviderDailyUsd { get; set; }
 
         /// <summary>
-        /// USD value of rewards distributed to the market for the day
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>USD value of rewards distributed to the market for the day</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "marketDailyUsd", EmitDefaultValue = false)]
-        public decimal MarketDailyUsd { get; set; }
+        public string MarketDailyUsd { get; set; }
 
         /// <summary>
-        /// Total USD value of rewards distributed for the day
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>Total USD value of rewards distributed for the day</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "totalDailyUsd", EmitDefaultValue = false)]
-        public decimal TotalDailyUsd { get; set; }
+        public string TotalDailyUsd { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -114,15 +114,18 @@ namespace Opdex.Client.Model
             return 
                 (
                     this.ProviderDailyUsd == input.ProviderDailyUsd ||
-                    this.ProviderDailyUsd.Equals(input.ProviderDailyUsd)
+                    (this.ProviderDailyUsd != null &&
+                    this.ProviderDailyUsd.Equals(input.ProviderDailyUsd))
                 ) && 
                 (
                     this.MarketDailyUsd == input.MarketDailyUsd ||
-                    this.MarketDailyUsd.Equals(input.MarketDailyUsd)
+                    (this.MarketDailyUsd != null &&
+                    this.MarketDailyUsd.Equals(input.MarketDailyUsd))
                 ) && 
                 (
                     this.TotalDailyUsd == input.TotalDailyUsd ||
-                    this.TotalDailyUsd.Equals(input.TotalDailyUsd)
+                    (this.TotalDailyUsd != null &&
+                    this.TotalDailyUsd.Equals(input.TotalDailyUsd))
                 );
         }
 
@@ -135,9 +138,18 @@ namespace Opdex.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.ProviderDailyUsd.GetHashCode();
-                hashCode = (hashCode * 59) + this.MarketDailyUsd.GetHashCode();
-                hashCode = (hashCode * 59) + this.TotalDailyUsd.GetHashCode();
+                if (this.ProviderDailyUsd != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProviderDailyUsd.GetHashCode();
+                }
+                if (this.MarketDailyUsd != null)
+                {
+                    hashCode = (hashCode * 59) + this.MarketDailyUsd.GetHashCode();
+                }
+                if (this.TotalDailyUsd != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalDailyUsd.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -149,22 +161,25 @@ namespace Opdex.Client.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
-            // ProviderDailyUsd (decimal) minimum
-            if (this.ProviderDailyUsd < (decimal)0.0)
+            // ProviderDailyUsd (string) pattern
+            Regex regexProviderDailyUsd = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexProviderDailyUsd.Match(this.ProviderDailyUsd).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProviderDailyUsd, must be a value greater than or equal to 0.0.", new [] { "ProviderDailyUsd" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProviderDailyUsd, must match a pattern of " + regexProviderDailyUsd, new [] { "ProviderDailyUsd" });
             }
 
-            // MarketDailyUsd (decimal) minimum
-            if (this.MarketDailyUsd < (decimal)0.0)
+            // MarketDailyUsd (string) pattern
+            Regex regexMarketDailyUsd = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexMarketDailyUsd.Match(this.MarketDailyUsd).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MarketDailyUsd, must be a value greater than or equal to 0.0.", new [] { "MarketDailyUsd" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MarketDailyUsd, must match a pattern of " + regexMarketDailyUsd, new [] { "MarketDailyUsd" });
             }
 
-            // TotalDailyUsd (decimal) minimum
-            if (this.TotalDailyUsd < (decimal)0.0)
+            // TotalDailyUsd (string) pattern
+            Regex regexTotalDailyUsd = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexTotalDailyUsd.Match(this.TotalDailyUsd).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalDailyUsd, must be a value greater than or equal to 0.0.", new [] { "TotalDailyUsd" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalDailyUsd, must match a pattern of " + regexTotalDailyUsd, new [] { "TotalDailyUsd" });
             }
 
             yield break;

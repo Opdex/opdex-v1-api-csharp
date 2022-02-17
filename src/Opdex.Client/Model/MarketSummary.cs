@@ -35,14 +35,14 @@ namespace Opdex.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MarketSummary" /> class.
         /// </summary>
-        /// <param name="liquidityUsd">Total liquidity USD amount.</param>
-        /// <param name="dailyLiquidityUsdChangePercent">Percentage change of the liquidity USD amount from the previous day.</param>
-        /// <param name="volumeUsd">Total volume USD amount.</param>
+        /// <param name="liquidityUsd">Decimal value with uncapped precision and size.</param>
+        /// <param name="dailyLiquidityUsdChangePercent">Decimal value with uncapped precision and size.</param>
+        /// <param name="volumeUsd">Decimal value with uncapped precision and size.</param>
         /// <param name="staking">staking.</param>
         /// <param name="rewards">rewards.</param>
         /// <param name="createdBlock">Block number at which the entity state was created.</param>
         /// <param name="modifiedBlock">Block number at which the entity state was last modified.</param>
-        public MarketSummary(decimal liquidityUsd = default(decimal), decimal dailyLiquidityUsdChangePercent = default(decimal), decimal volumeUsd = default(decimal), MarketStakingSummary staking = default(MarketStakingSummary), RewardSummary rewards = default(RewardSummary), int createdBlock = default(int), int modifiedBlock = default(int))
+        public MarketSummary(string liquidityUsd = default(string), string dailyLiquidityUsdChangePercent = default(string), string volumeUsd = default(string), MarketStakingSummary staking = default(MarketStakingSummary), RewardSummary rewards = default(RewardSummary), int createdBlock = default(int), int modifiedBlock = default(int))
         {
             this.LiquidityUsd = liquidityUsd;
             this.DailyLiquidityUsdChangePercent = dailyLiquidityUsdChangePercent;
@@ -54,25 +54,25 @@ namespace Opdex.Client.Model
         }
 
         /// <summary>
-        /// Total liquidity USD amount
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>Total liquidity USD amount</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "liquidityUsd", EmitDefaultValue = false)]
-        public decimal LiquidityUsd { get; set; }
+        public string LiquidityUsd { get; set; }
 
         /// <summary>
-        /// Percentage change of the liquidity USD amount from the previous day
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>Percentage change of the liquidity USD amount from the previous day</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "dailyLiquidityUsdChangePercent", EmitDefaultValue = false)]
-        public decimal DailyLiquidityUsdChangePercent { get; set; }
+        public string DailyLiquidityUsdChangePercent { get; set; }
 
         /// <summary>
-        /// Total volume USD amount
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>Total volume USD amount</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "volumeUsd", EmitDefaultValue = false)]
-        public decimal VolumeUsd { get; set; }
+        public string VolumeUsd { get; set; }
 
         /// <summary>
         /// Gets or Sets Staking
@@ -152,15 +152,18 @@ namespace Opdex.Client.Model
             return 
                 (
                     this.LiquidityUsd == input.LiquidityUsd ||
-                    this.LiquidityUsd.Equals(input.LiquidityUsd)
+                    (this.LiquidityUsd != null &&
+                    this.LiquidityUsd.Equals(input.LiquidityUsd))
                 ) && 
                 (
                     this.DailyLiquidityUsdChangePercent == input.DailyLiquidityUsdChangePercent ||
-                    this.DailyLiquidityUsdChangePercent.Equals(input.DailyLiquidityUsdChangePercent)
+                    (this.DailyLiquidityUsdChangePercent != null &&
+                    this.DailyLiquidityUsdChangePercent.Equals(input.DailyLiquidityUsdChangePercent))
                 ) && 
                 (
                     this.VolumeUsd == input.VolumeUsd ||
-                    this.VolumeUsd.Equals(input.VolumeUsd)
+                    (this.VolumeUsd != null &&
+                    this.VolumeUsd.Equals(input.VolumeUsd))
                 ) && 
                 (
                     this.Staking == input.Staking ||
@@ -191,9 +194,18 @@ namespace Opdex.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.LiquidityUsd.GetHashCode();
-                hashCode = (hashCode * 59) + this.DailyLiquidityUsdChangePercent.GetHashCode();
-                hashCode = (hashCode * 59) + this.VolumeUsd.GetHashCode();
+                if (this.LiquidityUsd != null)
+                {
+                    hashCode = (hashCode * 59) + this.LiquidityUsd.GetHashCode();
+                }
+                if (this.DailyLiquidityUsdChangePercent != null)
+                {
+                    hashCode = (hashCode * 59) + this.DailyLiquidityUsdChangePercent.GetHashCode();
+                }
+                if (this.VolumeUsd != null)
+                {
+                    hashCode = (hashCode * 59) + this.VolumeUsd.GetHashCode();
+                }
                 if (this.Staking != null)
                 {
                     hashCode = (hashCode * 59) + this.Staking.GetHashCode();
@@ -215,22 +227,25 @@ namespace Opdex.Client.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
-            // LiquidityUsd (decimal) minimum
-            if (this.LiquidityUsd < (decimal)0.0)
+            // LiquidityUsd (string) pattern
+            Regex regexLiquidityUsd = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexLiquidityUsd.Match(this.LiquidityUsd).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LiquidityUsd, must be a value greater than or equal to 0.0.", new [] { "LiquidityUsd" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LiquidityUsd, must match a pattern of " + regexLiquidityUsd, new [] { "LiquidityUsd" });
             }
 
-            // DailyLiquidityUsdChangePercent (decimal) minimum
-            if (this.DailyLiquidityUsdChangePercent < (decimal)-100.0)
+            // DailyLiquidityUsdChangePercent (string) pattern
+            Regex regexDailyLiquidityUsdChangePercent = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexDailyLiquidityUsdChangePercent.Match(this.DailyLiquidityUsdChangePercent).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DailyLiquidityUsdChangePercent, must be a value greater than or equal to -100.0.", new [] { "DailyLiquidityUsdChangePercent" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DailyLiquidityUsdChangePercent, must match a pattern of " + regexDailyLiquidityUsdChangePercent, new [] { "DailyLiquidityUsdChangePercent" });
             }
 
-            // VolumeUsd (decimal) minimum
-            if (this.VolumeUsd < (decimal)0.0)
+            // VolumeUsd (string) pattern
+            Regex regexVolumeUsd = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexVolumeUsd.Match(this.VolumeUsd).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VolumeUsd, must be a value greater than or equal to 0.0.", new [] { "VolumeUsd" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VolumeUsd, must match a pattern of " + regexVolumeUsd, new [] { "VolumeUsd" });
             }
 
             // CreatedBlock (int) minimum

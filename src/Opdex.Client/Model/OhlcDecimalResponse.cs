@@ -35,11 +35,11 @@ namespace Opdex.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OhlcDecimalResponse" /> class.
         /// </summary>
-        /// <param name="open">Value at the start of the time interval.</param>
-        /// <param name="high">Highest value during the time interval.</param>
-        /// <param name="low">Lowest value during the time interval.</param>
-        /// <param name="close">Value at the end of the time interval.</param>
-        public OhlcDecimalResponse(decimal open = default(decimal), decimal high = default(decimal), decimal low = default(decimal), decimal close = default(decimal))
+        /// <param name="open">Decimal value with uncapped precision and size.</param>
+        /// <param name="high">Decimal value with uncapped precision and size.</param>
+        /// <param name="low">Decimal value with uncapped precision and size.</param>
+        /// <param name="close">Decimal value with uncapped precision and size.</param>
+        public OhlcDecimalResponse(string open = default(string), string high = default(string), string low = default(string), string close = default(string))
         {
             this.Open = open;
             this.High = high;
@@ -48,32 +48,32 @@ namespace Opdex.Client.Model
         }
 
         /// <summary>
-        /// Value at the start of the time interval
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>Value at the start of the time interval</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "open", EmitDefaultValue = false)]
-        public decimal Open { get; set; }
+        public string Open { get; set; }
 
         /// <summary>
-        /// Highest value during the time interval
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>Highest value during the time interval</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "high", EmitDefaultValue = false)]
-        public decimal High { get; set; }
+        public string High { get; set; }
 
         /// <summary>
-        /// Lowest value during the time interval
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>Lowest value during the time interval</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "low", EmitDefaultValue = false)]
-        public decimal Low { get; set; }
+        public string Low { get; set; }
 
         /// <summary>
-        /// Value at the end of the time interval
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>Value at the end of the time interval</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "close", EmitDefaultValue = false)]
-        public decimal Close { get; set; }
+        public string Close { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -124,19 +124,23 @@ namespace Opdex.Client.Model
             return 
                 (
                     this.Open == input.Open ||
-                    this.Open.Equals(input.Open)
+                    (this.Open != null &&
+                    this.Open.Equals(input.Open))
                 ) && 
                 (
                     this.High == input.High ||
-                    this.High.Equals(input.High)
+                    (this.High != null &&
+                    this.High.Equals(input.High))
                 ) && 
                 (
                     this.Low == input.Low ||
-                    this.Low.Equals(input.Low)
+                    (this.Low != null &&
+                    this.Low.Equals(input.Low))
                 ) && 
                 (
                     this.Close == input.Close ||
-                    this.Close.Equals(input.Close)
+                    (this.Close != null &&
+                    this.Close.Equals(input.Close))
                 );
         }
 
@@ -149,10 +153,22 @@ namespace Opdex.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Open.GetHashCode();
-                hashCode = (hashCode * 59) + this.High.GetHashCode();
-                hashCode = (hashCode * 59) + this.Low.GetHashCode();
-                hashCode = (hashCode * 59) + this.Close.GetHashCode();
+                if (this.Open != null)
+                {
+                    hashCode = (hashCode * 59) + this.Open.GetHashCode();
+                }
+                if (this.High != null)
+                {
+                    hashCode = (hashCode * 59) + this.High.GetHashCode();
+                }
+                if (this.Low != null)
+                {
+                    hashCode = (hashCode * 59) + this.Low.GetHashCode();
+                }
+                if (this.Close != null)
+                {
+                    hashCode = (hashCode * 59) + this.Close.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -164,28 +180,32 @@ namespace Opdex.Client.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
-            // Open (decimal) minimum
-            if (this.Open < (decimal)0.0)
+            // Open (string) pattern
+            Regex regexOpen = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexOpen.Match(this.Open).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Open, must be a value greater than or equal to 0.0.", new [] { "Open" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Open, must match a pattern of " + regexOpen, new [] { "Open" });
             }
 
-            // High (decimal) minimum
-            if (this.High < (decimal)0.0)
+            // High (string) pattern
+            Regex regexHigh = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexHigh.Match(this.High).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for High, must be a value greater than or equal to 0.0.", new [] { "High" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for High, must match a pattern of " + regexHigh, new [] { "High" });
             }
 
-            // Low (decimal) minimum
-            if (this.Low < (decimal)0.0)
+            // Low (string) pattern
+            Regex regexLow = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexLow.Match(this.Low).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Low, must be a value greater than or equal to 0.0.", new [] { "Low" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Low, must match a pattern of " + regexLow, new [] { "Low" });
             }
 
-            // Close (decimal) minimum
-            if (this.Close < (decimal)0.0)
+            // Close (string) pattern
+            Regex regexClose = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexClose.Match(this.Close).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Close, must be a value greater than or equal to 0.0.", new [] { "Close" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Close, must match a pattern of " + regexClose, new [] { "Close" });
             }
 
             yield break;

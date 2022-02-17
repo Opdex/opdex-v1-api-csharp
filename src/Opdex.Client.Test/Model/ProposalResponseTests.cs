@@ -169,12 +169,20 @@ namespace Opdex.Client.Test.Model
             // TODO unit test for the property 'Approved'
         }
         /// <summary>
-        /// Test the property 'Certificate'
+        /// Test the property 'CreatedBlock'
         /// </summary>
         [Fact]
-        public void CertificateTest()
+        public void CreatedBlockTest()
         {
-            // TODO unit test for the property 'Certificate'
+            // TODO unit test for the property 'CreatedBlock'
+        }
+        /// <summary>
+        /// Test the property 'ModifiedBlock'
+        /// </summary>
+        [Fact]
+        public void ModifiedBlockTest()
+        {
+            // TODO unit test for the property 'ModifiedBlock'
         }
 
     }

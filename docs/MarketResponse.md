@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **AuthTraders** | **bool** | Whether the market owner authorizes traders | [optional] 
 **AuthProviders** | **bool** | Whether the market owner authorizes liquidity providers | [optional] 
 **MarketFeeEnabled** | **bool** | Whether the market fee is enabled | [optional] 
-**TransactionFeePercent** | **decimal** | Percentage fee for a trade | [optional] 
+**TransactionFeePercent** | **string** | Decimal value with uncapped precision and size | [optional] 
 **CreatedBlock** | **int** | Block number at which the entity was created | [optional] 
 **ModifiedBlock** | **int** | Block number at which the entity state was last modified | [optional] 
 **Summary** | [**MarketSummary**](MarketSummary.md) |  | [optional] 

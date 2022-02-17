@@ -81,20 +81,12 @@ namespace Opdex.Client.Test.Model
             // TODO unit test for the property 'Owner'
         }
         /// <summary>
-        /// Test the property 'CrsToken'
+        /// Test the property 'Tokens'
         /// </summary>
         [Fact]
-        public void CrsTokenTest()
+        public void TokensTest()
         {
-            // TODO unit test for the property 'CrsToken'
-        }
-        /// <summary>
-        /// Test the property 'StakingToken'
-        /// </summary>
-        [Fact]
-        public void StakingTokenTest()
-        {
-            // TODO unit test for the property 'StakingToken'
+            // TODO unit test for the property 'Tokens'
         }
         /// <summary>
         /// Test the property 'AuthPoolCreators'
@@ -135,6 +127,22 @@ namespace Opdex.Client.Test.Model
         public void TransactionFeePercentTest()
         {
             // TODO unit test for the property 'TransactionFeePercent'
+        }
+        /// <summary>
+        /// Test the property 'CreatedBlock'
+        /// </summary>
+        [Fact]
+        public void CreatedBlockTest()
+        {
+            // TODO unit test for the property 'CreatedBlock'
+        }
+        /// <summary>
+        /// Test the property 'ModifiedBlock'
+        /// </summary>
+        [Fact]
+        public void ModifiedBlockTest()
+        {
+            // TODO unit test for the property 'ModifiedBlock'
         }
         /// <summary>
         /// Test the property 'Summary'

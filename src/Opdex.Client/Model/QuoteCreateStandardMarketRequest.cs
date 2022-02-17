@@ -41,18 +41,22 @@ namespace Opdex.Client.Model
         /// Initializes a new instance of the <see cref="QuoteCreateStandardMarketRequest" /> class.
         /// </summary>
         /// <param name="owner">An address on the Cirrus network (required).</param>
-        /// <param name="transactionFeePercent">Swap fee percentage amount (required).</param>
+        /// <param name="transactionFeePercent">Decimal value with uncapped precision and size (required).</param>
         /// <param name="authPoolCreators">If true, requires permissions to be assigned to create liquidity pools; or if false anyone can create a liquidity pool (required).</param>
         /// <param name="authLiquidityProviders">If true, requires permissions to be assigned to provide liquidity; or if false anyone can provide liquidity (required).</param>
         /// <param name="authTraders">If true, requires permissions to be assigned to swap; or if false anyone can swap (required).</param>
         /// <param name="enableMarketFee">If true, enables the market fee; note this must be false if transaction fee is zero (required).</param>
-        public QuoteCreateStandardMarketRequest(string owner = default(string), decimal transactionFeePercent = default(decimal), bool authPoolCreators = default(bool), bool authLiquidityProviders = default(bool), bool authTraders = default(bool), bool enableMarketFee = default(bool))
+        public QuoteCreateStandardMarketRequest(string owner = default(string), string transactionFeePercent = default(string), bool authPoolCreators = default(bool), bool authLiquidityProviders = default(bool), bool authTraders = default(bool), bool enableMarketFee = default(bool))
         {
             // to ensure "owner" is required (not null)
             if (owner == null) {
                 throw new ArgumentNullException("owner is a required property for QuoteCreateStandardMarketRequest and cannot be null");
             }
             this.Owner = owner;
+            // to ensure "transactionFeePercent" is required (not null)
+            if (transactionFeePercent == null) {
+                throw new ArgumentNullException("transactionFeePercent is a required property for QuoteCreateStandardMarketRequest and cannot be null");
+            }
             this.TransactionFeePercent = transactionFeePercent;
             this.AuthPoolCreators = authPoolCreators;
             this.AuthLiquidityProviders = authLiquidityProviders;
@@ -68,11 +72,11 @@ namespace Opdex.Client.Model
         public string Owner { get; set; }
 
         /// <summary>
-        /// Swap fee percentage amount
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>Swap fee percentage amount</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "transactionFeePercent", IsRequired = true, EmitDefaultValue = false)]
-        public decimal TransactionFeePercent { get; set; }
+        public string TransactionFeePercent { get; set; }
 
         /// <summary>
         /// If true, requires permissions to be assigned to create liquidity pools; or if false anyone can create a liquidity pool
@@ -158,7 +162,8 @@ namespace Opdex.Client.Model
                 ) && 
                 (
                     this.TransactionFeePercent == input.TransactionFeePercent ||
-                    this.TransactionFeePercent.Equals(input.TransactionFeePercent)
+                    (this.TransactionFeePercent != null &&
+                    this.TransactionFeePercent.Equals(input.TransactionFeePercent))
                 ) && 
                 (
                     this.AuthPoolCreators == input.AuthPoolCreators ||
@@ -191,7 +196,10 @@ namespace Opdex.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.Owner.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.TransactionFeePercent.GetHashCode();
+                if (this.TransactionFeePercent != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionFeePercent.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.AuthPoolCreators.GetHashCode();
                 hashCode = (hashCode * 59) + this.AuthLiquidityProviders.GetHashCode();
                 hashCode = (hashCode * 59) + this.AuthTraders.GetHashCode();
@@ -226,16 +234,11 @@ namespace Opdex.Client.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Owner, must match a pattern of " + regexOwner, new [] { "Owner" });
             }
 
-            // TransactionFeePercent (decimal) maximum
-            if (this.TransactionFeePercent > (decimal)1.0)
+            // TransactionFeePercent (string) pattern
+            Regex regexTransactionFeePercent = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexTransactionFeePercent.Match(this.TransactionFeePercent).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFeePercent, must be a value less than or equal to 1.0.", new [] { "TransactionFeePercent" });
-            }
-
-            // TransactionFeePercent (decimal) minimum
-            if (this.TransactionFeePercent < (decimal)0.0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFeePercent, must be a value greater than or equal to 0.0.", new [] { "TransactionFeePercent" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFeePercent, must match a pattern of " + regexTransactionFeePercent, new [] { "TransactionFeePercent" });
             }
 
             yield break;

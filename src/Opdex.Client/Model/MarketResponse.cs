@@ -43,11 +43,11 @@ namespace Opdex.Client.Model
         /// <param name="authTraders">Whether the market owner authorizes traders.</param>
         /// <param name="authProviders">Whether the market owner authorizes liquidity providers.</param>
         /// <param name="marketFeeEnabled">Whether the market fee is enabled.</param>
-        /// <param name="transactionFeePercent">Percentage fee for a trade.</param>
+        /// <param name="transactionFeePercent">Decimal value with uncapped precision and size.</param>
         /// <param name="createdBlock">Block number at which the entity was created.</param>
         /// <param name="modifiedBlock">Block number at which the entity state was last modified.</param>
         /// <param name="summary">summary.</param>
-        public MarketResponse(string address = default(string), string pendingOwner = default(string), string owner = default(string), MarketTokenBreakdown tokens = default(MarketTokenBreakdown), bool authPoolCreators = default(bool), bool authTraders = default(bool), bool authProviders = default(bool), bool marketFeeEnabled = default(bool), decimal transactionFeePercent = default(decimal), int createdBlock = default(int), int modifiedBlock = default(int), MarketSummary summary = default(MarketSummary))
+        public MarketResponse(string address = default(string), string pendingOwner = default(string), string owner = default(string), MarketTokenBreakdown tokens = default(MarketTokenBreakdown), bool authPoolCreators = default(bool), bool authTraders = default(bool), bool authProviders = default(bool), bool marketFeeEnabled = default(bool), string transactionFeePercent = default(string), int createdBlock = default(int), int modifiedBlock = default(int), MarketSummary summary = default(MarketSummary))
         {
             this.Address = address;
             this.PendingOwner = pendingOwner;
@@ -119,11 +119,11 @@ namespace Opdex.Client.Model
         public bool MarketFeeEnabled { get; set; }
 
         /// <summary>
-        /// Percentage fee for a trade
+        /// Decimal value with uncapped precision and size
         /// </summary>
-        /// <value>Percentage fee for a trade</value>
+        /// <value>Decimal value with uncapped precision and size</value>
         [DataMember(Name = "transactionFeePercent", EmitDefaultValue = false)]
-        public decimal TransactionFeePercent { get; set; }
+        public string TransactionFeePercent { get; set; }
 
         /// <summary>
         /// Block number at which the entity was created
@@ -238,7 +238,8 @@ namespace Opdex.Client.Model
                 ) && 
                 (
                     this.TransactionFeePercent == input.TransactionFeePercent ||
-                    this.TransactionFeePercent.Equals(input.TransactionFeePercent)
+                    (this.TransactionFeePercent != null &&
+                    this.TransactionFeePercent.Equals(input.TransactionFeePercent))
                 ) && 
                 (
                     this.CreatedBlock == input.CreatedBlock ||
@@ -284,7 +285,10 @@ namespace Opdex.Client.Model
                 hashCode = (hashCode * 59) + this.AuthTraders.GetHashCode();
                 hashCode = (hashCode * 59) + this.AuthProviders.GetHashCode();
                 hashCode = (hashCode * 59) + this.MarketFeeEnabled.GetHashCode();
-                hashCode = (hashCode * 59) + this.TransactionFeePercent.GetHashCode();
+                if (this.TransactionFeePercent != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionFeePercent.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.CreatedBlock.GetHashCode();
                 hashCode = (hashCode * 59) + this.ModifiedBlock.GetHashCode();
                 if (this.Summary != null)
@@ -359,16 +363,11 @@ namespace Opdex.Client.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Owner, must match a pattern of " + regexOwner, new [] { "Owner" });
             }
 
-            // TransactionFeePercent (decimal) maximum
-            if (this.TransactionFeePercent > (decimal)1.0)
+            // TransactionFeePercent (string) pattern
+            Regex regexTransactionFeePercent = new Regex(@"^\\d*\\.\\d{1,18}$", RegexOptions.CultureInvariant);
+            if (false == regexTransactionFeePercent.Match(this.TransactionFeePercent).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFeePercent, must be a value less than or equal to 1.0.", new [] { "TransactionFeePercent" });
-            }
-
-            // TransactionFeePercent (decimal) minimum
-            if (this.TransactionFeePercent < (decimal)0.0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFeePercent, must be a value greater than or equal to 0.0.", new [] { "TransactionFeePercent" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionFeePercent, must match a pattern of " + regexTransactionFeePercent, new [] { "TransactionFeePercent" });
             }
 
             // CreatedBlock (int) minimum

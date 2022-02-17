@@ -257,6 +257,22 @@ namespace Opdex.Client.Test.Model
             // TODO unit test for the property 'TokenLpTotalSupply'
         }
         /// <summary>
+        /// Test the property 'Crs'
+        /// </summary>
+        [Fact]
+        public void CrsTest()
+        {
+            // TODO unit test for the property 'Crs'
+        }
+        /// <summary>
+        /// Test the property 'Src'
+        /// </summary>
+        [Fact]
+        public void SrcTest()
+        {
+            // TODO unit test for the property 'Src'
+        }
+        /// <summary>
         /// Test the property 'Sender'
         /// </summary>
         [Fact]

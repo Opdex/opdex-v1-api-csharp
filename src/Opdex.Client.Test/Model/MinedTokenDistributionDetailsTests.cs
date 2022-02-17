@@ -81,12 +81,12 @@ namespace Opdex.Client.Test.Model
             // TODO unit test for the property 'NextDistributionBlock'
         }
         /// <summary>
-        /// Test the property 'Previous'
+        /// Test the property 'History'
         /// </summary>
         [Fact]
-        public void PreviousTest()
+        public void HistoryTest()
         {
-            // TODO unit test for the property 'Previous'
+            // TODO unit test for the property 'History'
         }
 
     }
