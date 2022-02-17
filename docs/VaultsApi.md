@@ -915,7 +915,7 @@ namespace Example
             var status = new List<CertificateStatus>(); // List<CertificateStatus> | Status of the certificates (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
             var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
-            var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
+            var cursor = "cursor_example";  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
             {
@@ -1088,7 +1088,7 @@ namespace Example
             var includeZeroBalances = true;  // bool? | Includes zero balances if true, otherwise filters out zero balances if false (optional)  (default to false)
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
             var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
-            var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
+            var cursor = "cursor_example";  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
             {
@@ -1178,7 +1178,7 @@ namespace Example
             var type = new List<ProposalType>(); // List<ProposalType> | Type of proposal (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
             var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
-            var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
+            var cursor = "cursor_example";  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
             {
@@ -1425,7 +1425,7 @@ namespace Example
             var lockedToken = tTTuKbCR2UnsEByXBp1ynBz91J2yz63h1c;  // string | Address of the token locked in the vault (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
             var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
-            var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
+            var cursor = "cursor_example";  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
             {
@@ -1595,7 +1595,7 @@ namespace Example
             var includeZeroBalances = true;  // bool? | Includes zero balances if true, otherwise filters out zero balances if false (optional)  (default to false)
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
             var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
-            var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
+            var cursor = "cursor_example";  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
             {

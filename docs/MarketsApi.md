@@ -635,7 +635,7 @@ namespace Example
             var endDateTime = 2022-12-31T23:59:59;  // DateTime | End time for which to retrieve snapshots
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
             var limit = 10;  // int? | Number of results per page; defaults to 28 (4 weeks) (optional)  (default to 28)
-            var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
+            var cursor = "cursor_example";  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
             {
@@ -804,7 +804,7 @@ namespace Example
             var orderBy = DailyLiquidityUsdChangePercent;  // MarketOrderByType? | Property by which to sort results (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
             var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
-            var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
+            var cursor = "cursor_example";  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
             {

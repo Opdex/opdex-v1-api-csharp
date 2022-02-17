@@ -123,7 +123,7 @@ namespace Example
             var eventTypes = new List<TransactionEventType>(); // List<TransactionEventType> | Filter to include transactions with event types (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
             var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
-            var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
+            var cursor = "cursor_example";  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
             {

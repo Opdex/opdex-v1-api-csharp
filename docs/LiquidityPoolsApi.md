@@ -888,7 +888,7 @@ namespace Example
             var interval = 1D;  // Interval? | Time range between each snapshot (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
             var limit = 100;  // int? | Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional)  (default to 168)
-            var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
+            var cursor = "cursor_example";  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
             {
@@ -983,7 +983,7 @@ namespace Example
             var orderBy = Volume;  // LiquidityPoolOrderByType? | Property by which to sort results (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
             var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
-            var cursor = cursor_example;  // string | Reference of the requested page, returned by a previous call (optional) 
+            var cursor = "cursor_example";  // string | Reference of the requested page, returned by a previous call (optional) 
 
             try
             {
