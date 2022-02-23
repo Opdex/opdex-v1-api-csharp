@@ -11,11 +11,15 @@
     <RootNamespace>Opdex.Client</RootNamespace>
     <Version>1.0.0-beta1</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Opdex.Client.xml</DocumentationFile>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/Opdex/opdex-v1-sdk-csharp.git</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes>Minor update</PackageReleaseNotes>
     <PackageTags>opdex;defi;stratis;cirrus;blockchain</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/Opdex/opdex-v1-sdk-csharp</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryBranch>main</RepositoryBranch>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
 
   <PropertyGroup>
