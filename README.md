@@ -1,6 +1,6 @@
 # Opdex V1 API C# SDK
 
-![NuGet](https://img.shields.io/nuget/v/Opdex.V1.Sdk)
+[![NuGet](https://img.shields.io/nuget/v/Opdex.Client)](https://www.nuget.org/packages/Opdex.Client)
 
 The [Opdex Platform Web API](https://github.com/Opdex/opdex-v1-api) is an interface for querying information from the Opdex contract indexer and quoting Opdex smart contract transactions. This project maintains a C# SDK that integrates with the API.
 
