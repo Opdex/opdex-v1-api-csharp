@@ -10,7 +10,7 @@ The [Opdex Platform Web API](https://github.com/Opdex/opdex-v1-api) is an interf
 To get started, install the NuGet package into your project.
 
 ```
-dotnet add package Opdex.V1.Sdk
+dotnet add package Opdex.Client
 ```
 
 <a name="usage"></a>
