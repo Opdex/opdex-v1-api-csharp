@@ -92,6 +92,7 @@ Name | Type | Description  | Notes
 | **401** | Unauthorized |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -177,6 +178,7 @@ Name | Type | Description  | Notes
 | **404** | Token not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -260,6 +262,7 @@ Name | Type | Description  | Notes
 | **404** | Token not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -339,12 +342,13 @@ No authorization required
 | **404** | Token not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="gettokenhistory"></a>
 # **GetTokenHistory**
-> TokenSnapshotsResponse GetTokenHistory (string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = null, SortDirection? direction = null, int? limit = null, string cursor = null)
+> TokenSnapshotsResponse GetTokenHistory (string token, Interval? interval = null, DateTime? startDateTime = null, DateTime? endDateTime = null, SortDirection? direction = null, int? limit = null, string cursor = null)
 
 Get Token History
 
@@ -372,9 +376,9 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new TokensApi(httpClient, config, httpClientHandler);
             var token = tGSk2dVENuqAQ2rNXbui37XHuurFCTqadD;  // string | Address of the token
-            var startDateTime = 2022-01-01T00:00:00Z;  // DateTime | Start time for which to retrieve snapshots
-            var endDateTime = 2022-12-31T23:59:59;  // DateTime | End time for which to retrieve snapshots
             var interval = 1D;  // Interval? | Time range between each snapshot (optional) 
+            var startDateTime = 2022-01-01T00:00:00Z;  // DateTime? | Start time for which to retrieve snapshots (optional) 
+            var endDateTime = 2022-12-31T23:59:59;  // DateTime? | End time for which to retrieve snapshots (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
             var limit = 100;  // int? | Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional)  (default to 168)
             var cursor = "cursor_example";  // string | Reference of the requested page, returned by a previous call (optional) 
@@ -382,7 +386,7 @@ namespace Example
             try
             {
                 // Get Token History
-                TokenSnapshotsResponse result = apiInstance.GetTokenHistory(token, startDateTime, endDateTime, interval, direction, limit, cursor);
+                TokenSnapshotsResponse result = apiInstance.GetTokenHistory(token, interval, startDateTime, endDateTime, direction, limit, cursor);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -401,9 +405,9 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **token** | **string**| Address of the token | 
- **startDateTime** | **DateTime**| Start time for which to retrieve snapshots | 
- **endDateTime** | **DateTime**| End time for which to retrieve snapshots | 
  **interval** | **Interval?**| Time range between each snapshot | [optional] 
+ **startDateTime** | **DateTime?**| Start time for which to retrieve snapshots | [optional] 
+ **endDateTime** | **DateTime?**| End time for which to retrieve snapshots | [optional] 
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
  **limit** | **int?**| Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) | [optional] [default to 168]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
@@ -430,6 +434,7 @@ No authorization required
 | **404** | Token not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -466,7 +471,7 @@ namespace Example
             var nativeChains = new List<ChainFilter>(); // List<ChainFilter> | Native chain filter (optional) 
             var tokens = new List<string>(); // List<string> | Specific tokens to include (optional) 
             var keyword = "keyword_example";  // string | Keyword search against token address, name and ticker symbol (optional) 
-            var orderBy = (TokenOrderByType) "Name";  // TokenOrderByType? | Property by which to sort results (optional) 
+            var orderBy = (TokenOrderByType) "CreatedBlock";  // TokenOrderByType? | Property by which to sort results (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
             var limit = 10;  // int? | Number of results per page (optional)  (default to 10)
             var cursor = "cursor_example";  // string | Reference of the requested page, returned by a previous call (optional) 
@@ -522,6 +527,7 @@ No authorization required
 | **400** | The request is not valid |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

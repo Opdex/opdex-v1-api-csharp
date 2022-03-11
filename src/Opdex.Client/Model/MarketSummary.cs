@@ -40,15 +40,17 @@ namespace Opdex.Client.Model
         /// <param name="volumeUsd">Decimal value with uncapped precision and size.</param>
         /// <param name="staking">staking.</param>
         /// <param name="rewards">rewards.</param>
+        /// <param name="liquidityPoolCount">Number of liquidity pools in the market.</param>
         /// <param name="createdBlock">Block number at which the entity state was created.</param>
         /// <param name="modifiedBlock">Block number at which the entity state was last modified.</param>
-        public MarketSummary(string liquidityUsd = default(string), string dailyLiquidityUsdChangePercent = default(string), string volumeUsd = default(string), MarketStakingSummary staking = default(MarketStakingSummary), RewardSummary rewards = default(RewardSummary), int createdBlock = default(int), int modifiedBlock = default(int))
+        public MarketSummary(string liquidityUsd = default(string), string dailyLiquidityUsdChangePercent = default(string), string volumeUsd = default(string), MarketStakingSummary staking = default(MarketStakingSummary), RewardSummary rewards = default(RewardSummary), int liquidityPoolCount = default(int), int createdBlock = default(int), int modifiedBlock = default(int))
         {
             this.LiquidityUsd = liquidityUsd;
             this.DailyLiquidityUsdChangePercent = dailyLiquidityUsdChangePercent;
             this.VolumeUsd = volumeUsd;
             this.Staking = staking;
             this.Rewards = rewards;
+            this.LiquidityPoolCount = liquidityPoolCount;
             this.CreatedBlock = createdBlock;
             this.ModifiedBlock = modifiedBlock;
         }
@@ -87,6 +89,13 @@ namespace Opdex.Client.Model
         public RewardSummary Rewards { get; set; }
 
         /// <summary>
+        /// Number of liquidity pools in the market
+        /// </summary>
+        /// <value>Number of liquidity pools in the market</value>
+        [DataMember(Name = "liquidityPoolCount", EmitDefaultValue = false)]
+        public int LiquidityPoolCount { get; set; }
+
+        /// <summary>
         /// Block number at which the entity state was created
         /// </summary>
         /// <value>Block number at which the entity state was created</value>
@@ -113,6 +122,7 @@ namespace Opdex.Client.Model
             sb.Append("  VolumeUsd: ").Append(VolumeUsd).Append("\n");
             sb.Append("  Staking: ").Append(Staking).Append("\n");
             sb.Append("  Rewards: ").Append(Rewards).Append("\n");
+            sb.Append("  LiquidityPoolCount: ").Append(LiquidityPoolCount).Append("\n");
             sb.Append("  CreatedBlock: ").Append(CreatedBlock).Append("\n");
             sb.Append("  ModifiedBlock: ").Append(ModifiedBlock).Append("\n");
             sb.Append("}\n");
@@ -176,6 +186,10 @@ namespace Opdex.Client.Model
                     this.Rewards.Equals(input.Rewards))
                 ) && 
                 (
+                    this.LiquidityPoolCount == input.LiquidityPoolCount ||
+                    this.LiquidityPoolCount.Equals(input.LiquidityPoolCount)
+                ) && 
+                (
                     this.CreatedBlock == input.CreatedBlock ||
                     this.CreatedBlock.Equals(input.CreatedBlock)
                 ) && 
@@ -214,6 +228,7 @@ namespace Opdex.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.Rewards.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.LiquidityPoolCount.GetHashCode();
                 hashCode = (hashCode * 59) + this.CreatedBlock.GetHashCode();
                 hashCode = (hashCode * 59) + this.ModifiedBlock.GetHashCode();
                 return hashCode;
@@ -246,6 +261,12 @@ namespace Opdex.Client.Model
             if (false == regexVolumeUsd.Match(this.VolumeUsd).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VolumeUsd, must match a pattern of " + regexVolumeUsd, new [] { "VolumeUsd" });
+            }
+
+            // LiquidityPoolCount (int) minimum
+            if (this.LiquidityPoolCount < (int)0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LiquidityPoolCount, must be a value greater than or equal to 0.", new [] { "LiquidityPoolCount" });
             }
 
             // CreatedBlock (int) minimum

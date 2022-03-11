@@ -300,7 +300,7 @@ namespace Opdex.Client.Model
             }
 
             // Voter (string) pattern
-            Regex regexVoter = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexVoter = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexVoter.Match(this.Voter).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Voter, must match a pattern of " + regexVoter, new [] { "Voter" });
@@ -347,7 +347,7 @@ namespace Opdex.Client.Model
             }
 
             // Contract (string) pattern
-            Regex regexContract = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexContract = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexContract.Match(this.Contract).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Contract, must match a pattern of " + regexContract, new [] { "Contract" });

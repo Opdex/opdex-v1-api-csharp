@@ -257,7 +257,7 @@ namespace Opdex.Client.Model
             }
 
             // Sender (string) pattern
-            Regex regexSender = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexSender = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexSender.Match(this.Sender).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sender, must match a pattern of " + regexSender, new [] { "Sender" });
@@ -276,7 +276,7 @@ namespace Opdex.Client.Model
             }
 
             // To (string) pattern
-            Regex regexTo = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexTo = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexTo.Match(this.To).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for To, must match a pattern of " + regexTo, new [] { "To" });

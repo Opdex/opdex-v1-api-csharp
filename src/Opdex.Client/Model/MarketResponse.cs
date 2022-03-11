@@ -319,7 +319,7 @@ namespace Opdex.Client.Model
             }
 
             // Address (string) pattern
-            Regex regexAddress = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexAddress = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexAddress.Match(this.Address).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address, must match a pattern of " + regexAddress, new [] { "Address" });
@@ -338,7 +338,7 @@ namespace Opdex.Client.Model
             }
 
             // PendingOwner (string) pattern
-            Regex regexPendingOwner = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexPendingOwner = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexPendingOwner.Match(this.PendingOwner).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PendingOwner, must match a pattern of " + regexPendingOwner, new [] { "PendingOwner" });
@@ -357,7 +357,7 @@ namespace Opdex.Client.Model
             }
 
             // Owner (string) pattern
-            Regex regexOwner = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexOwner = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexOwner.Match(this.Owner).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Owner, must match a pattern of " + regexOwner, new [] { "Owner" });

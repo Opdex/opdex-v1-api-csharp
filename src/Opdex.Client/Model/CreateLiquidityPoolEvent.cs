@@ -207,7 +207,7 @@ namespace Opdex.Client.Model
             }
 
             // Token (string) pattern
-            Regex regexToken = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexToken = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexToken.Match(this.Token).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Token, must match a pattern of " + regexToken, new [] { "Token" });
@@ -226,7 +226,7 @@ namespace Opdex.Client.Model
             }
 
             // LiquidityPool (string) pattern
-            Regex regexLiquidityPool = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexLiquidityPool = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexLiquidityPool.Match(this.LiquidityPool).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LiquidityPool, must match a pattern of " + regexLiquidityPool, new [] { "LiquidityPool" });
@@ -245,7 +245,7 @@ namespace Opdex.Client.Model
             }
 
             // Contract (string) pattern
-            Regex regexContract = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexContract = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexContract.Match(this.Contract).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Contract, must match a pattern of " + regexContract, new [] { "Contract" });

@@ -304,7 +304,7 @@ namespace Opdex.Client.Model
             }
 
             // TokenSrc (string) pattern
-            Regex regexTokenSrc = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexTokenSrc = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexTokenSrc.Match(this.TokenSrc).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TokenSrc, must match a pattern of " + regexTokenSrc, new [] { "TokenSrc" });
@@ -323,7 +323,7 @@ namespace Opdex.Client.Model
             }
 
             // TokenLp (string) pattern
-            Regex regexTokenLp = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexTokenLp = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexTokenLp.Match(this.TokenLp).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TokenLp, must match a pattern of " + regexTokenLp, new [] { "TokenLp" });
@@ -349,7 +349,7 @@ namespace Opdex.Client.Model
             }
 
             // Contract (string) pattern
-            Regex regexContract = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexContract = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexContract.Match(this.Contract).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Contract, must match a pattern of " + regexContract, new [] { "Contract" });

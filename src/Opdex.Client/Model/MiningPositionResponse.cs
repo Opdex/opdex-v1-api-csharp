@@ -223,7 +223,7 @@ namespace Opdex.Client.Model
             }
 
             // Address (string) pattern
-            Regex regexAddress = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexAddress = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexAddress.Match(this.Address).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address, must match a pattern of " + regexAddress, new [] { "Address" });
@@ -249,7 +249,7 @@ namespace Opdex.Client.Model
             }
 
             // MiningPool (string) pattern
-            Regex regexMiningPool = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexMiningPool = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexMiningPool.Match(this.MiningPool).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MiningPool, must match a pattern of " + regexMiningPool, new [] { "MiningPool" });
@@ -268,7 +268,7 @@ namespace Opdex.Client.Model
             }
 
             // MiningToken (string) pattern
-            Regex regexMiningToken = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexMiningToken = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexMiningToken.Match(this.MiningToken).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MiningToken, must match a pattern of " + regexMiningToken, new [] { "MiningToken" });

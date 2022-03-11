@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **VolumeUsd** | **string** | Decimal value with uncapped precision and size | [optional] 
 **Staking** | [**MarketStakingSummary**](MarketStakingSummary.md) |  | [optional] 
 **Rewards** | [**RewardSummary**](RewardSummary.md) |  | [optional] 
+**LiquidityPoolCount** | **int** | Number of liquidity pools in the market | [optional] 
 **CreatedBlock** | **int** | Block number at which the entity state was created | [optional] 
 **ModifiedBlock** | **int** | Block number at which the entity state was last modified | [optional] 
 

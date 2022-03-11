@@ -16,19 +16,19 @@ public class OpdexApi : IOpdexApi
     public OpdexApi(HttpClient httpClient)
     {
         if (httpClient is null) throw new ArgumentNullException(nameof(httpClient));
-        Authentication = new AuthenticationApi(httpClient);
-        Blocks = new BlocksApi(httpClient);
-        Indexer = new IndexerApi(httpClient);
-        LiquidityPools = new LiquidityPoolsApi(httpClient);
-        Markets = new MarketsApi(httpClient);
-        MarketTokens = new MarketTokensApi(httpClient);
-        MiningGovernances = new MiningGovernancesApi(httpClient);
-        MiningPools = new MiningPoolsApi(httpClient);
-        Status = new StatusApi(httpClient);
-        Tokens = new TokensApi(httpClient);
-        Transactions = new TransactionsApi(httpClient);
-        Vaults = new VaultsApi(httpClient);
-        Wallets = new WalletsApi(httpClient);
+        Authentication = new AuthenticationApi(httpClient, httpClient.BaseAddress?.ToString() ?? null);
+        Blocks = new BlocksApi(httpClient, httpClient.BaseAddress?.ToString() ?? null);
+        Indexer = new IndexerApi(httpClient, httpClient.BaseAddress?.ToString() ?? null);
+        LiquidityPools = new LiquidityPoolsApi(httpClient, httpClient.BaseAddress?.ToString() ?? null);
+        Markets = new MarketsApi(httpClient, httpClient.BaseAddress?.ToString() ?? null);
+        MarketTokens = new MarketTokensApi(httpClient, httpClient.BaseAddress?.ToString() ?? null);
+        MiningGovernances = new MiningGovernancesApi(httpClient, httpClient.BaseAddress?.ToString() ?? null);
+        MiningPools = new MiningPoolsApi(httpClient, httpClient.BaseAddress?.ToString() ?? null);
+        Status = new StatusApi(httpClient, httpClient.BaseAddress?.ToString() ?? null);
+        Tokens = new TokensApi(httpClient, httpClient.BaseAddress?.ToString() ?? null);
+        Transactions = new TransactionsApi(httpClient, httpClient.BaseAddress?.ToString() ?? null);
+        Vaults = new VaultsApi(httpClient, httpClient.BaseAddress?.ToString() ?? null);
+        Wallets = new WalletsApi(httpClient, httpClient.BaseAddress?.ToString() ?? null);
     }
 
     /// <inheritdoc />

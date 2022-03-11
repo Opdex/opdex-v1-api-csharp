@@ -190,13 +190,13 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Address of a market</param>
-        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
-        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots (optional)</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
         /// <param name="limit">Number of results per page; defaults to 28 (4 weeks) (optional, default to 28)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>MarketSnapshotsResponse</returns>
-        MarketSnapshotsResponse GetMarketHistory(string market, DateTime startDateTime, DateTime endDateTime, SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        MarketSnapshotsResponse GetMarketHistory(string market, DateTime? startDateTime = default(DateTime?), DateTime? endDateTime = default(DateTime?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
 
         /// <summary>
         /// Get Market History
@@ -206,13 +206,13 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Address of a market</param>
-        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
-        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots (optional)</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
         /// <param name="limit">Number of results per page; defaults to 28 (4 weeks) (optional, default to 28)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of MarketSnapshotsResponse</returns>
-        ApiResponse<MarketSnapshotsResponse> GetMarketHistoryWithHttpInfo(string market, DateTime startDateTime, DateTime endDateTime, SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        ApiResponse<MarketSnapshotsResponse> GetMarketHistoryWithHttpInfo(string market, DateTime? startDateTime = default(DateTime?), DateTime? endDateTime = default(DateTime?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
         /// <summary>
         /// Get Market Permissions
         /// </summary>
@@ -451,14 +451,14 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Address of a market</param>
-        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
-        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots (optional)</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
         /// <param name="limit">Number of results per page; defaults to 28 (4 weeks) (optional, default to 28)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MarketSnapshotsResponse</returns>
-        System.Threading.Tasks.Task<MarketSnapshotsResponse> GetMarketHistoryAsync(string market, DateTime startDateTime, DateTime endDateTime, SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<MarketSnapshotsResponse> GetMarketHistoryAsync(string market, DateTime? startDateTime = default(DateTime?), DateTime? endDateTime = default(DateTime?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Market History
@@ -468,14 +468,14 @@ namespace Opdex.Client.Api
         /// </remarks>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Address of a market</param>
-        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
-        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots (optional)</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
         /// <param name="limit">Number of results per page; defaults to 28 (4 weeks) (optional, default to 28)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MarketSnapshotsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MarketSnapshotsResponse>> GetMarketHistoryWithHttpInfoAsync(string market, DateTime startDateTime, DateTime endDateTime, SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<MarketSnapshotsResponse>> GetMarketHistoryWithHttpInfoAsync(string market, DateTime? startDateTime = default(DateTime?), DateTime? endDateTime = default(DateTime?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Market Permissions
         /// </summary>
@@ -1707,13 +1707,13 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Address of a market</param>
-        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
-        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots (optional)</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
         /// <param name="limit">Number of results per page; defaults to 28 (4 weeks) (optional, default to 28)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>MarketSnapshotsResponse</returns>
-        public MarketSnapshotsResponse GetMarketHistory(string market, DateTime startDateTime, DateTime endDateTime, SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public MarketSnapshotsResponse GetMarketHistory(string market, DateTime? startDateTime = default(DateTime?), DateTime? endDateTime = default(DateTime?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             Opdex.Client.Client.ApiResponse<MarketSnapshotsResponse> localVarResponse = GetMarketHistoryWithHttpInfo(market, startDateTime, endDateTime, direction, limit, cursor);
             return localVarResponse.Data;
@@ -1724,13 +1724,13 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Address of a market</param>
-        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
-        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots (optional)</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
         /// <param name="limit">Number of results per page; defaults to 28 (4 weeks) (optional, default to 28)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <returns>ApiResponse of MarketSnapshotsResponse</returns>
-        public Opdex.Client.Client.ApiResponse<MarketSnapshotsResponse> GetMarketHistoryWithHttpInfo(string market, DateTime startDateTime, DateTime endDateTime, SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        public Opdex.Client.Client.ApiResponse<MarketSnapshotsResponse> GetMarketHistoryWithHttpInfo(string market, DateTime? startDateTime = default(DateTime?), DateTime? endDateTime = default(DateTime?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             // verify the required parameter 'market' is set
             if (market == null)
@@ -1754,8 +1754,14 @@ namespace Opdex.Client.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "startDateTime", startDateTime));
-            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "endDateTime", endDateTime));
+            if (startDateTime != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "startDateTime", startDateTime));
+            }
+            if (endDateTime != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "endDateTime", endDateTime));
+            }
             if (direction != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "direction", direction));
@@ -1787,14 +1793,14 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Address of a market</param>
-        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
-        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots (optional)</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
         /// <param name="limit">Number of results per page; defaults to 28 (4 weeks) (optional, default to 28)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MarketSnapshotsResponse</returns>
-        public async System.Threading.Tasks.Task<MarketSnapshotsResponse> GetMarketHistoryAsync(string market, DateTime startDateTime, DateTime endDateTime, SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<MarketSnapshotsResponse> GetMarketHistoryAsync(string market, DateTime? startDateTime = default(DateTime?), DateTime? endDateTime = default(DateTime?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Opdex.Client.Client.ApiResponse<MarketSnapshotsResponse> localVarResponse = await GetMarketHistoryWithHttpInfoAsync(market, startDateTime, endDateTime, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1805,14 +1811,14 @@ namespace Opdex.Client.Api
         /// </summary>
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Address of a market</param>
-        /// <param name="startDateTime">Start time for which to retrieve snapshots</param>
-        /// <param name="endDateTime">End time for which to retrieve snapshots</param>
+        /// <param name="startDateTime">Start time for which to retrieve snapshots (optional)</param>
+        /// <param name="endDateTime">End time for which to retrieve snapshots (optional)</param>
         /// <param name="direction">Order direction of the results (optional)</param>
         /// <param name="limit">Number of results per page; defaults to 28 (4 weeks) (optional, default to 28)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MarketSnapshotsResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<MarketSnapshotsResponse>> GetMarketHistoryWithHttpInfoAsync(string market, DateTime startDateTime, DateTime endDateTime, SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<MarketSnapshotsResponse>> GetMarketHistoryWithHttpInfoAsync(string market, DateTime? startDateTime = default(DateTime?), DateTime? endDateTime = default(DateTime?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'market' is set
             if (market == null)
@@ -1838,8 +1844,14 @@ namespace Opdex.Client.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("market", Opdex.Client.Client.ClientUtils.ParameterToString(market)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "startDateTime", startDateTime));
-            localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "endDateTime", endDateTime));
+            if (startDateTime != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "startDateTime", startDateTime));
+            }
+            if (endDateTime != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "endDateTime", endDateTime));
+            }
             if (direction != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Opdex.Client.Client.ClientUtils.ParameterToMultiMap("", "direction", direction));

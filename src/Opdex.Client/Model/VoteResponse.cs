@@ -253,7 +253,7 @@ namespace Opdex.Client.Model
             }
 
             // Vault (string) pattern
-            Regex regexVault = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexVault = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexVault.Match(this.Vault).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Vault, must match a pattern of " + regexVault, new [] { "Vault" });
@@ -278,7 +278,7 @@ namespace Opdex.Client.Model
             }
 
             // Voter (string) pattern
-            Regex regexVoter = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexVoter = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexVoter.Match(this.Voter).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Voter, must match a pattern of " + regexVoter, new [] { "Voter" });

@@ -233,7 +233,7 @@ namespace Opdex.Client.Model
             }
 
             // Custodian (string) pattern
-            Regex regexCustodian = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexCustodian = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexCustodian.Match(this.Custodian).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Custodian, must match a pattern of " + regexCustodian, new [] { "Custodian" });

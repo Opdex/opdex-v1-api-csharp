@@ -100,6 +100,7 @@ Name | Type | Description  | Notes
 | **404** | Liquidity pool not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -185,6 +186,7 @@ Name | Type | Description  | Notes
 | **404** | Liquidity pool not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -267,6 +269,7 @@ Name | Type | Description  | Notes
 | **401** | Unauthorized |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -352,6 +355,7 @@ Name | Type | Description  | Notes
 | **404** | Liquidity pool not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -437,6 +441,7 @@ Name | Type | Description  | Notes
 | **404** | Liquidity pool not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -522,6 +527,7 @@ Name | Type | Description  | Notes
 | **404** | Liquidity pool not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -607,6 +613,7 @@ Name | Type | Description  | Notes
 | **404** | Liquidity pool not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -690,6 +697,7 @@ Name | Type | Description  | Notes
 | **404** | Liquidity pool not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -771,6 +779,7 @@ No authorization required
 | **404** | Liquidity pool not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -850,12 +859,13 @@ No authorization required
 | **404** | Liquidity pool not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="getliquiditypoolhistory"></a>
 # **GetLiquidityPoolHistory**
-> LiquidityPoolSnapshotsResponse GetLiquidityPoolHistory (string pool, DateTime startDateTime, DateTime endDateTime, Interval? interval = null, SortDirection? direction = null, int? limit = null, string cursor = null)
+> LiquidityPoolSnapshotsResponse GetLiquidityPoolHistory (string pool, Interval? interval = null, DateTime? startDateTime = null, DateTime? endDateTime = null, SortDirection? direction = null, int? limit = null, string cursor = null)
 
 Get Liquidity Pool History
 
@@ -883,9 +893,9 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new LiquidityPoolsApi(httpClient, config, httpClientHandler);
             var pool = tVFhXcS3gVb49MSTsaDFoqkxLrAUiNEN7n;  // string | Address of a liquidity pool
-            var startDateTime = 2022-01-01T00:00:00Z;  // DateTime | Start time for which to retrieve snapshots
-            var endDateTime = 2022-12-31T23:59:59;  // DateTime | End time for which to retrieve snapshots
             var interval = 1D;  // Interval? | Time range between each snapshot (optional) 
+            var startDateTime = 2022-01-01T00:00:00Z;  // DateTime? | Start time for which to retrieve snapshots (optional) 
+            var endDateTime = 2022-12-31T23:59:59;  // DateTime? | End time for which to retrieve snapshots (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
             var limit = 100;  // int? | Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional)  (default to 168)
             var cursor = "cursor_example";  // string | Reference of the requested page, returned by a previous call (optional) 
@@ -893,7 +903,7 @@ namespace Example
             try
             {
                 // Get Liquidity Pool History
-                LiquidityPoolSnapshotsResponse result = apiInstance.GetLiquidityPoolHistory(pool, startDateTime, endDateTime, interval, direction, limit, cursor);
+                LiquidityPoolSnapshotsResponse result = apiInstance.GetLiquidityPoolHistory(pool, interval, startDateTime, endDateTime, direction, limit, cursor);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -912,9 +922,9 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pool** | **string**| Address of a liquidity pool | 
- **startDateTime** | **DateTime**| Start time for which to retrieve snapshots | 
- **endDateTime** | **DateTime**| End time for which to retrieve snapshots | 
  **interval** | **Interval?**| Time range between each snapshot | [optional] 
+ **startDateTime** | **DateTime?**| Start time for which to retrieve snapshots | [optional] 
+ **endDateTime** | **DateTime?**| End time for which to retrieve snapshots | [optional] 
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
  **limit** | **int?**| Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) | [optional] [default to 168]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
@@ -941,6 +951,7 @@ No authorization required
 | **404** | Liquidity pool not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1039,6 +1050,7 @@ No authorization required
 | **400** | The request is not valid |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

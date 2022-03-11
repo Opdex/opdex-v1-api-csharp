@@ -168,7 +168,7 @@ namespace Opdex.Client.Model
             }
 
             // PublicKey (string) pattern
-            Regex regexPublicKey = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexPublicKey = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexPublicKey.Match(this.PublicKey).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PublicKey, must match a pattern of " + regexPublicKey, new [] { "PublicKey" });

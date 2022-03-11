@@ -279,7 +279,7 @@ namespace Opdex.Client.Model
             }
 
             // NewContractAddress (string) pattern
-            Regex regexNewContractAddress = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexNewContractAddress = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexNewContractAddress.Match(this.NewContractAddress).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NewContractAddress, must match a pattern of " + regexNewContractAddress, new [] { "NewContractAddress" });
@@ -310,7 +310,7 @@ namespace Opdex.Client.Model
             }
 
             // From (string) pattern
-            Regex regexFrom = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexFrom = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexFrom.Match(this.From).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for From, must match a pattern of " + regexFrom, new [] { "From" });
@@ -329,7 +329,7 @@ namespace Opdex.Client.Model
             }
 
             // To (string) pattern
-            Regex regexTo = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexTo = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexTo.Match(this.To).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for To, must match a pattern of " + regexTo, new [] { "To" });

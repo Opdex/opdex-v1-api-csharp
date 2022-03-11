@@ -145,7 +145,7 @@ namespace Opdex.Client.Model
             }
 
             // Recipient (string) pattern
-            Regex regexRecipient = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexRecipient = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexRecipient.Match(this.Recipient).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Recipient, must match a pattern of " + regexRecipient, new [] { "Recipient" });

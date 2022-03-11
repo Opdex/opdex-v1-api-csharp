@@ -283,7 +283,7 @@ namespace Opdex.Client.Model
             }
 
             // Address (string) pattern
-            Regex regexAddress = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexAddress = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexAddress.Match(this.Address).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address, must match a pattern of " + regexAddress, new [] { "Address" });
@@ -340,7 +340,7 @@ namespace Opdex.Client.Model
             }
 
             // MinedToken (string) pattern
-            Regex regexMinedToken = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexMinedToken = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexMinedToken.Match(this.MinedToken).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MinedToken, must match a pattern of " + regexMinedToken, new [] { "MinedToken" });

@@ -145,7 +145,7 @@ namespace Opdex.Client.Model
             }
 
             // StakingToken (string) pattern
-            Regex regexStakingToken = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexStakingToken = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexStakingToken.Match(this.StakingToken).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StakingToken, must match a pattern of " + regexStakingToken, new [] { "StakingToken" });

@@ -399,7 +399,7 @@ namespace Opdex.Client.Model
             }
 
             // Vault (string) pattern
-            Regex regexVault = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexVault = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexVault.Match(this.Vault).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Vault, must match a pattern of " + regexVault, new [] { "Vault" });
@@ -418,7 +418,7 @@ namespace Opdex.Client.Model
             }
 
             // Token (string) pattern
-            Regex regexToken = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexToken = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexToken.Match(this.Token).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Token, must match a pattern of " + regexToken, new [] { "Token" });
@@ -443,7 +443,7 @@ namespace Opdex.Client.Model
             }
 
             // Creator (string) pattern
-            Regex regexCreator = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexCreator = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexCreator.Match(this.Creator).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Creator, must match a pattern of " + regexCreator, new [] { "Creator" });
@@ -462,7 +462,7 @@ namespace Opdex.Client.Model
             }
 
             // Wallet (string) pattern
-            Regex regexWallet = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexWallet = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexWallet.Match(this.Wallet).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Wallet, must match a pattern of " + regexWallet, new [] { "Wallet" });

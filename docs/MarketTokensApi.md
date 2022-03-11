@@ -90,12 +90,13 @@ No authorization required
 | **404** | Market or token not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="getmarkettokenhistory"></a>
 # **GetMarketTokenHistory**
-> TokenSnapshotsResponse GetMarketTokenHistory (string market, string token, DateTime startDateTime, DateTime endDateTime, Interval? interval = null, SortDirection? direction = null, int? limit = null, string cursor = null)
+> TokenSnapshotsResponse GetMarketTokenHistory (string market, string token, Interval? interval = null, DateTime? startDateTime = null, DateTime? endDateTime = null, SortDirection? direction = null, int? limit = null, string cursor = null)
 
 Get Market Token History
 
@@ -124,9 +125,9 @@ namespace Example
             var apiInstance = new MarketTokensApi(httpClient, config, httpClientHandler);
             var market = t7RorA7xQCMVYKPM1ibPE1NSswaLbpqLQb;  // string | Address of the market
             var token = tGSk2dVENuqAQ2rNXbui37XHuurFCTqadD;  // string | Address of the token
-            var startDateTime = 2022-01-01T00:00:00Z;  // DateTime | Start time for which to retrieve snapshots
-            var endDateTime = 2022-12-31T23:59:59;  // DateTime | End time for which to retrieve snapshots
             var interval = 1D;  // Interval? | Time range between each snapshot (optional) 
+            var startDateTime = 2022-01-01T00:00:00Z;  // DateTime? | Start time for which to retrieve snapshots (optional) 
+            var endDateTime = 2022-12-31T23:59:59;  // DateTime? | End time for which to retrieve snapshots (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
             var limit = 100;  // int? | Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) (optional)  (default to 168)
             var cursor = "cursor_example";  // string | Reference of the requested page, returned by a previous call (optional) 
@@ -134,7 +135,7 @@ namespace Example
             try
             {
                 // Get Market Token History
-                TokenSnapshotsResponse result = apiInstance.GetMarketTokenHistory(market, token, startDateTime, endDateTime, interval, direction, limit, cursor);
+                TokenSnapshotsResponse result = apiInstance.GetMarketTokenHistory(market, token, interval, startDateTime, endDateTime, direction, limit, cursor);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -154,9 +155,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **market** | **string**| Address of the market | 
  **token** | **string**| Address of the token | 
- **startDateTime** | **DateTime**| Start time for which to retrieve snapshots | 
- **endDateTime** | **DateTime**| End time for which to retrieve snapshots | 
  **interval** | **Interval?**| Time range between each snapshot | [optional] 
+ **startDateTime** | **DateTime?**| Start time for which to retrieve snapshots | [optional] 
+ **endDateTime** | **DateTime?**| End time for which to retrieve snapshots | [optional] 
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
  **limit** | **int?**| Number of results per page; defaults to 168 for hourly snapshots (1 week), or 28 for daily snapshots (4 weeks) | [optional] [default to 168]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
@@ -183,6 +184,7 @@ No authorization required
 | **404** | Market or token not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -278,6 +280,7 @@ No authorization required
 | **404** | Market not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -361,6 +364,7 @@ No authorization required
 | **404** | Market or token not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -444,6 +448,7 @@ No authorization required
 | **404** | Market or token not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -530,6 +535,7 @@ Name | Type | Description  | Notes
 | **404** | Market or token not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

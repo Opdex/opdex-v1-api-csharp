@@ -34,28 +34,34 @@ namespace Opdex.Client.Model
     public enum LiquidityPoolOrderByType
     {
         /// <summary>
+        /// Enum CreatedBlock for value: CreatedBlock
+        /// </summary>
+        [EnumMember(Value = "CreatedBlock")]
+        CreatedBlock = 1,
+
+        /// <summary>
         /// Enum Liquidity for value: Liquidity
         /// </summary>
         [EnumMember(Value = "Liquidity")]
-        Liquidity = 1,
+        Liquidity = 2,
 
         /// <summary>
         /// Enum Volume for value: Volume
         /// </summary>
         [EnumMember(Value = "Volume")]
-        Volume = 2,
+        Volume = 3,
 
         /// <summary>
         /// Enum StakingWeight for value: StakingWeight
         /// </summary>
         [EnumMember(Value = "StakingWeight")]
-        StakingWeight = 3,
+        StakingWeight = 4,
 
         /// <summary>
         /// Enum Name for value: Name
         /// </summary>
         [EnumMember(Value = "Name")]
-        Name = 4
+        Name = 5
 
     }
 

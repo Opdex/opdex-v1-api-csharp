@@ -324,7 +324,7 @@ namespace Opdex.Client.Model
             }
 
             // Market (string) pattern
-            Regex regexMarket = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexMarket = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexMarket.Match(this.Market).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Market, must match a pattern of " + regexMarket, new [] { "Market" });
@@ -343,7 +343,7 @@ namespace Opdex.Client.Model
             }
 
             // Owner (string) pattern
-            Regex regexOwner = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexOwner = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexOwner.Match(this.Owner).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Owner, must match a pattern of " + regexOwner, new [] { "Owner" });
@@ -362,7 +362,7 @@ namespace Opdex.Client.Model
             }
 
             // Router (string) pattern
-            Regex regexRouter = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexRouter = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexRouter.Match(this.Router).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Router, must match a pattern of " + regexRouter, new [] { "Router" });
@@ -388,7 +388,7 @@ namespace Opdex.Client.Model
             }
 
             // StakingToken (string) pattern
-            Regex regexStakingToken = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexStakingToken = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexStakingToken.Match(this.StakingToken).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StakingToken, must match a pattern of " + regexStakingToken, new [] { "StakingToken" });
@@ -407,7 +407,7 @@ namespace Opdex.Client.Model
             }
 
             // Contract (string) pattern
-            Regex regexContract = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexContract = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexContract.Match(this.Contract).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Contract, must match a pattern of " + regexContract, new [] { "Contract" });

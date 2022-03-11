@@ -96,6 +96,7 @@ Name | Type | Description  | Notes
 | **404** | Market not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -181,6 +182,7 @@ Name | Type | Description  | Notes
 | **404** | Market not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -264,6 +266,7 @@ Name | Type | Description  | Notes
 | **404** | Market not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -347,6 +350,7 @@ Name | Type | Description  | Notes
 | **404** | Market not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -432,6 +436,7 @@ Name | Type | Description  | Notes
 | **404** | Market not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -519,6 +524,7 @@ Name | Type | Description  | Notes
 | **404** | Market not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -598,12 +604,13 @@ No authorization required
 | **404** | Market not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="getmarkethistory"></a>
 # **GetMarketHistory**
-> MarketSnapshotsResponse GetMarketHistory (string market, DateTime startDateTime, DateTime endDateTime, SortDirection? direction = null, int? limit = null, string cursor = null)
+> MarketSnapshotsResponse GetMarketHistory (string market, DateTime? startDateTime = null, DateTime? endDateTime = null, SortDirection? direction = null, int? limit = null, string cursor = null)
 
 Get Market History
 
@@ -631,8 +638,8 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MarketsApi(httpClient, config, httpClientHandler);
             var market = t7RorA7xQCMVYKPM1ibPE1NSswaLbpqLQb;  // string | Address of a market
-            var startDateTime = 2022-01-01T00:00:00Z;  // DateTime | Start time for which to retrieve snapshots
-            var endDateTime = 2022-12-31T23:59:59;  // DateTime | End time for which to retrieve snapshots
+            var startDateTime = 2022-01-01T00:00:00Z;  // DateTime? | Start time for which to retrieve snapshots (optional) 
+            var endDateTime = 2022-12-31T23:59:59;  // DateTime? | End time for which to retrieve snapshots (optional) 
             var direction = DESC;  // SortDirection? | Order direction of the results (optional) 
             var limit = 10;  // int? | Number of results per page; defaults to 28 (4 weeks) (optional)  (default to 28)
             var cursor = "cursor_example";  // string | Reference of the requested page, returned by a previous call (optional) 
@@ -659,8 +666,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **market** | **string**| Address of a market | 
- **startDateTime** | **DateTime**| Start time for which to retrieve snapshots | 
- **endDateTime** | **DateTime**| End time for which to retrieve snapshots | 
+ **startDateTime** | **DateTime?**| Start time for which to retrieve snapshots | [optional] 
+ **endDateTime** | **DateTime?**| End time for which to retrieve snapshots | [optional] 
  **direction** | **SortDirection?**| Order direction of the results | [optional] 
  **limit** | **int?**| Number of results per page; defaults to 28 (4 weeks) | [optional] [default to 28]
  **cursor** | **string**| Reference of the requested page, returned by a previous call | [optional] 
@@ -687,6 +694,7 @@ No authorization required
 | **404** | Market not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -768,6 +776,7 @@ No authorization required
 | **404** | Market not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -854,6 +863,7 @@ No authorization required
 | **400** | The request is not valid |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

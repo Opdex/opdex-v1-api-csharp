@@ -183,7 +183,7 @@ namespace Opdex.Client.Model
             }
 
             // WalletAddress (string) pattern
-            Regex regexWalletAddress = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexWalletAddress = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexWalletAddress.Match(this.WalletAddress).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WalletAddress, must match a pattern of " + regexWalletAddress, new [] { "WalletAddress" });

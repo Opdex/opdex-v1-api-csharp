@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Commit** | **string** | The commit hash for the version of the code that is running | [optional] 
 **Identifier** | **string** | Globally unique identifier of the current API instance | [optional] 
+**UnderMaintenance** | **bool** | Whether the API is under maintenance | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

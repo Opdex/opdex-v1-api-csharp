@@ -37,10 +37,12 @@ namespace Opdex.Client.Model
         /// </summary>
         /// <param name="commit">The commit hash for the version of the code that is running.</param>
         /// <param name="identifier">Globally unique identifier of the current API instance.</param>
-        public StatusResponse(string commit = default(string), string identifier = default(string))
+        /// <param name="underMaintenance">Whether the API is under maintenance.</param>
+        public StatusResponse(string commit = default(string), string identifier = default(string), bool underMaintenance = default(bool))
         {
             this.Commit = commit;
             this.Identifier = identifier;
+            this.UnderMaintenance = underMaintenance;
         }
 
         /// <summary>
@@ -58,6 +60,13 @@ namespace Opdex.Client.Model
         public string Identifier { get; set; }
 
         /// <summary>
+        /// Whether the API is under maintenance
+        /// </summary>
+        /// <value>Whether the API is under maintenance</value>
+        [DataMember(Name = "underMaintenance", EmitDefaultValue = true)]
+        public bool UnderMaintenance { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -67,6 +76,7 @@ namespace Opdex.Client.Model
             sb.Append("class StatusResponse {\n");
             sb.Append("  Commit: ").Append(Commit).Append("\n");
             sb.Append("  Identifier: ").Append(Identifier).Append("\n");
+            sb.Append("  UnderMaintenance: ").Append(UnderMaintenance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -111,6 +121,10 @@ namespace Opdex.Client.Model
                     this.Identifier == input.Identifier ||
                     (this.Identifier != null &&
                     this.Identifier.Equals(input.Identifier))
+                ) && 
+                (
+                    this.UnderMaintenance == input.UnderMaintenance ||
+                    this.UnderMaintenance.Equals(input.UnderMaintenance)
                 );
         }
 
@@ -131,6 +145,7 @@ namespace Opdex.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.Identifier.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.UnderMaintenance.GetHashCode();
                 return hashCode;
             }
         }

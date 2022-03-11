@@ -223,7 +223,7 @@ namespace Opdex.Client.Model
             }
 
             // Address (string) pattern
-            Regex regexAddress = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexAddress = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexAddress.Match(this.Address).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address, must match a pattern of " + regexAddress, new [] { "Address" });
@@ -249,7 +249,7 @@ namespace Opdex.Client.Model
             }
 
             // LiquidityPool (string) pattern
-            Regex regexLiquidityPool = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexLiquidityPool = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexLiquidityPool.Match(this.LiquidityPool).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LiquidityPool, must match a pattern of " + regexLiquidityPool, new [] { "LiquidityPool" });
@@ -268,7 +268,7 @@ namespace Opdex.Client.Model
             }
 
             // StakingToken (string) pattern
-            Regex regexStakingToken = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexStakingToken = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexStakingToken.Match(this.StakingToken).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StakingToken, must match a pattern of " + regexStakingToken, new [] { "StakingToken" });

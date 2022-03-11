@@ -34,28 +34,34 @@ namespace Opdex.Client.Model
     public enum TokenOrderByType
     {
         /// <summary>
+        /// Enum CreatedBlock for value: CreatedBlock
+        /// </summary>
+        [EnumMember(Value = "CreatedBlock")]
+        CreatedBlock = 1,
+
+        /// <summary>
         /// Enum Name for value: Name
         /// </summary>
         [EnumMember(Value = "Name")]
-        Name = 1,
+        Name = 2,
 
         /// <summary>
         /// Enum Symbol for value: Symbol
         /// </summary>
         [EnumMember(Value = "Symbol")]
-        Symbol = 2,
+        Symbol = 3,
 
         /// <summary>
         /// Enum DailyPriceChangePercent for value: DailyPriceChangePercent
         /// </summary>
         [EnumMember(Value = "DailyPriceChangePercent")]
-        DailyPriceChangePercent = 3,
+        DailyPriceChangePercent = 4,
 
         /// <summary>
         /// Enum PriceUsd for value: PriceUsd
         /// </summary>
         [EnumMember(Value = "PriceUsd")]
-        PriceUsd = 4
+        PriceUsd = 5
 
     }
 

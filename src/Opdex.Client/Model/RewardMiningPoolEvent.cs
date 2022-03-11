@@ -226,7 +226,7 @@ namespace Opdex.Client.Model
             }
 
             // StakingPool (string) pattern
-            Regex regexStakingPool = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexStakingPool = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexStakingPool.Match(this.StakingPool).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StakingPool, must match a pattern of " + regexStakingPool, new [] { "StakingPool" });
@@ -245,7 +245,7 @@ namespace Opdex.Client.Model
             }
 
             // MiningPool (string) pattern
-            Regex regexMiningPool = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexMiningPool = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexMiningPool.Match(this.MiningPool).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MiningPool, must match a pattern of " + regexMiningPool, new [] { "MiningPool" });
@@ -271,7 +271,7 @@ namespace Opdex.Client.Model
             }
 
             // Contract (string) pattern
-            Regex regexContract = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]$", RegexOptions.CultureInvariant);
+            Regex regexContract = new Regex(@"^[a-km-zA-HJ-NP-Z1-9]+$", RegexOptions.CultureInvariant);
             if (false == regexContract.Match(this.Contract).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Contract, must match a pattern of " + regexContract, new [] { "Contract" });

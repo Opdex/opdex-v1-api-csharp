@@ -34,58 +34,64 @@ namespace Opdex.Client.Model
     public enum MarketOrderByType
     {
         /// <summary>
+        /// Enum CreatedBlock for value: CreatedBlock
+        /// </summary>
+        [EnumMember(Value = "CreatedBlock")]
+        CreatedBlock = 1,
+
+        /// <summary>
         /// Enum LiquidityUsd for value: LiquidityUsd
         /// </summary>
         [EnumMember(Value = "LiquidityUsd")]
-        LiquidityUsd = 1,
+        LiquidityUsd = 2,
 
         /// <summary>
         /// Enum StakingUsd for value: StakingUsd
         /// </summary>
         [EnumMember(Value = "StakingUsd")]
-        StakingUsd = 2,
+        StakingUsd = 3,
 
         /// <summary>
         /// Enum StakingWeight for value: StakingWeight
         /// </summary>
         [EnumMember(Value = "StakingWeight")]
-        StakingWeight = 3,
+        StakingWeight = 4,
 
         /// <summary>
         /// Enum VolumeUsd for value: VolumeUsd
         /// </summary>
         [EnumMember(Value = "VolumeUsd")]
-        VolumeUsd = 4,
+        VolumeUsd = 5,
 
         /// <summary>
         /// Enum MarketRewardsDailyUsd for value: MarketRewardsDailyUsd
         /// </summary>
         [EnumMember(Value = "MarketRewardsDailyUsd")]
-        MarketRewardsDailyUsd = 5,
+        MarketRewardsDailyUsd = 6,
 
         /// <summary>
         /// Enum ProviderRewardsDailyUsd for value: ProviderRewardsDailyUsd
         /// </summary>
         [EnumMember(Value = "ProviderRewardsDailyUsd")]
-        ProviderRewardsDailyUsd = 6,
+        ProviderRewardsDailyUsd = 7,
 
         /// <summary>
         /// Enum DailyLiquidityUsdChangePercent for value: DailyLiquidityUsdChangePercent
         /// </summary>
         [EnumMember(Value = "DailyLiquidityUsdChangePercent")]
-        DailyLiquidityUsdChangePercent = 7,
+        DailyLiquidityUsdChangePercent = 8,
 
         /// <summary>
         /// Enum DailyStakingUsdChangePercent for value: DailyStakingUsdChangePercent
         /// </summary>
         [EnumMember(Value = "DailyStakingUsdChangePercent")]
-        DailyStakingUsdChangePercent = 8,
+        DailyStakingUsdChangePercent = 9,
 
         /// <summary>
         /// Enum DailyStakingWeightChangePercent for value: DailyStakingWeightChangePercent
         /// </summary>
         [EnumMember(Value = "DailyStakingWeightChangePercent")]
-        DailyStakingWeightChangePercent = 9
+        DailyStakingWeightChangePercent = 10
 
     }
 
