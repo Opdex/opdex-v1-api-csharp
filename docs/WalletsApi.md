@@ -12,6 +12,8 @@ Method | HTTP request | Description
 [**GetStakingPosition**](WalletsApi.md#getstakingposition) | **GET** /wallets/{address}/staking/{pool} | Get Staking Position
 [**GetStakingPositions**](WalletsApi.md#getstakingpositions) | **GET** /wallets/{address}/staking | Get Staking Positions
 [**RefreshBalance**](WalletsApi.md#refreshbalance) | **POST** /wallets/{address}/balance/{token} | Refresh Balance
+[**RefreshMiningPosition**](WalletsApi.md#refreshminingposition) | **POST** /wallets/{address}/mining/{pool} | Refresh Mining Position
+[**RefreshStakingPosition**](WalletsApi.md#refreshstakingposition) | **POST** /wallets/{address}/staking/{pool} | Refresh Staking Position
 
 
 <a name="getapprovedallowance"></a>
@@ -273,7 +275,7 @@ No authorization required
 
 <a name="getminingposition"></a>
 # **GetMiningPosition**
-> MiningPositionsResponse GetMiningPosition (string address, string pool)
+> MiningPositionResponse GetMiningPosition (string address, string pool)
 
 Get Mining Position
 
@@ -306,7 +308,7 @@ namespace Example
             try
             {
                 // Get Mining Position
-                MiningPositionsResponse result = apiInstance.GetMiningPosition(address, pool);
+                MiningPositionResponse result = apiInstance.GetMiningPosition(address, pool);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -329,7 +331,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MiningPositionsResponse**](MiningPositionsResponse.md)
+[**MiningPositionResponse**](MiningPositionResponse.md)
 
 ### Authorization
 
@@ -446,7 +448,7 @@ No authorization required
 
 <a name="getstakingposition"></a>
 # **GetStakingPosition**
-> MiningPositionsResponse GetStakingPosition (string address, string pool)
+> StakingPositionResponse GetStakingPosition (string address, string pool)
 
 Get Staking Position
 
@@ -479,7 +481,7 @@ namespace Example
             try
             {
                 // Get Staking Position
-                MiningPositionsResponse result = apiInstance.GetStakingPosition(address, pool);
+                StakingPositionResponse result = apiInstance.GetStakingPosition(address, pool);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -502,7 +504,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MiningPositionsResponse**](MiningPositionsResponse.md)
+[**StakingPositionResponse**](StakingPositionResponse.md)
 
 ### Authorization
 
@@ -528,7 +530,7 @@ No authorization required
 
 <a name="getstakingpositions"></a>
 # **GetStakingPositions**
-> MiningPositionsResponse GetStakingPositions (string address, List<string> liquidityPools = null, bool? includeZeroAmounts = null, SortDirection? direction = null, int? limit = null, string cursor = null)
+> StakingPositionsResponse GetStakingPositions (string address, List<string> liquidityPools = null, bool? includeZeroAmounts = null, SortDirection? direction = null, int? limit = null, string cursor = null)
 
 Get Staking Positions
 
@@ -565,7 +567,7 @@ namespace Example
             try
             {
                 // Get Staking Positions
-                MiningPositionsResponse result = apiInstance.GetStakingPositions(address, liquidityPools, includeZeroAmounts, direction, limit, cursor);
+                StakingPositionsResponse result = apiInstance.GetStakingPositions(address, liquidityPools, includeZeroAmounts, direction, limit, cursor);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -592,7 +594,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MiningPositionsResponse**](MiningPositionsResponse.md)
+[**StakingPositionsResponse**](StakingPositionsResponse.md)
 
 ### Authorization
 
@@ -693,7 +695,180 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Address balance refreshed |  * Cache-Control - Holds directives that control caching <br>  |
 | **400** | The request is not valid |  -  |
+| **403** | User does not have permission |  -  |
 | **404** | Token not found |  -  |
+| **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
+| **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="refreshminingposition"></a>
+# **RefreshMiningPosition**
+> MiningPositionResponse RefreshMiningPosition (string address, string pool)
+
+Refresh Mining Position
+
+Retrieves and indexes the latest mining position of a tracked SRC token for an address.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Opdex.Client.Api;
+using Opdex.Client.Client;
+using Opdex.Client.Model;
+
+namespace Example
+{
+    public class RefreshMiningPositionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
+            // Configure Bearer token for authorization: opdexAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WalletsApi(httpClient, config, httpClientHandler);
+            var address = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address holding the position
+            var pool = tRs6rXfHuLhKZhWuWpycLASzAyn4kXo6bT;  // string | Address of the mining pool
+
+            try
+            {
+                // Refresh Mining Position
+                MiningPositionResponse result = apiInstance.RefreshMiningPosition(address, pool);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling WalletsApi.RefreshMiningPosition: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **address** | **string**| Address holding the position | 
+ **pool** | **string**| Address of the mining pool | 
+
+### Return type
+
+[**MiningPositionResponse**](MiningPositionResponse.md)
+
+### Authorization
+
+[opdexAuth](../README.md#opdexAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/problem+json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Mining position details refreshed |  * Cache-Control - Holds directives that control caching <br>  |
+| **400** | The request is not valid |  -  |
+| **403** | User does not have permission |  -  |
+| **404** | Mining pool or mining position not found |  -  |
+| **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
+| **500** | Unexpected error occurred |  -  |
+| **503** | Under maintenance |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="refreshstakingposition"></a>
+# **RefreshStakingPosition**
+> StakingPositionResponse RefreshStakingPosition (string address, string pool)
+
+Refresh Staking Position
+
+Retrieves and indexes the latest staking position of a tracked SRC token for an address.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Opdex.Client.Api;
+using Opdex.Client.Client;
+using Opdex.Client.Model;
+
+namespace Example
+{
+    public class RefreshStakingPositionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://v1-test-api.opdex.com/v1";
+            // Configure Bearer token for authorization: opdexAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WalletsApi(httpClient, config, httpClientHandler);
+            var address = tQ9RukZsB6bBsenHnGSo1q69CJzWGnxohm;  // string | Address holding the position
+            var pool = tRs6rXfHuLhKZhWuWpycLASzAyn4kXo6bT;  // string | Address of the liquidity pool
+
+            try
+            {
+                // Refresh Staking Position
+                StakingPositionResponse result = apiInstance.RefreshStakingPosition(address, pool);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling WalletsApi.RefreshStakingPosition: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **address** | **string**| Address holding the position | 
+ **pool** | **string**| Address of the liquidity pool | 
+
+### Return type
+
+[**StakingPositionResponse**](StakingPositionResponse.md)
+
+### Authorization
+
+[opdexAuth](../README.md#opdexAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/problem+json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Staking position details refreshed |  * Cache-Control - Holds directives that control caching <br>  |
+| **400** | The request is not valid |  -  |
+| **403** | User does not have permission |  -  |
+| **404** | Liquidity pool or staking position not found |  -  |
 | **429** | Too many requests |  * Retry-After - Indicates how many seconds to wait before making a follow-up request <br>  |
 | **500** | Unexpected error occurred |  -  |
 | **503** | Under maintenance |  -  |

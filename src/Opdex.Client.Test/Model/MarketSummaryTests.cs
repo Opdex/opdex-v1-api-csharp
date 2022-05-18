@@ -97,6 +97,14 @@ namespace Opdex.Client.Test.Model
             // TODO unit test for the property 'Rewards'
         }
         /// <summary>
+        /// Test the property 'LiquidityPoolCount'
+        /// </summary>
+        [Fact]
+        public void LiquidityPoolCountTest()
+        {
+            // TODO unit test for the property 'LiquidityPoolCount'
+        }
+        /// <summary>
         /// Test the property 'CreatedBlock'
         /// </summary>
         [Fact]

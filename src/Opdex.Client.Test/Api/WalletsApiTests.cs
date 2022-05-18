@@ -108,7 +108,7 @@ namespace Opdex.Client.Test.Api
             //string address = null;
             //string pool = null;
             //var response = instance.GetMiningPosition(address, pool);
-            //Assert.IsType<MiningPositionsResponse>(response);
+            //Assert.IsType<MiningPositionResponse>(response);
         }
 
         /// <summary>
@@ -139,7 +139,7 @@ namespace Opdex.Client.Test.Api
             //string address = null;
             //string pool = null;
             //var response = instance.GetStakingPosition(address, pool);
-            //Assert.IsType<MiningPositionsResponse>(response);
+            //Assert.IsType<StakingPositionResponse>(response);
         }
 
         /// <summary>
@@ -156,7 +156,7 @@ namespace Opdex.Client.Test.Api
             //int? limit = null;
             //string cursor = null;
             //var response = instance.GetStakingPositions(address, liquidityPools, includeZeroAmounts, direction, limit, cursor);
-            //Assert.IsType<MiningPositionsResponse>(response);
+            //Assert.IsType<StakingPositionsResponse>(response);
         }
 
         /// <summary>
@@ -170,6 +170,32 @@ namespace Opdex.Client.Test.Api
             //string token = null;
             //var response = instance.RefreshBalance(address, token);
             //Assert.IsType<AddressBalanceResponse>(response);
+        }
+
+        /// <summary>
+        /// Test RefreshMiningPosition
+        /// </summary>
+        [Fact]
+        public void RefreshMiningPositionTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string address = null;
+            //string pool = null;
+            //var response = instance.RefreshMiningPosition(address, pool);
+            //Assert.IsType<MiningPositionResponse>(response);
+        }
+
+        /// <summary>
+        /// Test RefreshStakingPosition
+        /// </summary>
+        [Fact]
+        public void RefreshStakingPositionTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string address = null;
+            //string pool = null;
+            //var response = instance.RefreshStakingPosition(address, pool);
+            //Assert.IsType<StakingPositionResponse>(response);
         }
     }
 }

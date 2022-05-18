@@ -9,7 +9,7 @@
     <Description>API Client for the V1 Opdex API</Description>
     <Copyright>No Copyright</Copyright>
     <RootNamespace>Opdex.Client</RootNamespace>
-    <Version>1.0.0-beta2</Version>
+    <Version>1.0.0-beta3</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Opdex.Client.xml</DocumentationFile>
     <PackageTags>opdex;defi;stratis;cirrus;blockchain</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

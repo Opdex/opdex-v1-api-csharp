@@ -117,8 +117,8 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">Address holding the position</param>
         /// <param name="pool">Address of the mining pool</param>
-        /// <returns>MiningPositionsResponse</returns>
-        MiningPositionsResponse GetMiningPosition(string address, string pool);
+        /// <returns>MiningPositionResponse</returns>
+        MiningPositionResponse GetMiningPosition(string address, string pool);
 
         /// <summary>
         /// Get Mining Position
@@ -129,8 +129,8 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">Address holding the position</param>
         /// <param name="pool">Address of the mining pool</param>
-        /// <returns>ApiResponse of MiningPositionsResponse</returns>
-        ApiResponse<MiningPositionsResponse> GetMiningPositionWithHttpInfo(string address, string pool);
+        /// <returns>ApiResponse of MiningPositionResponse</returns>
+        ApiResponse<MiningPositionResponse> GetMiningPositionWithHttpInfo(string address, string pool);
         /// <summary>
         /// Get Mining Positions
         /// </summary>
@@ -173,8 +173,8 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">Address holding the position</param>
         /// <param name="pool">Address of the liquidity pool</param>
-        /// <returns>MiningPositionsResponse</returns>
-        MiningPositionsResponse GetStakingPosition(string address, string pool);
+        /// <returns>StakingPositionResponse</returns>
+        StakingPositionResponse GetStakingPosition(string address, string pool);
 
         /// <summary>
         /// Get Staking Position
@@ -185,8 +185,8 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">Address holding the position</param>
         /// <param name="pool">Address of the liquidity pool</param>
-        /// <returns>ApiResponse of MiningPositionsResponse</returns>
-        ApiResponse<MiningPositionsResponse> GetStakingPositionWithHttpInfo(string address, string pool);
+        /// <returns>ApiResponse of StakingPositionResponse</returns>
+        ApiResponse<StakingPositionResponse> GetStakingPositionWithHttpInfo(string address, string pool);
         /// <summary>
         /// Get Staking Positions
         /// </summary>
@@ -200,8 +200,8 @@ namespace Opdex.Client.Api
         /// <param name="direction">Order direction of the results (optional)</param>
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
-        /// <returns>MiningPositionsResponse</returns>
-        MiningPositionsResponse GetStakingPositions(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        /// <returns>StakingPositionsResponse</returns>
+        StakingPositionsResponse GetStakingPositions(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
 
         /// <summary>
         /// Get Staking Positions
@@ -216,8 +216,8 @@ namespace Opdex.Client.Api
         /// <param name="direction">Order direction of the results (optional)</param>
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
-        /// <returns>ApiResponse of MiningPositionsResponse</returns>
-        ApiResponse<MiningPositionsResponse> GetStakingPositionsWithHttpInfo(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
+        /// <returns>ApiResponse of StakingPositionsResponse</returns>
+        ApiResponse<StakingPositionsResponse> GetStakingPositionsWithHttpInfo(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string));
         /// <summary>
         /// Refresh Balance
         /// </summary>
@@ -241,6 +241,52 @@ namespace Opdex.Client.Api
         /// <param name="token">Address of the SRC token</param>
         /// <returns>ApiResponse of AddressBalanceResponse</returns>
         ApiResponse<AddressBalanceResponse> RefreshBalanceWithHttpInfo(string address, string token);
+        /// <summary>
+        /// Refresh Mining Position
+        /// </summary>
+        /// <remarks>
+        /// Retrieves and indexes the latest mining position of a tracked SRC token for an address.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">Address holding the position</param>
+        /// <param name="pool">Address of the mining pool</param>
+        /// <returns>MiningPositionResponse</returns>
+        MiningPositionResponse RefreshMiningPosition(string address, string pool);
+
+        /// <summary>
+        /// Refresh Mining Position
+        /// </summary>
+        /// <remarks>
+        /// Retrieves and indexes the latest mining position of a tracked SRC token for an address.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">Address holding the position</param>
+        /// <param name="pool">Address of the mining pool</param>
+        /// <returns>ApiResponse of MiningPositionResponse</returns>
+        ApiResponse<MiningPositionResponse> RefreshMiningPositionWithHttpInfo(string address, string pool);
+        /// <summary>
+        /// Refresh Staking Position
+        /// </summary>
+        /// <remarks>
+        /// Retrieves and indexes the latest staking position of a tracked SRC token for an address.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">Address holding the position</param>
+        /// <param name="pool">Address of the liquidity pool</param>
+        /// <returns>StakingPositionResponse</returns>
+        StakingPositionResponse RefreshStakingPosition(string address, string pool);
+
+        /// <summary>
+        /// Refresh Staking Position
+        /// </summary>
+        /// <remarks>
+        /// Retrieves and indexes the latest staking position of a tracked SRC token for an address.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">Address holding the position</param>
+        /// <param name="pool">Address of the liquidity pool</param>
+        /// <returns>ApiResponse of StakingPositionResponse</returns>
+        ApiResponse<StakingPositionResponse> RefreshStakingPositionWithHttpInfo(string address, string pool);
         #endregion Synchronous Operations
     }
 
@@ -347,8 +393,8 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="pool">Address of the mining pool</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of MiningPositionsResponse</returns>
-        System.Threading.Tasks.Task<MiningPositionsResponse> GetMiningPositionAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of MiningPositionResponse</returns>
+        System.Threading.Tasks.Task<MiningPositionResponse> GetMiningPositionAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Mining Position
@@ -360,8 +406,8 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="pool">Address of the mining pool</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (MiningPositionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MiningPositionsResponse>> GetMiningPositionWithHttpInfoAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (MiningPositionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MiningPositionResponse>> GetMiningPositionWithHttpInfoAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Mining Positions
         /// </summary>
@@ -407,8 +453,8 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="pool">Address of the liquidity pool</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of MiningPositionsResponse</returns>
-        System.Threading.Tasks.Task<MiningPositionsResponse> GetStakingPositionAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of StakingPositionResponse</returns>
+        System.Threading.Tasks.Task<StakingPositionResponse> GetStakingPositionAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Staking Position
@@ -420,8 +466,8 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="pool">Address of the liquidity pool</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (MiningPositionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MiningPositionsResponse>> GetStakingPositionWithHttpInfoAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (StakingPositionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StakingPositionResponse>> GetStakingPositionWithHttpInfoAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Staking Positions
         /// </summary>
@@ -436,8 +482,8 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of MiningPositionsResponse</returns>
-        System.Threading.Tasks.Task<MiningPositionsResponse> GetStakingPositionsAsync(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of StakingPositionsResponse</returns>
+        System.Threading.Tasks.Task<StakingPositionsResponse> GetStakingPositionsAsync(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Staking Positions
@@ -453,8 +499,8 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (MiningPositionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MiningPositionsResponse>> GetStakingPositionsWithHttpInfoAsync(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (StakingPositionsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StakingPositionsResponse>> GetStakingPositionsWithHttpInfoAsync(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Refresh Balance
         /// </summary>
@@ -480,6 +526,56 @@ namespace Opdex.Client.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AddressBalanceResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AddressBalanceResponse>> RefreshBalanceWithHttpInfoAsync(string address, string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Refresh Mining Position
+        /// </summary>
+        /// <remarks>
+        /// Retrieves and indexes the latest mining position of a tracked SRC token for an address.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">Address holding the position</param>
+        /// <param name="pool">Address of the mining pool</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of MiningPositionResponse</returns>
+        System.Threading.Tasks.Task<MiningPositionResponse> RefreshMiningPositionAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Refresh Mining Position
+        /// </summary>
+        /// <remarks>
+        /// Retrieves and indexes the latest mining position of a tracked SRC token for an address.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">Address holding the position</param>
+        /// <param name="pool">Address of the mining pool</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (MiningPositionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MiningPositionResponse>> RefreshMiningPositionWithHttpInfoAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Refresh Staking Position
+        /// </summary>
+        /// <remarks>
+        /// Retrieves and indexes the latest staking position of a tracked SRC token for an address.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">Address holding the position</param>
+        /// <param name="pool">Address of the liquidity pool</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StakingPositionResponse</returns>
+        System.Threading.Tasks.Task<StakingPositionResponse> RefreshStakingPositionAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Refresh Staking Position
+        /// </summary>
+        /// <remarks>
+        /// Retrieves and indexes the latest staking position of a tracked SRC token for an address.
+        /// </remarks>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">Address holding the position</param>
+        /// <param name="pool">Address of the liquidity pool</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StakingPositionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StakingPositionResponse>> RefreshStakingPositionWithHttpInfoAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1164,10 +1260,10 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">Address holding the position</param>
         /// <param name="pool">Address of the mining pool</param>
-        /// <returns>MiningPositionsResponse</returns>
-        public MiningPositionsResponse GetMiningPosition(string address, string pool)
+        /// <returns>MiningPositionResponse</returns>
+        public MiningPositionResponse GetMiningPosition(string address, string pool)
         {
-            Opdex.Client.Client.ApiResponse<MiningPositionsResponse> localVarResponse = GetMiningPositionWithHttpInfo(address, pool);
+            Opdex.Client.Client.ApiResponse<MiningPositionResponse> localVarResponse = GetMiningPositionWithHttpInfo(address, pool);
             return localVarResponse.Data;
         }
 
@@ -1177,8 +1273,8 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">Address holding the position</param>
         /// <param name="pool">Address of the mining pool</param>
-        /// <returns>ApiResponse of MiningPositionsResponse</returns>
-        public Opdex.Client.Client.ApiResponse<MiningPositionsResponse> GetMiningPositionWithHttpInfo(string address, string pool)
+        /// <returns>ApiResponse of MiningPositionResponse</returns>
+        public Opdex.Client.Client.ApiResponse<MiningPositionResponse> GetMiningPositionWithHttpInfo(string address, string pool)
         {
             // verify the required parameter 'address' is set
             if (address == null)
@@ -1210,7 +1306,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<MiningPositionsResponse>("/wallets/{address}/mining/{pool}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<MiningPositionResponse>("/wallets/{address}/mining/{pool}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1228,10 +1324,10 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="pool">Address of the mining pool</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of MiningPositionsResponse</returns>
-        public async System.Threading.Tasks.Task<MiningPositionsResponse> GetMiningPositionAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of MiningPositionResponse</returns>
+        public async System.Threading.Tasks.Task<MiningPositionResponse> GetMiningPositionAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<MiningPositionsResponse> localVarResponse = await GetMiningPositionWithHttpInfoAsync(address, pool, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<MiningPositionResponse> localVarResponse = await GetMiningPositionWithHttpInfoAsync(address, pool, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1242,8 +1338,8 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="pool">Address of the mining pool</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (MiningPositionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<MiningPositionsResponse>> GetMiningPositionWithHttpInfoAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (MiningPositionResponse)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<MiningPositionResponse>> GetMiningPositionWithHttpInfoAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'address' is set
             if (address == null)
@@ -1278,7 +1374,7 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<MiningPositionsResponse>("/wallets/{address}/mining/{pool}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<MiningPositionResponse>("/wallets/{address}/mining/{pool}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1484,10 +1580,10 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">Address holding the position</param>
         /// <param name="pool">Address of the liquidity pool</param>
-        /// <returns>MiningPositionsResponse</returns>
-        public MiningPositionsResponse GetStakingPosition(string address, string pool)
+        /// <returns>StakingPositionResponse</returns>
+        public StakingPositionResponse GetStakingPosition(string address, string pool)
         {
-            Opdex.Client.Client.ApiResponse<MiningPositionsResponse> localVarResponse = GetStakingPositionWithHttpInfo(address, pool);
+            Opdex.Client.Client.ApiResponse<StakingPositionResponse> localVarResponse = GetStakingPositionWithHttpInfo(address, pool);
             return localVarResponse.Data;
         }
 
@@ -1497,8 +1593,8 @@ namespace Opdex.Client.Api
         /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="address">Address holding the position</param>
         /// <param name="pool">Address of the liquidity pool</param>
-        /// <returns>ApiResponse of MiningPositionsResponse</returns>
-        public Opdex.Client.Client.ApiResponse<MiningPositionsResponse> GetStakingPositionWithHttpInfo(string address, string pool)
+        /// <returns>ApiResponse of StakingPositionResponse</returns>
+        public Opdex.Client.Client.ApiResponse<StakingPositionResponse> GetStakingPositionWithHttpInfo(string address, string pool)
         {
             // verify the required parameter 'address' is set
             if (address == null)
@@ -1530,7 +1626,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<MiningPositionsResponse>("/wallets/{address}/staking/{pool}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<StakingPositionResponse>("/wallets/{address}/staking/{pool}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1548,10 +1644,10 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="pool">Address of the liquidity pool</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of MiningPositionsResponse</returns>
-        public async System.Threading.Tasks.Task<MiningPositionsResponse> GetStakingPositionAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of StakingPositionResponse</returns>
+        public async System.Threading.Tasks.Task<StakingPositionResponse> GetStakingPositionAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<MiningPositionsResponse> localVarResponse = await GetStakingPositionWithHttpInfoAsync(address, pool, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<StakingPositionResponse> localVarResponse = await GetStakingPositionWithHttpInfoAsync(address, pool, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1562,8 +1658,8 @@ namespace Opdex.Client.Api
         /// <param name="address">Address holding the position</param>
         /// <param name="pool">Address of the liquidity pool</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (MiningPositionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<MiningPositionsResponse>> GetStakingPositionWithHttpInfoAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (StakingPositionResponse)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<StakingPositionResponse>> GetStakingPositionWithHttpInfoAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'address' is set
             if (address == null)
@@ -1598,7 +1694,7 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<MiningPositionsResponse>("/wallets/{address}/staking/{pool}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<StakingPositionResponse>("/wallets/{address}/staking/{pool}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1619,10 +1715,10 @@ namespace Opdex.Client.Api
         /// <param name="direction">Order direction of the results (optional)</param>
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
-        /// <returns>MiningPositionsResponse</returns>
-        public MiningPositionsResponse GetStakingPositions(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        /// <returns>StakingPositionsResponse</returns>
+        public StakingPositionsResponse GetStakingPositions(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
-            Opdex.Client.Client.ApiResponse<MiningPositionsResponse> localVarResponse = GetStakingPositionsWithHttpInfo(address, liquidityPools, includeZeroAmounts, direction, limit, cursor);
+            Opdex.Client.Client.ApiResponse<StakingPositionsResponse> localVarResponse = GetStakingPositionsWithHttpInfo(address, liquidityPools, includeZeroAmounts, direction, limit, cursor);
             return localVarResponse.Data;
         }
 
@@ -1636,8 +1732,8 @@ namespace Opdex.Client.Api
         /// <param name="direction">Order direction of the results (optional)</param>
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
-        /// <returns>ApiResponse of MiningPositionsResponse</returns>
-        public Opdex.Client.Client.ApiResponse<MiningPositionsResponse> GetStakingPositionsWithHttpInfo(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
+        /// <returns>ApiResponse of StakingPositionsResponse</returns>
+        public Opdex.Client.Client.ApiResponse<StakingPositionsResponse> GetStakingPositionsWithHttpInfo(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string))
         {
             // verify the required parameter 'address' is set
             if (address == null)
@@ -1684,7 +1780,7 @@ namespace Opdex.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<MiningPositionsResponse>("/wallets/{address}/staking", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<StakingPositionsResponse>("/wallets/{address}/staking", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1706,10 +1802,10 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of MiningPositionsResponse</returns>
-        public async System.Threading.Tasks.Task<MiningPositionsResponse> GetStakingPositionsAsync(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of StakingPositionsResponse</returns>
+        public async System.Threading.Tasks.Task<StakingPositionsResponse> GetStakingPositionsAsync(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Opdex.Client.Client.ApiResponse<MiningPositionsResponse> localVarResponse = await GetStakingPositionsWithHttpInfoAsync(address, liquidityPools, includeZeroAmounts, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
+            Opdex.Client.Client.ApiResponse<StakingPositionsResponse> localVarResponse = await GetStakingPositionsWithHttpInfoAsync(address, liquidityPools, includeZeroAmounts, direction, limit, cursor, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1724,8 +1820,8 @@ namespace Opdex.Client.Api
         /// <param name="limit">Number of results per page (optional, default to 10)</param>
         /// <param name="cursor">Reference of the requested page, returned by a previous call (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (MiningPositionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<MiningPositionsResponse>> GetStakingPositionsWithHttpInfoAsync(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (StakingPositionsResponse)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<StakingPositionsResponse>> GetStakingPositionsWithHttpInfoAsync(string address, List<string> liquidityPools = default(List<string>), bool? includeZeroAmounts = default(bool?), SortDirection? direction = default(SortDirection?), int? limit = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'address' is set
             if (address == null)
@@ -1775,7 +1871,7 @@ namespace Opdex.Client.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<MiningPositionsResponse>("/wallets/{address}/staking", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<StakingPositionsResponse>("/wallets/{address}/staking", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1923,6 +2019,292 @@ namespace Opdex.Client.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RefreshBalance", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Refresh Mining Position Retrieves and indexes the latest mining position of a tracked SRC token for an address.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">Address holding the position</param>
+        /// <param name="pool">Address of the mining pool</param>
+        /// <returns>MiningPositionResponse</returns>
+        public MiningPositionResponse RefreshMiningPosition(string address, string pool)
+        {
+            Opdex.Client.Client.ApiResponse<MiningPositionResponse> localVarResponse = RefreshMiningPositionWithHttpInfo(address, pool);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Refresh Mining Position Retrieves and indexes the latest mining position of a tracked SRC token for an address.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">Address holding the position</param>
+        /// <param name="pool">Address of the mining pool</param>
+        /// <returns>ApiResponse of MiningPositionResponse</returns>
+        public Opdex.Client.Client.ApiResponse<MiningPositionResponse> RefreshMiningPositionWithHttpInfo(string address, string pool)
+        {
+            // verify the required parameter 'address' is set
+            if (address == null)
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling WalletsApi->RefreshMiningPosition");
+
+            // verify the required parameter 'pool' is set
+            if (pool == null)
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling WalletsApi->RefreshMiningPosition");
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
+            localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<MiningPositionResponse>("/wallets/{address}/mining/{pool}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RefreshMiningPosition", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Refresh Mining Position Retrieves and indexes the latest mining position of a tracked SRC token for an address.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">Address holding the position</param>
+        /// <param name="pool">Address of the mining pool</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of MiningPositionResponse</returns>
+        public async System.Threading.Tasks.Task<MiningPositionResponse> RefreshMiningPositionAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Opdex.Client.Client.ApiResponse<MiningPositionResponse> localVarResponse = await RefreshMiningPositionWithHttpInfoAsync(address, pool, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Refresh Mining Position Retrieves and indexes the latest mining position of a tracked SRC token for an address.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">Address holding the position</param>
+        /// <param name="pool">Address of the mining pool</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (MiningPositionResponse)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<MiningPositionResponse>> RefreshMiningPositionWithHttpInfoAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'address' is set
+            if (address == null)
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling WalletsApi->RefreshMiningPosition");
+
+            // verify the required parameter 'pool' is set
+            if (pool == null)
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling WalletsApi->RefreshMiningPosition");
+
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
+            localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<MiningPositionResponse>("/wallets/{address}/mining/{pool}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RefreshMiningPosition", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Refresh Staking Position Retrieves and indexes the latest staking position of a tracked SRC token for an address.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">Address holding the position</param>
+        /// <param name="pool">Address of the liquidity pool</param>
+        /// <returns>StakingPositionResponse</returns>
+        public StakingPositionResponse RefreshStakingPosition(string address, string pool)
+        {
+            Opdex.Client.Client.ApiResponse<StakingPositionResponse> localVarResponse = RefreshStakingPositionWithHttpInfo(address, pool);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Refresh Staking Position Retrieves and indexes the latest staking position of a tracked SRC token for an address.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">Address holding the position</param>
+        /// <param name="pool">Address of the liquidity pool</param>
+        /// <returns>ApiResponse of StakingPositionResponse</returns>
+        public Opdex.Client.Client.ApiResponse<StakingPositionResponse> RefreshStakingPositionWithHttpInfo(string address, string pool)
+        {
+            // verify the required parameter 'address' is set
+            if (address == null)
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling WalletsApi->RefreshStakingPosition");
+
+            // verify the required parameter 'pool' is set
+            if (pool == null)
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling WalletsApi->RefreshStakingPosition");
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
+            localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StakingPositionResponse>("/wallets/{address}/staking/{pool}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RefreshStakingPosition", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Refresh Staking Position Retrieves and indexes the latest staking position of a tracked SRC token for an address.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">Address holding the position</param>
+        /// <param name="pool">Address of the liquidity pool</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StakingPositionResponse</returns>
+        public async System.Threading.Tasks.Task<StakingPositionResponse> RefreshStakingPositionAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Opdex.Client.Client.ApiResponse<StakingPositionResponse> localVarResponse = await RefreshStakingPositionWithHttpInfoAsync(address, pool, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Refresh Staking Position Retrieves and indexes the latest staking position of a tracked SRC token for an address.
+        /// </summary>
+        /// <exception cref="Opdex.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">Address holding the position</param>
+        /// <param name="pool">Address of the liquidity pool</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StakingPositionResponse)</returns>
+        public async System.Threading.Tasks.Task<Opdex.Client.Client.ApiResponse<StakingPositionResponse>> RefreshStakingPositionWithHttpInfoAsync(string address, string pool, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'address' is set
+            if (address == null)
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'address' when calling WalletsApi->RefreshStakingPosition");
+
+            // verify the required parameter 'pool' is set
+            if (pool == null)
+                throw new Opdex.Client.Client.ApiException(400, "Missing required parameter 'pool' when calling WalletsApi->RefreshStakingPosition");
+
+
+            Opdex.Client.Client.RequestOptions localVarRequestOptions = new Opdex.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json",
+                "application/problem+json"
+            };
+
+
+            var localVarContentType = Opdex.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Opdex.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("address", Opdex.Client.Client.ClientUtils.ParameterToString(address)); // path parameter
+            localVarRequestOptions.PathParameters.Add("pool", Opdex.Client.Client.ClientUtils.ParameterToString(pool)); // path parameter
+
+            // authentication (opdexAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StakingPositionResponse>("/wallets/{address}/staking/{pool}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RefreshStakingPosition", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

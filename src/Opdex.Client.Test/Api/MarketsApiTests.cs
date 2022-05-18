@@ -149,8 +149,8 @@ namespace Opdex.Client.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string market = null;
-            //DateTime startDateTime = null;
-            //DateTime endDateTime = null;
+            //DateTime? startDateTime = null;
+            //DateTime? endDateTime = null;
             //SortDirection? direction = null;
             //int? limit = null;
             //string cursor = null;
@@ -178,7 +178,7 @@ namespace Opdex.Client.Test.Api
         public void GetMarketsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //MarketType? marketType = null;
+            //MarketTypeFilter? marketType = null;
             //MarketOrderByType? orderBy = null;
             //SortDirection? direction = null;
             //int? limit = null;

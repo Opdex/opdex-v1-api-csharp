@@ -195,7 +195,7 @@ namespace Opdex.Client.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string vault = null;
             //string owner = null;
-            //CertificateStatus? status = null;
+            //List<CertificateStatus> status = null;
             //SortDirection? direction = null;
             //int? limit = null;
             //string cursor = null;
@@ -243,8 +243,8 @@ namespace Opdex.Client.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string vault = null;
-            //ProposalStatus? status = null;
-            //ProposalType? type = null;
+            //List<ProposalStatus> status = null;
+            //List<ProposalType> type = null;
             //SortDirection? direction = null;
             //int? limit = null;
             //string cursor = null;

@@ -75,13 +75,13 @@ namespace Opdex.Client.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string market = null;
             //string token = null;
-            //DateTime startDateTime = null;
-            //DateTime endDateTime = null;
             //Interval? interval = null;
+            //DateTime? startDateTime = null;
+            //DateTime? endDateTime = null;
             //SortDirection? direction = null;
             //int? limit = null;
             //string cursor = null;
-            //var response = instance.GetMarketTokenHistory(market, token, startDateTime, endDateTime, interval, direction, limit, cursor);
+            //var response = instance.GetMarketTokenHistory(market, token, interval, startDateTime, endDateTime, direction, limit, cursor);
             //Assert.IsType<TokenSnapshotsResponse>(response);
         }
 
@@ -93,14 +93,15 @@ namespace Opdex.Client.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string market = null;
-            //TokenType? tokenType = null;
+            //List<TokenAttributeFilter> tokenAttributes = null;
+            //List<ChainFilter> nativeChains = null;
             //List<string> tokens = null;
             //string keyword = null;
             //TokenOrderByType? orderBy = null;
             //SortDirection? direction = null;
             //int? limit = null;
             //string cursor = null;
-            //var response = instance.GetMarketTokens(market, tokenType, tokens, keyword, orderBy, direction, limit, cursor);
+            //var response = instance.GetMarketTokens(market, tokenAttributes, nativeChains, tokens, keyword, orderBy, direction, limit, cursor);
             //Assert.IsType<MarketTokensResponse>(response);
         }
 

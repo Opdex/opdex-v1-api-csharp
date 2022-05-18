@@ -188,13 +188,13 @@ namespace Opdex.Client.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string pool = null;
-            //DateTime startDateTime = null;
-            //DateTime endDateTime = null;
             //Interval? interval = null;
+            //DateTime? startDateTime = null;
+            //DateTime? endDateTime = null;
             //SortDirection? direction = null;
             //int? limit = null;
             //string cursor = null;
-            //var response = instance.GetLiquidityPoolHistory(pool, startDateTime, endDateTime, interval, direction, limit, cursor);
+            //var response = instance.GetLiquidityPoolHistory(pool, interval, startDateTime, endDateTime, direction, limit, cursor);
             //Assert.IsType<LiquidityPoolSnapshotsResponse>(response);
         }
 
@@ -209,9 +209,9 @@ namespace Opdex.Client.Test.Api
             //List<string> markets = null;
             //List<string> liquidityPools = null;
             //List<string> tokens = null;
-            //StakingStatus? stakingStatus = null;
-            //NominationStatus? nominationStatus = null;
-            //MiningStatus? miningStatus = null;
+            //StakingStatusFilter? stakingStatus = null;
+            //NominationStatusFilter? nominationStatus = null;
+            //MiningStatusFilter? miningStatus = null;
             //LiquidityPoolOrderByType? orderBy = null;
             //SortDirection? direction = null;
             //int? limit = null;

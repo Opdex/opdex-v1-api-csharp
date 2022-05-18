@@ -16,7 +16,6 @@ public class OpdexApi : IOpdexApi
     public OpdexApi(HttpClient httpClient)
     {
         if (httpClient is null) throw new ArgumentNullException(nameof(httpClient));
-        Authentication = new AuthenticationApi(httpClient, httpClient.BaseAddress?.ToString() ?? null);
         Blocks = new BlocksApi(httpClient, httpClient.BaseAddress?.ToString() ?? null);
         Indexer = new IndexerApi(httpClient, httpClient.BaseAddress?.ToString() ?? null);
         LiquidityPools = new LiquidityPoolsApi(httpClient, httpClient.BaseAddress?.ToString() ?? null);
@@ -31,8 +30,6 @@ public class OpdexApi : IOpdexApi
         Wallets = new WalletsApi(httpClient, httpClient.BaseAddress?.ToString() ?? null);
     }
 
-    /// <inheritdoc />
-    public IAuthenticationApi Authentication { get; }
     /// <inheritdoc />
     public IBlocksApi Blocks { get; }
     /// <inheritdoc />
@@ -64,11 +61,6 @@ public class OpdexApi : IOpdexApi
 /// </summary>
 public interface IOpdexApi
 {
-    /// <summary>
-    /// Authenticate with the API
-    /// </summary>
-    IAuthenticationApi Authentication { get; }
-
     /// <summary>
     /// Retrieve indexed block data
     /// </summary>

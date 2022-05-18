@@ -72,6 +72,14 @@ namespace Opdex.Client.Test.Model
         {
             // TODO unit test for the property 'Identifier'
         }
+        /// <summary>
+        /// Test the property 'UnderMaintenance'
+        /// </summary>
+        [Fact]
+        public void UnderMaintenanceTest()
+        {
+            // TODO unit test for the property 'UnderMaintenance'
+        }
 
     }
 

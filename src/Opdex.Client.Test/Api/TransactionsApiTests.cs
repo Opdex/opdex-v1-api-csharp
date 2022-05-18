@@ -100,8 +100,8 @@ namespace Opdex.Client.Test.Api
         public void ReplayQuoteTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //ReplayQuoteRequest replayQuoteRequest = null;
-            //var response = instance.ReplayQuote(replayQuoteRequest);
+            //QuotedTransaction quotedTransaction = null;
+            //var response = instance.ReplayQuote(quotedTransaction);
             //Assert.IsType<TransactionQuoteResponse>(response);
         }
     }
